@@ -106,7 +106,13 @@ ggplot(data = dat) +
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! working year gender plot
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = year, fill = sex))
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! working interest gender plot
+# expect my courses this semester to be very interesting" by gender
+ggplot(data = dat) + 
+  geom_bar(mapping = aes(x = interest, fill = sex))
+# "expect my courses this semester to be very enjoyable" by gender
+ggplot(data = dat) + 
+  geom_bar(mapping = aes(x = enjoy, fill = sex))
+# relative importance by gender
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = interest, fill = sex))
 
