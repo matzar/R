@@ -99,9 +99,13 @@ ggplot(data = dat) +
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! working gender subject plot
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = sex, fill = subject))
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! working age sex plot
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! working age gender plot
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = age, fill = sex))
+
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! working year gender plot
+ggplot(data = dat) + 
+  geom_bar(mapping = aes(x = year, fill = sex))
 
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = cut, fill = clarity))
