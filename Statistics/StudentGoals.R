@@ -64,15 +64,42 @@ enjoy <- dat$enjoy
 mg <- dat$mastgrad
 
 # numeric variables
-male_num <- sum(dat$sex=='Male')
-female_num <- sum(dat$sex=='Female')
+Male <- sum(dat$sex=='Male')
+Female <- sum(dat$sex=='Female')
 
-ggplot(dat, aes(displ, hwy, colour = sex)) + 
-  geom_point()
+# g <- ggplot(dat, aes(Male, Female, colour = sex))
+# g <- gplot(mpg, aes(class, hwy))
+# g + geom_count()
+qplot(x = Male, y = Female, data = dat, geom = "count", colour = sex)
+qplot(x = Male, y = Female, data = dat, geom = "col", colour = sex)
+qplot(x = Male, y = Female, data = dat, geom = "dotplot", colour = sex)
+
+d <- ggplot(dat, aes(Male, Female, colour = sex))
+d + geom_count()
+
+dat_sex <- data.frame("Count" = c("Male" = Male, "Female" = Female))
+# gender <- data.frame("Gender" = c(Male, Female))
+str(dat_sex)
+head(dat_sex)
+
+ggplot(data = dat_sex) + 
+  geom_bar(mapping = aes(x = Count))
+
+d <- ggplot(dat_sex, aes())
+d + geom_bar(x = 0)
+
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut))
+
+head(diamonds)
+head(dat)
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ggplot(data = dat) + 
+  geom_bar(mapping = aes(x = sex))
 
 # ggplot data
-# ggplot(mpg, aes(displ, hwy, colour = class)) + 
-#   geom_point()
+ggplot(mpg, aes(displ, hwy, colour = class)) +
+  geom_point()
 ggplot(dat, aes(displ, hwy) +
   geom_point()
 # s <- ggplot(CleanedStudentGoalsData, fill=drv)
