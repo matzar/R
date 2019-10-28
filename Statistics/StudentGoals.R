@@ -50,9 +50,25 @@ head(dat)
 # plot data
 Year <- dat[dat$year, ]$seq
 plot(Year)
-plot(dat[dat$year])
-plot(dat[dat$year, ]$seq)
+# plot(dat[dat$year, ]$seq)
 
+# variables
+seq <- dat$seq
+year <- dat$year
+age <- dat$age
+sex <- dat$sex
+sub <- dat$subject
+# q1 ... q12
+interest <- dat$interest
+enjoy <- dat$enjoy
+mg <- dat$mastgrad
+
+# numeric variables
+male_num <- sum(dat$sex=='Male')
+female_num <- sum(dat$sex=='Female')
+
+ggplot(dat, aes(displ, hwy, colour = sex)) + 
+  geom_point()
 
 # ggplot data
 # ggplot(mpg, aes(displ, hwy, colour = class)) + 
