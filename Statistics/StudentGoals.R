@@ -1,5 +1,10 @@
 #install.packages("readr")
 #read_csv("/Users/mateuszzaremba/dev/R/Statistics/data/StudentGoalsDataMac.csv")
-library(readr)
-StudentGoalsDataMac <- read_csv("data/StudentGoalsDataMac.csv")
-View(StudentGoalsDataMac)
+#library(readr)
+library(tidyverse)
+f <- "data/StudentGoalsData.csv"
+StudentGoalsData <- read_csv(f)
+#View(StudentGoalsData)
+droppedData <- drop_na(StudentGoalsData)
+#write_csv(StudentGoalsData, "data/StudentGoalsDataTidied")
+View(droppedData)
