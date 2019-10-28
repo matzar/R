@@ -4,7 +4,9 @@
 library(tidyverse)
 f <- "data/StudentGoalsData.csv"
 StudentGoalsData <- read_csv(f)
+View(StudentGoalsData)
 #View(StudentGoalsData)
-droppedData <- drop_na(StudentGoalsData)
-#write_csv(StudentGoalsData, "data/StudentGoalsDataTidied")
-View(droppedData)
+CleanedStudentGoalsData <- drop_na(StudentGoalsData)
+write_csv(CleanedStudentGoalsData, "data/CleanedStudentGoalsData.csv")
+View(CleanedStudentGoalsData)
+
