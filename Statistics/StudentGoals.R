@@ -95,7 +95,13 @@ head(diamonds)
 head(dat)
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ggplot(data = dat) + 
-  geom_bar(mapping = aes(x = sex, colour = sex, fill = sex))
+  geom_bar(mapping = aes(x = sex, colour = sex, fill = subject))
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ggplot(data = dat) + 
+  geom_bar(mapping = aes(x = sex, fill = subject))
+
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = clarity))
 
 # ggplot data
 ggplot(mpg, aes(displ, hwy, colour = class)) +
