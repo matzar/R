@@ -93,20 +93,23 @@ ggplot(data = diamonds) +
 
 head(diamonds)
 head(dat)
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! working gender plot
+# gender in numbers
 ggplot(data = dat) + 
-  geom_bar(mapping = aes(x = sex, colour = sex, fill = subject))
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! working gender subject plot
+  geom_bar(mapping = aes(x = sex, fill = sex))
+# subject by gender
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = sex, fill = subject))
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! working age gender plot
+# age by gender
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = age, fill = sex))
+# age by subject
+ggplot(data = dat) + 
+  geom_bar(mapping = aes(x = age, fill = subject))
 
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! working year gender plot
+# course year by gender
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = year, fill = sex))
-# expect my courses this semester to be very interesting" by gender
+# "expect my courses this semester to be very interesting" by gender
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = interest, fill = sex))
 # "expect my courses this semester to be very enjoyable" by gender
@@ -114,7 +117,7 @@ ggplot(data = dat) +
   geom_bar(mapping = aes(x = enjoy, fill = sex))
 # relative importance by gender
 ggplot(data = dat) + 
-  geom_bar(mapping = aes(x = interest, fill = sex))
+  geom_bar(mapping = aes(x = mastgrad, fill = sex))
 
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = cut, fill = clarity))
