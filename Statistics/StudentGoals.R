@@ -47,16 +47,18 @@ write_csv(dat, "data/LabeledAndCleanedStudentGoals.csv")
 str(dat)
 head(dat)
 
-View(dat)
 # plot data
-data <- CleanedStudentGoalsData
-plot(data[data$year])
-plot(data[data$year, ]$seq)
-s <- data[data$year, ]$seq
+Year <- dat[dat$year, ]$seq
+plot(Year)
+plot(dat[dat$year])
+plot(dat[dat$year, ]$seq)
+
 
 # ggplot data
-# ggplot(mpg, aes(displ, hwy, colour = class)) +
-# geom_point()
+# ggplot(mpg, aes(displ, hwy, colour = class)) + 
+#   geom_point()
+ggplot(dat, aes(displ, hwy) +
+  geom_point()
 # s <- ggplot(CleanedStudentGoalsData, fill=drv)
 # s + geom_point()
 
