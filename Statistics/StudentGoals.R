@@ -1,12 +1,15 @@
-#install.packages("readr")
-#read_csv("/Users/mateuszzaremba/dev/R/Statistics/data/StudentGoalsDataMac.csv")
-#library(readr)
+# install.packages("readr")
+# read_csv("/Users/mateuszzaremba/dev/R/Statistics/data/StudentGoalsDataMac.csv")
+# library(readr)
 library(tidyverse)
 f <- "data/StudentGoalsData.csv"
 StudentGoalsData <- read_csv(f)
 View(StudentGoalsData)
-#View(StudentGoalsData)
+# View(StudentGoalsData)
 CleanedStudentGoalsData <- drop_na(StudentGoalsData)
-write_csv(CleanedStudentGoalsData, "data/CleanedStudentGoalsData.csv")
+# write_csv(CleanedStudentGoalsData, "data/CleanedStudentGoalsData.csv")
 View(CleanedStudentGoalsData)
-
+# ggplot(mpg, aes(displ, hwy, colour = class)) +
+# geom_point()
+# s <- ggplot(CleanedStudentGoalsData, fill=drv)
+# s + geom_bar()
