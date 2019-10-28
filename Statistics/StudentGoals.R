@@ -93,10 +93,10 @@ ggplot(data = diamonds) +
 
 head(diamonds)
 head(dat)
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! working gender plot
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = sex, colour = sex, fill = subject))
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! working gender subject plot
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = sex, fill = subject))
 
