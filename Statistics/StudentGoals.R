@@ -1,1 +1,5 @@
-install.packages("tidyverse")
+#install.packages("readr")
+#read_csv("/Users/mateuszzaremba/dev/R/Statistics/data/StudentGoalsDataMac.csv")
+library(readr)
+StudentGoalsDataMac <- read_csv("data/StudentGoalsDataMac.csv")
+View(StudentGoalsDataMac)
