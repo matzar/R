@@ -22,15 +22,30 @@ View(CleanedStudentGoalsData)
 # save CleanedStudentGoalsData table in a simple variable called dat
 dat <- CleanedStudentGoalsData
 
-# after cleaning seq column contains non-consecutive numbers 
-# replace seq column's numbers with consequetive numbers 
+# replacing seq column non-consecutive numbers with consecutive numbers
 dat$seq <- 1:nrow(dat)
+View(dat) # works!
+write_csv(dat, "data/StudentGoalsDataCleanedAndNumbered.csv")
+
+# reassing values to their proper labeling from assets/'Student Goals - Coding Information.pdf'
+# replace numericals in the 'sex' column with proper sex names
+dat$sex[dat$sex==1] <- 'Male'
+dat$sex[dat$sex==2] <- 'Female'
+# replace numericals in the 'subject' column with proper subject names
+dat$subject[dat$subject==1] <- 'Management'
+dat$subject[dat$subject==2] <- 'Law'
+dat$subject[dat$subject==3] <- 'Tourism'
+dat$subject[dat$subject==4] <- 'General Economics'
+dat$subject[dat$subject==5] <- 'Accounting'
+dat$subject[dat$subject==6] <- 'Statistics'
 View(dat)
 
+# save labeled table
+write_csv(dat, "data/LabeledAndCleanedStudentGoals.csv")
+
 # check the data's structure
-str(CleanedStudentGoalsData) # uses int
-head(CleanedStudentGoalsData)
 str(dat)
+head(dat)
 
 View(dat)
 # plot data
