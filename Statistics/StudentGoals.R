@@ -141,10 +141,8 @@ d <- ggplot(data = dat, aes(seq, q1))
 # mapping
 d + geom_jitter(aes(colour = year))
 # save mapping
-
-
-# saving mapping into a variable
-o <- d + geom_point(mapping = aes(x = seq, y = q1, colour = year), position = "jitter")
+o <- d + geom_jitter(aes(colour = year))
+# o <- d + geom_point(mapping = aes(x = seq, y = q1, colour = year), position = "jitter")
 # adding dark theme
 o + theme_dark()
 # saving dark theme
@@ -167,7 +165,8 @@ t <- p + labs(
   y = "Answer (1-7)",
   colour = "Year"
 )
-t + scale_colour_brewer(palette = "Set1")
+
+t + ggrepel::geom_label_repel(aes(seq, q1, label = year), data = dat)
 
 # mapping answers to q1 with relation to the student's year
 dd <- ggplot(data = dat, mapping = aes(x = seq, y = q1))
