@@ -239,15 +239,11 @@ p + labs(
 # adding colour
 # scale_colour_brewer(palette = "YlOrRd")
 
-# Average
 
-
-
-# TODO 
 # Packages used to calculate confidence interval for proportions
 # install.packages(c("binom", "Barnard"))
 library(binom)
-CIs <- binom.confint(x=dat$year , n=dat$q1, method="wilson")
+CIs <- binom.confint(x=dat$q1 , n=536, method="wilson")
 view(CIs)
 
 new_plot <- merge(data.frame(dat, row.names=NULL), data.frame(CIs, row.names=NULL), by = 0, all = TRUE)[-1]
@@ -262,10 +258,13 @@ ggplot(data = new_plot) +
   )
 
 new_plot2 <- drop_na(new_plot)
-
+view(new_plot2)
 # df <- data.frame(grp = c("A", "B"), fit = 4:5, se = 1:2)
-j <- ggplot(new_plot2, aes(q1, year, ymin = new_plot2$lower, ymax = new_plot2$upper))
-j + geom_pointrange()
+j <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, color=subject, shape=sex))
+j + geom_boxplot()
+j + geom_density_2d()
+j + geom_errorbar()
+j + geom_jitter()
 
 # # save
 # t <- p + labs(
