@@ -159,35 +159,51 @@ temp <- temp + labs(
   colour = "Year"
 )
 
+## Statistical Data Analysis of Student Goals ##
+# Recent evidence has shown that across a range of subject areas, 
+# undergraduates have different reasons for studying as they progress through
+# their degree programs. 
+# 1) Students initially focus on understanding (mastery goals) and
+# move to a more grade-oriented focus (performance goals) 
+# in later years and 
+# 2) students tend to demonstrate greater intrinsic motivation (e.g., 
+# interest and enjoyment) during their earlier studies rather than 
+# during the latter stages of their programmes.
+# The aim of this research is to examine whether this is the case, 
+# whether this differs for different subjects and/or different genders.
+
+
 # mapping data with subject label
-d + geom_jitter(aes(colour = year, shape = subject))
+d + geom_jitter(aes(colour = subject, shape = sex))
 # save mapping
-o <- d + geom_jitter(aes(colour = year, shape = subject))
+o <- d + geom_jitter(aes(colour = subject, shape = sex))
 # o <- d + geom_point(mapping = aes(x = seq, y = q1, colour = year), position = "jitter")
-# adding gray theme
-o + theme_gray()
+# adding dark theme
+o + theme_dark()
 # save
-p <- o + theme_gray()
+p <- o + theme_dark()
 # adding labels
-o + labs(
+p + labs(
   title = "Answers to question 1 with relation to student's year",
   subtitle = "Labeled with subjects",
   caption = "Data from canvas",
   x = "Student num",
   y = "Answer (1-7)",
-  colour = "Year"
+  colour = "Subject",
+  shape = "Gender"
 )
 # save
 t <- p + labs(
   title = "Answers to question 1 with relation to student's year",
-  subtitle = "Test subtitle",
+  subtitle = "Labeled with subjects",
   caption = "Data from canvas",
   x = "Student num",
   y = "Answer (1-7)",
-  colour = "Year"
+  colour = "Subject",
+  shape = "Gender"
 )
-
-t + scale_colour_brewer(palette = "Set1")
+# adding colour
+t + scale_colour_brewer(palette = "YlOrRd")
 
 # t + geom_label(aes(label = year), data = dat, alpha = 0.5)
 # t + geom_jitter(size = 3, shape = 1, data = dat) +
