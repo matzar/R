@@ -25,27 +25,38 @@ tibble_dat <- tibble::as_tibble(CleanedStudentGoalsData)
 
 # Sorting questions
 # Moving columns to sort questions accordingly to
-# Random order: 6, 12, 11, 1, 7, 2, 10, 8, 5, 3, 9, 4
+# order (question number): 6, 12, 11, 1, 7, 2, 10, 8, 5, 3, 9, 4
 col_order <- c("seq", "year", "age", "sex", "subject", 
-               "q6", "q12", "q11", "q1", "q7", "q2", 
-               "q10", "q8", "q5", "q3", "q9", "q4",
+               "q4", "q6", "q10", "q12", "q9", "q1", 
+               "q5", "q8", "q11", "q7", "q3", "q2",
                "interest", "enjoy", "mastgrad")
 reordered_data <- dat[, col_order]
 view(reordered_data)
 # rename reordered data
-dplyr::rename(reordered_data, q1  = q6)
-dplyr::rename(reordered_data, q2  = q12)
-dplyr::rename(reordered_data, q3  = q11)
-dplyr::rename(reordered_data, q4  = q1)
-dplyr::rename(reordered_data, q5  = q7)
-dplyr::rename(reordered_data, q6  = q2)
-dplyr::rename(reordered_data, q7  = q10)
-dplyr::rename(reordered_data, q8  = q8)
-dplyr::rename(reordered_data, q9  = q5)
+temp <- dplyr::rename(reordered_data, q1  = q4)
+view(temp)
+temp <- dplyr::rename(reordered_data, q2  = q6)
+view(temp)
 dplyr::rename(reordered_data, q10 = q3)
-dplyr::rename(reordered_data, q11 = q9)
+view(temp)
 dplyr::rename(reordered_data, q12 = q4)
-reordered_data
+view(temp)
+dplyr::rename(reordered_data, q9  = q5)
+view(temp)
+dplyr::rename(reordered_data, q1  = q6)
+view(temp)
+dplyr::rename(reordered_data, q5  = q7)
+view(temp)
+# dplyr::rename(reordered_data, q8  = q8)
+dplyr::rename(reordered_data, q11 = q8)
+view(temp)
+dplyr::rename(reordered_data, q7  = q10)
+view(temp)
+dplyr::rename(reordered_data, q3  = q11)
+view(temp)
+dplyr::rename(reordered_data, q2  = q12)
+view(temp)
+view(reordered_data)
 
 # replacing seq column non-consecutive numbers with consecutive numbers
 dat$seq <- 1:nrow(dat)
