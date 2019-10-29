@@ -257,13 +257,14 @@ ggplot(data = new_plot) +
     fun.y = new_plot$mean
   )
 
+# install.packages("ggstance")
 new_plot2 <- drop_na(new_plot)
 view(new_plot2)
 # df <- data.frame(grp = c("A", "B"), fit = 4:5, se = 1:2)
-j <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, color=subject, shape=sex))
+j <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, colour=subject, shape=sex))
 j + geom_jitter() + theme_dark() 
-jj <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, color=subject, category=sex))
-jj + geom_boxplot()
+jj <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, colour=subject, fill=sex))
+jj + geom_boxplot() + theme_dark() + coord_flip()
   # geom_text(aes(label = sex), data = new_plot2)
   # geom_label(aes(label = sex), data = new_plot2, nudge_y = 2, alpha = 0.5)
 
@@ -290,7 +291,7 @@ ggplot(diamonds, aes(carat, price)) +
 
 # accidental art
 j + geom_hex() +
-  coord_fixed() + theme_dark()
+  coord_fixed() + theme_dark() + theme(legend.position = "")
 
 # # save
 # t <- p + labs(
