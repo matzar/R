@@ -166,9 +166,28 @@ t <- p + labs(
   colour = "Year"
 )
 
-t + geom_label(aes(label = year), data = dat, alpha = 0.5)
 
-# t + ggrepel::geom_label_repel(aes(seq, q1, label = year), data = dat)
+
+# t + geom_label(aes(label = year), data = dat, alpha = 0.5)
+# t + geom_jitter(size = 3, shape = 1, data = dat) +
+# #   ggrepel::geom_label_repel(aes(label = year), data = dat)
+# 
+# class_avg <- dat %>%
+#   group_by(subject) %>%
+#   summarise(
+#     seq = median(seq),
+#     q1 = median(q1)
+#   )
+# 
+# ggplot(dat, aes(seq, q1, colour = year)) +
+#   ggrepel::geom_label_repel(aes(label = subject),
+#                             data = dat,
+#                             size = 6,
+#                             label.size = 0,
+#                             segment.color = NA
+#   ) +
+#   geom_point() +
+#   theme(legend.position = "none")
 
 # mapping answers to q1 with relation to the student's year
 dd <- ggplot(data = dat, mapping = aes(x = seq, y = q1))
