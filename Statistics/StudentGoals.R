@@ -241,7 +241,20 @@ p + labs(
 
 # Packages used to calculate confidence interval for proportions
 # install.packages(c("binom", "Barnard"))
+library(binom)
+CIs <- binom.confint(x=dat$year , n=dat$q1, method="wilson")
+view(CIs)
 
+new_plot <- merge(data.frame(dat, row.names=NULL), data.frame(CIs, row.names=NULL), by = 0, all = TRUE)[-1]
+view(new_plot)
+
+ggplot(data = CIs) + 
+  stat_summary(
+    mapping = aes(x = dat$year, y = dat$q1),
+    fun.ymin = CIs$lower,
+    fun.ymax = CIs$upper,
+    fun.y = CIs$mean
+  )
 
 # # save
 # t <- p + labs(
