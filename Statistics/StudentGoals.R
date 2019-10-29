@@ -166,7 +166,9 @@ t <- p + labs(
   colour = "Year"
 )
 
-t + ggrepel::geom_label_repel(aes(seq, q1, label = year), data = dat)
+t + geom_label(aes(label = year), data = dat, alpha = 0.5)
+
+# t + ggrepel::geom_label_repel(aes(seq, q1, label = year), data = dat)
 
 # mapping answers to q1 with relation to the student's year
 dd <- ggplot(data = dat, mapping = aes(x = seq, y = q1))
