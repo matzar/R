@@ -104,9 +104,6 @@ ggplot(data = dat) +
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = age, fill = subject))
 
-ggplot(data = dat) + 
-  geom_point(mapping = aes(x = displ, y = hwy), position = "jitter")
-
 # course year by gender
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = year, fill = sex))
@@ -120,7 +117,15 @@ ggplot(data = dat) +
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = mastgrad, fill = sex))
 
-
+#subject by gender and normalizing using position = "dodge" to place overlapping objects directly beside one another
+ggplot(data = dat) + 
+  geom_bar(mapping = aes(x = sex, fill = subject), position = "dodge")
+# plot answers to q1 with relation to the student's year, use "jitter" to improve the graph and avoid gridding
+ggplot(data = dat) + 
+  geom_point(mapping = aes(x = seq, y = q1, colour = year), position = "jitter")
+# plot answers to q1 with relation to the student's subject, use "jitter" to improve the graph and avoid gridding
+ggplot(data = dat) + 
+  geom_point(mapping = aes(x = seq, y = q1, colour = subject), position = "jitter")
 
 
 # playground
