@@ -120,12 +120,19 @@ ggplot(data = dat) +
 #subject by gender and normalizing using position = "dodge" to place overlapping objects directly beside one another
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = sex, fill = subject), position = "dodge")
+# plot answers to q1 with relation to the student's year
+ggplot(data = dat) + 
+  geom_point(mapping = aes(x = seq, y = q1, colour = year))
 # plot answers to q1 with relation to the student's year, use "jitter" to improve the graph and avoid gridding
+d <- ggplot(data = dat)
+o <- d + geom_jitter(mapping = aes(x = seq, y = q1, colour = year))
+o + theme_dark()
+# plot answers to q1 with relation to the student's subject
 ggplot(data = dat) + 
-  geom_point(mapping = aes(x = seq, y = q1, colour = year), position = "jitter")
-# plot answers to q1 with relation to the student's subject, use "jitter" to improve the graph and avoid gridding
+  geom_point(mapping = aes(x = seq, y = q1, colour = subject))
+# plot answers to q1 with relation to the student's subject, uses "jitter" to improve the graph and avoid gridding
 ggplot(data = dat) + 
-  geom_point(mapping = aes(x = seq, y = q1, colour = subject), position = "jitter")
+  geom_jitter(mapping = aes(x = seq, y = q1, colour = subject))
 
 
 # playground
