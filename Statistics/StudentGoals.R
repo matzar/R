@@ -197,7 +197,7 @@ p + labs(
   y = "Answer (1-7)",
   colour = "Subject",
   shape = "Gender"
-)
+) + theme(legend.position = "right")
 # adding colour
 # scale_colour_brewer(palette = "Set2")
 
