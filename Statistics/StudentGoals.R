@@ -262,13 +262,35 @@ view(new_plot2)
 # df <- data.frame(grp = c("A", "B"), fit = 4:5, se = 1:2)
 j <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, color=subject, shape=sex))
 j + geom_jitter() + theme_dark() 
-j + geom_boxplot() + 
-  geom_label(aes(label = sex), data = new_plot2, nudge_y = 2, alpha = 0.5)
+jj <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, color=subject, category=sex))
+jj + geom_boxplot()
+  # geom_text(aes(label = sex), data = new_plot2)
+  # geom_label(aes(label = sex), data = new_plot2, nudge_y = 2, alpha = 0.5)
+
+
+# install.packages("hexbin")
+# install.packages("viridis")
+# hex plot
+df <- tibble(
+  x = rnorm(year),
+  y = rnorm(new_plot2$q1)
+)
+ggplot(df, aes(x, y)) +
+  geom_hex() +
+  coord_fixed()
+
+ggplot(df, aes(x, y)) +
+  geom_hex() +
+  viridis::scale_fill_viridis() +
+  coord_fixed()
+
+# example
+ggplot(diamonds, aes(carat, price)) +
+  geom_point(aes(colour = cut), alpha = 1/20)
 
 # accidental art
 j + geom_hex() +
   coord_fixed() + theme_dark()
-# install.packages("hexbin")
 
 # # save
 # t <- p + labs(
