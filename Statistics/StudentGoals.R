@@ -120,19 +120,57 @@ ggplot(data = dat) +
 #subject by gender and normalizing using position = "dodge" to place overlapping objects directly beside one another
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = sex, fill = subject), position = "dodge")
+
 # plot answers to q1 with relation to the student's year
 ggplot(data = dat) + 
   geom_point(mapping = aes(x = seq, y = q1, colour = year))
+
+# TODO - example
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = drv)) +
+  scale_colour_brewer(palette = "Set1")
+# TODO - working colouring
+ggplot(dat, aes(seq, q1)) + geom_point(aes(color = sex), position = "jitter") +
+  scale_colour_brewer(palette = "Set3")
+
 # plot answers to q1 with relation to the student's year, use "jitter" to improve the graph and avoid gridding
 # data
-d <- ggplot(data = dat)
+ggplot(dat, aes(seq, q1))
+# saving data into a variable
+d <- ggplot(data = dat, aes(seq, q1))
 # mapping
-d + geom_jitter(mapping = aes(x = seq, y = q1, colour = year)) + theme_dark()
-# theme dark
-o <- d + geom_jitter(mapping = aes(x = seq, y = q1, colour = year))
+d + geom_jitter(aes(colour = year))
+# save mapping
+
+
+# saving mapping into a variable
+o <- d + geom_point(mapping = aes(x = seq, y = q1, colour = year), position = "jitter")
+# adding dark theme
 o + theme_dark()
+# saving dark theme
+p <- o + theme_dark()
+# adding label
+p + labs(
+  title = "Answers to question 1 with relation to student's year",
+  subtitle = "Test subtitle",
+  caption = "Data from canvas",
+  x = "Student num",
+  y = "Answer (1-7)",
+  colour = "Year"
+  )
+# save
+t <- p + labs(
+  title = "Answers to question 1 with relation to student's year",
+  subtitle = "Test subtitle",
+  caption = "Data from canvas",
+  x = "Student num",
+  y = "Answer (1-7)",
+  colour = "Year"
+)
+t + scale_colour_brewer(palette = "Set1")
+
 # mapping answers to q1 with relation to the student's year
-dd <- ggplot(data = dat, mapping = aes(x = seq, y = q1, group = group))
+dd <- ggplot(data = dat, mapping = aes(x = seq, y = q1))
 # box plot
 dd + geom_boxplot() + coord_flip()
 
