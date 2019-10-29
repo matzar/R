@@ -124,9 +124,18 @@ ggplot(data = dat) +
 ggplot(data = dat) + 
   geom_point(mapping = aes(x = seq, y = q1, colour = year))
 # plot answers to q1 with relation to the student's year, use "jitter" to improve the graph and avoid gridding
+# data
 d <- ggplot(data = dat)
+# mapping
+d + geom_jitter(mapping = aes(x = seq, y = q1, colour = year)) + theme_dark()
+# theme dark
 o <- d + geom_jitter(mapping = aes(x = seq, y = q1, colour = year))
 o + theme_dark()
+# mapping answers to q1 with relation to the student's year
+dd <- ggplot(data = dat, mapping = aes(x = seq, y = q1, group = group))
+# box plot
+dd + geom_boxplot() + coord_flip()
+
 # plot answers to q1 with relation to the student's subject
 ggplot(data = dat) + 
   geom_point(mapping = aes(x = seq, y = q1, colour = subject))
