@@ -264,7 +264,7 @@ view(new_plot2)
 j <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, colour=subject, shape=sex))
 j + geom_jitter() + theme_dark() 
 jj <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, colour=subject, fill=sex))
-jj + geom_boxplot() + theme_dark() + coord_flip()
+jj + geom_boxplot() + theme_dark() + coord_flip() + scale_colour_brewer(palette = "Spectral")
   # geom_text(aes(label = sex), data = new_plot2)
   # geom_label(aes(label = sex), data = new_plot2, nudge_y = 2, alpha = 0.5)
 
