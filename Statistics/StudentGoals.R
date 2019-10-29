@@ -136,6 +136,19 @@ dd <- ggplot(data = dat, mapping = aes(x = seq, y = q1, group = group))
 # box plot
 dd + geom_boxplot() + coord_flip()
 
+# bar plot
+bar <- ggplot(data = dat) + 
+  geom_bar(
+    mapping = aes(x = sex, fill = subject, alpha = 0.85), 
+    show.legend = TRUE,
+    width = 1
+  ) + 
+  theme(aspect.ratio = 1) +
+  labs(x = NULL, y = NULL)
+
+bar + coord_flip()
+bar + coord_polar() + theme_dark()
+
 # plot answers to q1 with relation to the student's subject
 ggplot(data = dat) + 
   geom_point(mapping = aes(x = seq, y = q1, colour = subject))
