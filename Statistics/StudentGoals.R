@@ -138,24 +138,45 @@ ggplot(dat, aes(seq, q1)) + geom_point(aes(color = sex), position = "jitter") +
 ggplot(dat, aes(seq, q1))
 # saving data into a variable
 d <- ggplot(data = dat, aes(seq, q1))
-# mapping
+
+# mapping data with no subject label
 d + geom_jitter(aes(colour = year))
-# save mapping
-o <- d + geom_jitter(aes(colour = year))
-# o <- d + geom_point(mapping = aes(x = seq, y = q1, colour = year), position = "jitter")
 # adding dark theme
-o + theme_dark()
-# saving dark theme
-p <- o + theme_dark()
-# adding label
-p + labs(
+temp <- d + geom_jitter(aes(colour = year)) + theme_dark()
+# adding labels
+temp + labs(
   title = "Answers to question 1 with relation to student's year",
-  subtitle = "Test subtitle",
   caption = "Data from canvas",
   x = "Student num",
   y = "Answer (1-7)",
   colour = "Year"
-  )
+)
+temp <- temp + labs(
+  title = "Answers to question 1 with relation to student's year",
+  caption = "Data from canvas",
+  x = "Student num",
+  y = "Answer (1-7)",
+  colour = "Year"
+)
+
+# mapping data with subject label
+d + geom_jitter(aes(colour = year, shape = subject))
+# save mapping
+o <- d + geom_jitter(aes(colour = year, shape = subject))
+# o <- d + geom_point(mapping = aes(x = seq, y = q1, colour = year), position = "jitter")
+# adding gray theme
+o + theme_gray()
+# save
+p <- o + theme_gray()
+# adding labels
+o + labs(
+  title = "Answers to question 1 with relation to student's year",
+  subtitle = "Labeled with subjects",
+  caption = "Data from canvas",
+  x = "Student num",
+  y = "Answer (1-7)",
+  colour = "Year"
+)
 # save
 t <- p + labs(
   title = "Answers to question 1 with relation to student's year",
@@ -166,7 +187,7 @@ t <- p + labs(
   colour = "Year"
 )
 
-
+t + scale_colour_brewer(palette = "Set1")
 
 # t + geom_label(aes(label = year), data = dat, alpha = 0.5)
 # t + geom_jitter(size = 3, shape = 1, data = dat) +
