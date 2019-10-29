@@ -262,9 +262,12 @@ view(new_plot2)
 # df <- data.frame(grp = c("A", "B"), fit = 4:5, se = 1:2)
 j <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, color=subject, shape=sex))
 j + geom_boxplot()
-j + geom_density_2d()
-j + geom_errorbar()
-j + geom_jitter()
+j + geom_jitter() + theme_dark()
+
+# accidental art
+j + geom_hex() +
+  coord_fixed() + theme_dark()
+# install.packages("hexbin")
 
 # # save
 # t <- p + labs(
