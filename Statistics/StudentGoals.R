@@ -261,8 +261,9 @@ new_plot2 <- drop_na(new_plot)
 view(new_plot2)
 # df <- data.frame(grp = c("A", "B"), fit = 4:5, se = 1:2)
 j <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, color=subject, shape=sex))
-j + geom_boxplot()
-j + geom_jitter() + theme_dark()
+j + geom_jitter() + theme_dark() 
+j + geom_boxplot() + 
+  geom_label(aes(label = sex), data = new_plot2, nudge_y = 2, alpha = 0.5)
 
 # accidental art
 j + geom_hex() +
