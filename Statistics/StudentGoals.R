@@ -135,12 +135,12 @@ ggplot(dat, aes(seq, q1)) + geom_point(aes(color = sex), position = "jitter") +
 
 # plot answers to q1 with relation to the student's year, use "jitter" to improve the graph and avoid gridding
 # data
-ggplot(dat, aes(seq, q1))
+ggplot(dat, aes(year, q1))
 # saving data into a variable
-d <- ggplot(data = dat, aes(seq, q1))
+d <- ggplot(data = dat, aes(year, q1))
 
 # mapping data with no subject label
-d + geom_jitter(aes(colour = year))
+d + geom_jitter(aes(colour = year, shape = subject))
 # adding dark theme
 temp <- d + geom_jitter(aes(colour = year)) + theme_dark()
 # adding labels
@@ -172,7 +172,13 @@ temp <- temp + labs(
 # The aim of this research is to examine whether this is the case, 
 # whether this differs for different subjects and/or different genders.
 
+# Mann-Whitney-Wilcoxon Test
+# wilcox.test(mpg ~ am, data=mtcars) 
 
+# data
+ggplot(dat, aes(year, q1))
+# saving data into a variable
+d <- ggplot(data = dat, aes(year, q1))
 # mapping data with subject label
 d + geom_jitter(aes(colour = subject, shape = sex))
 # save mapping
@@ -184,26 +190,29 @@ o + theme_dark()
 p <- o + theme_dark()
 # adding labels
 p + labs(
-  title = "Answers to question 1 with relation to student's year",
-  subtitle = "Labeled with subjects",
-  caption = "Data from canvas",
-  x = "Student num",
-  y = "Answer (1-7)",
-  colour = "Subject",
-  shape = "Gender"
-)
-# save
-t <- p + labs(
-  title = "Answers to question 1 with relation to student's year",
-  subtitle = "Labeled with subjects",
-  caption = "Data from canvas",
-  x = "Student num",
+  title = "1. My goal in this class is to avoid performing poorly",
+  subtitle = "1. It is important to me to be better than other students",
+  caption = "Journal of Personality and Social Psychology, 80, 3, 501-519",
+  x = "Year",
   y = "Answer (1-7)",
   colour = "Subject",
   shape = "Gender"
 )
 # adding colour
-t + scale_colour_brewer(palette = "YlOrRd")
+# scale_colour_brewer(palette = "Set2")
+
+# # save
+# t <- p + labs(
+#   title = "1. My goal in this class is to avoid performing poorly",
+#   subtitle = "It is important to me to be better than other students",
+#   caption = "Journal of Personality and Social Psychology, 80, 3, 501-519",
+#   x = "Year",
+#   y = "Answer (1-7)",
+#   colour = "Subject",
+#   shape = "Gender"
+# )
+# # adding colour
+# t + scale_colour_brewer(palette = "YlOrRd")
 
 # t + geom_label(aes(label = year), data = dat, alpha = 0.5)
 # t + geom_jitter(size = 3, shape = 1, data = dat) +
