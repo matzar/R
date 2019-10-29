@@ -22,41 +22,43 @@ View(CleanedStudentGoalsData)
 # save CleanedStudentGoalsData table in a simple variable called dat
 dat <- CleanedStudentGoalsData
 tibble_dat <- tibble::as_tibble(CleanedStudentGoalsData)
+view(tibble_dat)
 
-# Sorting questions
+# Sorting questions (NOT NEEDED)
 # Moving columns to sort questions accordingly to
 # order (question number): 6, 12, 11, 1, 7, 2, 10, 8, 5, 3, 9, 4
-col_order <- c("seq", "year", "age", "sex", "subject", 
-               "q4", "q6", "q10", "q12", "q9", "q1", 
-               "q5", "q8", "q11", "q7", "q3", "q2",
-               "interest", "enjoy", "mastgrad")
-reordered_data <- dat[, col_order]
-view(reordered_data)
-# rename reordered data
-temp <- dplyr::rename(reordered_data, q1  = q4)
-view(temp)
-temp <- dplyr::rename(reordered_data, q2  = q6)
-view(temp)
-dplyr::rename(reordered_data, q10 = q3)
-view(temp)
-dplyr::rename(reordered_data, q12 = q4)
-view(temp)
-dplyr::rename(reordered_data, q9  = q5)
-view(temp)
-dplyr::rename(reordered_data, q1  = q6)
-view(temp)
-dplyr::rename(reordered_data, q5  = q7)
-view(temp)
-# dplyr::rename(reordered_data, q8  = q8)
-dplyr::rename(reordered_data, q11 = q8)
-view(temp)
-dplyr::rename(reordered_data, q7  = q10)
-view(temp)
-dplyr::rename(reordered_data, q3  = q11)
-view(temp)
-dplyr::rename(reordered_data, q2  = q12)
-view(temp)
-view(reordered_data)
+# col_order <- c("seq", "year", "age", "sex", "subject", 
+#                "q4", "q6", "q10", "q12", "q9", "q1", 
+#                "q5", "q8", "q11", "q7", "q3", "q2",
+#                "interest", "enjoy", "mastgrad")
+# reordered_data <- tibble_dat[, col_order]
+
+# Renaming columns according to random order: 6, 12, 11, 1, 7, 2, 10, 8, 5, 3, 9, 4
+renamed_data <- tibble_dat %>%
+  rename(
+    Q6 = q1,
+    Q12 = q2,
+    Q11 = q3,
+    Q1 = q4, 
+    Q7 = q5, 
+    Q2 = q6, 
+    Q10 = q7, 
+    Q8 = q8, 
+    Q5 = q9, 
+    Q3 = q10, 
+    Q9 = q11, 
+    Q4 = q12
+  )
+view(renamed_data)
+# going back to lower case 'q' to keep naming consistent with the original data set
+renamed_data2 <- renamed_data %>%
+  rename(
+    q1 = Q1, q2 = Q2, q3 = Q3, q4 = Q4, q5 = Q5, q6 = Q6, 
+    q7 = Q7, q8 = Q8, q9 = Q9, q10 = Q10, q11= Q11, q12 = Q12
+  )
+view(renamed_data2)
+dat <- renamed_data2
+view(dat)
 
 # replacing seq column non-consecutive numbers with consecutive numbers
 dat$seq <- 1:nrow(dat)
@@ -84,30 +86,30 @@ str(dat)
 head(dat)
 
 # plot data
-Year <- dat[dat$year, ]$seq
-plot(Year)
+# Year <- dat[dat$year, ]$seq
+# plot(Year)
 # plot(dat[dat$year, ]$seq)
 
 # variables
-seq <- dat$seq
-year <- dat$year
-age <- dat$age
-sex <- dat$sex
-sub <- dat$subject
+# seq <- dat$seq
+# year <- dat$year
+# age <- dat$age
+# sex <- dat$sex
+# sub <- dat$subject
 # q1 ... q12
-interest <- dat$interest
-enjoy <- dat$enjoy
-mg <- dat$mastgrad
+# interest <- dat$interest
+# enjoy <- dat$enjoy
+# mg <- dat$mastgrad
 
 # numeric variables
-Male <- sum(dat$sex=='Male')
-Female <- sum(dat$sex=='Female')
+# Male <- sum(dat$sex=='Male')
+# Female <- sum(dat$sex=='Female')
 
 # creation of data frame
-dat_sex <- data.frame("Count" = c("Male" = Male, "Female" = Female))
+# dat_gender <- data.frame("Count" = c("Male" = Male, "Female" = Female))
 # checking data frame
-str(dat_sex)
-head(dat_sex)
+# str(dat_gender)
+# head(dat_gender)
 
 # bar chart example
 ggplot(data = diamonds) + 
@@ -235,7 +237,11 @@ p + labs(
   shape = "Gender"
 ) + theme(legend.position = "right")
 # adding colour
-# scale_colour_brewer(palette = "Set2")
+# scale_colour_brewer(palette = "YlOrRd")
+
+# Packages used to calculate confidence interval for proportions
+# install.packages(c("binom", "Barnard"))
+
 
 # # save
 # t <- p + labs(
