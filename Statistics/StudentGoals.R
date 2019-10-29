@@ -67,44 +67,45 @@ mg <- dat$mastgrad
 Male <- sum(dat$sex=='Male')
 Female <- sum(dat$sex=='Female')
 
-# g <- ggplot(dat, aes(Male, Female, colour = sex))
-# g <- gplot(mpg, aes(class, hwy))
-# g + geom_count()
-qplot(x = Male, y = Female, data = dat, geom = "count", colour = sex)
-qplot(x = Male, y = Female, data = dat, geom = "col", colour = sex)
-qplot(x = Male, y = Female, data = dat, geom = "dotplot", colour = sex)
-
-d <- ggplot(dat, aes(Male, Female, colour = sex))
-d + geom_count()
-
+# creation of data frame
 dat_sex <- data.frame("Count" = c("Male" = Male, "Female" = Female))
-# gender <- data.frame("Gender" = c(Male, Female))
+# checking data frame
 str(dat_sex)
 head(dat_sex)
 
-ggplot(data = dat_sex) + 
-  geom_bar(mapping = aes(x = Count))
-
-d <- ggplot(dat_sex, aes())
-d + geom_bar(x = 0)
-
+# bar chart example
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = cut))
-
 head(diamonds)
 head(dat)
+#bar chart example 2
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = clarity))
+
 # gender in numbers
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = sex, fill = sex))
 # subject by gender
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = sex, fill = subject))
+#subject by gender with alpha blending
+ggplot(data = dat) + 
+  geom_bar(alpha = 0.85, mapping = aes(x = sex, fill = subject))
+#subject by gender and normalizing using position = "fill"
+ggplot(data = dat) + 
+  geom_bar(mapping = aes(x = sex, fill = subject), position = "fill")
+#subject by gender and normalizing using position = "dodge" to place overlapping objects directly beside one another
+ggplot(data = dat) + 
+  geom_bar(mapping = aes(x = sex, fill = subject), position = "dodge")
 # age by gender
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = age, fill = sex))
 # age by subject
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = age, fill = subject))
+
+ggplot(data = dat) + 
+  geom_point(mapping = aes(x = displ, y = hwy), position = "jitter")
 
 # course year by gender
 ggplot(data = dat) + 
@@ -119,16 +120,8 @@ ggplot(data = dat) +
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = mastgrad, fill = sex))
 
-ggplot(data = diamonds) + 
-  geom_bar(mapping = aes(x = cut, fill = clarity))
 
-# ggplot data
-ggplot(mpg, aes(displ, hwy, colour = class)) +
-  geom_point()
-ggplot(dat, aes(displ, hwy) +
-  geom_point()
-# s <- ggplot(CleanedStudentGoalsData, fill=drv)
-# s + geom_point()
+
 
 # playground
 x <- c(1, 2, 3, 4)
