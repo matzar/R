@@ -211,11 +211,11 @@ view(mean_dat)
 # Plot mean results of performance approach questions for all students
 # with relation to student's year and subject
 # data
-ggplot(dat, aes(year, mean_dat$m1))
+# ggplot(dat, aes(year, mean_dat$m1))
 # saving data into a variable
 d <- ggplot(data = dat, aes(year, mean_dat$m1))
 # mapping data with no subject label, use "jitter" to improve the graph and avoid gridding
-d + geom_jitter(aes(colour = year, shape = subject))
+# d + geom_jitter(aes(colour = year, shape = subject))
 # adding dark theme
 l <- d + geom_jitter(aes(colour = year, shape = subject)) + theme_grey()
 # adding labels
@@ -232,11 +232,11 @@ l + labs(
 # Plot mean results of performance avoidance questions for all students
 # with relation to student's year and subject
 # data
-ggplot(dat, aes(year, mean_dat$m2))
+# ggplot(dat, aes(year, mean_dat$m2))
 # saving data into a variable
 d <- ggplot(data = dat, aes(year, mean_dat$m2))
 # mapping data with no subject label, use "jitter" to improve the graph and avoid gridding
-d + geom_jitter(aes(colour = year, shape = subject))
+# d + geom_jitter(aes(colour = year, shape = subject))
 # adding dark theme
 l <- d + geom_jitter(aes(colour = year, shape = subject)) + theme_grey()
 # adding labels
@@ -253,11 +253,11 @@ l + labs(
 # Plot mean results of mastery approach questions for all students
 # with relation to student's year and subject
 # data
-ggplot(dat, aes(year, mean_dat$m3))
+# ggplot(dat, aes(year, mean_dat$m3))
 # saving data into a variable
 d <- ggplot(data = dat, aes(year, mean_dat$m3))
 # mapping data with no subject label, use "jitter" to improve the graph and avoid gridding
-d + geom_jitter(aes(colour = year, shape = subject))
+# d + geom_jitter(aes(colour = year, shape = subject))
 # adding dark theme
 l <- d + geom_jitter(aes(colour = year, shape = subject)) + theme_grey()
 # adding labels
@@ -274,11 +274,11 @@ l + labs(
 # Plot mean results of mastery avoidance questions for all students
 # with relation to student's year and subject
 # data
-ggplot(dat, aes(year, mean_dat$m4))
+# ggplot(dat, aes(year, mean_dat$m4))
 # saving data into a variable
 d <- ggplot(data = dat, aes(year, mean_dat$m4))
 # mapping data with no subject label, use "jitter" to improve the graph and avoid gridding
-d + geom_jitter(aes(colour = year, shape = subject))
+# d + geom_jitter(aes(colour = year, shape = subject))
 # adding dark theme
 l <- d + geom_jitter(aes(colour = year, shape = subject)) + theme_grey()
 # adding labels
