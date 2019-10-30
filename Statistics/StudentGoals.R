@@ -218,8 +218,10 @@ l <- d + geom_jitter(aes(colour = sex, shape = subject))
 s <- l + geom_smooth(se = FALSE)
 # adding theme
 t <- s + theme_dark()
+# adding colouring
+c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
-t + labs(
+c + labs(
   title = "Performance approach",
   subtitle = "Mean results for all students",
   caption = "Taken from: Elliot, A. J. and McGregor, H. A. (2001)",
@@ -228,15 +230,19 @@ t + labs(
   colour = "Year"
 )
 
-# m2
+x# m2
 # Plot mean results of performance avoidance questions for all students
 # with relation to student's year and subject
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$m2))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
+# smoothing
+s <- l + geom_smooth(se = FALSE)
 # adding theme
-t <- l + theme_dark()
+t <- s + theme_dark()
+# adding colouring
+c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 t + labs(
   title = "Performance avoidance",
@@ -254,8 +260,12 @@ t + labs(
 d <- ggplot(data = dat, aes(year, mean_dat$m3))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
+# smoothing
+s <- l + geom_smooth(se = FALSE)
 # adding theme
-t <- l + theme_dark()
+t <- s + theme_dark()
+# adding colouring
+c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 t + labs(
   title = "Mastery approach",
@@ -273,8 +283,12 @@ t + labs(
 d <- ggplot(data = dat, aes(year, mean_dat$m4))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
+# smoothing
+s <- l + geom_smooth(se = FALSE)
 # adding theme
-t <- l + theme_dark()
+t <- s + theme_dark()
+# adding colouring
+c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 t + labs(
   title = "Mastery avoidance",
