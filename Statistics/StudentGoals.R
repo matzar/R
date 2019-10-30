@@ -244,7 +244,7 @@ t <- s + theme_dark()
 # adding colouring
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
-t + labs(
+c + labs(
   title = "Performance avoidance",
   subtitle = "Mean results for all students",
   caption = "Taken from: Elliot, A. J. and McGregor, H. A. (2001)",
@@ -267,7 +267,7 @@ t <- s + theme_dark()
 # adding colouring
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
-t + labs(
+c + labs(
   title = "Mastery approach",
   subtitle = "Mean results for all students",
   caption = "Taken from: Elliot, A. J. and McGregor, H. A. (2001)",
@@ -290,7 +290,7 @@ t <- s + theme_dark()
 # adding colouring
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
-t + labs(
+c + labs(
   title = "Mastery avoidance",
   subtitle = "Mean results for all students",
   caption = "Taken from: Elliot, A. J. and McGregor, H. A. (2001)",
