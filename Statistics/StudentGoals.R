@@ -171,7 +171,13 @@ ggplot(mpg, aes(displ, hwy)) +
 ggplot(dat, aes(seq, q1)) + geom_point(aes(color = sex), position = "jitter") +
   scale_colour_brewer(palette = "Set3")
 
-# plot answers to q1 with relation to the student's year, use "jitter" to improve the graph and avoid gridding
+# plot the mean from answers to category 1 (Performance approach) 
+# questions with relation to the student's year, subject and gender, 
+# use "jitter" to improve the graph and avoid gridding
+
+# get mean from q1, q2 and q3 columns 
+
+
 # data
 ggplot(dat, aes(year, q1))
 # saving data into a variable
@@ -180,7 +186,7 @@ d <- ggplot(data = dat, aes(year, q1))
 # mapping data with no subject label
 d + geom_jitter(aes(colour = year, shape = subject))
 # adding dark theme
-temp <- d + geom_jitter(aes(colour = year)) + theme_dark()
+temp <- d + geom_jitter(aes(colour = year, shape = subject)) + theme_grey()
 # adding labels
 temp + labs(
   title = "Answers to question 1 with relation to student's year",
@@ -209,6 +215,11 @@ temp <- temp + labs(
 # during the latter stages of their programmes.
 # The aim of this research is to examine whether this is the case, 
 # whether this differs for different subjects and/or different genders.
+# 4 categories:
+# - q1, q2, q3 - Performance approach questions
+# - q4, q5, q6 - Performance avoidance questions
+# - q7, q8, q9 - Mastery-Approach
+# - q10, q11, q12 - Mastery-Avoidance
 
 # Mann-Whitney-Wilcoxon Test
 # wilcox.test(mpg ~ am, data=mtcars) 
