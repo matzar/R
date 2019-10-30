@@ -213,7 +213,7 @@ view(mean_dat)
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$m1))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = year, shape = subject))
+l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # adding theme
 t <- l + theme_grey()
 # adding labels
@@ -232,7 +232,7 @@ t + labs(
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$m2))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = year, shape = subject))
+l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # adding theme
 t <- l + theme_grey()
 # adding labels
@@ -251,7 +251,7 @@ t + labs(
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$m3))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = year, shape = subject))
+l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # adding theme
 t <- l + theme_grey()
 # adding labels
@@ -270,7 +270,7 @@ t + labs(
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$m4))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = year, shape = subject))
+l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # adding theme
 t <- l + theme_grey()
 # adding labels
