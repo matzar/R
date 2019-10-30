@@ -178,38 +178,35 @@ ggplot(dat, aes(seq, q1)) + geom_point(aes(color = sex), position = "jitter") +
 # - q10, q11, q12 - Mastery-Avoidance
 
 # Function to calculate mean
-calculate_mean <- function(dateset, select_vars, col_name) {
-  dateset %>% 
-    mutate(col_name = pmap_dbl(select(., select_vars), function(...) mean(c(...))))
-  
-  # return(temp_db)
-}
+# calculate_mean <- function(dateset, select_vars, col_name) {
+#   temp_db <- dateset %>% 
+#     mutate(col_name = pmap_dbl(select(., select_vars), function(...) mean(c(...))))
+#   
+#   return(temp_db)
+# }
 
 mean_dat <- dat
 # get mean from q1, q2, q3 columns (Performance approach questions) for all the students
+# save the results in 'm1' colum and add it to mean_dat table
 mean_dat <- mean_dat %>% 
   mutate(m1 = pmap_dbl(select(., c("q1", "q2", "q3")), function(...) mean(c(...))))
-view(mean_dat)
 
-# get mean from q4, q5, q6 columns (Performance avoidance questions) for all the students
+# get mean from q4, q5, q6 columns (Performance avoidance questions) for all the students,
+# save the results in 'm2' colum and add it to mean_dat table
 mean_dat <- mean_dat %>% 
   mutate(m2 = pmap_dbl(select(., c("q4", "q5", "q6")), function(...) mean(c(...))))
-view(mean_dat)
 
 # get mean from q7, q8, q9 columns (Mastery approach questions) for all the students
-mastery_approach_vars <- c("q7", "q8", "q9") 
-mean_dat <- calculate_mean(
-  mean_dat, 
-  mastery_approach_vars, 
-  m3)
+# save the results in 'm3' colum and add it to mean_dat table
+mean_dat <- mean_dat %>% 
+  mutate(m3 = pmap_dbl(select(., c("q7", "q8", "q9")), function(...) mean(c(...))))
+
+# get mean from q10, q11, q12 columns (Mastery avoidance questions) for all the students 
+# save the results in 'm4' colum and add it to mean_dat table
+mean_dat <- mean_dat %>% 
+  mutate(m4 = pmap_dbl(select(., c("q10", "q11", "q12")), function(...) mean(c(...))))
 view(mean_dat)
-# get mean from q10, q11, q12 columns (Mastery avoidance questions) for all the students
-mastery_avoidance_vars <- c("q10", "q11", "q12")
-mean_dat <- calculate_mean(
-  mean_dat, 
-  mastery_avoidance_vars, 
-  m4)
-view(mean_dat)
+
 # plot the mean from answers to category 1 (Performance approach) 
 # questions with relation to the student's year, subject and gender, 
 # use "jitter" to improve the graph and avoid gridding
