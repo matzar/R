@@ -207,30 +207,22 @@ mean_dat <- mean_dat %>%
   mutate(m4 = pmap_dbl(select(., c("q10", "q11", "q12")), function(...) mean(c(...))))
 view(mean_dat)
 
-# plot the mean from answers to category 1 (Performance approach) 
-# questions with relation to the student's year, subject and gender, 
-# use "jitter" to improve the graph and avoid gridding
+# Plot mean results of performance approach for all students
+# with relation to student's year and subject
 # data
-ggplot(dat, aes(year, q1))
+ggplot(dat, aes(year, mean_dat$m1))
 # saving data into a variable
-d <- ggplot(data = dat, aes(year, q1))
-
-# mapping data with no subject label
+d <- ggplot(data = dat, aes(year, mean_dat$m1))
+# mapping data with no subject label, use "jitter" to improve the graph and avoid gridding
 d + geom_jitter(aes(colour = year, shape = subject))
 # adding dark theme
-temp <- d + geom_jitter(aes(colour = year, shape = subject)) + theme_grey()
+l <- d + geom_jitter(aes(colour = year, shape = subject)) + theme_grey()
 # adding labels
-temp + labs(
-  title = "Answers to question 1 with relation to student's year",
-  caption = "Data from canvas",
-  x = "Student num",
-  y = "Answer (1-7)",
-  colour = "Year"
-)
-temp <- temp + labs(
-  title = "Answers to question 1 with relation to student's year",
-  caption = "Data from canvas",
-  x = "Student num",
+l + labs(
+  title = "Performance approach",
+  subtitle = "Mean results for all students",
+  caption = "Taken from: Elliot, A. J. and McGregor, H. A. (2001)",
+  x = "Year (1-4)",
   y = "Answer (1-7)",
   colour = "Year"
 )
