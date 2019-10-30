@@ -178,38 +178,38 @@ ggplot(dat, aes(seq, q1)) + geom_point(aes(color = sex), position = "jitter") +
 # - q10, q11, q12 - Mastery-Avoidance
 
 # Function to calculate mean
-calculate_mean <- function(db, select_vars, name) {
-  temp_db <- db %>% 
-    mutate(name = pmap_dbl(select(., select_vars), function(...) mean(c(...))))
+calculate_mean <- function(dateset, select_vars, col_name) {
+  dateset %>% 
+    mutate(col_name = pmap_dbl(select(., select_vars), function(...) mean(c(...))))
   
-  return(temp_db)
+  # return(temp_db)
 }
 
+mean_dat <- dat
 # get mean from q1, q2, q3 columns (Performance approach questions) for all the students
-performance_approach_questions_vars <- c("q1", "q2", "q3")
-mean_dat <- calculate_mean(
-  dat, 
-  performance_approach_questions_vars, 
-  performance_approach_questions_mean)
+mean_dat <- mean_dat %>% 
+  mutate(m1 = pmap_dbl(select(., c("q1", "q2", "q3")), function(...) mean(c(...))))
+view(mean_dat)
+
 # get mean from q4, q5, q6 columns (Performance avoidance questions) for all the students
-performance_avoidance_questions_vars <- c("q4", "q5", "q6")
-mean_dat <- calculate_mean(
-  dat, 
-  performance_avoidance_questions_vars, 
-  performance_avoidance_questions_mean)
+mean_dat <- mean_dat %>% 
+  mutate(m2 = pmap_dbl(select(., c("q4", "q5", "q6")), function(...) mean(c(...))))
+view(mean_dat)
+
 # get mean from q7, q8, q9 columns (Mastery approach questions) for all the students
 mastery_approach_vars <- c("q7", "q8", "q9") 
 mean_dat <- calculate_mean(
-  dat, 
+  mean_dat, 
   mastery_approach_vars, 
-  mastery_approach_mean)
+  m3)
+view(mean_dat)
 # get mean from q10, q11, q12 columns (Mastery avoidance questions) for all the students
 mastery_avoidance_vars <- c("q10", "q11", "q12")
 mean_dat <- calculate_mean(
-  dat, 
+  mean_dat, 
   mastery_avoidance_vars, 
-  mastery_avoidance_mean)
-
+  m4)
+view(mean_dat)
 # plot the mean from answers to category 1 (Performance approach) 
 # questions with relation to the student's year, subject and gender, 
 # use "jitter" to improve the graph and avoid gridding
