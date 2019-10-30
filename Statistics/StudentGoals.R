@@ -171,17 +171,13 @@ ggplot(mpg, aes(displ, hwy)) +
 ggplot(dat, aes(seq, q1)) + geom_point(aes(color = sex), position = "jitter") +
   scale_colour_brewer(palette = "Set3")
 
-# plot the mean from answers to category 1 (Performance approach) 
-# questions with relation to the student's year, subject and gender, 
-# use "jitter" to improve the graph and avoid gridding
+## Calculate mean for 4 categories:
+# - q1, q2, q3 - Performance approach questions
+# - q4, q5, q6 - Performance avoidance questions
+# - q7, q8, q9 - Mastery-Approach
+# - q10, q11, q12 - Mastery-Avoidance
 
-# temp_dat <- dat
-# temp_dat <- temp_dat %>% 
-#   mutate(mean_q1_q2_q3 = pmap_dbl(select(., select_vars), function(...) mean(c(...))))
-
-# get mean from q1, q2, q3 columns (Performance approach questions) for all the students
-select_vars <- c("q1", "q2", "q3")
-# calculate mean function
+# Function to calculate mean
 calculate_mean <- function(dat, select_vars, name) {
   temp_dat <- dat %>% 
     mutate(name = pmap_dbl(select(., select_vars), function(...) mean(c(...))))
@@ -189,14 +185,20 @@ calculate_mean <- function(dat, select_vars, name) {
   return(temp_dat)
 }
 
+# get mean from q1, q2, q3 columns (Performance approach questions) for all the students
+performance_approach_questions <- c("q1", "q2", "q3")
+performance_avoidance_questions <- q4, q5, q6
+mastery_approach <- q7, q8, q9 
+mastery_avoidance <- q10, q11, q12
+
 mean_dat <- calculate_mean(dat, select_vars, mean_q1_q2_q3)
-# rlang::last_error()
-# warnings()
-view(mean_dat)
 
 # get mean from q4, q5 and q6 columns for all the students
 select_vars <- c("q4", "q5", "q6")
 
+# plot the mean from answers to category 1 (Performance approach) 
+# questions with relation to the student's year, subject and gender, 
+# use "jitter" to improve the graph and avoid gridding
 # data
 ggplot(dat, aes(year, q1))
 # saving data into a variable
