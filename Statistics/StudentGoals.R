@@ -175,21 +175,28 @@ ggplot(dat, aes(seq, q1)) + geom_point(aes(color = sex), position = "jitter") +
 # questions with relation to the student's year, subject and gender, 
 # use "jitter" to improve the graph and avoid gridding
 
-# get mean from q1, q2 and q3 columns for all the students
-temp_dat <- dat
-select_vars <- c("q1", "q2", "q3")
-temp_dat <- temp_dat %>% 
-  mutate(mean_q1_q2_q3 = pmap_dbl(select(., select_vars), function(...) mean(c(...))))
+# temp_dat <- dat
+# temp_dat <- temp_dat %>% 
+#   mutate(mean_q1_q2_q3 = pmap_dbl(select(., select_vars), function(...) mean(c(...))))
 
+# get mean from q1, q2, q3 columns (Performance approach questions) for all the students
+select_vars <- c("q1", "q2", "q3")
+# calculate mean function
 calculate_mean <- function(dat, select_vars, name) {
-  dat <- dat %>% 
+  temp_dat <- dat %>% 
     mutate(name = pmap_dbl(select(., select_vars), function(...) mean(c(...))))
   
-  return(dat)
+  return(temp_dat)
 }
+
+mean_dat <- calculate_mean(dat, select_vars, mean_q1_q2_q3)
 # rlang::last_error()
 # warnings()
-view(temp_dat)
+view(mean_dat)
+
+# get mean from q4, q5 and q6 columns for all the students
+select_vars <- c("q4", "q5", "q6")
+
 # data
 ggplot(dat, aes(year, q1))
 # saving data into a variable
