@@ -214,8 +214,10 @@ view(mean_dat)
 d <- ggplot(data = dat, aes(year, mean_dat$m1))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
+# smoothing
+s <- l + geom_smooth(se = FALSE)
 # adding theme
-t <- l + theme_grey()
+t <- s + theme_dark()
 # adding labels
 t + labs(
   title = "Performance approach",
@@ -234,7 +236,7 @@ d <- ggplot(data = dat, aes(year, mean_dat$m2))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # adding theme
-t <- l + theme_grey()
+t <- l + theme_dark()
 # adding labels
 t + labs(
   title = "Performance avoidance",
@@ -253,7 +255,7 @@ d <- ggplot(data = dat, aes(year, mean_dat$m3))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # adding theme
-t <- l + theme_grey()
+t <- l + theme_dark()
 # adding labels
 t + labs(
   title = "Mastery approach",
@@ -272,7 +274,7 @@ d <- ggplot(data = dat, aes(year, mean_dat$m4))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # adding theme
-t <- l + theme_grey()
+t <- l + theme_dark()
 # adding labels
 t + labs(
   title = "Mastery avoidance",
