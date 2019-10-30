@@ -230,7 +230,7 @@ c + labs(
   colour = "Year"
 )
 
-x# m2
+# m2
 # Plot mean results of performance avoidance questions for all students
 # with relation to student's year and subject
 # data
