@@ -207,6 +207,7 @@ mean_dat <- mean_dat %>%
   mutate(m4 = pmap_dbl(select(., c("q10", "q11", "q12")), function(...) mean(c(...))))
 view(mean_dat)
 
+# m1
 # Plot mean results of performance approach questions for all students
 # with relation to student's year and subject
 # data
@@ -227,19 +228,20 @@ l + labs(
   colour = "Year"
 )
 
+# m2
 # Plot mean results of performance avoidance questions for all students
 # with relation to student's year and subject
 # data
-ggplot(dat, aes(year, mean_dat$m1))
+ggplot(dat, aes(year, mean_dat$m2))
 # saving data into a variable
-d <- ggplot(data = dat, aes(year, mean_dat$m1))
+d <- ggplot(data = dat, aes(year, mean_dat$m2))
 # mapping data with no subject label, use "jitter" to improve the graph and avoid gridding
 d + geom_jitter(aes(colour = year, shape = subject))
 # adding dark theme
 l <- d + geom_jitter(aes(colour = year, shape = subject)) + theme_grey()
 # adding labels
 l + labs(
-  title = "Performance approach",
+  title = "Performance avoidance",
   subtitle = "Mean results for all students",
   caption = "Taken from: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
@@ -247,19 +249,20 @@ l + labs(
   colour = "Year"
 )
 
-# Plot mean results of mastery approache questions for all students
+# m3
+# Plot mean results of mastery approach questions for all students
 # with relation to student's year and subject
 # data
-ggplot(dat, aes(year, mean_dat$m1))
+ggplot(dat, aes(year, mean_dat$m3))
 # saving data into a variable
-d <- ggplot(data = dat, aes(year, mean_dat$m1))
+d <- ggplot(data = dat, aes(year, mean_dat$m3))
 # mapping data with no subject label, use "jitter" to improve the graph and avoid gridding
 d + geom_jitter(aes(colour = year, shape = subject))
 # adding dark theme
 l <- d + geom_jitter(aes(colour = year, shape = subject)) + theme_grey()
 # adding labels
 l + labs(
-  title = "Performance approach",
+  title = "Mastery approach",
   subtitle = "Mean results for all students",
   caption = "Taken from: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
@@ -267,19 +270,20 @@ l + labs(
   colour = "Year"
 )
 
+# m4
 # Plot mean results of mastery avoidance questions for all students
 # with relation to student's year and subject
 # data
-ggplot(dat, aes(year, mean_dat$m1))
+ggplot(dat, aes(year, mean_dat$m4))
 # saving data into a variable
-d <- ggplot(data = dat, aes(year, mean_dat$m1))
+d <- ggplot(data = dat, aes(year, mean_dat$m4))
 # mapping data with no subject label, use "jitter" to improve the graph and avoid gridding
 d + geom_jitter(aes(colour = year, shape = subject))
 # adding dark theme
 l <- d + geom_jitter(aes(colour = year, shape = subject)) + theme_grey()
 # adding labels
 l + labs(
-  title = "Performance approach",
+  title = "Mastery avoidance",
   subtitle = "Mean results for all students",
   caption = "Taken from: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
