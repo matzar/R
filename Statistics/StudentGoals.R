@@ -249,7 +249,7 @@ c <- t + scale_colour_brewer(palette = "Pastel1")
 c + labs(
   title = "Students' grade-orientation focus across:
 different years of study, sexes and subjects.",
-  subtitle = "How motivated are students by the fear of performing poorly?",
+  subtitle = "How motivated are students by fear of performing poorly?",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year: 1 - 4",
   y = "Answer: 1 (Low) - 7 (High)",
