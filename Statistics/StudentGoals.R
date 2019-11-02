@@ -222,7 +222,7 @@ t <- s + theme_dark()
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Performance approach",
+  title = "Student performance approach wtih regards to subject and sex",
   subtitle = "Mean results for all students",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
@@ -245,7 +245,7 @@ t <- s + theme_dark()
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Performance avoidance",
+  title = "Student performance avoidance with regards to subject and sex",
   subtitle = "Mean results for all students",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
@@ -268,7 +268,7 @@ t <- s + theme_dark()
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Mastery approach",
+  title = "Student mastery approach with regards to subject and sex",
   subtitle = "Mean results for all students",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
@@ -291,7 +291,7 @@ t <- s + theme_dark()
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Mastery avoidance",
+  title = "Student mastery avoidance with regards to subject and sex",
   subtitle = "Mean results for all students",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
