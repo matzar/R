@@ -215,7 +215,7 @@ d <- ggplot(data = dat, aes(year, mean_dat$m1))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
-s <- l + geom_smooth(se = TRUE)
+s <- l + geom_smooth(se = TRUE, formula = y ~ x)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
@@ -238,7 +238,7 @@ d <- ggplot(data = dat, aes(year, mean_dat$m2))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
-s <- l + geom_smooth(se = FALSE)
+s <- l + geom_smooth(se = TRUE, formula = y ~ log(x))
 # adding theme
 t <- s + theme_dark()
 # adding colouring
@@ -261,7 +261,7 @@ d <- ggplot(data = dat, aes(year, mean_dat$m3))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
-s <- l + geom_smooth(se = FALSE)
+s <- l + geom_smooth(se = TRUE, formula = y ~ log(x))
 # adding theme
 t <- s + theme_dark()
 # adding colouring
@@ -284,7 +284,7 @@ d <- ggplot(data = dat, aes(year, mean_dat$m4))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
-s <- l + geom_smooth(se = FALSE)
+s <- l + geom_smooth(se = TRUE, formula = y ~ log(x))
 # adding theme
 t <- s + theme_dark()
 # adding colouring
