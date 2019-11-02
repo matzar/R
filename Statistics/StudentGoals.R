@@ -215,7 +215,7 @@ d <- ggplot(data = dat, aes(year, mean_dat$m1))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
-s <- l + geom_smooth(se = TRUE, method = stats::loess, formula = y ~ x)
+s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
@@ -224,7 +224,7 @@ c <- t + scale_colour_brewer(palette = "Pastel1")
 c + labs(
   title = "Performance approach",
   subtitle = "Mean results for all students",
-  caption = "Taken from: Elliot, A. J. and McGregor, H. A. (2001)",
+  caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
   y = "Answer (1-7)",
   colour = "Year"
@@ -238,7 +238,7 @@ d <- ggplot(data = dat, aes(year, mean_dat$m2))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
-s <- l + geom_smooth(se = TRUE, formula = y ~ log(x))
+s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
@@ -247,7 +247,7 @@ c <- t + scale_colour_brewer(palette = "Pastel1")
 c + labs(
   title = "Performance avoidance",
   subtitle = "Mean results for all students",
-  caption = "Taken from: Elliot, A. J. and McGregor, H. A. (2001)",
+  caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
   y = "Answer (1-7)",
   colour = "Year"
@@ -261,7 +261,7 @@ d <- ggplot(data = dat, aes(year, mean_dat$m3))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
-s <- l + geom_smooth(se = TRUE, formula = y ~ log(x))
+s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
@@ -270,7 +270,7 @@ c <- t + scale_colour_brewer(palette = "Pastel1")
 c + labs(
   title = "Mastery approach",
   subtitle = "Mean results for all students",
-  caption = "Taken from: Elliot, A. J. and McGregor, H. A. (2001)",
+  caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
   y = "Answer (1-7)",
   colour = "Year"
@@ -284,7 +284,7 @@ d <- ggplot(data = dat, aes(year, mean_dat$m4))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
-s <- l + geom_smooth(se = TRUE, formula = y ~ log(x))
+s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
@@ -293,7 +293,7 @@ c <- t + scale_colour_brewer(palette = "Pastel1")
 c + labs(
   title = "Mastery avoidance",
   subtitle = "Mean results for all students",
-  caption = "Taken from: Elliot, A. J. and McGregor, H. A. (2001)",
+  caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
   y = "Answer (1-7)",
   colour = "Year"
