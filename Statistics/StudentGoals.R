@@ -273,9 +273,10 @@ c + labs(
   title = "Student mastery approach with regards to subject and sex",
   subtitle = "Mean results for all students",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
-  x = "Year (1-4)",
-  y = "Answer (1-7)",
-  colour = "Year"
+  x = "Year: 1 - 4",
+  y = "Answer: 1 (Low) - 7 (High)",
+  colour = "Sex",
+  shape = "Subject"
 )
 
 # m4
@@ -296,9 +297,10 @@ c + labs(
   title = "Student mastery avoidance with regards to subject and sex",
   subtitle = "Mean results for all students",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
-  x = "Year (1-4)",
-  y = "Answer (1-7)",
-  colour = "Year"
+  x = "Year: 1 - 4",
+  y = "Answer: 1 (Low) - 7 (High)",
+  colour = "Sex",
+  shape = "Subject"
 )
 
 ## Statistical Data Analysis of Student Goals ##
