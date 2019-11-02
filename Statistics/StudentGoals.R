@@ -187,30 +187,36 @@ ggplot(dat, aes(seq, q1)) + geom_point(aes(color = sex), position = "jitter") +
 
 mean_dat <- dat
 # get mean from q1, q2, q3 columns (Performance approach questions) for all the students
-# save the results in 'm1' colum and add it to mean_dat table
+# save the results in 'm1' colum and add it to 'mean_dat' table
 mean_dat <- mean_dat %>% 
   mutate(m1 = pmap_dbl(select(., c("q1", "q2", "q3")), function(...) mean(c(...))))
 
 # get mean from q4, q5, q6 columns (Performance avoidance questions) for all the students,
-# save the results in 'm2' colum and add it to mean_dat table
+# save the results in 'm2' colum and add it to 'mean_dat' table
 mean_dat <- mean_dat %>% 
   mutate(m2 = pmap_dbl(select(., c("q4", "q5", "q6")), function(...) mean(c(...))))
 
 # get mean from q7, q8, q9 columns (Mastery approach questions) for all the students
-# save the results in 'm3' colum and add it to mean_dat table
+# save the results in 'm3' colum and add it to 'mean_dat' table
 mean_dat <- mean_dat %>% 
   mutate(m3 = pmap_dbl(select(., c("q7", "q8", "q9")), function(...) mean(c(...))))
 
 # get mean from q10, q11, q12 columns (Mastery avoidance questions) for all the students 
-# save the results in 'm4' colum and add it to mean_dat table
+# save the results in 'm4' colum and add it to 'mean_dat' table
 mean_dat <- mean_dat %>% 
   mutate(m4 = pmap_dbl(select(., c("q10", "q11", "q12")), function(...) mean(c(...))))
 view(mean_dat)
 
-# get mean from interest column (Course interestedness expectation) for all the students 
-# save the results in 'm_interest' colum and add it to mean_dat table
+# get mean from 'interest' column (Course interestedness expectations) for all the students 
+# save the results in 'm_interest' colum and add it to 'mean_dat' table
 mean_dat <- mean_dat %>% 
   mutate(m_interest = pmap_dbl(select(., c("interest")), function(...) mean(c(...))))
+view(mean_dat)
+
+# get mean from 'enjoy' column (Course enjoyment expectations) for all the students 
+# save the results in 'm_interest' colum and add it to 'mean_dat' table
+mean_dat <- mean_dat %>% 
+  mutate(m_enjoy = pmap_dbl(select(., c("enjoy")), function(...) mean(c(...))))
 view(mean_dat)
 
 # m1
