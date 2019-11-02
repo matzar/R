@@ -343,10 +343,10 @@ c <- t + scale_colour_brewer(palette = "Pastel1")
 c + labs(
   title = "Student's course interestedness expectations across:
 different years of study, sexes and subjects.",
-  subtitle = "How important it is to students to do better than others?",
+  subtitle = "\'I expect my courses this semester to be very interesting\'",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
-  y = "Answer: 1 (Low) - 7 (High)",
+  y = "Expectations: 1 (Low) - 7 (High)",
   colour = "Sex",
   shape = "Subject"
 )
