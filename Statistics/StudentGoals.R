@@ -223,7 +223,7 @@ c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
   title = "Student performance approach wtih regards to subject and sex",
-  subtitle = "Mean results for all students",
+  subtitle = "How important it is to students to do better than others",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
   y = "Answer (1-7)",
