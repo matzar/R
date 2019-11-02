@@ -341,7 +341,7 @@ t <- s + theme_dark()
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Student's course interestedness expectations across:
+  title = "Students' course interestedness expectations across:
 different years of study, sexes and subjects.",
   subtitle = "\'I expect my courses this semester to be very interesting\'",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
@@ -350,6 +350,10 @@ different years of study, sexes and subjects.",
   colour = "Sex",
   shape = "Subject"
 )
+# chi-squared
+chi_sqrt <- ggplot(data = dat, aes(year, mean_dat$m_interest)) +
+  stat_function(fun = dchisq, args = list(df = 8))
+chi_sqrt
 
 # enjoy
 # Plot mean results of course enjoyment expectations questions 
@@ -366,12 +370,12 @@ t <- s + theme_dark()
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Student's grade-orientation focus across:
+  title = "Students' course enjoyment expectations across:
 different years of study, sexes and subjects.",
-  subtitle = "How important it is to students to do better than others?",
+  subtitle = "\'I expect my courses this semester to be very enjoyable\'",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
-  y = "Answer: 1 (Low) - 7 (High)",
+  y = "Expectations: 1 (Low) - 7 (High)",
   colour = "Sex",
   shape = "Subject"
 )
@@ -391,12 +395,12 @@ t <- s + theme_dark()
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Student's grade-orientation focus across:
+  title = "Students' importance scale between understanding and grades across:
 different years of study, sexes and subjects.",
-  subtitle = "How important it is to students to do better than others?",
+  subtitle = "Scale: Primarly understanding (1) / Equal Importance (4) / Primarly grades (7)",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
-  y = "Answer: 1 (Low) - 7 (High)",
+  y = "Scale: 1 (Understanding) - 4 (Equal) - 7 (Grades)",
   colour = "Sex",
   shape = "Subject"
 )
