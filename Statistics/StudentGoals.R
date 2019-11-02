@@ -215,7 +215,7 @@ d <- ggplot(data = dat, aes(year, mean_dat$m1))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
-s <- l + geom_smooth(se = FALSE)
+s <- l + geom_smooth(se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
