@@ -227,8 +227,8 @@ view(mean_dat)
 
 
 # m1
-# Plot mean results of performance approach questions for all students
-# with relation to student's year and subject
+# Plot mean results of performance approach questions
+# for all students with relation to student's year, sex and subject
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$m1))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
@@ -252,8 +252,8 @@ different years of study, sexes and subjects.",
 )
 
 # m2
-# Plot mean results of performance avoidance questions for all students
-# with relation to student's year and subject
+# Plot mean results of performance avoidance
+# for all students with relation to student's year, sex and subject
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$m2))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
@@ -277,8 +277,8 @@ different years of study, sexes and subjects.",
 )
 
 # m3
-# Plot mean results of mastery approach questions for all students
-# with relation to student's year and subject
+# Plot mean results of mastery approach questions
+# for all students with relation to student's year, sex and subject
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$m3))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
@@ -302,8 +302,8 @@ different years of study, sexes and subjects.",
 )
 
 # m4
-# Plot mean results of mastery avoidance questions for all students
-# with relation to student's year and subject
+# Plot mean results of mastery avoidance questions
+# for all students with relation to student's year, sex and subject
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$m4))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
@@ -327,10 +327,10 @@ different years of study, sexes and subjects.",
 )
 
 # interest
-# Plot mean results of performance approach questions for all students
-# with relation to student's year and subject
+# Plot mean results of course interestedness expectations questions
+# for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$m1))
+d <- ggplot(data = dat, aes(year, mean_dat$m_interest))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
@@ -341,7 +341,7 @@ t <- s + theme_dark()
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Student's grade-orientation focus across:
+  title = "Student's course interestedness expectations across:
 different years of study, sexes and subjects.",
   subtitle = "How important it is to students to do better than others?",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
@@ -352,10 +352,10 @@ different years of study, sexes and subjects.",
 )
 
 # enjoy
-# Plot mean results of performance approach questions for all students
-# with relation to student's year and subject
+# Plot mean results of course enjoyment expectations questions 
+# for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$m1))
+d <- ggplot(data = dat, aes(year, mean_dat$m_enjoy))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
@@ -377,10 +377,10 @@ different years of study, sexes and subjects.",
 )
 
 # mastgrad
-# Plot mean results of performance approach questions for all students
-# with relation to student's year and subject
+# Plot mean results of (Primarly understanding/Equal Importance/Primarly grades)scale 
+# for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$m1))
+d <- ggplot(data = dat, aes(year, mean_dat$m_mastgrad))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
