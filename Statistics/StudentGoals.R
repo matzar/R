@@ -222,7 +222,8 @@ t <- s + theme_dark()
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Student's grade-orientation focus across:\ndifferent years of study, sexes and subjects.",
+  title = "Student's grade-orientation focus across:
+different years of study, sexes and subjects.",
   subtitle = "How important it is to students to do better than others?",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
@@ -246,7 +247,8 @@ t <- s + theme_dark()
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Student's grade-orientation focus across:\ndifferent years of study, sexes and subjects.",
+  title = "Student's grade-orientation focus across:
+different years of study, sexes and subjects.",
   subtitle = "How motivated are students by fear of performing poorly?",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year: 1 - 4",
