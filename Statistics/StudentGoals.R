@@ -219,12 +219,6 @@ mean_dat <- mean_dat %>%
   mutate(m_enjoy = pmap_dbl(select(., c("enjoy")), function(...) mean(c(...))))
 view(mean_dat)
 
-# get mean from 'enjoy' column (Course enjoyment expectations) for all the students 
-# save the results in 'm_interest' colum and add it to 'mean_dat' table
-mean_dat <- mean_dat %>% 
-  mutate(m_enjoy = pmap_dbl(select(., c("enjoy")), function(...) mean(c(...))))
-view(mean_dat)
-
 # get mean from 'mastgrad' column (1 (Understanding) - 7 (Grades) Importance) for all the students 
 # save the results in 'm_interest' colum and add it to 'mean_dat' table
 mean_dat <- mean_dat %>% 
@@ -327,6 +321,81 @@ different years of study, sexes and subjects.",
   subtitle = "Students' fear of not mastering the course.",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year: 1 - 4",
+  y = "Answer: 1 (Low) - 7 (High)",
+  colour = "Sex",
+  shape = "Subject"
+)
+
+# interest
+# Plot mean results of performance approach questions for all students
+# with relation to student's year and subject
+# data
+d <- ggplot(data = dat, aes(year, mean_dat$m1))
+# mapping data (use "jitter" to improve the graph and avoid gridding)
+l <- d + geom_jitter(aes(colour = sex, shape = subject))
+# smoothing
+s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
+# adding theme
+t <- s + theme_dark()
+# adding colouring
+c <- t + scale_colour_brewer(palette = "Pastel1")
+# adding labels
+c + labs(
+  title = "Student's grade-orientation focus across:
+different years of study, sexes and subjects.",
+  subtitle = "How important it is to students to do better than others?",
+  caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
+  x = "Year (1-4)",
+  y = "Answer: 1 (Low) - 7 (High)",
+  colour = "Sex",
+  shape = "Subject"
+)
+
+# enjoy
+# Plot mean results of performance approach questions for all students
+# with relation to student's year and subject
+# data
+d <- ggplot(data = dat, aes(year, mean_dat$m1))
+# mapping data (use "jitter" to improve the graph and avoid gridding)
+l <- d + geom_jitter(aes(colour = sex, shape = subject))
+# smoothing
+s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
+# adding theme
+t <- s + theme_dark()
+# adding colouring
+c <- t + scale_colour_brewer(palette = "Pastel1")
+# adding labels
+c + labs(
+  title = "Student's grade-orientation focus across:
+different years of study, sexes and subjects.",
+  subtitle = "How important it is to students to do better than others?",
+  caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
+  x = "Year (1-4)",
+  y = "Answer: 1 (Low) - 7 (High)",
+  colour = "Sex",
+  shape = "Subject"
+)
+
+# mastgrad
+# Plot mean results of performance approach questions for all students
+# with relation to student's year and subject
+# data
+d <- ggplot(data = dat, aes(year, mean_dat$m1))
+# mapping data (use "jitter" to improve the graph and avoid gridding)
+l <- d + geom_jitter(aes(colour = sex, shape = subject))
+# smoothing
+s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
+# adding theme
+t <- s + theme_dark()
+# adding colouring
+c <- t + scale_colour_brewer(palette = "Pastel1")
+# adding labels
+c + labs(
+  title = "Student's grade-orientation focus across:
+different years of study, sexes and subjects.",
+  subtitle = "How important it is to students to do better than others?",
+  caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
+  x = "Year (1-4)",
   y = "Answer: 1 (Low) - 7 (High)",
   colour = "Sex",
   shape = "Subject"
