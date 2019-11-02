@@ -207,6 +207,12 @@ mean_dat <- mean_dat %>%
   mutate(m4 = pmap_dbl(select(., c("q10", "q11", "q12")), function(...) mean(c(...))))
 view(mean_dat)
 
+# get mean from interest column (Course interestedness expectation) for all the students 
+# save the results in 'm_interest' colum and add it to mean_dat table
+mean_dat <- mean_dat %>% 
+  mutate(m_interest = pmap_dbl(select(., c("interest")), function(...) mean(c(...))))
+view(mean_dat)
+
 # m1
 # Plot mean results of performance approach questions for all students
 # with relation to student's year and subject
