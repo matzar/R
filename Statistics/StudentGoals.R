@@ -219,6 +219,19 @@ mean_dat <- mean_dat %>%
   mutate(m_enjoy = pmap_dbl(select(., c("enjoy")), function(...) mean(c(...))))
 view(mean_dat)
 
+# get mean from 'enjoy' column (Course enjoyment expectations) for all the students 
+# save the results in 'm_interest' colum and add it to 'mean_dat' table
+mean_dat <- mean_dat %>% 
+  mutate(m_enjoy = pmap_dbl(select(., c("enjoy")), function(...) mean(c(...))))
+view(mean_dat)
+
+# get mean from 'mastgrad' column (1 (Understanding) - 7 (Grades) Importance) for all the students 
+# save the results in 'm_interest' colum and add it to 'mean_dat' table
+mean_dat <- mean_dat %>% 
+  mutate(m_mastgrad = pmap_dbl(select(., c("mastgrad")), function(...) mean(c(...))))
+view(mean_dat)
+
+
 # m1
 # Plot mean results of performance approach questions for all students
 # with relation to student's year and subject
