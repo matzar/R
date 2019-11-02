@@ -222,12 +222,13 @@ t <- s + theme_dark()
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Student performance approach wtih regards to subject and sex",
-  subtitle = "How important it is to students to do better than others",
+  title = "Student's grade-orientation focus across:\ndifferent years of study, sexes and subjects.",
+  subtitle = "How important it is to students to do better than others?",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
-  y = "Answer (1-7)",
-  colour = "Year"
+  y = "Answer: 1 (Not important) - 7 (Very important)",
+  colour = "Sex",
+  shape = "Subject"
 )
 
 # m2
@@ -245,12 +246,13 @@ t <- s + theme_dark()
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Student performance avoidance with regards to subject and sex",
-  subtitle = "Mean results for all students",
+  title = "Student performance avoidance with regards to subject and sex.",
+  subtitle = "Are students across different years of study motivated by fear of performing poorly\nand  does student's sex and subject have?",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
-  y = "Answer (1-7)",
-  colour = "Year"
+  y = "Answer: 1 (Not true of me) - 7 (Very true of me)",
+  colour = "Sex",
+  shape = "Subject"
 )
 
 # m3
