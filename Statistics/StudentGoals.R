@@ -230,26 +230,65 @@ view(mean_dat)
 
 ## overall doesn't matter since data is picked accordingly anyway
 # arrange (sort in ascending order) 'mean_dat' by year
-# mean_dat <- arrange(mean_dat, year)
-# view(mean_dat)
-# 
-ggplot(mean_dat, aes(mean_dat$year, mean_dat$m_interest)) + geom_jitter() + geom_smooth()
-auto_split <- initial_split(data = Auto, prop = 0.5)
+# mean_dat_year <- arrange(mean_dat, year)
+# view(mean_dat_year)
+
+## Cross validation 
+ggplot(mean_dat, aes(year, m2, fill = sex, colour = sex)) + geom_jitter() + geom_smooth(se = FALSE)
+  
+
+auto_split <- initial_split(data = mean_dat, prop = 0.5)
 auto_train <- training(auto_split)
 auto_test <- testing(auto_split)
 
-auto_lm <- glm(mpg ~ horsepower, data = auto_train)
+auto_lm <- glm(m2 ~ year, data = auto_train)
 summary(auto_lm)
+
+(train_mse <- augment(mean_dat, newdata = auto_train) %>%
+    mutate(.resid = m2 - .fitted,
+           .resid2 = .resid ^ 2) %$%
+    mean(.resid2))
+
+loocv_data <- loo_cv(mean_dat)
+loocv_data
+
+first_resample <- loocv_data$splits[[1]]
+first_resample
+
+training(first_resample)
+assessment(first_resample)
+
+holdout_results <- function(splits) {
+  # Fit the model to the n-1
+  mod <- glm(m1 ~ year, data = analysis(splits))
+  
+  # Save the heldout observation
+  holdout <- assessment(splits)
+  
+  # `augment` will save the predictions with the holdout data set
+  res <- augment(mod, newdata = holdout) %>%
+    # calculate residuals for future use
+    mutate(.resid = m1 - .fitted)
+  
+  # Return the assessment data set with the additional columns
+  res
+}
+
+holdout_results(loocv_data$splits[[1]])
+
+loocv_data$results <- map(loocv_data$splits, holdout_results)
+loocv_data$mse <- map_dbl(loocv_data$results, ~ mean(.x$.resid ^ 2))
+loocv_data
 
 # m1
 # Plot mean results of performance approach questions
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$m1))
+d <- ggplot(data = dat, aes(mean_dat_year$year, mean_dat$m1))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
-s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
+s <- l + geom_smooth(method = loess, formula = y ~ x, se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
@@ -274,7 +313,7 @@ d <- ggplot(data = dat, aes(year, mean_dat$m2))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
-s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
+s <- l + geom_smooth(method = loess, formula = y ~ log(x), se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
