@@ -41,13 +41,21 @@ ggplot(Auto, aes(horsepower, mpg)) + geom_bin2d()
 ggplot(Auto, aes(horsepower, mpg)) + geom_count()
 ggplot(Auto, aes(horsepower, mpg)) + geom_density_2d()
 ggplot(Auto, aes(horsepower, mpg)) + geom_density2d()
-ggplot(Auto, aes(horsepower, mpg, y = Auto$name)) + geom_dotplot()
+ggplot(Auto, aes(horsepower, mpg)) + geom_hex()
+ggplot(Auto, aes(horsepower, mpg)) + geom_path()
+ggplot(Auto, aes(horsepower, mpg)) + geom_point()
+ggplot(Auto, aes(horsepower, mpg, ymin=10, ymax=10)) + geom_pointrange()
+ggplot(Auto, aes(horsepower, mpg)) + geom_polygon()
+ggplot(Auto, aes(horsepower, mpg)) + geom_quantile()
+install.packages()
 ```
 
 Other interesting geoms
-```{r}
+`geom_hline()
 ggplot(Auto, aes(horsepower, mpg, ymin = 1, ymax = 1)) + geom_crossbar()
-ggplot(Auto, aes(horsepower, mpg, xend = 1, yend = 1)) + geom_curve()
+ggplot(Auto, aes(horsepower, mpg, ymin = 100, ymax = 100)) + geom_errorbar()
+ggplot(Auto, aes(horsepower, mpg, xmin = 100, xmax = 100)) + geom_errorbarh()
+ggplot(Auto, aes(horsepower, mpg, xend = 100, yend = 100)) + geom_curve()
 ggplot(Auto, aes(horsepower, mpg, y = Auto$name)) + geom_dotplot()
 ```
 
