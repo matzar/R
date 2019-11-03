@@ -40,9 +40,14 @@ ggplot(Auto, aes(horsepower, mpg)) +
   geom_smooth(method = 'lm', se = FALSE)
 ```
 
-
+Mean Squared Error (MSE)
 ```{r}
+auto_split <- initial_split(data = Auto, prop = 0.5)
+auto_train <- training(auto_split)
+auto_test <- testing(auto_split)
 
+auto_lm <- glm(mpg ~ horsepower, data = auto_train)
+summary(auto_lm)
 ```
 
 

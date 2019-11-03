@@ -1806,14 +1806,47 @@ Auto</code></pre>
 <!-- rnb-plot-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>Mean Squared Error (MSE)</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXV0b19zcGxpdCA8LSBpbml0aWFsX3NwbGl0KGRhdGEgPSBBdXRvLCBwcm9wID0gMC41KVxuYXV0b190cmFpbiA8LSB0cmFpbmluZyhhdXRvX3NwbGl0KVxuYXV0b190ZXN0IDwtIHRlc3RpbmcoYXV0b19zcGxpdClcblxuYXV0b19sbSA8LSBnbG0obXBnIH4gaG9yc2Vwb3dlciwgZGF0YSA9IGF1dG9fdHJhaW4pXG5zdW1tYXJ5KGF1dG9fbG0pXG5gYGAifQ== -->
+<pre class="r"><code>auto_split &lt;- initial_split(data = Auto, prop = 0.5)
+auto_train &lt;- training(auto_split)
+auto_test &lt;- testing(auto_split)
+
+auto_lm &lt;- glm(mpg ~ horsepower, data = auto_train)
+summary(auto_lm)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxuZ2xtKGZvcm11bGEgPSBtcGcgfiBob3JzZXBvd2VyLCBkYXRhID0gYXV0b190cmFpbilcblxuRGV2aWFuY2UgUmVzaWR1YWxzOiBcbiAgICAgTWluICAgICAgICAxUSAgICBNZWRpYW4gICAgICAgIDNRICAgICAgIE1heCAgXG4tMTMuMzMzMSAgIC0zLjEwNzEgICAtMC40NDMxICAgIDIuODk1OSAgIDE1LjQ4ODUgIFxuXG5Db2VmZmljaWVudHM6XG4gICAgICAgICAgICAgRXN0aW1hdGUgU3RkLiBFcnJvciB0IHZhbHVlIFByKD58dHwpICAgIFxuKEludGVyY2VwdCkgMzkuNTQyNDg0ICAgMS4wMzQzODkgICAzOC4yMyAgIDwyZS0xNiAqKipcbmhvcnNlcG93ZXIgIC0wLjE1NTY4NiAgIDAuMDA5Mzc1ICAtMTYuNjEgICA8MmUtMTYgKioqXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuKERpc3BlcnNpb24gcGFyYW1ldGVyIGZvciBnYXVzc2lhbiBmYW1pbHkgdGFrZW4gdG8gYmUgMjMuNDY5ODkpXG5cbiAgICBOdWxsIGRldmlhbmNlOiAxMTAyNS4yICBvbiAxOTUgIGRlZ3JlZXMgb2YgZnJlZWRvbVxuUmVzaWR1YWwgZGV2aWFuY2U6ICA0NTUzLjIgIG9uIDE5NCAgZGVncmVlcyBvZiBmcmVlZG9tXG5BSUM6IDExNzguN1xuXG5OdW1iZXIgb2YgRmlzaGVyIFNjb3JpbmcgaXRlcmF0aW9uczogMlxuIn0= -->
+<pre><code>
+Call:
+glm(formula = mpg ~ horsepower, data = auto_train)
+
+Deviance Residuals: 
+     Min        1Q    Median        3Q       Max  
+-13.3331   -3.1071   -0.4431    2.8959   15.4885  
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 39.542484   1.034389   38.23   &lt;2e-16 ***
+horsepower  -0.155686   0.009375  -16.61   &lt;2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 23.46989)
+
+    Null deviance: 11025.2  on 195  degrees of freedom
+Residual deviance:  4553.2  on 194  degrees of freedom
+AIC: 1178.7
+
+Number of Fisher Scoring iterations: 2</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiQ3Jvc3MtdmFsaWRhdGlvbiBtZXRob2RzIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpMaWJyYXJpZXMKYGBge3J9CmxpYnJhcnkodGlkeXZlcnNlKQpsaWJyYXJ5KG1vZGVscikKbGlicmFyeShyc2FtcGxlKQpsaWJyYXJ5KGJyb29tKQpsaWJyYXJ5KG1hZ3JpdHRyKQpgYGAKClNldCB0aGluZ3MgdXAgZm9yIGV4YW1wbGVzCmBgYHtyfQpzZXQuc2VlZCgxMjM0KQoKdGhlbWVfc2V0KHRoZW1lX21pbmltYWwoKSkKYGBgCgojIFJlZ3Jlc3Npb24KSGVyZSB3ZSB3aWxsIGV4YW1pbmUgdGhlIHJlbGF0aW9uc2hpcCBiZXR3ZWVuIGhvcnNlcG93ZXIgYW5kIGNhciBtaWxlYWdlIGluIHRoZSBBdXRvIGRhdGFzZXQgKGZvdW5kIGluIGxpYnJhcnkoSVNMUikpOgpgYGB7cn0KbGlicmFyeShJU0xSKQoKQXV0byA8LSBhc190aWJibGUoQXV0bykKQXV0bwpgYGAKCmBgYHtyfQpnZ3Bsb3QoQXV0bywgYWVzKGhvcnNlcG93ZXIsIG1wZykpICsgCiAgZ2VvbV9wb2ludCgpCmBgYAoKVGhlIHJlbGF0aW9uc2hpcCBkb2VzIG5vdCBhcHBlYXIgdG8gYmUgc3RyaWN0bHkgbGluZWFyOgpgYGB7cn0KZ2dwbG90KEF1dG8sIGFlcyhob3JzZXBvd2VyLCBtcGcpKSArCiAgZ2VvbV9wb2ludCgpICsgCiAgZ2VvbV9zbW9vdGgobWV0aG9kID0gJ2xtJywgc2UgPSBGQUxTRSkKYGBgCgoKYGBge3J9CgpgYGAKCgoKCgoKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiQ3Jvc3MtdmFsaWRhdGlvbiBtZXRob2RzIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpMaWJyYXJpZXMKYGBge3J9CmxpYnJhcnkodGlkeXZlcnNlKQpsaWJyYXJ5KG1vZGVscikKbGlicmFyeShyc2FtcGxlKQpsaWJyYXJ5KGJyb29tKQpsaWJyYXJ5KG1hZ3JpdHRyKQpgYGAKClNldCB0aGluZ3MgdXAgZm9yIGV4YW1wbGVzCmBgYHtyfQpzZXQuc2VlZCgxMjM0KQoKdGhlbWVfc2V0KHRoZW1lX21pbmltYWwoKSkKYGBgCgojIFJlZ3Jlc3Npb24KSGVyZSB3ZSB3aWxsIGV4YW1pbmUgdGhlIHJlbGF0aW9uc2hpcCBiZXR3ZWVuIGhvcnNlcG93ZXIgYW5kIGNhciBtaWxlYWdlIGluIHRoZSBBdXRvIGRhdGFzZXQgKGZvdW5kIGluIGxpYnJhcnkoSVNMUikpOgpgYGB7cn0KbGlicmFyeShJU0xSKQoKQXV0byA8LSBhc190aWJibGUoQXV0bykKQXV0bwpgYGAKCmBgYHtyfQpnZ3Bsb3QoQXV0bywgYWVzKGhvcnNlcG93ZXIsIG1wZykpICsgCiAgZ2VvbV9wb2ludCgpCmBgYAoKVGhlIHJlbGF0aW9uc2hpcCBkb2VzIG5vdCBhcHBlYXIgdG8gYmUgc3RyaWN0bHkgbGluZWFyOgpgYGB7cn0KZ2dwbG90KEF1dG8sIGFlcyhob3JzZXBvd2VyLCBtcGcpKSArCiAgZ2VvbV9wb2ludCgpICsgCiAgZ2VvbV9zbW9vdGgobWV0aG9kID0gJ2xtJywgc2UgPSBGQUxTRSkKYGBgCgpNZWFuIFNxdWFyZWQgRXJyb3IgKE1TRSkKYGBge3J9CmF1dG9fc3BsaXQgPC0gaW5pdGlhbF9zcGxpdChkYXRhID0gQXV0bywgcHJvcCA9IDAuNSkKYXV0b190cmFpbiA8LSB0cmFpbmluZyhhdXRvX3NwbGl0KQphdXRvX3Rlc3QgPC0gdGVzdGluZyhhdXRvX3NwbGl0KQoKYXV0b19sbSA8LSBnbG0obXBnIH4gaG9yc2Vwb3dlciwgZGF0YSA9IGF1dG9fdHJhaW4pCnN1bW1hcnkoYXV0b19sbSkKYGBgCgoKCgoKCgo=</div>
 
 
 

@@ -1,5 +1,8 @@
 library(tidyverse)
 
+# set seed for randomization to ensure that results are always reproduced precisly
+set.seed(1234)
+
 # read csv file (worse variable recognition)
 f <- "data/StudentGoalsData.csv"
 StudentGoalsData <- read_csv(f)
@@ -230,7 +233,13 @@ view(mean_dat)
 # mean_dat <- arrange(mean_dat, year)
 # view(mean_dat)
 # 
-# ggplot(mean_dat, aes(mean_dat$year, mean_dat$m_interest)) + geom_jitter() + geom_smooth()
+ggplot(mean_dat, aes(mean_dat$year, mean_dat$m_interest)) + geom_jitter() + geom_smooth()
+auto_split <- initial_split(data = Auto, prop = 0.5)
+auto_train <- training(auto_split)
+auto_test <- testing(auto_split)
+
+auto_lm <- glm(mpg ~ horsepower, data = auto_train)
+summary(auto_lm)
 
 # m1
 # Plot mean results of performance approach questions
