@@ -208,9 +208,14 @@ write_csv(mean_dat, "data/MeanCleanedStudentGoals.csv")
 dat_tibble <- as_tibble(mean_dat)
 
 ## CLASSIFICATION ###################################################
-dat_tibble %>%
-  head() %>%
-  knitr::kable()
+# dat_tibble %>%
+#   head() %>%
+#   knitr::kable()
+
+# get only answers that are greater or equal to 5
+dat_tibble_m1 <- filter(dat_tibble, m1 >= 5)
+
+beta <- tally(dat_tibble_m1)
 
 #####################################################################
 
