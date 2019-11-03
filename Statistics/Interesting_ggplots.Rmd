@@ -1,0 +1,66 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+Libraries
+```{r}
+library(tidyverse)
+library(modelr)
+library(rsample)
+library(broom)
+library(magrittr)
+```
+
+Set things up for examples
+```{r}
+set.seed(1234)
+
+theme_set(theme_minimal())
+```
+
+Interesting geoms (Geometric objects) from ggplot2
+```{r}
+ggplot(Auto, aes(horsepower, mpg)) + geom_bin2d()
+ggplot(Auto, aes(horsepower, mpg)) + geom_count()
+ggplot(Auto, aes(horsepower, mpg)) + geom_density_2d()
+ggplot(Auto, aes(horsepower, mpg)) + geom_density2d()
+ggplot(Auto, aes(horsepower, mpg)) + geom_hex()
+ggplot(Auto, aes(horsepower, mpg)) + geom_path()
+ggplot(Auto, aes(horsepower, mpg)) + geom_point()
+ggplot(Auto, aes(horsepower, mpg, ymin=10, ymax=10)) + geom_pointrange()
+ggplot(Auto, aes(horsepower, mpg)) + geom_polygon()
+ggplot(Auto, aes(horsepower, mpg)) + geom_quantile()
+# ggplot(Auto, aes(horsepower, mpg)) + geom_raster() # consider using geom_tile()
+ggplot(Auto, aes(horsepower, mpg)) + geom_tile()
+ggplot(Auto, aes(horsepower, mpg)) + geom_rug()
+ggplot(Auto, aes(horsepower, mpg)) + geom_smooth()
+ggplot(Auto, aes(horsepower, mpg, angle = 0, radius = 2)) + geom_spoke() # useful when you have variables that represent directions and distance
+ggplot(Auto, aes(horsepower, mpg)) + geom_tile()
+ggplot(Auto, aes(horsepower, mpg)) + geom_violin()
+```
+
+Other interesting geoms
+```{r}
+ggplot(Auto, aes(horsepower, mpg, ymin = 1, ymax = 1)) + geom_crossbar()
+ggplot(Auto, aes(horsepower, mpg, ymin = 100, ymax = 100)) + geom_errorbar()
+ggplot(Auto, aes(horsepower, mpg, xmin = 100, xmax = 100)) + geom_errorbarh()
+ggplot(Auto, aes(horsepower, mpg, xend = 100, yend = 100)) + geom_curve()
+ggplot(Auto, aes(horsepower, mpg, xend = 1, yend = 10)) + geom_segment()
+ggplot(Auto, aes(horsepower, mpg, y = Auto$name)) + geom_dotplot()
+ggplot(Auto, aes(horsepower, mpg, ymin = 100, ymax = 100)) + geom_ribbon()
+```

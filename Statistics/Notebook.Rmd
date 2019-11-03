@@ -33,32 +33,17 @@ set.seed(1234)
 theme_set(theme_minimal())
 ```
 
-
-
-Interesting geoms (Geometric objects) from ggplot2
 ```{r}
-ggplot(Auto, aes(horsepower, mpg)) + geom_bin2d()
-ggplot(Auto, aes(horsepower, mpg)) + geom_count()
-ggplot(Auto, aes(horsepower, mpg)) + geom_density_2d()
-ggplot(Auto, aes(horsepower, mpg)) + geom_density2d()
-ggplot(Auto, aes(horsepower, mpg)) + geom_hex()
-ggplot(Auto, aes(horsepower, mpg)) + geom_path()
-ggplot(Auto, aes(horsepower, mpg)) + geom_point()
-ggplot(Auto, aes(horsepower, mpg, ymin=10, ymax=10)) + geom_pointrange()
-ggplot(Auto, aes(horsepower, mpg)) + geom_polygon()
-ggplot(Auto, aes(horsepower, mpg)) + geom_quantile()
-# ggplot(Auto, aes(horsepower, mpg)) + geom_raster() # consider using geom_tile()
-ggplot(Auto, aes(horsepower, mpg)) + geom_tile()
+library(ISLR)
+
+Auto <- as_tibble(Auto)
+Auto
 ```
 
-Other interesting geoms
-`geom_hline()
-ggplot(Auto, aes(horsepower, mpg, ymin = 1, ymax = 1)) + geom_crossbar()
-ggplot(Auto, aes(horsepower, mpg, ymin = 100, ymax = 100)) + geom_errorbar()
-ggplot(Auto, aes(horsepower, mpg, xmin = 100, xmax = 100)) + geom_errorbarh()
-ggplot(Auto, aes(horsepower, mpg, xend = 100, yend = 100)) + geom_curve()
-ggplot(Auto, aes(horsepower, mpg, y = Auto$name)) + geom_dotplot()
-```
+
+
+
+
 
 
 

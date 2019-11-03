@@ -4,6 +4,8 @@ library(tidyverse)
 f <- "data/StudentGoalsData.csv"
 StudentGoalsData <- read_csv(f)
 
+log(StudentGoalsData)
+
 # read csv file
 # StudentGoalsData <- data.table::fread("data/StudentGoalsData.csv") # fread - better variable recognition
 
