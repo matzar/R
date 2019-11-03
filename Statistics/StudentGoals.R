@@ -1,4 +1,5 @@
-
+# copyright: Mateusz Zaremba 2019
+# contact: mat.zar@icloud.com
 
 library(tidyverse)
 library(modelr)
