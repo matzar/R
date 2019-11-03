@@ -1,3 +1,24 @@
+## Statistical Data Analysis of Student Goals ##
+# Recent evidence has shown that across a range of subject areas, 
+# undergraduates have different reasons for studying as they progress through
+# their degree programs. 
+# 1) Students initially focus on understanding (mastery goals) and
+# move to a more grade-oriented focus (performance goals) 
+# in later years and 
+# 2) students tend to demonstrate greater intrinsic motivation (e.g., 
+# interest and enjoyment) during their earlier studies rather than 
+# during the latter stages of their programmes.
+# The aim of this research is to examine whether this is the case, 
+# whether this differs for different subjects and/or different genders.
+# 4 categories:
+# - q1, q2, q3 - Performance approach questions
+# - q4, q5, q6 - Performance avoidance questions
+# - q7, q8, q9 - Mastery-Approach
+# - q10, q11, q12 - Mastery-Avoidance
+
+# Mann-Whitney-Wilcoxon Test
+# wilcox.test(mpg ~ am, data=mtcars)
+
 library(tidyverse)
 
 # set seed for randomization to ensure that results are always reproduced precisly
@@ -284,83 +305,14 @@ loocv_data
 loocv_data %>%
   summarize(mse = mean(mse))
 
-# loocv_data <- loocv_data %>% mutate(id = row_number())
-# mean_dat <- mean_dat  %>%  ungroup  %>%  select(-seq)
 loocv_data
 
-cv_mse <- tibble(
-  terms = seq(from = 1, to = 5),
-  mse_loocv = map_dbl(terms, poly_mse, loocv_data)
-)
-
-
-ggplot(loocv_data[1:2], aes(loocv_data$id, loocv_data$mse)) +
+ggplot(loocv_data[1:1], aes(loocv_data$id, loocv_data$mse)) +
   geom_line() +
   labs(title = "Comparing quadratic linear models",
        subtitle = "Using LOOCV",
        x = "Highest-order polynomial",
        y = "Mean Squared Error")
-
-# function to estimate heldout results for model
-holdout_results <- function(splits) {
-  # Fit the model to the n-1
-  mod <- glm(mean_dat$m1 ~ mean_dat$year, data = analysis(splits))
-  
-  # Save the heldout observation
-  holdout <- assessment(splits)
-  
-  # `augment` will save the predictions with the holdout data set
-  res <- augment(mod, newdata = holdout) %>%
-    # calculate residuals for future use
-    mutate(.resid = mean_dat$m1 - .fitted)
-  
-  # Return the assessment data set with the additional columns
-  res
-}
-
-scorecard_loocv <- loo_cv(scorecard) %>%
-  mutate(results = map(splits, holdout_results),
-         mse = map_dbl(results, ~ mean(.x$.resid ^ 2)))
-mean(scorecard_loocv$mse, na.rm = TRUE)
-
-# # modified function to estimate model with varying highest order polynomial
-# holdout_results <- function(splits, i) {
-#   # Fit the model to the n-1
-#   mod <- glm(m1 ~ poly(year, i), data = analysis(splits))
-# 
-#   # Save the heldout observation
-#   holdout <- assessment(splits)
-# 
-#   # `augment` will save the predictions with the holdout data set
-#   res <- augment(mod, newdata = holdout) %>%
-#     # calculate residuals for future use
-#     mutate(.resid = m1 - .fitted)
-# 
-#   # Return the assessment data set with the additional columns
-#   res
-# }
-# 
-# # function to return MSE for a specific higher-order polynomial term
-# poly_mse <- function(i, loocv_data){
-#   loocv_mod <- loocv_data %>%
-#     mutate(results = map(splits, holdout_results, i),
-#            mse = map_dbl(results, ~ mean(.x$.resid ^ 2)))
-# 
-#   mean(loocv_mod$mse)
-# }
-# 
-# cv_mse <- tibble(
-#   terms = seq(from = 1, to = 5),
-#   mse_loocv = map_dbl(terms, poly_mse, loocv_data)
-# )
-# view(cv_mse)
-# 
-# ggplot(cv_mse, aes(cv_mse$terms, mse_loocv)) +
-#   geom_line() +
-#   labs(title = "Comparing quadratic linear models",
-#        subtitle = "Using LOOCV",
-#        x = "Highest-order polynomial",
-#        y = "Mean Squared Error")
 
 # m1
 # Plot mean results of performance approach questions
@@ -541,72 +493,6 @@ different years of study, sexes and subjects.",
   shape = "Subject"
 )
 
-## Statistical Data Analysis of Student Goals ##
-# Recent evidence has shown that across a range of subject areas, 
-# undergraduates have different reasons for studying as they progress through
-# their degree programs. 
-# 1) Students initially focus on understanding (mastery goals) and
-# move to a more grade-oriented focus (performance goals) 
-# in later years and 
-# 2) students tend to demonstrate greater intrinsic motivation (e.g., 
-# interest and enjoyment) during their earlier studies rather than 
-# during the latter stages of their programmes.
-# The aim of this research is to examine whether this is the case, 
-# whether this differs for different subjects and/or different genders.
-# 4 categories:
-# - q1, q2, q3 - Performance approach questions
-# - q4, q5, q6 - Performance avoidance questions
-# - q7, q8, q9 - Mastery-Approach
-# - q10, q11, q12 - Mastery-Avoidance
-
-# Mann-Whitney-Wilcoxon Test
-# wilcox.test(mpg ~ am, data=mtcars) 
-
-# data
-ggplot(dat, aes(year, q1))
-# saving data into a variable
-d <- ggplot(data = dat, aes(year, q1))
-# mapping data with subject label
-d + geom_jitter(aes(colour = subject, shape = sex))
-# save mapping
-o <- d + geom_jitter(aes(colour = subject, shape = sex))
-# o <- d + geom_point(mapping = aes(x = seq, y = q1, colour = year), position = "jitter")
-# adding dark theme
-o + theme_dark()
-# save
-p <- o + theme_dark()
-# adding labels
-p + labs(
-  title = "1. My goal in this class is to avoid performing poorly",
-  subtitle = "1. It is important to me to be better than other students",
-  caption = "Journal of Personality and Social Psychology, 80, 3, 501-519",
-  x = "Year",
-  y = "Answer (1-7)",
-  colour = "Subject",
-  shape = "Gender"
-) + theme(legend.position = "right")
-# adding colour
-# scale_colour_brewer(palette = "YlOrRd")
-
-
-# Packages used to calculate confidence interval for proportions
-# install.packages(c("binom", "Barnard"))
-library(binom)
-CIs <- binom.confint(x=dat$q1 , n=536, method="wilson")
-view(CIs)
-
-new_plot <- merge(data.frame(dat, row.names=NULL), data.frame(CIs, row.names=NULL), by = 0, all = TRUE)[-1]
-view(new_plot)
-
-ggplot(data = new_plot) + 
-  stat_summary(
-    mapping = aes(x = year, y = sex),
-    fun.ymin = new_plot$lower,
-    fun.ymax = new_plot$upper,
-    fun.y = new_plot$mean
-  )
-
-# install.packages("ggstance")
 new_plot2 <- drop_na(new_plot)
 view(new_plot2)
 # df <- data.frame(grp = c("A", "B"), fit = 4:5, se = 1:2)
@@ -614,33 +500,77 @@ j <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$up
 j + geom_jitter() + theme_dark() 
 jj <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, colour=subject, fill=sex))
 jj + geom_boxplot() + theme_dark() + coord_flip() + scale_colour_brewer(palette = "Spectral")
-  # geom_text(aes(label = sex), data = new_plot2)
-  # geom_label(aes(label = sex), data = new_plot2, nudge_y = 2, alpha = 0.5)
+# geom_text(aes(label = sex), data = new_plot2)
+# geom_label(aes(label = sex), data = new_plot2, nudge_y = 2, alpha = 0.5)
+
+# # data
+# ggplot(dat, aes(year, q1))
+# # saving data into a variable
+# d <- ggplot(data = dat, aes(year, q1))
+# # mapping data with subject label
+# d + geom_jitter(aes(colour = subject, shape = sex))
+# # save mapping
+# o <- d + geom_jitter(aes(colour = subject, shape = sex))
+# # o <- d + geom_point(mapping = aes(x = seq, y = q1, colour = year), position = "jitter")
+# # adding dark theme
+# o + theme_dark()
+# # save
+# p <- o + theme_dark()
+# # adding labels
+# p + labs(
+#   title = "1. My goal in this class is to avoid performing poorly",
+#   subtitle = "1. It is important to me to be better than other students",
+#   caption = "Journal of Personality and Social Psychology, 80, 3, 501-519",
+#   x = "Year",
+#   y = "Answer (1-7)",
+#   colour = "Subject",
+#   shape = "Gender"
+# ) + theme(legend.position = "right")
+# adding colour
+# scale_colour_brewer(palette = "YlOrRd")
 
 
+# Packages used to calculate confidence interval for proportions
+# install.packages(c("binom", "Barnard"))
+# library(binom)
+# CIs <- binom.confint(x=dat$q1 , n=536, method="wilson")
+# view(CIs)
+# 
+# new_plot <- merge(data.frame(dat, row.names=NULL), data.frame(CIs, row.names=NULL), by = 0, all = TRUE)[-1]
+# view(new_plot)
+# 
+# ggplot(data = new_plot) + 
+#   stat_summary(
+#     mapping = aes(x = year, y = sex),
+#     fun.ymin = new_plot$lower,
+#     fun.ymax = new_plot$upper,
+#     fun.y = new_plot$mean
+#   )
+
+# install.packages("ggstance")
 # install.packages("hexbin")
 # install.packages("viridis")
 # hex plot
-df <- tibble(
-  x = rnorm(year),
-  y = rnorm(new_plot2$q1)
-)
-ggplot(df, aes(x, y)) +
-  geom_hex() +
-  coord_fixed()
+# df <- tibble(
+#   x = rnorm(year),
+#   y = rnorm(new_plot2$q1)
+# )
+# ggplot(df, aes(x, y)) +
+#   geom_hex() +
+#   coord_fixed()
 
-ggplot(df, aes(x, y)) +
-  geom_hex() +
-  viridis::scale_fill_viridis() +
-  coord_fixed()
+# ggplot(df, aes(x, y)) +
+#   geom_hex() +
+#   viridis::scale_fill_viridis() +
+#   coord_fixed()
 
 # example
-ggplot(diamonds, aes(carat, price)) +
-  geom_point(aes(colour = cut), alpha = 1/20)
+# ggplot(diamonds, aes(carat, price)) +
+#   geom_point(aes(colour = cut), alpha = 1/20)
 
 # accidental art
-j + geom_hex() +
-  coord_fixed() + theme_dark() + theme(legend.position = "")
+# j + geom_hex() +
+#   coord_fixed() + theme_dark() + theme(legend.position = "")
 
 # # save
 # t <- p + labs(
@@ -677,36 +607,41 @@ j + geom_hex() +
 #   theme(legend.position = "none")
 
 # mapping answers to q1 with relation to the student's year
-dd <- ggplot(data = dat, mapping = aes(x = seq, y = q1))
-# box plot
-dd + geom_boxplot() + coord_flip()
+# dd <- ggplot(data = dat, mapping = aes(x = seq, y = q1))
+# # box plot
+# dd + geom_boxplot() + coord_flip()
+# 
+# # bar plot
+# bar <- ggplot(data = dat) + 
+#   geom_bar(
+#     mapping = aes(x = sex, fill = subject, alpha = 0.85), 
+#     show.legend = TRUE,
+#     width = 1
+#   ) + 
+#   theme(aspect.ratio = 1) +
+#   labs(x = NULL, y = NULL)
+# 
+# bar + coord_flip()
+# bar + coord_polar() + theme_dark()
 
-# bar plot
-bar <- ggplot(data = dat) + 
-  geom_bar(
-    mapping = aes(x = sex, fill = subject, alpha = 0.85), 
-    show.legend = TRUE,
-    width = 1
-  ) + 
-  theme(aspect.ratio = 1) +
-  labs(x = NULL, y = NULL)
-
-bar + coord_flip()
-bar + coord_polar() + theme_dark()
-
-# plot answers to q1 with relation to the student's subject
-ggplot(data = dat) + 
-  geom_point(mapping = aes(x = seq, y = q1, colour = subject))
-# plot answers to q1 with relation to the student's subject, uses "jitter" to improve the graph and avoid gridding
-ggplot(data = dat) + 
-  geom_jitter(mapping = aes(x = seq, y = q1, colour = subject))
+# # plot answers to q1 with relation to the student's subject
+# ggplot(data = dat) + 
+#   geom_point(mapping = aes(x = seq, y = q1, colour = subject))
+# # plot answers to q1 with relation to the student's subject, uses "jitter" to improve the graph and avoid gridding
+# ggplot(data = dat) + 
+#   geom_jitter(mapping = aes(x = seq, y = q1, colour = subject))
 
 
 # playground
-x <- c(1, 2, 3, 4)
-x < 10
-CleanedStudentGoalsData[, 3]
-colnames(CleanedStudentGoalsData)
-CleanedStudentGoalsData$year
-class(CleanedStudentGoalsData$year) # returns a vector
+# x <- c(1, 2, 3, 4)
+# x < 10
+# CleanedStudentGoalsData[, 3]
+# colnames(CleanedStudentGoalsData)
+# CleanedStudentGoalsData$year
+# class(CleanedStudentGoalsData$year) # returns a vector
+
+# add column
+# loocv_data <- loocv_data %>% mutate(id = row_number())
+# drop column
+# mean_dat <- mean_dat  %>%  ungroup  %>%  select(-seq)
 
