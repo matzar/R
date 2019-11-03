@@ -20,7 +20,7 @@ theme_set(theme_minimal())
 ```
 
 # Regression
-##### Here we will examine the relationship between horsepower and car mileage in the Auto dataset (found in library(ISLR)):
+Here we will examine the relationship between horsepower and car mileage in the Auto dataset (found in library(ISLR)):
 ```{r}
 library(ISLR)
 
@@ -29,9 +29,21 @@ Auto
 ```
 
 ```{r}
-ggplot(Auto, aes(horsepower, mpg)) + geom_point()
+ggplot(Auto, aes(horsepower, mpg)) + 
+  geom_point()
 ```
 
+The relationship does not appear to be strictly linear:
+```{r}
+ggplot(Auto, aes(horsepower, mpg)) +
+  geom_point() + 
+  geom_smooth(method = 'lm', se = FALSE)
+```
+
+
+```{r}
+
+```
 
 
 
