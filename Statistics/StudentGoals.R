@@ -225,6 +225,12 @@ mean_dat <- mean_dat %>%
   mutate(m_mastgrad = pmap_dbl(select(., c("mastgrad")), function(...) mean(c(...))))
 view(mean_dat)
 
+## overall doesn't matter since data is picked accordingly anyway
+# arrange (sort in ascending order) 'mean_dat' by year
+# mean_dat <- arrange(mean_dat, year)
+# view(mean_dat)
+# 
+# ggplot(mean_dat, aes(mean_dat$year, mean_dat$m_interest)) + geom_jitter() + geom_smooth()
 
 # m1
 # Plot mean results of performance approach questions
