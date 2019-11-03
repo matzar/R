@@ -236,20 +236,19 @@ view(mean_dat)
 # drop 'seq' column
 mean_dat <- mean_dat  %>%  ungroup  %>%  select(-seq)
 
-view(mean_dat)
 ## Cross validation 
 ggplot(mean_dat, aes(year, m2, fill = sex, colour = sex)) + geom_jitter() + geom_smooth(se = FALSE)
 auto_split <- initial_split(data = mean_dat, prop = 0.5)
 auto_train <- training(auto_split)
 auto_test <- testing(auto_split)
 
-auto_lm <- glm(m2 ~ year, data = auto_train)
-summary(auto_lm)
-
-(train_mse <- augment(mean_dat, newdata = auto_train) %>%
-    mutate(.resid = m2 - .fitted,
-           .resid2 = .resid ^ 2) %$%
-    mean(.resid2))
+# auto_lm <- glm(m2 ~ year, data = auto_train)
+# summary(auto_lm)
+# 
+# (train_mse <- augment(mean_dat, newdata = auto_train) %>%
+#     mutate(.resid = m2 - .fitted,
+#            .resid2 = .resid ^ 2) %$%
+#     mean(.resid2))
 
 loocv_data <- loo_cv(mean_dat)
 loocv_data
@@ -284,6 +283,84 @@ loocv_data
 
 loocv_data %>%
   summarize(mse = mean(mse))
+
+# loocv_data <- loocv_data %>% mutate(id = row_number())
+# mean_dat <- mean_dat  %>%  ungroup  %>%  select(-seq)
+loocv_data
+
+cv_mse <- tibble(
+  terms = seq(from = 1, to = 5),
+  mse_loocv = map_dbl(terms, poly_mse, loocv_data)
+)
+
+
+ggplot(loocv_data[1:2], aes(loocv_data$id, loocv_data$mse)) +
+  geom_line() +
+  labs(title = "Comparing quadratic linear models",
+       subtitle = "Using LOOCV",
+       x = "Highest-order polynomial",
+       y = "Mean Squared Error")
+
+# function to estimate heldout results for model
+holdout_results <- function(splits) {
+  # Fit the model to the n-1
+  mod <- glm(mean_dat$m1 ~ mean_dat$year, data = analysis(splits))
+  
+  # Save the heldout observation
+  holdout <- assessment(splits)
+  
+  # `augment` will save the predictions with the holdout data set
+  res <- augment(mod, newdata = holdout) %>%
+    # calculate residuals for future use
+    mutate(.resid = mean_dat$m1 - .fitted)
+  
+  # Return the assessment data set with the additional columns
+  res
+}
+
+scorecard_loocv <- loo_cv(scorecard) %>%
+  mutate(results = map(splits, holdout_results),
+         mse = map_dbl(results, ~ mean(.x$.resid ^ 2)))
+mean(scorecard_loocv$mse, na.rm = TRUE)
+
+# # modified function to estimate model with varying highest order polynomial
+# holdout_results <- function(splits, i) {
+#   # Fit the model to the n-1
+#   mod <- glm(m1 ~ poly(year, i), data = analysis(splits))
+# 
+#   # Save the heldout observation
+#   holdout <- assessment(splits)
+# 
+#   # `augment` will save the predictions with the holdout data set
+#   res <- augment(mod, newdata = holdout) %>%
+#     # calculate residuals for future use
+#     mutate(.resid = m1 - .fitted)
+# 
+#   # Return the assessment data set with the additional columns
+#   res
+# }
+# 
+# # function to return MSE for a specific higher-order polynomial term
+# poly_mse <- function(i, loocv_data){
+#   loocv_mod <- loocv_data %>%
+#     mutate(results = map(splits, holdout_results, i),
+#            mse = map_dbl(results, ~ mean(.x$.resid ^ 2)))
+# 
+#   mean(loocv_mod$mse)
+# }
+# 
+# cv_mse <- tibble(
+#   terms = seq(from = 1, to = 5),
+#   mse_loocv = map_dbl(terms, poly_mse, loocv_data)
+# )
+# view(cv_mse)
+# 
+# ggplot(cv_mse, aes(cv_mse$terms, mse_loocv)) +
+#   geom_line() +
+#   labs(title = "Comparing quadratic linear models",
+#        subtitle = "Using LOOCV",
+#        x = "Highest-order polynomial",
+#        y = "Mean Squared Error")
 
 # m1
 # Plot mean results of performance approach questions
