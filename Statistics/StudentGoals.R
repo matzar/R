@@ -24,7 +24,7 @@
 
 library(tidyverse)
 
-# set seed for randomization to ensure that results are always reproduced precisly
+# set seed for randomization to ensure that results are always reproduced precisely
 set.seed(1234)
 
 # read csv file (worse variable recognition)
@@ -84,11 +84,9 @@ renamed_data2 <- renamed_data %>%
   )
 # view(renamed_data2)
 dat <- renamed_data2
-# view(dat)
 
-# replacing seq column non-consecutive numbers with consecutive numbers
-dat$seq <- 1:nrow(dat)
-# View(dat) # works!
+# drop 'seq' column since it doesn't serve any purpose
+dat <- dat  %>%  ungroup  %>%  select(-seq)
 write_csv(dat, "data/StudentGoalsDataCleanedAndNumbered.csv")
 
 # reassing values to their proper labeling from assets/'Student Goals - Coding Information.pdf'
@@ -242,9 +240,6 @@ mean_dat <- mean_dat %>%
 mean_dat <- mean_dat %>% 
   mutate(m_mastgrad = pmap_dbl(select(., c("mastgrad")), function(...) mean(c(...))))
 # view(mean_dat)
-
-# drop 'seq' column since it doesn't serve any purpose
-mean_dat <- mean_dat  %>%  ungroup  %>%  select(-seq)
 
 # save final cleaned table
 write_csv(mean_dat, "data/MeanCleanedStudentGoals.csv")
@@ -478,7 +473,7 @@ different years of study, sexes and subjects.",
 )
 
 new_plot2 <- drop_na(new_plot)
-view(new_plot2)
+# view(new_plot2)
 # df <- data.frame(grp = c("A", "B"), fit = 4:5, se = 1:2)
 j <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, colour=subject, shape=sex))
 j + geom_jitter() + theme_dark() 
@@ -497,6 +492,9 @@ ggplot(dat, aes(year, q1)) + geom_point(aes(color = sex), position = "jitter") +
 
 # TODO arrange (sort in ascending order) 'mean_dat' by year
 # mean_dat_year <- arrange(mean_dat, year)
+
+# TODO replacing seq column non-consecutive numbers with consecutive numbers
+# dat$seq <- 1:nrow(dat)
 
 # # data
 # ggplot(dat, aes(year, q1))
