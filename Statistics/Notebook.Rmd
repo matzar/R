@@ -40,12 +40,15 @@ Interesting geoms (Geometric objects) from ggplot2
 ggplot(Auto, aes(horsepower, mpg)) + geom_bin2d()
 ggplot(Auto, aes(horsepower, mpg)) + geom_count()
 ggplot(Auto, aes(horsepower, mpg)) + geom_density_2d()
+ggplot(Auto, aes(horsepower, mpg)) + geom_density2d()
+ggplot(Auto, aes(horsepower, mpg, y = Auto$name)) + geom_dotplot()
 ```
 
 Other interesting geoms
 ```{r}
 ggplot(Auto, aes(horsepower, mpg, ymin = 1, ymax = 1)) + geom_crossbar()
 ggplot(Auto, aes(horsepower, mpg, xend = 1, yend = 1)) + geom_curve()
+ggplot(Auto, aes(horsepower, mpg, y = Auto$name)) + geom_dotplot()
 ```
 
 
