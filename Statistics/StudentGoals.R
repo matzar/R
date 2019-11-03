@@ -35,8 +35,6 @@ set.seed(1234)
 f <- "data/StudentGoalsData.csv"
 StudentGoalsData <- read_csv(f)
 
-# log(StudentGoalsData)
-
 # read csv file with fread - better variable recognition
 # StudentGoalsData <- data.table::fread("data/StudentGoalsData.csv")
 
@@ -100,36 +98,7 @@ dat$subject[dat$subject==6] <- 'Statistics'
 # save labeled table
 write_csv(dat, "data/LabeledAndCleanedStudentGoals.csv")
 
-# check the data's structure
-# str(dat)
-# head(dat)
-
-# plot data
-# Year <- dat[dat$year, ]$seq
-# plot(Year)
-# plot(dat[dat$year, ]$seq)
-
-# variables
-# seq <- dat$seq
-# year <- dat$year
-# age <- dat$age
-# sex <- dat$sex
-# sub <- dat$subject
-# q1 ... q12
-# interest <- dat$interest
-# enjoy <- dat$enjoy
-# mg <- dat$mastgrad
-
-# numeric variables
-# Male <- sum(dat$sex=='Male')
-# Female <- sum(dat$sex=='Female')
-
-# creation of data frame
-# dat_gender <- data.frame("Count" = c("Male" = Male, "Female" = Female))
-# checking data frame
-# str(dat_gender)
-# head(dat_gender)
-
+## DATA EXPLORATION ##################################################################
 # bar chart example
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = cut))
@@ -181,6 +150,7 @@ ggplot(data = dat) +
 # plot answers to q1 with relation to the student's year
 ggplot(data = dat) + 
   geom_point(mapping = aes(x = seq, y = q1, colour = year))
+##############################################################################
 
 ## Calculate mean for 7 categories:
 # across 7 categories:
@@ -236,6 +206,13 @@ mean_dat <- mean_dat %>%
 write_csv(mean_dat, "data/MeanCleanedStudentGoals.csv")
 # save final cleaned table as tibble table
 dat_tibble <- as_tibble(mean_dat)
+
+## CLASSIFICATION ###################################################
+dat_tibble %>%
+  head() %>%
+  knitr::kable()
+
+#####################################################################
 
 #####################################################################
 ## Cross validation ## NOT FOR THIS EXAMPLE
@@ -465,12 +442,13 @@ different years of study, sexes and subjects.",
 )
 
 # TODO
-new_plot2 <- drop_na(new_plot)
-# df <- data.frame(grp = c("A", "B"), fit = 4:5, se = 1:2)
-j <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, colour=subject, shape=sex))
-j + geom_jitter() + theme_dark() 
-jj <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, colour=subject, fill=sex))
-jj + geom_boxplot() + theme_dark() + coord_flip() + scale_colour_brewer(palette = "Spectral")
+# new_plot2 <- drop_na(new_plot)
+# # df <- data.frame(grp = c("A", "B"), fit = 4:5, se = 1:2)
+# j <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, colour=subject, shape=sex))
+# j + geom_jitter() + theme_dark() 
+# jj <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, colour=subject, fill=sex))
+# jj + geom_boxplot() + theme_dark() + coord_flip() + scale_colour_brewer(palette = "Spectral")
+
 # TODO
 # geom_text(aes(label = sex), data = new_plot2)
 # geom_label(aes(label = sex), data = new_plot2, nudge_y = 2, alpha = 0.5)
@@ -626,6 +604,36 @@ jj + geom_boxplot() + theme_dark() + coord_flip() + scale_colour_brewer(palette 
 # CleanedStudentGoalsData$year
 # class(CleanedStudentGoalsData$year) # returns a vector
 
+# check the data's structure
+# str(dat)
+# head(dat)
+
+# plot data
+# Year <- dat[dat$year, ]$seq
+# plot(Year)
+# plot(dat[dat$year, ]$seq)
+
+# variables
+# seq <- dat$seq
+# year <- dat$year
+# age <- dat$age
+# sex <- dat$sex
+# sub <- dat$subject
+# q1 ... q12
+# interest <- dat$interest
+# enjoy <- dat$enjoy
+# mg <- dat$mastgrad
+
+# numeric variables
+# Male <- sum(dat$sex=='Male')
+# Female <- sum(dat$sex=='Female')
+
+# creation of data frame
+# dat_gender <- data.frame("Count" = c("Male" = Male, "Female" = Female))
+# checking data frame
+# str(dat_gender)
+# head(dat_gender)
+
 # add column
 # loocv_data <- loocv_data %>% mutate(id = row_number())
 # drop column
@@ -647,3 +655,4 @@ jj + geom_boxplot() + theme_dark() + coord_flip() + scale_colour_brewer(palette 
 #                "q5", "q8", "q11", "q7", "q3", "q2",
 #                "interest", "enjoy", "mastgrad")
 # reordered_data <- dat_tibble[, col_order]
+
