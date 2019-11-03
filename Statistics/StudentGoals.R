@@ -34,6 +34,7 @@ set.seed(1234)
 # read csv file (worse variable recognition)
 f <- "data/StudentGoalsData.csv"
 StudentGoalsData <- read_csv(f)
+n <- tally(StudentGoalsData)
 
 # read csv file with fread - better variable recognition
 # StudentGoalsData <- data.table::fread("data/StudentGoalsData.csv")
@@ -217,54 +218,6 @@ dat_tibble_m1 <- filter(dat_tibble, m1 >= 5)
 
 beta <- tally(dat_tibble_m1)
 
-#####################################################################
-
-#####################################################################
-## Cross validation ## NOT FOR THIS EXAMPLE
-# ggplot(mean_dat, aes(year, m2, fill = sex, colour = sex)) + geom_jitter() + geom_smooth(se = FALSE)
-# 
-# dat_split <- initial_split(data = mean_dat, prop = 0.5)
-# dat_train <- training(dat_split)
-# dat_test <- testing(dat_split)
-# 
-# dat_lm <- glm(m1 ~ year, data = dat_train)
-# summary(dat_lm)
-# 
-# train_mse <- augment(dat_lm, newdata = dat_train) %>%
-#     mutate(.resid = m1 - .fitted,
-#            .resid2 = .resid ^ 2) %$%
-#     mean(.resid2)
-# 
-# test_mse <- augment(dat_lm, newdata = dat_test) %>%
-#     mutate(.resid = m1 - .fitted,
-#            .resid2 = .resid ^ 2) %$%
-#     mean(.resid2)
-# 
-# # function to estimate model using training set and generate fit statistics
-# # using the validation set
-# poly_results <- function(train, test, i) {
-#   # Fit the model to the training set
-#   mod <- glm(m1 ~ poly(year, degree = i), data = train)
-#   
-#   # `augment` will save the predictions with the test data set
-#   res <- augment(mod, newdata = test) %>%
-#     # calculate residuals for future use
-#     mutate(.resid = m1 - .fitted)
-#   
-#   # Return the test data set with the additional columns
-#   res
-# }
-# 
-# # function to return MSE for a specific higher-order polynomial term
-# poly_mse <- function(i, train, test){
-#   poly_results(train, test, i) %$%
-#     mean(.resid ^ 2)
-# }
-# 
-# cv_mse <- tibble(
-#   terms = seq(from = 1, to = 3),
-#   mse_test = map_dbl(terms, poly_mse, dat_train, dat_test)
-# )
 #####################################################################
 
 # m1
