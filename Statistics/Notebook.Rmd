@@ -39,6 +39,7 @@ Interesting geoms (Geometric objects) from ggplot2
 ```{r}
 ggplot(Auto, aes(horsepower, mpg)) + geom_bin2d()
 ggplot(Auto, aes(horsepower, mpg)) + geom_count()
+ggplot(Auto, aes(horsepower, mpg)) + geom_density_2d()
 ```
 
 Other interesting geoms
