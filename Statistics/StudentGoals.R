@@ -233,10 +233,12 @@ view(mean_dat)
 # mean_dat_year <- arrange(mean_dat, year)
 # view(mean_dat_year)
 
+# drop 'seq' column
+mean_dat <- mean_dat  %>%  ungroup  %>%  select(-seq)
+
+view(mean_dat)
 ## Cross validation 
 ggplot(mean_dat, aes(year, m2, fill = sex, colour = sex)) + geom_jitter() + geom_smooth(se = FALSE)
-  
-
 auto_split <- initial_split(data = mean_dat, prop = 0.5)
 auto_train <- training(auto_split)
 auto_test <- testing(auto_split)
@@ -279,6 +281,9 @@ holdout_results(loocv_data$splits[[1]])
 loocv_data$results <- map(loocv_data$splits, holdout_results)
 loocv_data$mse <- map_dbl(loocv_data$results, ~ mean(.x$.resid ^ 2))
 loocv_data
+
+loocv_data %>%
+  summarize(mse = mean(mse))
 
 # m1
 # Plot mean results of performance approach questions
