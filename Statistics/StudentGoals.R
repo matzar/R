@@ -31,10 +31,10 @@ set.seed(1234)
 f <- "data/StudentGoalsData.csv"
 StudentGoalsData <- read_csv(f)
 
-log(StudentGoalsData)
+# log(StudentGoalsData)
 
-# read csv file
-# StudentGoalsData <- data.table::fread("data/StudentGoalsData.csv") # fread - better variable recognition
+# read csv file with fread - better variable recognition
+# StudentGoalsData <- data.table::fread("data/StudentGoalsData.csv")
 
 # clean data
 CleanedStudentGoalsData <- drop_na(StudentGoalsData)
@@ -46,11 +46,6 @@ write_csv(CleanedStudentGoalsData, "data/CleanedStudentGoalsData.csv")
 # View(StudentGoalsData)
 # View(CleanedStudentGoalsData)
 
-# save CleanedStudentGoalsData table in a simple variable called dat
-dat <- CleanedStudentGoalsData
-tibble_dat <- tibble::as_tibble(CleanedStudentGoalsData)
-# view(tibble_dat)
-
 # Sorting questions (NOT NEEDED)
 # Moving columns to sort questions accordingly to
 # order (question number): 6, 12, 11, 1, 7, 2, 10, 8, 5, 3, 9, 4
@@ -60,6 +55,10 @@ tibble_dat <- tibble::as_tibble(CleanedStudentGoalsData)
 #                "interest", "enjoy", "mastgrad")
 # reordered_data <- tibble_dat[, col_order]
 
+# save CleanedStudentGoalsData table in a simple variable called 'dat'
+dat <- CleanedStudentGoalsData
+
+tibble_dat <- tibble::as_tibble(CleanedStudentGoalsData)
 # Renaming columns according to random order: 6, 12, 11, 1, 7, 2, 10, 8, 5, 3, 9, 4
 renamed_data <- tibble_dat %>%
   rename(
@@ -246,6 +245,9 @@ mean_dat <- mean_dat %>%
 
 # drop 'seq' column since it doesn't serve any purpose
 mean_dat <- mean_dat  %>%  ungroup  %>%  select(-seq)
+
+# save final cleaned table
+write_csv(dat, "data/MeanCleanedStudentGoals.csv")
 
 ## Cross validation 
 ggplot(mean_dat, aes(year, m2, fill = sex, colour = sex)) + geom_jitter() + geom_smooth(se = FALSE)
