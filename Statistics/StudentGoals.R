@@ -281,10 +281,10 @@ loocv_data$results <- map(loocv_data$splits, holdout_results)
 loocv_data$mse <- map_dbl(loocv_data$results, ~ mean(.x$.resid ^ 2))
 loocv_data
 
-loocv_data %>%
+mean_loocv_data <- loocv_data %>%
   summarize(mse = mean(mse))
 
-loocv_data
+mean_loocv_data
 
 ggplot(loocv_data[1:1], aes(loocv_data$id, loocv_data$mse)) +
   geom_line() +
