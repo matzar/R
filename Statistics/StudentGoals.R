@@ -23,6 +23,10 @@
 # wilcox.test(mpg ~ am, data=mtcars)
 
 library(tidyverse)
+library(modelr)
+library(rsample)
+library(broom)
+library(magrittr)
 
 # set seed for randomization to ensure that results are always reproduced precisely
 set.seed(1234)
@@ -46,21 +50,12 @@ write_csv(CleanedStudentGoalsData, "data/CleanedStudentGoalsData.csv")
 # View(StudentGoalsData)
 # View(CleanedStudentGoalsData)
 
-# Sorting questions (NOT NEEDED)
-# Moving columns to sort questions accordingly to
-# order (question number): 6, 12, 11, 1, 7, 2, 10, 8, 5, 3, 9, 4
-# col_order <- c("seq", "year", "age", "sex", "subject", 
-#                "q4", "q6", "q10", "q12", "q9", "q1", 
-#                "q5", "q8", "q11", "q7", "q3", "q2",
-#                "interest", "enjoy", "mastgrad")
-# reordered_data <- tibble_dat[, col_order]
-
 # save CleanedStudentGoalsData table in a simple variable called 'dat'
 dat <- CleanedStudentGoalsData
 
-tibble_dat <- tibble::as_tibble(CleanedStudentGoalsData)
+dat_tibble <- tibble::as_tibble(CleanedStudentGoalsData)
 # Renaming columns according to random order: 6, 12, 11, 1, 7, 2, 10, 8, 5, 3, 9, 4
-renamed_data <- tibble_dat %>%
+renamed_data <- dat_tibble %>%
   rename(
     Q6 = q1,
     Q12 = q2,
@@ -187,19 +182,15 @@ ggplot(data = dat) +
 ggplot(data = dat) + 
   geom_point(mapping = aes(x = seq, y = q1, colour = year))
 
-## Calculate mean for 4 categories:
+## Calculate mean for 7 categories:
+# across 7 categories:
 # - q1, q2, q3 - Performance approach questions
 # - q4, q5, q6 - Performance avoidance questions
 # - q7, q8, q9 - Mastery-Approach
 # - q10, q11, q12 - Mastery-Avoidance
-
-# Function to calculate mean
-# calculate_mean <- function(dateset, select_vars, col_name) {
-#   temp_db <- dateset %>% 
-#     mutate(col_name = pmap_dbl(select(., select_vars), function(...) mean(c(...))))
-#   
-#   return(temp_db)
-# }
+# - Interest
+# - Enjoyment
+# - Understanding/Grades
 
 mean_dat <- dat
 # get mean from q1, q2, q3 columns (Performance approach questions) for all the students
@@ -243,55 +234,56 @@ mean_dat <- mean_dat %>%
 
 # save final cleaned table
 write_csv(mean_dat, "data/MeanCleanedStudentGoals.csv")
+# save final cleaned table as tibble table
+dat_tibble <- as_tibble(mean_dat)
 
-## Cross validation 
-ggplot(mean_dat, aes(year, m2, fill = sex, colour = sex)) + geom_jitter() + geom_smooth(se = FALSE)
-auto_split <- initial_split(data = mean_dat, prop = 0.5)
-auto_train <- training(auto_split)
-auto_test <- testing(auto_split)
-
-loocv_data <- loo_cv(mean_dat)
-loocv_data
-
-first_resample <- loocv_data$splits[[1]]
-first_resample
-
-training(first_resample)
-assessment(first_resample)
-
-holdout_results <- function(splits) {
-  # Fit the model to the n-1
-  mod <- glm(m1 ~ year, data = analysis(splits))
-  
-  # Save the heldout observation
-  holdout <- assessment(splits)
-  
-  # `augment` will save the predictions with the holdout data set
-  res <- augment(mod, newdata = holdout) %>%
-    # calculate residuals for future use
-    mutate(.resid = m1 - .fitted)
-  
-  # Return the assessment data set with the additional columns
-  res
-}
-
-holdout_results(loocv_data$splits[[1]])
-
-loocv_data$results <- map(loocv_data$splits, holdout_results)
-loocv_data$mse <- map_dbl(loocv_data$results, ~ mean(.x$.resid ^ 2))
-loocv_data
-
-mean_loocv_data <- loocv_data %>%
-  summarize(mse = mean(mse))
-
-mean_loocv_data
-
-ggplot(loocv_data[1:1], aes(loocv_data$id, loocv_data$mse)) +
-  geom_line() +
-  labs(title = "Comparing quadratic linear models",
-       subtitle = "Using LOOCV",
-       x = "Highest-order polynomial",
-       y = "Mean Squared Error")
+#####################################################################
+## Cross validation ## NOT FOR THIS EXAMPLE
+# ggplot(mean_dat, aes(year, m2, fill = sex, colour = sex)) + geom_jitter() + geom_smooth(se = FALSE)
+# 
+# dat_split <- initial_split(data = mean_dat, prop = 0.5)
+# dat_train <- training(dat_split)
+# dat_test <- testing(dat_split)
+# 
+# dat_lm <- glm(m1 ~ year, data = dat_train)
+# summary(dat_lm)
+# 
+# train_mse <- augment(dat_lm, newdata = dat_train) %>%
+#     mutate(.resid = m1 - .fitted,
+#            .resid2 = .resid ^ 2) %$%
+#     mean(.resid2)
+# 
+# test_mse <- augment(dat_lm, newdata = dat_test) %>%
+#     mutate(.resid = m1 - .fitted,
+#            .resid2 = .resid ^ 2) %$%
+#     mean(.resid2)
+# 
+# # function to estimate model using training set and generate fit statistics
+# # using the validation set
+# poly_results <- function(train, test, i) {
+#   # Fit the model to the training set
+#   mod <- glm(m1 ~ poly(year, degree = i), data = train)
+#   
+#   # `augment` will save the predictions with the test data set
+#   res <- augment(mod, newdata = test) %>%
+#     # calculate residuals for future use
+#     mutate(.resid = m1 - .fitted)
+#   
+#   # Return the test data set with the additional columns
+#   res
+# }
+# 
+# # function to return MSE for a specific higher-order polynomial term
+# poly_mse <- function(i, train, test){
+#   poly_results(train, test, i) %$%
+#     mean(.resid ^ 2)
+# }
+# 
+# cv_mse <- tibble(
+#   terms = seq(from = 1, to = 3),
+#   mse_test = map_dbl(terms, poly_mse, dat_train, dat_test)
+# )
+#####################################################################
 
 # m1
 # Plot mean results of performance approach questions
@@ -472,23 +464,24 @@ different years of study, sexes and subjects.",
   shape = "Subject"
 )
 
+# TODO
 new_plot2 <- drop_na(new_plot)
-# view(new_plot2)
 # df <- data.frame(grp = c("A", "B"), fit = 4:5, se = 1:2)
 j <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, colour=subject, shape=sex))
 j + geom_jitter() + theme_dark() 
 jj <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$upper, colour=subject, fill=sex))
 jj + geom_boxplot() + theme_dark() + coord_flip() + scale_colour_brewer(palette = "Spectral")
+# TODO
 # geom_text(aes(label = sex), data = new_plot2)
 # geom_label(aes(label = sex), data = new_plot2, nudge_y = 2, alpha = 0.5)
 
 # TODO - example
-ggplot(mpg, aes(displ, hwy)) +
-  geom_point(aes(color = drv)) +
-  scale_colour_brewer(palette = "Set1")
+# ggplot(mpg, aes(displ, hwy)) +
+#   geom_point(aes(color = drv)) +
+#   scale_colour_brewer(palette = "Set1")
 # TODO - working colouring
-ggplot(dat, aes(year, q1)) + geom_point(aes(color = sex), position = "jitter") +
-  scale_colour_brewer(palette = "Set3")
+# ggplot(dat, aes(year, q1)) + geom_point(aes(color = sex), position = "jitter") +
+#   scale_colour_brewer(palette = "Set3")
 
 # TODO arrange (sort in ascending order) 'mean_dat' by year
 # mean_dat_year <- arrange(mean_dat, year)
@@ -638,3 +631,19 @@ ggplot(dat, aes(year, q1)) + geom_point(aes(color = sex), position = "jitter") +
 # drop column
 # mean_dat <- mean_dat  %>%  ungroup  %>%  select(-seq)
 
+# Function to calculate mean
+# calculate_mean <- function(dateset, select_vars, col_name) {
+#   temp_db <- dateset %>% 
+#     mutate(col_name = pmap_dbl(select(., select_vars), function(...) mean(c(...))))
+#   
+#   return(temp_db)
+# }
+
+# Sorting questions (NOT NEEDED)
+# Moving columns to sort questions accordingly to
+# order (question number): 6, 12, 11, 1, 7, 2, 10, 8, 5, 3, 9, 4
+# col_order <- c("seq", "year", "age", "sex", "subject", 
+#                "q4", "q6", "q10", "q12", "q9", "q1", 
+#                "q5", "q8", "q11", "q7", "q3", "q2",
+#                "interest", "enjoy", "mastgrad")
+# reordered_data <- dat_tibble[, col_order]
