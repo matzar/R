@@ -9,12 +9,15 @@
 # interest and enjoyment) during their earlier studies rather than 
 # during the latter stages of their programmes.
 # The aim of this research is to examine whether this is the case, 
-# whether this differs for different subjects and/or different genders.
-# 4 categories:
+# whether this differs for different subjects and/or different genders
+# across 7 categories:
 # - q1, q2, q3 - Performance approach questions
 # - q4, q5, q6 - Performance avoidance questions
 # - q7, q8, q9 - Mastery-Approach
 # - q10, q11, q12 - Mastery-Avoidance
+# - Interest
+# - Enjoyment
+# - Understanding/Grades
 
 # Mann-Whitney-Wilcoxon Test
 # wilcox.test(mpg ~ am, data=mtcars)
@@ -40,13 +43,13 @@ CleanedStudentGoalsData <- drop_na(StudentGoalsData)
 write_csv(CleanedStudentGoalsData, "data/CleanedStudentGoalsData.csv")
 
 # view data to check if it's been cleaned
-View(StudentGoalsData)
-View(CleanedStudentGoalsData)
+# View(StudentGoalsData)
+# View(CleanedStudentGoalsData)
 
 # save CleanedStudentGoalsData table in a simple variable called dat
 dat <- CleanedStudentGoalsData
 tibble_dat <- tibble::as_tibble(CleanedStudentGoalsData)
-view(tibble_dat)
+# view(tibble_dat)
 
 # Sorting questions (NOT NEEDED)
 # Moving columns to sort questions accordingly to
@@ -73,20 +76,20 @@ renamed_data <- tibble_dat %>%
     Q9 = q11, 
     Q4 = q12
   )
-view(renamed_data)
+# view(renamed_data)
 # going back to lower case 'q' to keep naming consistent with the original data set
 renamed_data2 <- renamed_data %>%
   rename(
     q1 = Q1, q2 = Q2, q3 = Q3, q4 = Q4, q5 = Q5, q6 = Q6, 
     q7 = Q7, q8 = Q8, q9 = Q9, q10 = Q10, q11= Q11, q12 = Q12
   )
-view(renamed_data2)
+# view(renamed_data2)
 dat <- renamed_data2
-view(dat)
+# view(dat)
 
 # replacing seq column non-consecutive numbers with consecutive numbers
 dat$seq <- 1:nrow(dat)
-View(dat) # works!
+# View(dat) # works!
 write_csv(dat, "data/StudentGoalsDataCleanedAndNumbered.csv")
 
 # reassing values to their proper labeling from assets/'Student Goals - Coding Information.pdf'
@@ -100,14 +103,14 @@ dat$subject[dat$subject==3] <- 'Tourism'
 dat$subject[dat$subject==4] <- 'General Economics'
 dat$subject[dat$subject==5] <- 'Accounting'
 dat$subject[dat$subject==6] <- 'Statistics'
-View(dat)
+# View(dat)
 
 # save labeled table
 write_csv(dat, "data/LabeledAndCleanedStudentGoals.csv")
 
 # check the data's structure
-str(dat)
-head(dat)
+# str(dat)
+# head(dat)
 
 # plot data
 # Year <- dat[dat$year, ]$seq
@@ -221,32 +224,27 @@ mean_dat <- mean_dat %>%
 # save the results in 'm4' colum and add it to 'mean_dat' table
 mean_dat <- mean_dat %>% 
   mutate(m4 = pmap_dbl(select(., c("q10", "q11", "q12")), function(...) mean(c(...))))
-view(mean_dat)
+# view(mean_dat)
 
 # get mean from 'interest' column (Course interestedness expectations) for all the students 
 # save the results in 'm_interest' colum and add it to 'mean_dat' table
 mean_dat <- mean_dat %>% 
   mutate(m_interest = pmap_dbl(select(., c("interest")), function(...) mean(c(...))))
-view(mean_dat)
+# view(mean_dat)
 
 # get mean from 'enjoy' column (Course enjoyment expectations) for all the students 
 # save the results in 'm_interest' colum and add it to 'mean_dat' table
 mean_dat <- mean_dat %>% 
   mutate(m_enjoy = pmap_dbl(select(., c("enjoy")), function(...) mean(c(...))))
-view(mean_dat)
+# view(mean_dat)
 
 # get mean from 'mastgrad' column (1 (Understanding) - 7 (Grades) Importance) for all the students 
 # save the results in 'm_interest' colum and add it to 'mean_dat' table
 mean_dat <- mean_dat %>% 
   mutate(m_mastgrad = pmap_dbl(select(., c("mastgrad")), function(...) mean(c(...))))
-view(mean_dat)
+# view(mean_dat)
 
-## overall doesn't matter since data is picked accordingly anyway
-# arrange (sort in ascending order) 'mean_dat' by year
-# mean_dat_year <- arrange(mean_dat, year)
-# view(mean_dat_year)
-
-# drop 'seq' column
+# drop 'seq' column since it doesn't serve any purpose
 mean_dat <- mean_dat  %>%  ungroup  %>%  select(-seq)
 
 ## Cross validation 
@@ -254,14 +252,6 @@ ggplot(mean_dat, aes(year, m2, fill = sex, colour = sex)) + geom_jitter() + geom
 auto_split <- initial_split(data = mean_dat, prop = 0.5)
 auto_train <- training(auto_split)
 auto_test <- testing(auto_split)
-
-# auto_lm <- glm(m2 ~ year, data = auto_train)
-# summary(auto_lm)
-# 
-# (train_mse <- augment(mean_dat, newdata = auto_train) %>%
-#     mutate(.resid = m2 - .fitted,
-#            .resid2 = .resid ^ 2) %$%
-#     mean(.resid2))
 
 loocv_data <- loo_cv(mean_dat)
 loocv_data
@@ -502,6 +492,9 @@ ggplot(mpg, aes(displ, hwy)) +
 # TODO - working colouring
 ggplot(dat, aes(seq, q1)) + geom_point(aes(color = sex), position = "jitter") +
   scale_colour_brewer(palette = "Set3")
+
+# TODO arrange (sort in ascending order) 'mean_dat' by year
+# mean_dat_year <- arrange(mean_dat, year)
 
 # # data
 # ggplot(dat, aes(year, q1))
