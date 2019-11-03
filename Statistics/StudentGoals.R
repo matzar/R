@@ -247,7 +247,7 @@ mean_dat <- mean_dat %>%
 mean_dat <- mean_dat  %>%  ungroup  %>%  select(-seq)
 
 # save final cleaned table
-write_csv(dat, "data/MeanCleanedStudentGoals.csv")
+write_csv(mean_dat, "data/MeanCleanedStudentGoals.csv")
 
 ## Cross validation 
 ggplot(mean_dat, aes(year, m2, fill = sex, colour = sex)) + geom_jitter() + geom_smooth(se = FALSE)
@@ -492,7 +492,7 @@ ggplot(mpg, aes(displ, hwy)) +
   geom_point(aes(color = drv)) +
   scale_colour_brewer(palette = "Set1")
 # TODO - working colouring
-ggplot(dat, aes(seq, q1)) + geom_point(aes(color = sex), position = "jitter") +
+ggplot(dat, aes(year, q1)) + geom_point(aes(color = sex), position = "jitter") +
   scale_colour_brewer(palette = "Set3")
 
 # TODO arrange (sort in ascending order) 'mean_dat' by year
