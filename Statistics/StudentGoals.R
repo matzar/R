@@ -1,26 +1,4 @@
-## Statistical Data Analysis of Student Goals ##
-# Recent evidence has shown that across a range of subject areas, 
-# undergraduates have different reasons for studying as they progress through
-# their degree programs. 
-# 1) Students initially focus on understanding (mastery goals) and
-# move to a more grade-oriented focus (performance goals) 
-# in later years and 
-# 2) students tend to demonstrate greater intrinsic motivation (e.g., 
-# interest and enjoyment) during their earlier studies rather than 
-# during the latter stages of their programmes.
-# The aim of this research is to examine whether this is the case, 
-# whether this differs for different subjects and/or different genders
-# across 7 categories:
-# - q1, q2, q3 - Performance approach questions
-# - q4, q5, q6 - Performance avoidance questions
-# - q7, q8, q9 - Mastery-Approach
-# - q10, q11, q12 - Mastery-Avoidance
-# - Interest
-# - Enjoyment
-# - Understanding/Grades
 
-# Mann-Whitney-Wilcoxon Test
-# wilcox.test(mpg ~ am, data=mtcars)
 
 library(tidyverse)
 library(modelr)
