@@ -47,7 +47,8 @@ ggplot(Auto, aes(horsepower, mpg)) + geom_point()
 ggplot(Auto, aes(horsepower, mpg, ymin=10, ymax=10)) + geom_pointrange()
 ggplot(Auto, aes(horsepower, mpg)) + geom_polygon()
 ggplot(Auto, aes(horsepower, mpg)) + geom_quantile()
-install.packages()
+# ggplot(Auto, aes(horsepower, mpg)) + geom_raster() # consider using geom_tile()
+ggplot(Auto, aes(horsepower, mpg)) + geom_tile()
 ```
 
 Other interesting geoms
