@@ -15,3 +15,4 @@ library(ISLR)
 Auto <- as_tibble(Auto)
 Auto
 
+ggplot(Auto, aes(horsepower, mpg)) + geom_bin2d()
