@@ -40,6 +40,10 @@ Auto <- as_tibble(Auto)
 Auto
 ```
 
+```{r}
+
+```
+
 
 
 
