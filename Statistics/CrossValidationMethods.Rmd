@@ -1,0 +1,41 @@
+---
+title: "Cross-validation methods"
+output: html_notebook
+---
+
+Libraries
+```{r}
+library(tidyverse)
+library(modelr)
+library(rsample)
+library(broom)
+library(magrittr)
+```
+
+Set things up for examples
+```{r}
+set.seed(1234)
+
+theme_set(theme_minimal())
+```
+
+# Regression
+##### Here we will examine the relationship between horsepower and car mileage in the Auto dataset (found in library(ISLR)):
+```{r}
+library(ISLR)
+
+Auto <- as_tibble(Auto)
+Auto
+```
+
+```{r}
+ggplot(Auto, aes(horsepower, mpg)) + geom_point()
+```
+
+
+
+
+
+
+
+
