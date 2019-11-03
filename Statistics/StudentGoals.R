@@ -45,10 +45,6 @@ CleanedStudentGoalsData <- drop_na(StudentGoalsData)
 # write cleaned data to a file
 write_csv(CleanedStudentGoalsData, "data/CleanedStudentGoalsData.csv")
 
-# view data to check if it's been cleaned
-# View(StudentGoalsData)
-# View(CleanedStudentGoalsData)
-
 # save CleanedStudentGoalsData table in a simple variable called 'dat'
 dat <- CleanedStudentGoalsData
 
@@ -69,14 +65,13 @@ renamed_data <- dat_tibble %>%
     Q9 = q11, 
     Q4 = q12
   )
-# view(renamed_data)
 # going back to lower case 'q' to keep naming consistent with the original data set
 renamed_data2 <- renamed_data %>%
   rename(
     q1 = Q1, q2 = Q2, q3 = Q3, q4 = Q4, q5 = Q5, q6 = Q6, 
     q7 = Q7, q8 = Q8, q9 = Q9, q10 = Q10, q11= Q11, q12 = Q12
   )
-# view(renamed_data2)
+# save renamed table in 'dat' variable
 dat <- renamed_data2
 
 # drop 'seq' column since it doesn't serve any purpose
@@ -94,7 +89,6 @@ dat$subject[dat$subject==3] <- 'Tourism'
 dat$subject[dat$subject==4] <- 'General Economics'
 dat$subject[dat$subject==5] <- 'Accounting'
 dat$subject[dat$subject==6] <- 'Statistics'
-# View(dat)
 
 # save labeled table
 write_csv(dat, "data/LabeledAndCleanedStudentGoals.csv")
@@ -183,25 +177,21 @@ mean_dat <- mean_dat %>%
 # save the results in 'm4' colum and add it to 'mean_dat' table
 mean_dat <- mean_dat %>% 
   mutate(m4 = pmap_dbl(select(., c("q10", "q11", "q12")), function(...) mean(c(...))))
-# view(mean_dat)
 
 # get mean from 'interest' column (Course interestedness expectations) for all the students 
 # save the results in 'm_interest' colum and add it to 'mean_dat' table
 mean_dat <- mean_dat %>% 
   mutate(m_interest = pmap_dbl(select(., c("interest")), function(...) mean(c(...))))
-# view(mean_dat)
 
 # get mean from 'enjoy' column (Course enjoyment expectations) for all the students 
 # save the results in 'm_interest' colum and add it to 'mean_dat' table
 mean_dat <- mean_dat %>% 
   mutate(m_enjoy = pmap_dbl(select(., c("enjoy")), function(...) mean(c(...))))
-# view(mean_dat)
 
 # get mean from 'mastgrad' column (1 (Understanding) - 7 (Grades) Importance) for all the students 
 # save the results in 'm_interest' colum and add it to 'mean_dat' table
 mean_dat <- mean_dat %>% 
   mutate(m_mastgrad = pmap_dbl(select(., c("mastgrad")), function(...) mean(c(...))))
-# view(mean_dat)
 
 # save final cleaned table
 write_csv(mean_dat, "data/MeanCleanedStudentGoals.csv")
