@@ -187,14 +187,6 @@ ggplot(data = dat) +
 ggplot(data = dat) + 
   geom_point(mapping = aes(x = seq, y = q1, colour = year))
 
-# TODO - example
-ggplot(mpg, aes(displ, hwy)) +
-  geom_point(aes(color = drv)) +
-  scale_colour_brewer(palette = "Set1")
-# TODO - working colouring
-ggplot(dat, aes(seq, q1)) + geom_point(aes(color = sex), position = "jitter") +
-  scale_colour_brewer(palette = "Set3")
-
 ## Calculate mean for 4 categories:
 # - q1, q2, q3 - Performance approach questions
 # - q4, q5, q6 - Performance avoidance questions
@@ -502,6 +494,14 @@ jj <- ggplot(new_plot2, aes(year, q1, ymin = new_plot2$lower, ymax = new_plot2$u
 jj + geom_boxplot() + theme_dark() + coord_flip() + scale_colour_brewer(palette = "Spectral")
 # geom_text(aes(label = sex), data = new_plot2)
 # geom_label(aes(label = sex), data = new_plot2, nudge_y = 2, alpha = 0.5)
+
+# TODO - example
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = drv)) +
+  scale_colour_brewer(palette = "Set1")
+# TODO - working colouring
+ggplot(dat, aes(seq, q1)) + geom_point(aes(color = sex), position = "jitter") +
+  scale_colour_brewer(palette = "Set3")
 
 # # data
 # ggplot(dat, aes(year, q1))
