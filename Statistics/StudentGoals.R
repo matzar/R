@@ -1,5 +1,3 @@
-# install.packages("readr")
-# library(readr)
 library(tidyverse)
 
 # read csv file (worse variable recognition)
