@@ -185,8 +185,23 @@ dat_tibble <- as_tibble(mean_dat)
 # get only answers that are greater or equal to 5
 dat_tibble_m1 <- filter(dat_tibble, m1 >= 5)
 
-beta <- tally(dat_tibble_m1)
+n_m1 <- tally(dat_tibble_m1) # 212
+beta <- n_m1 / n # 0.3392
 
+ci <- beta * ((1 - beta)/(n)) # 0.0003586294
+ci_sqrt <- sqrt(ci) # 0.0189
+ci_margin_error <- ci_sqrt * 1.96 # 0.0371 or 3.71% 
+
+# Our 95% confidence interval for the percentage of times we will get a student with a mean of
+# 5 or above for the set of m1 questions is 0.3392 (or 34%), plus or minus 0.03711 (or 3.7%).
+# The lower end of the interval is 0.3392 - 0.03711 which is:
+lower_end_of_interval <- beta - ci_margin_error # 0.3020825 or 30%
+# The upper end of the interval is 0.3392
+upper_end_of_interval <- beta + ci_margin_error # 0.3763175 or 37%
+
+# To interpret these results we could say that with 95% confidence the percentage of the times
+# we should expect to find a student with a mean score of 5 or above to m1 is somewhere
+# between 30% and 37%, based on our sample.
 #####################################################################
 
 # m1
