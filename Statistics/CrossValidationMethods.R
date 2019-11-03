@@ -1,3 +1,5 @@
+# source https://cfss.uchicago.edu/notes/cross-validation/#leave-one-out-cross-validation
+
 library(tidyverse)
 library(modelr)
 library(rsample)
