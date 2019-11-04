@@ -15,7 +15,7 @@ options(warn=0)
 
 # read csv file (worse variable recognition)
 f <- "data/StudentGoalsData.csv"
-StudentGoalsData <- read_csv(f)
+StudentGoalsData <- read_csv(f, col_types = cols(), skip_empty_rows = TRUE)
 
 # drop 'seq' column since it doesn't serve any purpose
 StudentGoalsData <- StudentGoalsData  %>%  ungroup  %>%  select(-seq)

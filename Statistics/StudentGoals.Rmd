@@ -20,25 +20,24 @@ documentclass: article
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "...")
 
-```{r}
+# load libraries
 library(tidyverse)
 library(modelr)
 library(rsample)
 library(broom)
 library(magrittr)
-# disable warnings for the sake of report writing
-options(warn=-1)
+
 # set seed for randomization to ensure that results are always reproduced precisely
 set.seed(1234)
 ```
 
-```{r}
+# Abstract
+```{r, label = load}
 # read csv file (worse variable recognition)
 f <- "data/StudentGoalsData.csv"
-StudentGoalsData <- read_csv(f)
+StudentGoalsData <- read_csv(f, col_types = cols(), skip_empty_rows = TRUE)
 ```
 
 ```{r}
@@ -107,7 +106,7 @@ dat$subject[dat$subject==5] <- 'Accounting'
 dat$subject[dat$subject==6] <- 'Statistics'
 ```
 
-```{r}
+```{r, echo=FALSE}
 ## DATA EXPLORATION ##################################################################
 # gender in numbers
 ggplot(data = dat) + 
