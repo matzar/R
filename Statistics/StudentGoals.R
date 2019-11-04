@@ -127,7 +127,7 @@ ggplot(data = dat) +
 
 # plot answers to q1 with relation to the student's year
 ggplot(data = dat) + 
-  geom_point(mapping = aes(x = seq, y = q1, colour = year))
+  geom_point(mapping = aes(x = year, y = q1, colour = year))
 ##############################################################################
 
 ## Calculate mean for 7 categories:
@@ -386,3 +386,4 @@ different years of study, sexes and subjects.",
   colour = "Sex",
   shape = "Subject"
 )
+
