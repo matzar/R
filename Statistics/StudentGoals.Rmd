@@ -108,6 +108,59 @@ dat$subject[dat$subject==5] <- 'Accounting'
 dat$subject[dat$subject==6] <- 'Statistics'
 ```
 
+```{r}
+## Calculate mean for 7 categories:
+# across 7 categories:
+# - q1, q2, q3 - Performance approach questions
+# - q4, q5, q6 - Performance avoidance questions
+# - q7, q8, q9 - Mastery-Approach
+# - q10, q11, q12 - Mastery-Avoidance
+# - Interest
+# - Enjoyment
+# - Understanding/Grades
+
+mean_dat <- dat
+# get mean from q1, q2, q3 columns (Performance approach questions) for all the students
+# save the results in 'm1' colum and add it to 'mean_dat' table
+mean_dat <- mean_dat %>% 
+  mutate(m1 = pmap_dbl(select(., c("q1", "q2", "q3")), function(...) mean(c(...))))
+
+# get mean from q4, q5, q6 columns (Performance avoidance questions) for all the students,
+# save the results in 'm2' colum and add it to 'mean_dat' table
+mean_dat <- mean_dat %>% 
+  mutate(m2 = pmap_dbl(select(., c("q4", "q5", "q6")), function(...) mean(c(...))))
+
+# get mean from q7, q8, q9 columns (Mastery approach questions) for all the students
+# save the results in 'm3' colum and add it to 'mean_dat' table
+mean_dat <- mean_dat %>% 
+  mutate(m3 = pmap_dbl(select(., c("q7", "q8", "q9")), function(...) mean(c(...))))
+
+# get mean from q10, q11, q12 columns (Mastery avoidance questions) for all the students 
+# save the results in 'm4' colum and add it to 'mean_dat' table
+mean_dat <- mean_dat %>% 
+  mutate(m4 = pmap_dbl(select(., c("q10", "q11", "q12")), function(...) mean(c(...))))
+
+# get mean from 'interest' column (Course interestedness expectations) for all the students 
+# save the results in 'm_interest' colum and add it to 'mean_dat' table
+mean_dat <- mean_dat %>% 
+  mutate(m_interest = pmap_dbl(select(., c("interest")), function(...) mean(c(...))))
+
+# get mean from 'enjoy' column (Course enjoyment expectations) for all the students 
+# save the results in 'm_interest' colum and add it to 'mean_dat' table
+mean_dat <- mean_dat %>% 
+  mutate(m_enjoy = pmap_dbl(select(., c("enjoy")), function(...) mean(c(...))))
+
+# get mean from 'mastgrad' column (1 (Understanding) - 7 (Grades) Importance) for all the students 
+# save the results in 'm_interest' colum and add it to 'mean_dat' table
+mean_dat <- mean_dat %>% 
+  mutate(m_mastgrad = pmap_dbl(select(., c("mastgrad")), function(...) mean(c(...))))
+
+# save final cleaned table
+write_csv(mean_dat, "data/MeanCleanedStudentGoals.csv")
+# save final cleaned table as tibble table
+dat_tibble <- as_tibble(mean_dat)
+```
+
 # Abstract
 *This should be a very brief explanation of your research paper (around 150 words). It normally includes information about the issue, why you are interested in that issue, your method/model, analysis results, discussions and conclusions.*
 
@@ -139,7 +192,7 @@ Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
 To test the hypotheses, a mean for each assessment category was computed and saved for each individual student. This resulted in 7 extra columns added to the original data set, which an example of can be seen below:
 
 ```{r}
-dat_tibble[1:5,20:26]
+dat_tibble[1:5, 20:26]
 ```
 
 An exploratory data analysis using graphs was performed. Some of the worth mentioning are:
@@ -211,59 +264,6 @@ ggplot(data = dat) +
 ggplot(data = dat) + 
   geom_point(mapping = aes(x = year, y = q1, colour = year))
 ##############################################################################
-```
-
-```{r}
-## Calculate mean for 7 categories:
-# across 7 categories:
-# - q1, q2, q3 - Performance approach questions
-# - q4, q5, q6 - Performance avoidance questions
-# - q7, q8, q9 - Mastery-Approach
-# - q10, q11, q12 - Mastery-Avoidance
-# - Interest
-# - Enjoyment
-# - Understanding/Grades
-
-mean_dat <- dat
-# get mean from q1, q2, q3 columns (Performance approach questions) for all the students
-# save the results in 'm1' colum and add it to 'mean_dat' table
-mean_dat <- mean_dat %>% 
-  mutate(m1 = pmap_dbl(select(., c("q1", "q2", "q3")), function(...) mean(c(...))))
-
-# get mean from q4, q5, q6 columns (Performance avoidance questions) for all the students,
-# save the results in 'm2' colum and add it to 'mean_dat' table
-mean_dat <- mean_dat %>% 
-  mutate(m2 = pmap_dbl(select(., c("q4", "q5", "q6")), function(...) mean(c(...))))
-
-# get mean from q7, q8, q9 columns (Mastery approach questions) for all the students
-# save the results in 'm3' colum and add it to 'mean_dat' table
-mean_dat <- mean_dat %>% 
-  mutate(m3 = pmap_dbl(select(., c("q7", "q8", "q9")), function(...) mean(c(...))))
-
-# get mean from q10, q11, q12 columns (Mastery avoidance questions) for all the students 
-# save the results in 'm4' colum and add it to 'mean_dat' table
-mean_dat <- mean_dat %>% 
-  mutate(m4 = pmap_dbl(select(., c("q10", "q11", "q12")), function(...) mean(c(...))))
-
-# get mean from 'interest' column (Course interestedness expectations) for all the students 
-# save the results in 'm_interest' colum and add it to 'mean_dat' table
-mean_dat <- mean_dat %>% 
-  mutate(m_interest = pmap_dbl(select(., c("interest")), function(...) mean(c(...))))
-
-# get mean from 'enjoy' column (Course enjoyment expectations) for all the students 
-# save the results in 'm_interest' colum and add it to 'mean_dat' table
-mean_dat <- mean_dat %>% 
-  mutate(m_enjoy = pmap_dbl(select(., c("enjoy")), function(...) mean(c(...))))
-
-# get mean from 'mastgrad' column (1 (Understanding) - 7 (Grades) Importance) for all the students 
-# save the results in 'm_interest' colum and add it to 'mean_dat' table
-mean_dat <- mean_dat %>% 
-  mutate(m_mastgrad = pmap_dbl(select(., c("mastgrad")), function(...) mean(c(...))))
-
-# save final cleaned table
-write_csv(mean_dat, "data/MeanCleanedStudentGoals.csv")
-# save final cleaned table as tibble table
-dat_tibble <- as_tibble(mean_dat)
 ```
 
 
