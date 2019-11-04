@@ -38,16 +38,16 @@ set.seed(1234)
 
 Recent **evidence** has shown that undergraduate students tend to have different reasons for studying as they progress through their course. In this paper, we seek to answer whether this is true while also taking into consideration a student’s `subject`, `sex` and a `year` of study. 
 
-# Background / Introduction
+# Background / Introduction {#iden}
 *This section should explain the topic, why it is important, and how you approach the issue*
 
 The goal of the survey was to find out if the hypothesis stated in the abstract is true.
 The authors of the survey stated a hypothesis that - as students progress through their studies their reasons for learning change; their primary focus shifts from achieving good grades towards deep understanding of the subject. The authors wanted to inspect if the student's subject, age and sex would influence, otherwise independent, results.
 
-The survey had 12 questions and aimed to explore 7 main areas, which were student's: 
+The survey had 12 questions which were designed to explore 7 main areas of interest, which were student's: 
 
 * Performance approach - 
-
+  
 * Performance avoidance
 
 * Mastery approach
@@ -58,7 +58,7 @@ The survey had 12 questions and aimed to explore 7 main areas, which were studen
 
 * Enjoyment
 
-* Understanding/Grades.
+* Understanding/Grades
 
 It was noticed that the survey's 12 were randomly ordered with the  had 12 randomly ordered questions and that the randomization was stated at the end of it.
 
