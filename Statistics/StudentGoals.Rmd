@@ -182,3 +182,90 @@ ggplot(data = dat) +
 ##############################################################################
 ```
 
+```{r}
+## Calculate mean for 7 categories:
+# across 7 categories:
+# - q1, q2, q3 - Performance approach questions
+# - q4, q5, q6 - Performance avoidance questions
+# - q7, q8, q9 - Mastery-Approach
+# - q10, q11, q12 - Mastery-Avoidance
+# - Interest
+# - Enjoyment
+# - Understanding/Grades
+
+mean_dat <- dat
+# get mean from q1, q2, q3 columns (Performance approach questions) for all the students
+# save the results in 'm1' colum and add it to 'mean_dat' table
+mean_dat <- mean_dat %>% 
+  mutate(m1 = pmap_dbl(select(., c("q1", "q2", "q3")), function(...) mean(c(...))))
+
+# get mean from q4, q5, q6 columns (Performance avoidance questions) for all the students,
+# save the results in 'm2' colum and add it to 'mean_dat' table
+mean_dat <- mean_dat %>% 
+  mutate(m2 = pmap_dbl(select(., c("q4", "q5", "q6")), function(...) mean(c(...))))
+
+# get mean from q7, q8, q9 columns (Mastery approach questions) for all the students
+# save the results in 'm3' colum and add it to 'mean_dat' table
+mean_dat <- mean_dat %>% 
+  mutate(m3 = pmap_dbl(select(., c("q7", "q8", "q9")), function(...) mean(c(...))))
+
+# get mean from q10, q11, q12 columns (Mastery avoidance questions) for all the students 
+# save the results in 'm4' colum and add it to 'mean_dat' table
+mean_dat <- mean_dat %>% 
+  mutate(m4 = pmap_dbl(select(., c("q10", "q11", "q12")), function(...) mean(c(...))))
+
+# get mean from 'interest' column (Course interestedness expectations) for all the students 
+# save the results in 'm_interest' colum and add it to 'mean_dat' table
+mean_dat <- mean_dat %>% 
+  mutate(m_interest = pmap_dbl(select(., c("interest")), function(...) mean(c(...))))
+
+# get mean from 'enjoy' column (Course enjoyment expectations) for all the students 
+# save the results in 'm_interest' colum and add it to 'mean_dat' table
+mean_dat <- mean_dat %>% 
+  mutate(m_enjoy = pmap_dbl(select(., c("enjoy")), function(...) mean(c(...))))
+
+# get mean from 'mastgrad' column (1 (Understanding) - 7 (Grades) Importance) for all the students 
+# save the results in 'm_interest' colum and add it to 'mean_dat' table
+mean_dat <- mean_dat %>% 
+  mutate(m_mastgrad = pmap_dbl(select(., c("mastgrad")), function(...) mean(c(...))))
+
+# save final cleaned table
+write_csv(mean_dat, "data/MeanCleanedStudentGoals.csv")
+# save final cleaned table as tibble table
+dat_tibble <- as_tibble(mean_dat)
+```
+
+```{r}
+
+```
+
+
+```{r}
+## CLASSIFICATION ###################################################
+# dat_tibble %>%
+#   head() %>%
+#   knitr::kable()
+
+# get only answers that are greater or equal to 5
+dat_tibble_m1 <- filter(dat_tibble, m1 >= 5)
+
+n_m1 <- tally(dat_tibble_m1) # 212
+beta <- n_m1 / n # 0.3392
+
+ci <- beta * ((1 - beta)/(n)) # 0.0003586294
+ci_sqrt <- sqrt(ci) # 0.0189
+ci_margin_error <- ci_sqrt * 1.96 # 0.0371 or 3.71% 
+
+# Our 95% confidence interval for the percentage of times we will get a student with a mean of
+# 5 or above for the set of m1 questions is 0.3392 (or 34%), plus or minus 0.03711 (or 3.7%).
+# The lower end of the interval is 0.3392 - 0.03711 which is:
+lower_end_of_interval <- beta - ci_margin_error # 0.3020825 or 30%
+# The upper end of the interval is 0.3392
+upper_end_of_interval <- beta + ci_margin_error # 0.3763175 or 37%
+
+# To interpret these results we could say that with 95% confidence the percentage of the times
+# we should expect to find a student with a mean score of 5 or above to m1 is somewhere
+# between 30% and 37%, based on our sample.
+#####################################################################
+```
+
