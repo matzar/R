@@ -253,7 +253,7 @@ t <- s + theme_dark()
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Students' grade-orientation focus set on basis of:
+  title = "Student's grade-orientation focus set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "How motivated are students by fear of performing poorly?",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
@@ -278,7 +278,7 @@ t <- s + theme_dark()
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Students' focus on understanding set on basis of:
+  title = "Student's focus on understanding set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "Prevalence of mastery approach.",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
@@ -303,9 +303,9 @@ t <- s + theme_dark()
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Students' focus on understanding set on basis of:
+  title = "Student's focus on understanding set on basis of:
 different years of study, sexes and subjects.",
-  subtitle = "Students' fear of not mastering the course.",
+  subtitle = "Student's fear of not mastering the course.",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year: 1 - 4",
   y = "Answer: 1 (Low) - 7 (High)",
@@ -328,7 +328,7 @@ t <- s + theme_dark()
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Students' course interestedness expectations set on basis of:
+  title = "Student's course interestedness expectations set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "\'I expect my courses this semester to be very interesting\'",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
@@ -339,7 +339,7 @@ different years of study, sexes and subjects.",
 )
 
 ggplotly(c + labs(
-  title = "Students' course interestedness expectations set on basis of:
+  title = "Student's course interestedness expectations set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "\'I expect my courses this semester to be very interesting\'",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
@@ -369,7 +369,7 @@ t <- s + theme_dark()
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Students' course enjoyment expectations set on basis of:
+  title = "Student's course enjoyment expectations set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "\'I expect my courses this semester to be very enjoyable\'",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
@@ -394,7 +394,7 @@ t <- s + theme_dark()
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Students' importance scale between understanding and grades set on basis of:
+  title = "Student's importance scale between understanding and grades set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "Scale: Primarly understanding (1) / Equal Importance (4) / Primarly grades (7)",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
