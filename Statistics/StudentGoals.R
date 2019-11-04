@@ -27,6 +27,7 @@ write_csv(CleanedStudentGoalsData, "data/CleanedStudentGoalsData.csv")
 # save CleanedStudentGoalsData table in a simple variable called 'dat'
 dat <- CleanedStudentGoalsData
 
+# save CleanedStudentGoalsData table as tibble table in a variable called 'dat_tibble'
 dat_tibble <- tibble::as_tibble(CleanedStudentGoalsData)
 # Renaming columns according to random order: 6, 12, 11, 1, 7, 2, 10, 8, 5, 3, 9, 4
 renamed_data <- dat_tibble %>%
