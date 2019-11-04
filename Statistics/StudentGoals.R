@@ -13,6 +13,11 @@ set.seed(1234)
 # read csv file (worse variable recognition)
 f <- "data/StudentGoalsData.csv"
 StudentGoalsData <- read_csv(f)
+
+# drop 'seq' column since it doesn't serve any purpose
+StudentGoalsData <- StudentGoalsData  %>%  ungroup  %>%  select(-seq)
+
+# count all the students before cleaning and dropping the data
 n <- tally(StudentGoalsData)
 
 # read csv file with fread - better variable recognition
@@ -53,9 +58,7 @@ renamed_data2 <- renamed_data %>%
   )
 # save renamed table in 'dat' variable
 dat <- renamed_data2
-
-# drop 'seq' column since it doesn't serve any purpose
-dat <- dat  %>%  ungroup  %>%  select(-seq)
+# save new data in a csv file
 write_csv(dat, "data/StudentGoalsDataCleanedAndNumbered.csv")
 
 # reassing values to their proper labeling from assets/'Student Goals - Coding Information.pdf'
