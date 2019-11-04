@@ -23,7 +23,7 @@ n <- tally(StudentGoalsData)
 # read csv file with fread - better variable recognition
 # StudentGoalsData <- data.table::fread("data/StudentGoalsData.csv")
 
-# clean data
+# clean data - drop results contaiting empty cells
 CleanedStudentGoalsData <- drop_na(StudentGoalsData)
 
 # write cleaned data to a file
