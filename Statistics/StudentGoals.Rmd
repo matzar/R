@@ -38,7 +38,7 @@ set.seed(1234)
 
 This paper analyses the data gathered from surveying 625 undergraduate students. The authors of the survey tried to prove two hypothesis: 1) During students' junior years, they tend to primarily focus on getting good grades while during their senior years, the focus shifts towards a deep-understanding of the subject and 2) students' enjoyment and interest tends to deteriorate as they progress through their studies. It is not obvious why this might be the case and if the student's age, sex or studied subject has any bearing. This is why the survey has 15 questions and probes 7 different categories. Each category consists of 3 to 1 questions and because the order of the questions is randomised, the student should not know the categories nor notice any patterns.
 
-In this paper a full analysis of the gathered data will be presented, including data: preparation, analysis, exploration and interpretation; calculation of confidence intervals, interpretation of the results with diagrams and an explanation of the methods used.
+In this paper a full analysis of the gathered data will be presented, including data: preparation, analysis, exploration and interpretation; calculation of confidence intervals, interpretation of the results with graphs and an explanation of the methods used.
 
 # Introduction
 *This section should explain the topic, why it is important, and how you approach the issue*
@@ -60,6 +60,8 @@ The students answered on a 7-level scale; 1 meaning the student feels the statem
  | | | | | | | |
 - | - | - | - | - | - | - | - | -
 Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
+
+An exploratory data analysis using graphs was performed to see how many 
 
 # Data
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
