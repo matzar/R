@@ -148,6 +148,7 @@ dat$subject[dat$subject==6] <- 'Statistics'
 
 ```{r, echo=FALSE}
 ## DATA EXPLORATION ##################################################################
+
 # gender in numbers
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = sex, fill = sex))
