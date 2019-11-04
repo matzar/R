@@ -38,7 +38,7 @@ set.seed(1234)
 
 Recent **evidence** has shown that undergraduate students tend to have different reasons for studying as they progress through their course. In this paper, we seek to answer whether this is true while also taking into consideration a student’s `subject`, `sex` and a `year` of study. 
 
-# Background / Introduction {#iden}
+# Background / Introduction
 *This section should explain the topic, why it is important, and how you approach the issue*
 
 The goal of the survey was to find out if the hypothesis stated in the abstract is true.
@@ -46,9 +46,9 @@ The authors of the survey stated a hypothesis that - as students progress throug
 
 The survey had 12 questions which were designed to explore 7 main areas of interest, which were student's: 
 
-* Performance approach - 
+* Performance approach - How motivated are students by fear of performing poorly?
   
-* Performance avoidance
+* Performance avoidance - 
 
 * Mastery approach
 
