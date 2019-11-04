@@ -4,7 +4,7 @@ author: Mateusz Zaremba
 date: November 4, 2019
 output: 
   pdf_document:
-    toc: true
+    toc: false
     toc_depth: 2
     number_sections: true
     fig_width: 12
@@ -36,7 +36,14 @@ set.seed(1234)
 # Abstract
 *This should be a very brief explanation of your research paper (around 150 words). It normally includes information about the issue, why you are interested in that issue, your method/model, analysis results, discussions and conclusions.*
 
-Recent **evidence** has shown that undergraduate students tend to have different reasons for studying as they progress through their course. In this paper, we seek to answer whether this is true while also taking into consideration a student’s `subject`, `sex` and a `year` of study. 
+It is interesting how undergraduate students goals change through-out their studies. It is often assumed that during their junior years they primary focus remains on getting good grades while at the senior years the focus shifts towards a deeper understanding of the subject.
+
+Recent evidence has shown as undergraduate students progress through their studies their reasons for learning change; their primary focus shifts from deep understanding of the subject towards achieving good grades.
+
+The goal of the survey was to find out if the hypothesis stated in the abstract is true.
+The authors of the survey stated a hypothesis that - as students progress through their studies their reasons for learning change; their primary focus shifts from achieving good grades towards deep understanding of the subject. The authors wanted to inspect if the student's subject, age and sex would influence, otherwise independent, results.
+
+Recent evidence has shown that undergraduate students tend to have different reasons for studying as they progress through their course. In this paper, we seek to answer whether this is true while also taking into consideration a student’s `subject`, `sex` and a `year` of study. 
 
 # Background / Introduction
 *This section should explain the topic, why it is important, and how you approach the issue*
