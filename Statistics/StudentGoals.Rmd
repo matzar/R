@@ -55,6 +55,8 @@ Interest | Student's expectations whether the course will be interesting | 13
 Enjoyment | Student's expectations whether the course will be enjoyable | 14
 Importance focus | Student's importance focus on understanding and grades | 15
 
+
+
 # Data
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
 
