@@ -36,13 +36,12 @@ set.seed(1234)
 # Abstract
 *This should be a very brief explanation of your research paper (around 150 words). It normally includes information about the issue, why you are interested in that issue, your method/model, analysis results, discussions and conclusions.*
 
-This paper analyses the data gathered from surveying 650 undergraduate students. The authors of the survey tried to prove two hypothesis: 1) During their junior years, students tend to primarly focus on getting good grades while during their senior years, the focue shifts towrds a deeper-understanding of the subject and 2) students' enjoyment and interest tends to deteriorate as they progress through their studies. Why this might be the case is not obvious; this is why the survey has 15 questions and propes 7 different categories. Each category consists of 3 to 1 quesionts and because the order of the questions is randomized, the student should not know the categories nor notice any patterns.
+This paper analyses the data gathered from surveying 650 undergraduate students. The authors of the survey tried to prove two hypothesis: 1) During their junior years, students tend to primarly focus on getting good grades while during their senior years, the focue shifts towrds a deeper-understanding of the subject and 2) students' enjoyment and interest tends to deteriorate as they progress through their studies. It is not obvious why this might be the case and if the student's age, sex or studied subject has any bearing. This is why the survey has 15 questions and propes 7 different categories. Each category consists of 3 to 1 quesionts and because the order of the questions is randomized, the student should not know the categories nor notice any patterns.
 
-It is interesting how undergraduate students goals change through-out their studies. It is often assumed that during students' junior years they primary focus is on getting good grades and then it shitfs towards a deeper-subject-understanding at their more senior years.
-It is also not obvious if students' intrinsic motivation deteriorates as they progress thorugh their studies.
-In this paper I will present a full analysis of the gathered data including: data exploration, data interpretation, 
+In this paper a full analysis of the gathered data will be presented, including data: preperation, analysis, exploration and interpretation; calculation of confidence intervals, interpretaion of the results with diagrams and an explanation of the used methods.
 
-It is not obvious that the student's sex, age and subject would not affect their goals and this paper will also investiage if it true or not.
+# Background / Introduction
+*This section should explain the topic, why it is important, and how you approach the issue*
 
 Recent evidence has shown as undergraduate students progress through their studies their reasons for learning change; their primary focus shifts from deep understanding of the subject towards achieving good grades.
 
@@ -51,8 +50,7 @@ The authors of the survey stated a hypothesis that - as students progress throug
 
 Recent evidence has shown that undergraduate students tend to have different reasons for studying as they progress through their course. In this paper, we seek to answer whether this is true while also taking into consideration a student’s `subject`, `sex` and a `year` of study. 
 
-# Background / Introduction
-*This section should explain the topic, why it is important, and how you approach the issue*
+It is interesting how undergraduate students goals change through-out their studies. 
 
 The goal of the survey was to find out if the hypothesis stated in the abstract is true.
 The authors of the survey stated a hypothesis that - as students progress through their studies their reasons for learning change; their primary focus shifts from achieving good grades towards deep understanding of the subject. The authors wanted to inspect if the student's subject, age and sex would influence, otherwise independent, results.
