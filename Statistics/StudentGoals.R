@@ -213,7 +213,7 @@ upper_end_of_interval <- beta + ci_margin_error # 0.3763175 or 37%
 # Plot mean results of performance approach questions
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(mean_dat_year$year, mean_dat$m1))
+d <- ggplot(data = dat, aes(mean_dat$year, mean_dat$m1))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
