@@ -36,53 +36,29 @@ set.seed(1234)
 # Abstract
 *This should be a very brief explanation of your research paper (around 150 words). It normally includes information about the issue, why you are interested in that issue, your method/model, analysis results, discussions and conclusions.*
 
-This paper analyses the data gathered from surveying 650 undergraduate students. The authors of the survey tried to prove two hypothesis: 1) During students' junior years, they tend to primarily focus on getting good grades while during their senior years, the focus shifts towards a deep-understanding of the subject and 2) students' enjoyment and interest tends to deteriorate as they progress through their studies. It is not obvious why this might be the case and if the student's age, sex or studied subject has any bearing. This is why the survey has 15 questions and probes 7 different categories. Each category consists of 3 to 1 questions and because the order of the questions is randomised, the student should not know the categories nor notice any patterns.
+This paper analyses the data gathered from surveying 625 undergraduate students. The authors of the survey tried to prove two hypothesis: 1) During students' junior years, they tend to primarily focus on getting good grades while during their senior years, the focus shifts towards a deep-understanding of the subject and 2) students' enjoyment and interest tends to deteriorate as they progress through their studies. It is not obvious why this might be the case and if the student's age, sex or studied subject has any bearing. This is why the survey has 15 questions and probes 7 different categories. Each category consists of 3 to 1 questions and because the order of the questions is randomised, the student should not know the categories nor notice any patterns.
 
 In this paper a full analysis of the gathered data will be presented, including data: preparation, analysis, exploration and interpretation; calculation of confidence intervals, interpretation of the results with diagrams and an explanation of the methods used.
 
-# Background / Introduction
+# Introduction
 *This section should explain the topic, why it is important, and how you approach the issue*
 
-Recent evidence has shown as undergraduate students progress through their studies their reasons for learning change; their primary focus shifts from deep understanding of the subject towards achieving good grades.
+It is interesting how undergraduate students' goals change through-out their studies. A formal analysis started with an interpretion of the 7 categories based on the questions they consisted of. The results are presented in a table below:
 
-The goal of the survey was to find out if the hypothesis stated in the abstract is true.
-The authors of the survey stated a hypothesis that - as students progress through their studies their reasons for learning change; their primary focus shifts from achieving good grades towards deep understanding of the subject. The authors wanted to inspect if the student's subject, age and sex would influence, otherwise independent, results.
-
-Recent evidence has shown that undergraduate students tend to have different reasons for studying as they progress through their course. In this paper, we seek to answer whether this is true while also taking into consideration a student’s `subject`, `sex` and a `year` of study. 
-
-It is interesting how undergraduate students goals change through-out their studies. 
-
-The goal of the survey was to find out if the hypothesis stated in the abstract is true.
-The authors of the survey stated a hypothesis that - as students progress through their studies their reasons for learning change; their primary focus shifts from achieving good grades towards deep understanding of the subject. The authors wanted to inspect if the student's subject, age and sex would influence, otherwise independent, results.
-
-The survey had 15 questions which were designed to explore 7 main areas of interest, which were student's: 
-
-* Performance approach - How important it is to students to do better than others?
-  + Questions number: 1, 2, 3
-  
-* Performance avoidance - How motivated are students by fear of performing poorly?
-  + Questions number: 4, 5, 6
-
-* Mastery approach - Prevalence of mastery approach.
-  + Questions number: 7, 8, 9
-
-* Mastery avoidance - Student's fear of not mastering the course.
-  + Questions number: 10, 11, 12
-
-* Interest - Student's expectations whether the course will be interesting.
-  + Question number: 13
-
-* Enjoyment - Student's expectations whether the course will be enjoyable.
-  + Question number: 14
-
-* Student's relative importance between Understanding and Grades
-  + Question number: 15
-
+Category | Interpretation | Questions
+------------ | ------------- | ------------
+Performance approach | How important it is to students to do better than others? | 1, 2, 3             
+Performance avoidance | How motivated are students by fear of performing poorly? | 4, 5, 6
+Mastery approach | Prevalence of mastery approach | 7, 8, 9
+Mastery avoidance | Student's fear of not mastering the course | 10, 11, 12
+Interest | Student's expectations whether the course will be interesting | 13
+Enjoyment | Student's expectations whether the course will be enjoyable | 14
+Importance focus | Student's importance focus between understanding and grades | 15
 
 # Data
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
 
-Around 650 students were surveyed. To conceal the existence of the 7 categories from students, they were presented with the questions in random order. 
+Around 625 students were surveyed. To conceal the existence of the 7 categories from students, they were presented with the questions in random order. 
 
 # Methodology
 *This section explains the statistical methods and/or your model. It is also a common practice to present the statistical model structure (i.e. equation) here as well.*
