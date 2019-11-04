@@ -1,6 +1,20 @@
 ---
 title: "Statistical Data Analysis of Student Goals"
-output: pdf_document
+author: Mateusz Zaremba
+date: November 4, 2019
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 2
+    fig_caption: true
+    df_print: kable
+    highlight: tango
+    citation_package: natbib
+    keep_tex: true
+fontzise: 11pt
+geometry: margin=1.5in
+documentclass: article
+
 ---
 
 ```{r setup, include=FALSE}
