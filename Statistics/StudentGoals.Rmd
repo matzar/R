@@ -36,7 +36,13 @@ set.seed(1234)
 # Abstract
 *This should be a very brief explanation of your research paper (around 150 words). It normally includes information about the issue, why you are interested in that issue, your method/model, analysis results, discussions and conclusions.*
 
-It is interesting how undergraduate students goals change through-out their studies. It is often assumed that during their junior years they primary focus remains on getting good grades while at the senior years the focus shifts towards a deeper understanding of the subject.
+This paper analyses the data gathered from surveying 650 undergraduate students. The authors of the survey tried to prove two hypothesis: 1) During their junior years, students tend to primarly focus on getting good grades while during their senior years, the focue shifts towrds a deeper-understanding of the subject and 2) students enjoyment and interest and then to demonstrate more from their studies    It is not obvious why either of these hypothesis might be true. That is why the survey has 15 questions and propes 7 different categories. Each category consists of 3 to 1 quesionts but because the order of the questions was randomized, the student should remain unaware of the categories and not notice any patterns.
+
+It is interesting how undergraduate students goals change through-out their studies. It is often assumed that during students' junior years they primary focus is on getting good grades and then it shitfs towards a deeper-subject-understanding at their more senior years.
+It is also not obvious if students' intrinsic motivation deteriorates as they progress thorugh their studies.
+In this paper I will present a full analysis of the gathered data including: data exploration, data interpretation, 
+
+It is not obvious that the student's sex, age and subject would not affect their goals and this paper will also investiage if it true or not.
 
 Recent evidence has shown as undergraduate students progress through their studies their reasons for learning change; their primary focus shifts from deep understanding of the subject towards achieving good grades.
 
