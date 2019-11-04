@@ -34,6 +34,7 @@ dat <- CleanedStudentGoalsData
 
 # save CleanedStudentGoalsData table as tibble table in a variable called 'dat_tibble'
 dat_tibble <- tibble::as_tibble(CleanedStudentGoalsData)
+
 # Renaming columns according to random order: 6, 12, 11, 1, 7, 2, 10, 8, 5, 3, 9, 4
 renamed_data <- dat_tibble %>%
   rename(
@@ -61,7 +62,7 @@ dat <- renamed_data2
 # save new data in a csv file
 write_csv(dat, "data/StudentGoalsDataCleanedAndNumbered.csv")
 
-# reassing values to their proper labeling from assets/'Student Goals - Coding Information.pdf'
+# renaming values to their proper labeling from assets/'Student Goals - Coding Information.pdf'
 # replace numericals in the 'sex' column with proper sex names
 dat$sex[dat$sex==1] <- 'Male'
 dat$sex[dat$sex==2] <- 'Female'
@@ -73,7 +74,7 @@ dat$subject[dat$subject==4] <- 'General Economics'
 dat$subject[dat$subject==5] <- 'Accounting'
 dat$subject[dat$subject==6] <- 'Statistics'
 
-# save labeled table
+# save new labeled table to a csv file
 write_csv(dat, "data/LabeledAndCleanedStudentGoals.csv")
 
 ## DATA EXPLORATION ##################################################################
