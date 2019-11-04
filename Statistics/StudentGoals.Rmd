@@ -140,21 +140,6 @@ mean_dat <- mean_dat %>%
 mean_dat <- mean_dat %>% 
   mutate(m4 = pmap_dbl(select(., c("q10", "q11", "q12")), function(...) mean(c(...))))
 
-# get mean from 'interest' column (Course interestedness expectations) for all the students 
-# save the results in 'm_interest' colum and add it to 'mean_dat' table
-mean_dat <- mean_dat %>% 
-  mutate(m_interest = pmap_dbl(select(., c("interest")), function(...) mean(c(...))))
-
-# get mean from 'enjoy' column (Course enjoyment expectations) for all the students 
-# save the results in 'm_interest' colum and add it to 'mean_dat' table
-mean_dat <- mean_dat %>% 
-  mutate(m_enjoy = pmap_dbl(select(., c("enjoy")), function(...) mean(c(...))))
-
-# get mean from 'mastgrad' column (1 (Understanding) - 7 (Grades) Importance) for all the students 
-# save the results in 'm_interest' colum and add it to 'mean_dat' table
-mean_dat <- mean_dat %>% 
-  mutate(m_mastgrad = pmap_dbl(select(., c("mastgrad")), function(...) mean(c(...))))
-
 # save final cleaned table
 write_csv(mean_dat, "data/MeanCleanedStudentGoals.csv")
 # save final cleaned table as tibble table
@@ -173,15 +158,17 @@ In this paper a full analysis of the gathered data will be presented, including 
 
 It is interesting how undergraduate students' goals change through-out their studies. A formal analysis started with an interpretion of the 7 categories based on the questions they consisted of. The results are presented in the table below:
 
-Category | Interpretation | Questions
------------- | ------------- | ------------
-Performance approach | How important it is to students to do better than others? | 1, 2, 3             
-Performance avoidance | How motivated are students by fear of performing poorly? | 4, 5, 6
-Mastery approach | Prevalence of mastery approach | 7, 8, 9
-Mastery avoidance | Student's fear of not mastering the course | 10, 11, 12
-Interest | Student's expectations whether the course will be interesting | 13
-Enjoyment | Student's expectations whether the course will be enjoyable | 14
-Importance focus | Student's importance focus on understanding and grades | 15
+Category | Interpretation | Question | # of Questions
+------------ | ------------- | ------------ | ------------
+Performance approach | How important it is to students to do better than others? | 1, 2, 3 | 3
+Performance avoidance | How motivated are students by fear of performing poorly? | 4, 5, 6 | 3
+Mastery approach | Prevalence of mastery approach | 7, 8, 9 | 3
+Mastery avoidance | Student's fear of not mastering the course | 10, 11, 12 | 3
+Interest | Student's expectations whether the course will be interesting | 13 | 1
+Enjoyment | Student's expectations whether the course will be enjoyable | 14 | 1
+Importance focus | Student's importance focus on understanding and grades | 15 | 1
+
+Because `Interest`, `Enjoyment` and `Importance focus` categories consisted only of 1 question, no further computation was required to interpret the data. For the remaining categories, which number of questions was equal to 3, a mean for each assessment category was computed and saved for each individual student. 
 
 The students answered on a 7-level scale; 1 meaning the student feels the statement asked in the quesion is 'Not true of him/her' and 7 meaning the student feels it is 'Very true of him/her'. See the table below for a graphical explanation:
 
@@ -189,10 +176,10 @@ The students answered on a 7-level scale; 1 meaning the student feels the statem
 - | - | - | - | - | - | - | - | -
 Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
 
-To test the hypotheses, a mean for each assessment category was computed and saved for each individual student. This resulted in 7 extra columns added to the original data set, which an example of can be seen below:
+To test the hypotheses, This resulted in 4 extra columns added to the original data set, since Interest, Enjoyment and Importance category consisted only of 1 question. An example of the new columns and their contents can be seen below:
 
 ```{r}
-dat_tibble[1:5, 20:26]
+dat_tibble[1:5, 20:23]
 ```
 
 An exploratory data analysis using graphs was performed. Some of the worth mentioning are:

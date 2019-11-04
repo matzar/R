@@ -166,21 +166,6 @@ mean_dat <- mean_dat %>%
 mean_dat <- mean_dat %>% 
   mutate(m4 = pmap_dbl(select(., c("q10", "q11", "q12")), function(...) mean(c(...))))
 
-# get mean from 'interest' column (Course interestedness expectations) for all the students 
-# save the results in 'm_interest' colum and add it to 'mean_dat' table
-mean_dat <- mean_dat %>% 
-  mutate(m_interest = pmap_dbl(select(., c("interest")), function(...) mean(c(...))))
-
-# get mean from 'enjoy' column (Course enjoyment expectations) for all the students 
-# save the results in 'm_interest' colum and add it to 'mean_dat' table
-mean_dat <- mean_dat %>% 
-  mutate(m_enjoy = pmap_dbl(select(., c("enjoy")), function(...) mean(c(...))))
-
-# get mean from 'mastgrad' column (1 (Understanding) - 7 (Grades) Importance) for all the students 
-# save the results in 'm_interest' colum and add it to 'mean_dat' table
-mean_dat <- mean_dat %>% 
-  mutate(m_mastgrad = pmap_dbl(select(., c("mastgrad")), function(...) mean(c(...))))
-
 # save final cleaned table
 write_csv(mean_dat, "data/MeanCleanedStudentGoals.csv")
 # save final cleaned table as tibble table
