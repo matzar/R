@@ -10,7 +10,7 @@ output:
     df_print: kable
     highlight: tango
     citation_package: natbib
-    keep_tex: true
+    keep_tex: false
 fontzise: 11pt
 geometry: margin=1.5in
 documentclass: article
@@ -47,6 +47,11 @@ library(modelr)
 library(rsample)
 library(broom)
 library(magrittr)
+```
+
+```{r}
+# disable warnings for the sake of report writing
+options(warn=-1)
 ```
 
 ```{r}

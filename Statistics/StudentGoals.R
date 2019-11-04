@@ -10,6 +10,9 @@ library(magrittr)
 # set seed for randomization to ensure that results are always reproduced precisely
 set.seed(1234)
 
+# disable warnings for the sake of debugging
+options(warn=0)
+
 # read csv file (worse variable recognition)
 f <- "data/StudentGoalsData.csv"
 StudentGoalsData <- read_csv(f)
