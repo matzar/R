@@ -7,8 +7,6 @@ output:
     toc: false
     toc_depth: 2
     number_sections: true
-    fig_width: 12
-    fig_height: 9
     fig_caption: true
     df_print: kable
     highlight: tango
@@ -188,9 +186,10 @@ dat_tibble[1:5, 20:23]
 ```
 
 ## Data Exploration
+
 An exploratory data analysis using graphs was performed. Some of them are:
 
-```{r, fig.width=4,fig.height=3,fig.cap="\\label{fig:figs}Number of sexes"}
+```{r, fig.width=3, fid.height=2, fig.cap="Number of sexes"}
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = sex, fill = sex))
 ```
