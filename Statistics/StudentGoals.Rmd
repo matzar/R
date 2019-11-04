@@ -20,7 +20,7 @@ documentclass: article
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, tidy = FALSE, cache = FALSE, fig.cap = "...")
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, tidy = FALSE, cache = TRUE, fig.cap = "...")
 
 # load libraries
 library(tidyverse)
@@ -188,8 +188,9 @@ dat_tibble[1:5, 20:23]
 ```
 
 ## Data Exploration
-An exploratory data analysis using graphs was performed. Some of the worth mentioning are:
-```{r, fig.cap="\\label{fig:figs}Sex comparison"}
+An exploratory data analysis using graphs was performed. Some of them are:
+
+```{r, fig.width=4,fig.height=3,fig.cap="\\label{fig:figs}Number of sexes"}
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = sex, fill = sex))
 ```
