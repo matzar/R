@@ -67,12 +67,11 @@ The survey had 15 questions which were designed to explore 7 main areas of inter
 * Student's relative importance between Understanding and Grades
   + Question number: 15
 
-It was noticed that the survey's 12 were randomly ordered with the  had 12 randomly ordered questions and that the randomization was stated at the end of it.
 
 # Data
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
 
-Around 650 students were surveyed.
+Around 650 students were surveyed. To conceal the existence of the 7 categories from students, they were presented with the questions in random order. 
 
 # Methodology
 *This section explains the statistical methods and/or your model. It is also a common practice to present the statistical model structure (i.e. equation) here as well.*
