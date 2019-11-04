@@ -6,6 +6,7 @@ library(modelr)
 library(rsample)
 library(broom)
 library(magrittr)
+library(plotly)
 
 # set seed for randomization to ensure that results are always reproduced precisely
 set.seed(1234)
@@ -336,6 +337,18 @@ different years of study, sexes and subjects.",
   colour = "Sex",
   shape = "Subject"
 )
+
+ggplotly(c + labs(
+  title = "Students' course interestedness expectations set on basis of:
+different years of study, sexes and subjects.",
+  subtitle = "\'I expect my courses this semester to be very interesting\'",
+  caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
+  x = "Year (1-4)",
+  y = "Expectations: 1 (Low) - 7 (High)",
+  colour = "Sex",
+  shape = "Subject"
+))
+
 # chi-squared
 chi_sqrt <- ggplot(data = dat, aes(year, mean_dat$m_interest)) +
   stat_function(fun = dchisq, args = list(df = 8))
