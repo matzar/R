@@ -43,7 +43,7 @@ In this paper a full analysis of the gathered data will be presented, including 
 # Introduction
 *This section should explain the topic, why it is important, and how you approach the issue*
 
-It is interesting how undergraduate students' goals change through-out their studies. A formal analysis started with an interpretion of the 7 categories based on the questions they consisted of. The results are presented in a table below:
+It is interesting how undergraduate students' goals change through-out their studies. A formal analysis started with an interpretion of the 7 categories based on the questions they consisted of. The results are presented in the table below:
 
 Category | Interpretation | Questions
 ------------ | ------------- | ------------
@@ -53,7 +53,7 @@ Mastery approach | Prevalence of mastery approach | 7, 8, 9
 Mastery avoidance | Student's fear of not mastering the course | 10, 11, 12
 Interest | Student's expectations whether the course will be interesting | 13
 Enjoyment | Student's expectations whether the course will be enjoyable | 14
-Importance focus | Student's importance focus between understanding and grades | 15
+Importance focus | Student's importance focus on understanding and grades | 15
 
 # Data
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
