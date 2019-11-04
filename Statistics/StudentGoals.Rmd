@@ -168,32 +168,33 @@ Interest | Student's expectations whether the course will be interesting | 13 | 
 Enjoyment | Student's expectations whether the course will be enjoyable | 14 | 1
 Importance focus | Student's importance focus on understanding and grades | 15 | 1
 
-Because `Interest`, `Enjoyment` and `Importance focus` categories consisted only of 1 question, no further computation was required to interpret the data. For the remaining categories, which number of questions was equal to 3, a mean for each assessment category was computed and saved for each individual student. 
-
 The students answered on a 7-level scale; 1 meaning the student feels the statement asked in the quesion is 'Not true of him/her' and 7 meaning the student feels it is 'Very true of him/her'. See the table below for a graphical explanation:
 
  | | | | | | | |
 - | - | - | - | - | - | - | - | -
 Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
 
-To test the hypotheses, This resulted in 4 extra columns added to the original data set, since Interest, Enjoyment and Importance category consisted only of 1 question. An example of the new columns and their contents can be seen below:
+# Data {data}
+*Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
 
-```{r}
+Around 625 students were surveyed. To conceal the existence of the 7 categories from students, they were presented with the questions in random order. 
+
+Because `Interest`, `Enjoyment` and `Importance focus` categories consisted only of 1 question, no further computation was required to interpret the data from these categories.
+For the remaining categories, which number of questions was equal to 3, a mean for each assessment category was computed, and saved for each individual student.
+This resulted in 4 extra columns added to the original data set. An example of these can be seen below:
+```{r data}
 dat_tibble[1:5, 20:23]
 ```
+
+## Data Exploration
 
 An exploratory data analysis using graphs was performed. Some of the worth mentioning are:
 
 ```{r, fig.cap="\\label{fig:figs}plotting example"}
+
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = sex, fill = sex))
 ```
-
-
-# Data
-*Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
-
-Around 625 students were surveyed. To conceal the existence of the 7 categories from students, they were presented with the questions in random order. 
 
 # Methodology
 *This section explains the statistical methods and/or your model. It is also a common practice to present the statistical model structure (i.e. equation) here as well.*
