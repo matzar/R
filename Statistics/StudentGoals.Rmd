@@ -19,20 +19,18 @@ documentclass: article
 
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
 ```{r}
 library(tidyverse)
 library(modelr)
 library(rsample)
 library(broom)
 library(magrittr)
-```
-
-```{r}
 # disable warnings for the sake of report writing
 options(warn=-1)
-```
-
-```{r}
 # set seed for randomization to ensure that results are always reproduced precisely
 set.seed(1234)
 ```
@@ -111,15 +109,6 @@ dat$subject[dat$subject==6] <- 'Statistics'
 
 ```{r}
 ## DATA EXPLORATION ##################################################################
-# bar chart example
-ggplot(data = diamonds) + 
-  geom_bar(mapping = aes(x = cut))
-head(diamonds)
-head(dat)
-#bar chart example 2
-ggplot(data = diamonds) + 
-  geom_bar(mapping = aes(x = cut, fill = clarity))
-
 # gender in numbers
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = sex, fill = sex))
@@ -447,29 +436,3 @@ upper_end_of_interval <- beta + ci_margin_error # 0.3763175 or 37%
 # between 30% and 37%, based on our sample.
 #####################################################################
 ```
-
-
-### Help writing report
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a *document* will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
