@@ -20,7 +20,7 @@ documentclass: article
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, tidy = FALSE, cache = TRUE, fig.cap = "...")
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, tidy = FALSE, cache = FALSE, fig.cap = "...")
 
 # load libraries
 library(tidyverse)
@@ -174,7 +174,7 @@ The students answered on a 7-level scale; 1 meaning the student feels the statem
 - | - | - | - | - | - | - | - | -
 Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
 
-# Data {data}
+# Data
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
 
 Around 625 students were surveyed. To conceal the existence of the 7 categories from students, they were presented with the questions in random order. 
@@ -182,16 +182,14 @@ Around 625 students were surveyed. To conceal the existence of the 7 categories 
 Because `Interest`, `Enjoyment` and `Importance focus` categories consisted only of 1 question, no further computation was required to interpret the data from these categories.
 For the remaining categories, which number of questions was equal to 3, a mean for each assessment category was computed, and saved for each individual student.
 This resulted in 4 extra columns added to the original data set. An example of these can be seen below:
-```{r data}
+
+```{r}
 dat_tibble[1:5, 20:23]
 ```
 
 ## Data Exploration
-
 An exploratory data analysis using graphs was performed. Some of the worth mentioning are:
-
-```{r, fig.cap="\\label{fig:figs}plotting example"}
-
+```{r, fig.cap="\\label{fig:figs}Sex comparison"}
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = sex, fill = sex))
 ```
@@ -372,7 +370,7 @@ different years of study, sexes and subjects.",
 # Plot mean results of course interestedness expectations questions
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$m_interest))
+d <- ggplot(data = dat, aes(year, mean_dat$interest))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
@@ -404,7 +402,7 @@ chi_sqrt
 # Plot mean results of course enjoyment expectations questions 
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$m_enjoy))
+d <- ggplot(data = dat, aes(year, mean_dat$enjoy))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
@@ -432,7 +430,7 @@ different years of study, sexes and subjects.",
 # Plot mean results of (Primarly understanding/Equal Importance/Primarly grades)scale 
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$m_mastgrad))
+d <- ggplot(data = dat, aes(year, mean_dat$mastgrad))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing

@@ -302,7 +302,7 @@ different years of study, sexes and subjects.",
 # Plot mean results of course interestedness expectations questions
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$m_interest))
+d <- ggplot(data = dat, aes(year, mean_dat$interest))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
@@ -343,7 +343,7 @@ chi_sqrt
 # Plot mean results of course enjoyment expectations questions 
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$m_enjoy))
+d <- ggplot(data = dat, aes(year, mean_dat$enjoy))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
@@ -368,7 +368,7 @@ different years of study, sexes and subjects.",
 # Plot mean results of (Primarly understanding/Equal Importance/Primarly grades)scale 
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$m_mastgrad))
+d <- ggplot(data = dat, aes(year, mean_dat$mastgrad))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
