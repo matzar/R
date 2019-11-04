@@ -17,7 +17,6 @@ output:
 fontzise: 11pt
 geometry: margin=1.5in
 documentclass: article
-
 ---
 
 ```{r setup, include=FALSE}
@@ -35,13 +34,42 @@ set.seed(1234)
 ```
 
 # Abstract
-```{r, label = load}
+*This should be a very brief explanation of your research paper (around 150 words). It normally includes information about the issue, why you are interested in that issue, your method/model, analysis results, discussions and conclusions.*
+
+Recent **evidence** has shown that undergraduate students tend to have different reasons for studying as they progress through their course. In this paper, we seek to answer whether this is true while also taking into consideration a student’s `subject`, `sex` and a `year` of study. 
+
+# Background / Introduction
+*This section should explain the topic, why it is important, and how you approach the issue*
+
+The goal of the survey was to find out if the hypothesis stated in the abstract is true.
+The authors of the survey stated a hypothesis that - as students progress through their studies their reasons for learning change; their primary focus shifts from achieving good grades towards deep understanding of the subject. The authors wanted to inspect if the student's subject, age and sex would influence, otherwise independent, results.
+
+The survey had 12 questions and aimed to explore 7 main areas, which were student's: 
+It was noticed that the survey's 12 were randomly ordered with the  had 12 randomly ordered questions and that the randomization was stated at the end of it.
+
+# Data
+*Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
+
+Around 650 students were surveyed.
+
+# Methodology
+*This section explains the statistical methods and/or your model. It is also a common practice to present the statistical model structure (i.e. equation) here as well.*
+
+<https://ggplot2.tidyverse.org>
+
+# Results
+*Present both your informal and formal analyses.*
+
+# Conclusion / Discussion
+*You need to conclude your project, discuss the results, discuss any reservations that you have about the study and list any future work.*
+
+```{r, load}
 # read csv file (worse variable recognition)
 f <- "data/StudentGoalsData.csv"
 StudentGoalsData <- read_csv(f, col_types = cols(), skip_empty_rows = TRUE)
 ```
 
-```{r}
+```{r, remove seq}
 # drop 'seq' column since it doesn't serve any purpose
 StudentGoalsData <- StudentGoalsData  %>%  ungroup  %>%  select(-seq)
 ```
@@ -91,6 +119,9 @@ renamed_data2 <- renamed_data %>%
   )
 # save renamed table in 'dat' variable
 dat <- renamed_data2
+# summary(dat)
+# plot(dat) # r function for plotting
+# dat[1:4, 1:4]
 ```
 
 ```{r}
