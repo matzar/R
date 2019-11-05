@@ -166,8 +166,17 @@ We will conduct the data analysis to the best of our capabilities but bear it mi
 # Data
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
 
-This is how the data looked before we started cleaning it:
+## Initial Data
+This is how the data looked like before we started cleaning it:
 
+```{r}
+StudentGoalsOriginal[6:9,1:17]
+StudentGoalsOriginal[6:9,18:20]
+```
+
+## Cleaning the Data
+
+First, the *seq* column was dropped since it does not serve any purpose. Second, rows with empty cells were dropped because they could falsify our results.
 
 The following coding information was given to us: 
 
@@ -222,13 +231,19 @@ dat_tibble[1:5, 20:23]
 
 Confidence interval was used.
 
+tidyverse bruh 
 
 
 # Results
 *Present both your informal and formal analyses.*
 
+analyse the m1, m2, m3, m4 graphs bro
+
 # Conclusion / Discussion
 *You need to conclude your project, discuss the results, discuss any reservations that you have about the study and list any future work.*
+
+so, what conclusions do you have bruh?
+
 
 ```{r, echo=FALSE}
 ## DATA EXPLORATION ##################################################################
