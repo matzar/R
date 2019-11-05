@@ -154,7 +154,29 @@ The data manipulation was done using R and tidywerse packages (ggplot2, dplyr, t
 # Introduction
 *This section should explain the topic, why it is important, and how you approach the issue*
 
-It is interesting how undergraduate students' goals change through-out their studies. A formal analysis started with an interpretion of the 7 categories based on the questions they consisted of. The results are presented in the table below:
+It is interesting how undergraduate students' goals change through-out their studies. A formal analysis started with an interpretion of the 7 categories based on the questions they consisted of, i.e., a single conclusion was drawn based on the categories' questions. Because the students were presented with the questions in a randomized order it was assumed that the collected data was put into a table in the randomized order as well. This would mean that, e.g., question 1 in the survey, is actaully question 6 in the `Performance avoidance` category; question 2 is question 12 from the `Mastery avoidance` category, etc.
+
+`Table 1` presents the original categories with their matching questions. `Table 2` presents a question based category interpretation. `Table 3` shows survey's random order of the questions and their matching category plus the question's number.
+
+:
+Performance approach questions
+1. It is important to me to be better than other students.
+2. It is important to me to do well compared to others in my courses
+3. My goal in my courses is to get a better grade than most of the other students.
+Performance avoidance questions
+4. I just want to avoid doing poorly in my courses.
+5. My fear of performing poorly is often what motivates me 
+6. My goal in this class is to avoid performing poorly
+Mastery-Approach
+7. I want to learn as much as possible from all my courses
+8. I desire to completely master the material presented in my courses.
+9. It is important for me to understand the content of my courses as thoroughly as possible
+Mastery-Avoidance
+10. I worry that I may not learn all that I possibly could in my classes
+11. Sometimes I’m afraid that I may not understand the content of this course as thoroughly as I’d like 
+12. I am often concerned that I may not learn all there is to learn in this class
+
+Survey questions and their interpretation:
 
 Category | Interpretation | Question | # of Questions
 ------------ | ------------- | ------------ | ------------
@@ -165,12 +187,24 @@ Mastery avoidance | Student's fear of not mastering the course | 10, 11, 12 | 3
 Interest | Student's expectations whether the course will be interesting | 13 | 1
 Enjoyment | Student's expectations whether the course will be enjoyable | 14 | 1
 Importance focus | Student's importance focus on understanding and grades | 15 | 1
+Table: caption
 
 The students answered on a 7-level scale; 1 meaning the student feels the statement asked in the quesion is 'Not true of him/her' and 7 meaning the student feels it is 'Very true of him/her'. See the table below for a graphical explanation:
 
  | | | | | | | |
 - | - | - | - | - | - | - | - | -
 Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
+
+
+
+Questions from 1 to 12 were ordered randomly. 
+
+| |
+- | - |- | - |- | - |- | - |- | - |- | - |
+Survey order | 6 | 12 | 11 | 1 | 7 | 2 | 10 | 8 | 5 | 3 | 9 | 4
+Actual question | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+
+Questions 13, 14 and 15 remain in the same order
 
 # Data
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
