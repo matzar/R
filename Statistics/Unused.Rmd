@@ -9,6 +9,14 @@ In this paper a full analysis of the gathered data will be presented, including 
 
 # Introduction
 
+| Category | Questions |
+| -------- | --------- |
+| Performance approach questions | - 1. It is important to me to be better than other students. - 2. It is important to me to do well compared to others in my courses - 3. My goal in my courses is to get a better grade than most of the other students. |
+| Performance avoidance questions | 4. I just want to avoid doing poorly in my courses. 5. My fear of performing poorly is often what motivates me 6. My goal in this class is to avoid performing poorly |
+| Mastery-Approach | 7. I want to learn as much as possible from all my courses. 8. I desire to completely master the material presented in my courses. 9. It is important for me to understand the content of my courses as thoroughly as possible |
+| Mastery-Avoidance | 10. I worry that I may not learn all that I possibly could in my classes. 11. Sometimes I’m afraid that I may not understand the content of this course as thoroughly as I’d like. 12. I am often concerned that I may not learn all there is to learn in this class |
+Table: 
+
 After the questions have been randomised they kept their original numbering. In order to analyse the data, the question had to be derandomised. 
 
 Recent evidence has shown as undergraduate students progress through their studies their reasons for learning change; their primary focus shifts from deep understanding of the subject towards achieving good grades.
