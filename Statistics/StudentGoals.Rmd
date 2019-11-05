@@ -144,6 +144,40 @@ write_csv(mean_dat, "data/MeanCleanedStudentGoals.csv")
 dat_tibble <- as_tibble(mean_dat)
 ```
 
+```{r}
+## CLASSIFICATION ###################################################
+# dat_tibble %>%
+#   head() %>%
+#   knitr::kable()
+
+# Find a student who is not enjoying the course, finds it not interesting but still primarly aims to perform better than others and is lead by the fear of performing poorly
+dat_tibble_enjoy <- filter(dat_tibble, enjoy <= 2)
+dat_tibble_interest <- filter(dat_tibble_enjoy, interest <= 2)
+dat_tibble_mastgrad <- filter(dat_tibble_interest, m1 >= 6)
+mm1 <- filter(dat_tibble_mastgrad, m1 >= 6)
+mm2 <- filter(mm1, m2 >= 6)
+mm2
+
+n_mm2 <- tally(mm2)
+beta <- n_mm2 / n # 0.3392
+
+ci <- beta * ((1 - beta)/(n)) # 0.0003586294
+ci_sqrt <- sqrt(ci) # 0.0189
+ci_margin_error <- ci_sqrt * 1.96 # 0.0371 or 3.71% 
+
+# Our 95% confidence interval for the percentage of times we will get a student with a mean of
+# 5 or above for the set of m1 questions is 0.3392 (or 34%), plus or minus 0.03711 (or 3.7%).
+# The lower end of the interval is 0.3392 - 0.03711 which is:
+lower_end_of_interval <- beta - ci_margin_error # 0.3020825 or 30%
+# The upper end of the interval is 0.3392
+upper_end_of_interval <- beta + ci_margin_error # 0.3763175 or 37%
+
+# To interpret these results we could say that with 95% confidence the percentage of the times
+# we should expect to find a student with a mean score of 5 or above to m1 is somewhere
+# between 30% and 37%, based on our sample.
+#####################################################################
+```
+
 # Abstract
 *This should be a very brief explanation of your research paper (around 150 words). It normally includes information about the issue, why you are interested in that issue, your method/model, analysis results, discussions and conclusions.*
 
@@ -156,7 +190,11 @@ The data manipulation was done using R and tidywerse packages. A full analysis w
 
 It is interesting how undergraduate students' goals change through-out their studies. They often experince various syndroms like: burnout, impostour, disheartening or even attempt a suicide. A Harvard graduate, Alex Chang, in his TEDx talk titled ["The Unspoken Reality Behind the Harvard Gates"](https://www.youtube.com/watch?v=WzP7oDCciGI) speaks about the pressure of gettings the best grades; how he was called for a jasmine tea to his tutor and asked if he couldn't give it his all, while he already was doing the best he could. He also recalls one tragic night when he and his roommates were woke up at 4am, to be informed that one of his friend has taken his own life.
 
-Becasue this paper is going to be talking about student's course enjoyment, expectations and his or her focus on grades vs. understanding I would liketo give it another, less visible shade for there might be a lot more to say about a student who is at the bottom of the scale. A student who is enjoying the course, finds it not interesting but still primarly aims to perform better than others and is lead by the fear of performing poorly. We will try to find such students and calculate the confidence interval of finding a student-at-risk in a given sample.
+Becasue this paper is going to be talking about student's course enjoyment, expectations and his or her focus on grades vs. understanding I would liketo give it another, less visible shade for there might be a lot more to say about a student who is at the bottom of the scale. A student who is not enjoying the course, finds it not interesting but still primarly aims to perform better than others and is lead by the fear of performing poorly. We will try to find such students and calculate the confidence interval of finding a student-at-risk in a given sample.
+
+```{r}
+mm2[,c("m1")]
+```
 
 # Data
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
@@ -203,8 +241,8 @@ Table: In the survey, questions from 1 to 12 were ordered randomly; questions 13
 
 Category | Interpretation | Question | # of Questions
 ------------ | ------------- | ------------ | ------------
-Performance approach | How important it is to students to do better than others? | 1, 2, 3 | 3
-Performance avoidance | How motivated are students by fear of performing poorly? | 4, 5, 6 | 3
+Performance approach | Importance of doing better than others? | 1, 2, 3 | 3
+Performance avoidance | Motivation based on the fear of performing poorly | 4, 5, 6 | 3
 Mastery approach | Prevalence of mastery approach | 7, 8, 9 | 3
 Mastery avoidance | Student's fear of not mastering the course | 10, 11, 12 | 3
 Interest | Student expects the course to be interesting | 13 | 1
@@ -485,34 +523,4 @@ different years of study, sexes and subjects.",
   colour = "Sex",
   shape = "Subject"
 )
-```
-
-
-```{r}
-## CLASSIFICATION ###################################################
-# dat_tibble %>%
-#   head() %>%
-#   knitr::kable()
-
-# get only answers that are greater or equal to 5
-dat_tibble_m1 <- filter(dat_tibble, m1 >= 5)
-
-n_m1 <- tally(dat_tibble_m1) # 212
-beta <- n_m1 / n # 0.3392
-
-ci <- beta * ((1 - beta)/(n)) # 0.0003586294
-ci_sqrt <- sqrt(ci) # 0.0189
-ci_margin_error <- ci_sqrt * 1.96 # 0.0371 or 3.71% 
-
-# Our 95% confidence interval for the percentage of times we will get a student with a mean of
-# 5 or above for the set of m1 questions is 0.3392 (or 34%), plus or minus 0.03711 (or 3.7%).
-# The lower end of the interval is 0.3392 - 0.03711 which is:
-lower_end_of_interval <- beta - ci_margin_error # 0.3020825 or 30%
-# The upper end of the interval is 0.3392
-upper_end_of_interval <- beta + ci_margin_error # 0.3763175 or 37%
-
-# To interpret these results we could say that with 95% confidence the percentage of the times
-# we should expect to find a student with a mean score of 5 or above to m1 is somewhere
-# between 30% and 37%, based on our sample.
-#####################################################################
 ```
