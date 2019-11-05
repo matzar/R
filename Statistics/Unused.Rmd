@@ -9,6 +9,17 @@ In this paper a full analysis of the gathered data will be presented, including 
 
 # Introduction
 
+This is also a reason why many universities offer counseling for their students but it might not be enough. 
+
+This paper does not aim to analyse the suicide rate and why it has been rising. Instead, maybe we can draw some conclusions based on the students' pursue of grades vs. understanding; how positive about the course they are and if wheater
+
+> In Massachusetts, 214 students between the ages of 18 and 24 died by suicide between 2007 and 2016, according to state public health records. That’s a 43 percent increase from the prior decade.
+[source](https://www.wgbh.org/news/education/2019/09/16/as-student-suicides-rise-a-harvard-case-opens-new-questions-about-schools-responsibility)
+
+If we could better understand which students are more exposed to experince such traumas we might be able to help them better. We might think that the data collected and presented in this paper by no means could help us undersatnd and prevent such tragedies. But maybe behind such simple things like student's overall enjoyment of the course, expectations of the subject to be interesting and their focus on deeper understadning vs. grades might be an indicator of their mental health. If the student is very negative about their course, they might feel that at their age they should have been long after the graduation, 
+
+We will conduct the data analysis to the best of our capabilities but bear it mind, it does not exhaust the subject. A lot more can be done to help students and to prevent such tragedies.
+
 , an understanding of the data set and its arrangement, was needed. 
 
 # Data
