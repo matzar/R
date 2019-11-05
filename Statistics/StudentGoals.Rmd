@@ -34,12 +34,12 @@ set.seed(1234)
 ```{r, load}
 # read csv file (worse variable recognition)
 f <- "data/StudentGoalsData.csv"
-StudentGoalsData <- read_csv(f, col_types = cols(), skip_empty_rows = TRUE)
+StudentGoalsOriginal <- read_csv(f, col_types = cols(), skip_empty_rows = TRUE)
 ```
 
 ```{r, remove seq}
 # drop 'seq' column since it doesn't serve any purpose
-StudentGoalsData <- StudentGoalsData  %>%  ungroup  %>%  select(-seq)
+StudentGoalsData <- StudentGoalsOriginal  %>%  ungroup  %>%  select(-seq)
 ```
 
 ```{r}
@@ -163,27 +163,11 @@ If we could better understand which students are more exposed to experince such 
 
 We will conduct the data analysis to the best of our capabilities but bear it mind, it does not exhaust the subject. A lot more can be done to help students and to prevent such tragedies.
 
-
-
-
-In order to understand the data set better and to know what we should aim for, an informal data analysis was conducted. 
-To understand the data better and informal analysis was conducted.
-
-An exploratory data analysis using graphs was performed. Some of them are:
-
-```{r, fig.width=3, fid.height=2, fig.cap="Number of sexes"}
-ggplot(data = dat) + 
-  geom_bar(mapping = aes(x = sex, fill = sex))
-```
-
-
-
-
-
-
-
 # Data
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
+
+This is how the data looked before we started cleaning it:
+
 
 The following coding information was given to us: 
 
