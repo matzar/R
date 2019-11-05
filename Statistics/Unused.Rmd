@@ -9,6 +9,8 @@ In this paper a full analysis of the gathered data will be presented, including 
 
 # Introduction
 
+After the questions have been randomised they kept their original numbering. In order to analyse the data, the question had to be derandomised. 
+
 Recent evidence has shown as undergraduate students progress through their studies their reasons for learning change; their primary focus shifts from deep understanding of the subject towards achieving good grades.
 
 The goal of the survey was to find out if the hypothesis stated in the abstract is true.
