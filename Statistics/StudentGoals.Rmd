@@ -154,9 +154,20 @@ The data manipulation was done using R and tidywerse packages (ggplot2, dplyr, t
 # Introduction
 *This section should explain the topic, why it is important, and how you approach the issue*
 
-It is interesting how undergraduate students' goals change through-out their studies. A formal analysis started with data exploration and interpretion of the 7 assessment categories, based on the questions they consisted of. 
+It is interesting how undergraduate students' goals change through-out their studies. To test the hypotheses
 
 
+
+
+In order to understand the data set better and to know what we should aim for, an informal data analysis was conducted. 
+To understand the data better and informal analysis was conducted.
+
+An exploratory data analysis using graphs was performed. Some of them are:
+
+```{r, fig.width=3, fid.height=2, fig.cap="Number of sexes"}
+ggplot(data = dat) + 
+  geom_bar(mapping = aes(x = sex, fill = sex))
+```
 
 
 
@@ -166,6 +177,15 @@ It is interesting how undergraduate students' goals change through-out their stu
 
 # Data
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
+
+The following coding information was given to us: 
+
+Sex 1=Male; 2=Female
+
+Subject 1=Management 2=Law
+3=Tourism
+4=General Economics 5=Accounting 6=Statistics
+
 
 Around 625 students were surveyed. To conceal the existence of the 7 categories from students, they were presented with the questions in random order. 
 
@@ -205,15 +225,6 @@ This resulted in 4 extra columns added to the original data set. An example of t
 dat_tibble[1:5, 20:23]
 ```
 
-
-## Data Exploration
-
-An exploratory data analysis using graphs was performed. Some of them are:
-
-```{r, fig.width=3, fid.height=2, fig.cap="Number of sexes"}
-ggplot(data = dat) + 
-  geom_bar(mapping = aes(x = sex, fill = sex))
-```
 
 # Methodology
 *This section explains the statistical methods and/or your model. It is also a common practice to present the statistical model structure (i.e. equation) here as well.*

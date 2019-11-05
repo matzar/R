@@ -9,6 +9,12 @@ In this paper a full analysis of the gathered data will be presented, including 
 
 # Introduction
 
+, an understanding of the data set and its arrangement, was needed. 
+
+# Data
+
+**A formal analysis started with data exploration and interpretion of the 7 assessment categories, based on the questions they consisted of.**
+
 | Category | Questions |
 | -------- | --------- |
 | Performance approach questions | - 1. It is important to me to be better than other students. - 2. It is important to me to do well compared to others in my courses - 3. My goal in my courses is to get a better grade than most of the other students. |
