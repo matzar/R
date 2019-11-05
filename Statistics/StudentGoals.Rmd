@@ -154,11 +154,37 @@ The data manipulation was done using R and tidywerse packages (ggplot2, dplyr, t
 # Introduction
 *This section should explain the topic, why it is important, and how you approach the issue*
 
-It is interesting how undergraduate students' goals change through-out their studies. A formal analysis started with an interpretion of the 7 categories based on the questions they consisted of, i.e., a single conclusion was drawn based on the categories' questions. Because the students were presented with the questions in a randomized order it was assumed that the collected data was put into a table in the randomized order as well. This would mean that, e.g., *question 1* in the survey, is actaully *question 6* in the *Performance avoidance* category; *question 2* is *question 12* from the *Mastery avoidance* category, etc. *Table 3* shows this mapping.
+It is interesting how undergraduate students' goals change through-out their studies. A formal analysis started with data exploration and interpretion of the 7 assessment categories, based on the questions they consisted of. 
 
-*Table 1* presents the original categories with their properly numbered questions. *Table 2* presents the category, its interpretation (Based on the category's questions) and the matching questions' numbers.
 
-Survey questions and their interpretation:
+
+
+
+
+
+
+
+# Data
+*Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
+
+Around 625 students were surveyed. To conceal the existence of the 7 categories from students, they were presented with the questions in random order. 
+
+The students answered on a 7-level scale; 1 meaning the student feels the statement asked in the quesion is 'Not true of him/her' and 7 meaning the student feels it is 'Very true of him/her'. See the table below for a graphical explanation:
+
+ | | | | | | | |
+- | - | - | - | - | - | - | - | -
+Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
+
+The students were presented with the questions in a randomized order. Becasue the random order was known, it was assumed that the collected data was put into a table in the 
+The random order was known and the questions were derandomised in the data set, i.e., *question 6* from the *Performance avoidance* category is numbered *1* in the survey. In the data set results for *question 1* were renamed to results for *question 6*. *question 12* from the *Mastery avoidance* category is numbered *2* in the survey, etc. *Table 1* presents this mapping.
+
+| |
+- | - |- | - |- | - |- | - |- | - |- | - | - | - | - | - |
+Survey order | 6 | 12 | 11 | 1 | 7 | 2 | 10 | 8 | 5 | 3 | 9 | 4 | 13 | 14 | 15
+Category mapping | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15
+Table: In the survey, questions from 1 to 12 were ordered randomly; questions 13, 14 and 15 remained in the same order.
+
+*Table 1* presents the category, its interpretation (Based on the category's questions) and the questions' numbers.
 
 Category | Interpretation | Question | # of Questions
 ------------ | ------------- | ------------ | ------------
@@ -169,29 +195,7 @@ Mastery avoidance | Student's fear of not mastering the course | 10, 11, 12 | 3
 Interest | Student's expectations whether the course will be interesting | 13 | 1
 Enjoyment | Student's expectations whether the course will be enjoyable | 14 | 1
 Importance focus | Student's importance focus on understanding and grades | 15 | 1
-Table: caption
-
-The students answered on a 7-level scale; 1 meaning the student feels the statement asked in the quesion is 'Not true of him/her' and 7 meaning the student feels it is 'Very true of him/her'. See the table below for a graphical explanation:
-
- | | | | | | | |
-- | - | - | - | - | - | - | - | -
-Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
-
-
-
-Questions from 1 to 12 were ordered randomly. 
-
-| |
-- | - |- | - |- | - |- | - |- | - |- | - |
-Survey order | 6 | 12 | 11 | 1 | 7 | 2 | 10 | 8 | 5 | 3 | 9 | 4
-Actual question | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
-
-Questions 13, 14 and 15 remain in the same order
-
-# Data
-*Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
-
-Around 625 students were surveyed. To conceal the existence of the 7 categories from students, they were presented with the questions in random order. 
+Table: Table 1
 
 Because `Interest`, `Enjoyment` and `Importance focus` categories consisted only of 1 question, no further computation was required to interpret the data from these categories.
 For the remaining categories, which number of questions was equal to 3, a mean for each assessment category was computed, and saved for each individual student.
@@ -200,7 +204,6 @@ This resulted in 4 extra columns added to the original data set. An example of t
 ```{r}
 dat_tibble[1:5, 20:23]
 ```
-
 
 
 ## Data Exploration
