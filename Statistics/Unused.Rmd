@@ -22,6 +22,8 @@ We will conduct the data analysis to the best of our capabilities but bear it mi
 
 , an understanding of the data set and its arrangement, was needed. 
 
+Maybe while looking at the data we should also think that these are actual people and might want to first think how we could help them. 
+
 # Data
 
 **A formal analysis started with data exploration and interpretion of the 7 assessment categories, based on the questions they consisted of.**
