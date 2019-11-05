@@ -149,7 +149,7 @@ dat_tibble <- as_tibble(mean_dat)
 
 This paper analyses the data gathered from surveying 625 undergraduate students. The authors of the survey tried to prove two hypothesis: 1) During students' junior years, they tend to primarily focus on getting good grades while during their senior years, the focus shifts towards a deep-understanding of the subject and 2) students' enjoyment and interest tends to deteriorate as they progress through their studies. It is not obvious why this might be the case and if the student's age, sex or studied subject has any bearing. This is why the survey has 15 questions and probes 7 assessment categories. Each category consists of 3 to 1 questions and because the order of the questions is randomised, the student should not know the categories nor notice any patterns.
 
-In this paper a full analysis of the gathered data will be presented, including data: preparation, analysis, exploration and interpretation; calculation of confidence intervals, interpretation of the results using different kinds of graphs and an explanation of the methods used.
+Data manipulation was done using R and tidywerse packages (ggplot2, dplyr, tibble, readr, tidyr, purrr); a full analysis will be presented, including data: preparation, analysis, exploration and interpretation; calculation of confidence intervals, interpretation of the results using different kinds of graphs and an explanation of the methods used.
 
 # Introduction
 *This section should explain the topic, why it is important, and how you approach the issue*
@@ -185,6 +185,8 @@ This resulted in 4 extra columns added to the original data set. An example of t
 dat_tibble[1:5, 20:23]
 ```
 
+
+
 ## Data Exploration
 
 An exploratory data analysis using graphs was performed. Some of them are:
@@ -197,7 +199,9 @@ ggplot(data = dat) +
 # Methodology
 *This section explains the statistical methods and/or your model. It is also a common practice to present the statistical model structure (i.e. equation) here as well.*
 
-<https://ggplot2.tidyverse.org>
+Confidence interval was used.
+
+
 
 # Results
 *Present both your informal and formal analyses.*
