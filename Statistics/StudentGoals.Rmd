@@ -156,7 +156,6 @@ dat_tibble_interest <- filter(dat_tibble_enjoy, interest <= 2)
 dat_tibble_mastgrad <- filter(dat_tibble_interest, m1 >= 6)
 mm1 <- filter(dat_tibble_mastgrad, m1 >= 6)
 mm2 <- filter(mm1, m2 >= 6)
-mm2
 
 n_mm2 <- tally(mm2)
 beta <- n_mm2 / n # 0.3392
@@ -190,11 +189,13 @@ The data manipulation was done using R and tidywerse packages. A full analysis w
 
 It is interesting how undergraduate students' goals change through-out their studies. They often experince various syndroms like: burnout, impostour, disheartening or even attempt a suicide. A Harvard graduate, Alex Chang, in his TEDx talk titled ["The Unspoken Reality Behind the Harvard Gates"](https://www.youtube.com/watch?v=WzP7oDCciGI) speaks about the pressure of gettings the best grades; how he was called for a jasmine tea to his tutor and asked if he couldn't give it his all, while he already was doing the best he could. He also recalls one tragic night when he and his roommates were woke up at 4am, to be informed that one of his friend has taken his own life.
 
-Becasue this paper is going to be talking about student's course enjoyment, expectations and his or her focus on grades vs. understanding I would liketo give it another, less visible shade for there might be a lot more to say about a student who is at the bottom of the scale. A student who is not enjoying the course, finds it not interesting but still primarly aims to perform better than others and is lead by the fear of performing poorly. We will try to find such students and calculate the confidence interval of finding a student-at-risk in a given sample.
+Becasue this paper is going to be talking about student's course enjoyment, expectations and his or her focus on grades vs. understanding I would liketo give it another, less visible shade for there might be a lot more to say about a student who is at the bottom of the scale. A student who is not enjoying the course, finds it not interesting but still primarly aims to perform better than others and is lead by the fear of performing poorly. We will try to find such students and calculate the confidence interval of finding a student-at-risk in a given sample, and test the stated hypothesis.
 
 ```{r}
-mm2[,c("m1")]
+mm2[,c("age", "sex", "subject", "enjoy", "interest", "mastgrad", "m1", "m2")]
 ```
+
+Upper end of interval is `r upper_end_of_interval[1,]` which means we could say that with 95% confidence the percentage of the times we should expect to find a student at risk is 0.7%. This might not seems like a lot but we have the actual data to back it up. We know that there are 2 students who might be at risk of developing mental health problems: they are both female, aged 18 years old and study general economics at their sophmore year. Wheter this data should be used directly to try to find these students is a different debate. What could be definietly done is try to announce this fact that there have been found students who might be at risk and that there is help available. Most universities offer counceling for students but the problem is to have already troubled and lonely students reach out for help. Maybe a university could develop their own programmes for sutdents which they can use to self-diagnose and if the system would detect that they might be experiencing mental health problems they could direct them towards a councelor at their univeristy. Such tests already exists but the reason why I think they should be university specific is for the fact that it makes the student feels that their university cares about their mental health and they do not need to feel ashamed to ask for help becasue it was their home institution who has made the first step. 
 
 # Data
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
