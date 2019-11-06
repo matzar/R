@@ -95,7 +95,7 @@ Enjoyment | Student expects the course to be enjoyable | 14 | 1
 Importance focus | Student's importance focus on understanding vs. grades | 15 | 1
 Table: Table 1
 
-Because `Interest`, `Enjoyment` and `Importance focus` categories consisted only of 1 question, no further computation was required to interpret the data from these categories.
+Because *Interest*, *Enjoyment* and *Importance focus* categories consisted only of 1 question, no further computation was required to interpret the data from these categories.
 For the remaining categories, which number of questions was equal to 3, a mean for each assessment category was computed, and saved for each individual student.
 This resulted in 4 extra columns added to the original data set. An example of these can be seen below:
 
