@@ -131,7 +131,7 @@ dat_tibble[1:5, 20:23]
 ```
 
 ### 4 Assessment Categories
-By way of exploring the data the means from the 4 assessment categories: *Performance approach*, *Performance avoidance*, *Mastery approach* and *Mastery avoidance* were plotted on basis of sex and subject.
+For the sake of data exploration, the means from the 4 assessment categories: *Performance approach*, *Performance avoidance*, *Mastery approach* and *Mastery avoidance* were plotted on basis of sex and subject.
 
 ```{r}
 # m1
