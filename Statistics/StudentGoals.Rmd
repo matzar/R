@@ -58,7 +58,10 @@ First, the *seq* column was dropped since it does not serve any purpose. Second,
 
 The following coding information was given to us: 
 
-Sex 1=Male; 2=Female
+| Sex | Code |
+| - | - |
+| Male | 1
+| Female | 2
 
 Subject 1=Management 2=Law
 3=Tourism
