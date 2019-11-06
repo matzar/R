@@ -60,12 +60,17 @@ The following coding information was given to us:
 
 | Sex | Code |
 | - | - |
-| Male | 1
-| Female | 2
+| Male | 1 |
+| Female | 2 |
 
-Subject 1=Management 2=Law
-3=Tourism
-4=General Economics 5=Accounting 6=Statistics
+| Subject | Code |
+| ------- | ---- |
+| Management  | 1 |
+| Law | 2 |
+| Tourism | 3 |
+| General Economics  | 4 |
+| Accounting  | 5 |
+| Statistics | 6 |
 
 
 Around 625 students were surveyed. To conceal the existence of the 7 categories from students, they were presented with the questions in random order. 
@@ -96,7 +101,7 @@ Mastery avoidance | Student's fear of not mastering the course | 10, 11, 12 | 3
 Interest | Student expects the course to be interesting | 13 | 1
 Enjoyment | Student expects the course to be enjoyable | 14 | 1
 Importance focus | Student's importance focus on understanding vs. grades | 15 | 1
-Table: Table 1
+Table: Table Test
 
 Because *Interest*, *Enjoyment* and *Importance focus* categories consisted only of 1 question, no further computation was required to interpret the data from these categories.
 For the remaining categories, which number of questions was equal to 3, a mean for each assessment category was computed, and saved for each individual student.
@@ -118,17 +123,8 @@ tidyverse packages (ggplot2, dplyr, tibble, readr, tidyr, purrr);
 # Results
 *Present both your informal and formal analyses.*
 
-analyse the m1, m2, m3, m4 graphs bro
+## Hypothesis 1 Analysis
 
-## Confidence interval
-
-```{r}
-mm2[,c("age", "sex", "subject", "enjoy", "interest", "mastgrad", "m1", "m2")]
-```
-
-Upper end of interval is `r upper_end_of_interval[1,]` which means we could say that with 95% confidence the percentage of the times we should expect to find a student at risk is 0.7%.
-
-## Hypotheses Testing
 
 ```{r}
 # 1) During students’ junior years, they tend to primarily focus on getting good grades while during their senior years, the focus shifts towards a deep-understanding of the subject and. 
@@ -156,7 +152,11 @@ different years of study, sexes and subjects.",
   y = "Scale: 1 (Understanding) - 4 (Equal) - 7 (Grades)",
   colour = "Sex"
 )
+```
 
+
+##### On basis of Subject
+```{r}
 # Plot set on basis of the student's subject.
 # Plot mean results of (Primarly understanding/Equal Importance/Primarly grades)scale 
 # for all students with relation to student's year, sex and subject
@@ -182,6 +182,7 @@ different years of study, sexes and subjects.",
 )
 ```
 
+### Hypothesis 2) Testing on basis of Sex
 ```{r}
 # 2) students’ enjoyment and interest tends to deteriorate as they progress through their studies. 
 # It is not obvious why this mightbe the case and if the student’s sex or studied subject has any bearing
@@ -210,7 +211,10 @@ different years of study, sexes and subjects.",
   y = "Expectations: 1 (Low) - 7 (High)",
   colour = "Sex"
 )
+```
 
+### Hypothesis 2) Testing on basis of Subject
+```{r}
 # interest
 # Plot set on basis of the student's subject
 # Plot mean results of course interestedness expectations questions
@@ -290,6 +294,14 @@ different years of study, sexes and subjects.",
   colour = "Subject"
 )
 ```
+
+## Confidence interval
+
+```{r}
+mm2[,c("age", "sex", "subject", "enjoy", "interest", "mastgrad", "m1", "m2")]
+```
+
+Upper end of interval is `r upper_end_of_interval[1,]` which means we could say that with 95% confidence the percentage of the times we should expect to find a student at risk is 0.7%.
 
 # Conclusion / Discussion
 *You need to conclude your project, discuss the results, discuss any reservations that you have about the study and list any future work.*
