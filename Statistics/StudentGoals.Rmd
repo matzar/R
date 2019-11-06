@@ -285,120 +285,92 @@ This might not seems like a lot but we have the actual data to back it up. We kn
 
 so, what conclusions do you have bruh? Could analyse AGE
 
-
 ```{r}
 # 1) During students’ junior years, they tend to primarily focus on getting good grades while during their senior years, the focus shifts towards a deep-understanding of the subject and. 
 
 # Plot set on basis of the student's sex.
-# Plot mean results of performance approach questions
+# Plot mean results of (Primarly understanding/Equal Importance/Primarly grades)scale 
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(mean_dat$year, mean_dat$m1))
+d <- ggplot(data = dat, aes(year, mean_dat$mastgrad))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
-s <- l + geom_smooth(method = loess, formula = y ~ x, se = TRUE)
+s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Student's grade-orientation focus set on basis of:
+  title = "Student's importance scale between understanding and grades set on basis of:
 different years of study, sexes and subjects.",
-  subtitle = "How important it is to students to do better than others?",
+  subtitle = "Scale: Primarly understanding (1) / Equal Importance (4) / Primarly grades (7)",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
-  y = "Answer: 1 (Low) - 7 (High)",
+  y = "Scale: 1 (Understanding) - 4 (Equal) - 7 (Grades)",
   colour = "Sex",
   shape = "Subject"
 )
 
 # Plot set on basis of the student's subject.
-# Plot mean results of performance approach questions
+# Plot mean results of (Primarly understanding/Equal Importance/Primarly grades)scale 
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(mean_dat$year, mean_dat$m1))
+d <- ggplot(data = dat, aes(year, mean_dat$mastgrad))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
-s <- l + geom_smooth(method = loess, formula = y ~ x, se = TRUE)
+s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
 c <- t + scale_colour_brewer(palette = "Pastel1")
 # adding labels
 c + labs(
-  title = "Student's grade-orientation focus set on basis of:
+  title = "Student's importance scale between understanding and grades set on basis of:
 different years of study, sexes and subjects.",
-  subtitle = "How important it is to students to do better than others?",
+  subtitle = "Scale: Primarly understanding (1) / Equal Importance (4) / Primarly grades (7)",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
-  y = "Answer: 1 (Low) - 7 (High)",
+  y = "Scale: 1 (Understanding) - 4 (Equal) - 7 (Grades)",
   colour = "Sex",
   shape = "Subject"
 )
 ```
 
-
 ```{r}
-# 2) students’ enjoyment and interesttends to deteriorate as they progress through their studies. 
+# 2) students’ enjoyment and interest tends to deteriorate as they progress through their studies. 
 # It is not obvious why this mightbe the case and if the student’s sex or studied subject has any bearing
 
-# Plot set on basis of the student's sex.
-# Plot mean results of performance approach questions
-# for all students with relation to student's year, sex and subject
-# data
-d <- ggplot(data = dat, aes(mean_dat$year, mean_dat$m1))
-# mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = sex, shape = subject))
-# smoothing
-s <- l + geom_smooth(method = loess, formula = y ~ x, se = TRUE)
-# adding theme
-t <- s + theme_dark()
-# adding colouring
-c <- t + scale_colour_brewer(palette = "Pastel1")
-# adding labels
-c + labs(
-  title = "Student's grade-orientation focus set on basis of:
-different years of study, sexes and subjects.",
-  subtitle = "How important it is to students to do better than others?",
-  caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
-  x = "Year (1-4)",
-  y = "Answer: 1 (Low) - 7 (High)",
-  colour = "Sex",
-  shape = "Subject"
-)
-
-# Plot set on basis of the student's subject.
-# Plot mean results of performance approach questions
-# for all students with relation to student's year, sex and subject
-# data
-d <- ggplot(data = dat, aes(mean_dat$year, mean_dat$m1))
-# mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = sex, shape = subject))
-# smoothing
-s <- l + geom_smooth(method = loess, formula = y ~ x, se = TRUE)
-# adding theme
-t <- s + theme_dark()
-# adding colouring
-c <- t + scale_colour_brewer(palette = "Pastel1")
-# adding labels
-c + labs(
-  title = "Student's grade-orientation focus set on basis of:
-different years of study, sexes and subjects.",
-  subtitle = "How important it is to students to do better than others?",
-  caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
-  x = "Year (1-4)",
-  y = "Answer: 1 (Low) - 7 (High)",
-  colour = "Sex",
-  shape = "Subject"
-)
-```
-
-
-```{r}
 # interest
+# Plot set on basis of the student's sex.
+# Plot mean results of course interestedness expectations questions
+# for all students with relation to student's year, sex and subject
+# data
+d <- ggplot(data = dat, aes(year, mean_dat$interest))
+# mapping data (use "jitter" to improve the graph and avoid gridding)
+l <- d + geom_jitter(aes(colour = sex, shape = subject))
+# smoothing
+s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
+# adding theme
+t <- s + theme_dark()
+# adding colouring
+c <- t + scale_colour_brewer(palette = "Pastel1")
+# adding labels
+c + labs(
+  title = "Student's course interestedness expectations set on basis of:
+different years of study, sexes and subjects.",
+  subtitle = "\'I expect my courses this semester to be very interesting\'",
+  caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
+  x = "Year (1-4)",
+  y = "Expectations: 1 (Low) - 7 (High)",
+  colour = "Sex",
+  shape = "Subject"
+)
+
+# interest
+# Plot set on basis of the student's subject
 # Plot mean results of course interestedness expectations questions
 # for all students with relation to student's year, sex and subject
 # data
@@ -427,6 +399,33 @@ different years of study, sexes and subjects.",
 
 ```{r}
 # enjoy
+# Plot set on basis of the student's sex.
+# Plot mean results of course interestedness expectations questions
+# for all students with relation to student's year, sex and subject
+# data
+d <- ggplot(data = dat, aes(year, mean_dat$enjoy))
+# mapping data (use "jitter" to improve the graph and avoid gridding)
+l <- d + geom_jitter(aes(colour = sex, shape = subject))
+# smoothing
+s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
+# adding theme
+t <- s + theme_dark()
+# adding colouring
+c <- t + scale_colour_brewer(palette = "Pastel1")
+# adding labels
+c + labs(
+  title = "Student's course interestedness expectations set on basis of:
+different years of study, sexes and subjects.",
+  subtitle = "\'I expect my courses this semester to be very interesting\'",
+  caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
+  x = "Year (1-4)",
+  y = "Expectations: 1 (Low) - 7 (High)",
+  colour = "Sex",
+  shape = "Subject"
+)
+
+# enjoy
+# Plot set on basis of the student's subject.
 # Plot mean results of course enjoyment expectations questions 
 # for all students with relation to student's year, sex and subject
 # data
@@ -447,34 +446,6 @@ different years of study, sexes and subjects.",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
   y = "Expectations: 1 (Low) - 7 (High)",
-  colour = "Sex",
-  shape = "Subject"
-)
-```
-
-
-```{r}
-# mastgrad
-# Plot mean results of (Primarly understanding/Equal Importance/Primarly grades)scale 
-# for all students with relation to student's year, sex and subject
-# data
-d <- ggplot(data = dat, aes(year, mean_dat$mastgrad))
-# mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = sex, shape = subject))
-# smoothing
-s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
-# adding theme
-t <- s + theme_dark()
-# adding colouring
-c <- t + scale_colour_brewer(palette = "Pastel1")
-# adding labels
-c + labs(
-  title = "Student's importance scale between understanding and grades set on basis of:
-different years of study, sexes and subjects.",
-  subtitle = "Scale: Primarly understanding (1) / Equal Importance (4) / Primarly grades (7)",
-  caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
-  x = "Year (1-4)",
-  y = "Scale: 1 (Understanding) - 4 (Equal) - 7 (Grades)",
   colour = "Sex",
   shape = "Subject"
 )
