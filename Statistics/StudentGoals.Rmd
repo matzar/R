@@ -18,7 +18,7 @@ documentclass: article
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, tidy = FALSE, cache = TRUE, fig.cap = "...")
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, tidy = FALSE, cache = FALSE, fig.cap = "...")
 ```
 
 ```{r}
@@ -131,12 +131,18 @@ Because *Interest*, *Enjoyment* and *Importance focus* categories consisted only
 For the remaining categories, which number of questions was equal to 3, a mean for each assessment category was computed, and saved for each individual student.
 This resulted in 4 extra columns added to the original data set. An example of these can be seen below:
 
-## Confidence interval for a Proportion
-$$95\% CI = 114 - 126$$
+## Confidence Interval for a Proportion
 
-$$\sqrt{b^2 - 4ac}$$
+### Equations
+$$ \hat{p} = \frac{x}{n} = \frac{events}{trials}$$
+$$ Z = 1.96  $$
 
+$$ \hat{p} \pm Z \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} $$
 
+### Calculations
+$$ \hat{p} = \frac{2}{625} = 0.0032 $$
+
+$$ \hat{p} \pm Z\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} = 0.0032 \pm $$
 
 # Results
 *Present both your informal and formal analyses.*
@@ -312,9 +318,7 @@ different years of study, sexes and subjects.",
 mm2[,c("age", "sex", "subject", "enjoy", "interest", "mastgrad", "m1", "m2")]
 ```
 
-Upper end of interval is `r upper_end_of_interval[1,]` which means we could say that with 95% confidence the percentage of the times we should expect to find a student at risk is 0.7%.
-
-
+The upper end of the confidence interval for a population is `r ci_up[,]`, and the bottom end is `r ci_down[,]`, which gives us CI equal to (`r ci_up[,]`, `r ci_down[,]`). This mean we could say with 95% confidence the percentage of the times we should expect to find a student at risk is between 0.7% and 0%.
 
 
 

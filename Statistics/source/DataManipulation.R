@@ -116,20 +116,10 @@ mm1 <- filter(dat_tibble_mastgrad, m1 >= 6)
 mm2 <- filter(mm1, m2 >= 6)
 
 n_mm2 <- tally(mm2)
-beta <- n_mm2 / n # 0.3392
 
-ci <- beta * ((1 - beta)/(n)) # 0.0003586294
-ci_sqrt <- sqrt(ci) # 0.0189
-ci_margin_error <- ci_sqrt * 1.96 # 0.0371 or 3.71% 
+p_hat <- n_mm2 / n
+z_score <- 1.96
 
-# Our 95% confidence interval for the percentage of times we will get a student with a mean of
-# 5 or above for the set of m1 questions is 0.3392 (or 34%), plus or minus 0.03711 (or 3.7%).
-# The lower end of the interval is 0.3392 - 0.03711 which is:
-lower_end_of_interval <- beta - ci_margin_error # 0.3020825 or 30%
-# The upper end of the interval is 0.3392
-upper_end_of_interval <- beta + ci_margin_error # 0.3763175 or 37%
-
-# To interpret these results we could say that with 95% confidence the percentage of the times
-# we should expect to find a student with a mean score of 5 or above to m1 is somewhere
-# between 30% and 37%, based on our sample.
+ci_up <- p_hat + 1.96 * sqrt((p_hat * (1 - p_hat)) / (n))
+ci_down <- p_hat - 1.96 * sqrt((p_hat * (1 - p_hat)) / (n))
 #####################################################################
