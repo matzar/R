@@ -45,7 +45,7 @@ Becasue this paper is going to be talking about student's course enjoyment, expe
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
 
 ## Initial Data
-This is how the data looked like before we started cleaning it:
+This is how the data looked like before cleaning:
 
 ```{r}
 StudentGoalsOriginal[6:9,1:17]
@@ -54,9 +54,9 @@ StudentGoalsOriginal[6:9,18:20]
 
 ## Cleaning the Data
 
-First, the *seq* column was dropped since it does not serve any purpose. Second, rows with empty cells were dropped because they could falsify our results.
+First, the *seq* column was dropped since it does not serve any purpose. Second, rows with empty cells were dropped because they could falsify the results.
 
-The following coding information was given to us: 
+The following coding informations was applied to the data:
 
 | Sex | Code |
 | - | - |
@@ -72,14 +72,11 @@ The following coding information was given to us:
 | Accounting  | 5 |
 | Statistics | 6 |
 
+E.g., the code for `Male` was `1`, so the cells in the `sex` column containing `1` were replaced with a `Male` string; the code for `General Economics` was `4`, so the cells in the `subject` column containing `4` were replaced with a `General Economics` string. This is how the `sex` and `subject` columns looked like after applying the coding information:
 
-Around 625 students were surveyed. To conceal the existence of the 7 categories from students, they were presented with the questions in random order. 
-
-The students answered on a 7-level scale; 1 meaning the student feels the statement asked in the quesion is 'Not true of him/her' and 7 meaning the student feels it is 'Very true of him/her'. See the table below for a graphical explanation:
-
- | | | | | | | |
-- | - | - | - | - | - | - | - | -
-Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
+```{r}
+mean_dat[6:9,3:4]
+```
 
 The students were presented with the questions in a randomized order. Becasue the random order was known, it was assumed that the collected data was put into a table in the 
 The random order was known and the questions were derandomised in the data set, i.e., *question 6* from the *Performance avoidance* category is numbered *1* in the survey. In the data set results for *question 1* were renamed to results for *question 6*. *question 12* from the *Mastery avoidance* category is numbered *2* in the survey, etc. *Table 1* presents this mapping.
@@ -110,7 +107,12 @@ This resulted in 4 extra columns added to the original data set. An example of t
 ```{r}
 dat_tibble[1:5, 20:23]
 ```
+This is how the date looked like after cleaning:
 
+```{r}
+mean_dat[6:9,1:16]
+mean_dat[6:9,17:19]
+```
 
 # Methodology
 *This section explains the statistical methods and/or your model. It is also a common practice to present the statistical model structure (i.e. equation) here as well.*
@@ -118,6 +120,14 @@ dat_tibble[1:5, 20:23]
 Confidence interval was used.
 
 tidyverse packages (ggplot2, dplyr, tibble, readr, tidyr, purrr);
+
+Around 625 students were surveyed. To conceal the existence of the 7 categories from students, they were presented with the questions in random order. 
+
+The students answered on a 7-level scale; 1 meaning the student feels the statement asked in the quesion is 'Not true of him/her' and 7 meaning the student feels it is 'Very true of him/her'. See the table below for a graphical explanation:
+
+ | | | | | | | |
+- | - | - | - | - | - | - | - | -
+Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
 
 
 # Results
