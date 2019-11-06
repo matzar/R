@@ -165,7 +165,7 @@ l <- d + geom_jitter(aes(colour = sex))
 # smoothing
 s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
-t <- s + theme_dark()
+t <- s + theme_grey()
 # adding colouring
 c <- t
 # adding labels
@@ -189,7 +189,7 @@ l <- d + geom_jitter(aes(colour = subject))
 # smoothing
 s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
-t <- s + theme_dark()
+t <- s + theme_grey()
 # adding colouring
 c <- t
 # adding labels
@@ -220,7 +220,7 @@ l <- d + geom_jitter(aes(colour = sex))
 # smoothing
 s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
-t <- s + theme_dark()
+t <- s + theme_grey()
 # adding colouring
 c <- t
 # adding labels
@@ -245,9 +245,8 @@ l <- d + geom_jitter(aes(colour = subject))
 # smoothing
 s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
-t <- s + theme_dark()
+t <- s + theme_grey()
 # adding colouring
-# c <- t + scale_colour_brewer(palette = "Accent")
 c <- t
 # adding labels
 c + labs(
@@ -274,7 +273,7 @@ l <- d + geom_jitter(aes(colour = sex))
 # smoothing
 s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
-t <- s + theme_dark()
+t <- s + theme_grey()
 # adding colouring
 c <- t
 # adding labels
@@ -299,7 +298,7 @@ l <- d + geom_jitter(aes(colour = subject))
 # smoothing
 s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
-t <- s + theme_dark()
+t <- s + theme_grey()
 # adding colouring
 c <- t
 # adding labels

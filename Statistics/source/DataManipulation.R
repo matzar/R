@@ -4,6 +4,7 @@ library(modelr)
 library(rsample)
 library(broom)
 library(magrittr)
+library(ggsci)
 
 # set seed for randomization to ensure that results are always reproduced precisely
 set.seed(1234)

@@ -155,7 +155,8 @@ s <- l + geom_smooth(method = loess, formula = y ~ log(x), se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
-c <- t + scale_colour_brewer(palette = "Pastel1")
+# c <- t + scale_colour_brewer(palette = "Accent")
+c <- t + scale_color_jco()
 # adding labels
 c + labs(
   title = "Student's grade-orientation focus set on basis of:
@@ -266,7 +267,8 @@ s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
-c <- t + scale_colour_brewer(palette = "Pastel1")
+# c <- t + scale_colour_brewer(palette = "Accent")
+c <- t + scale_color_jco()
 # adding labels
 c + labs(
   title = "Student's course enjoyment expectations set on basis of:
