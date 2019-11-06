@@ -121,5 +121,5 @@ p_hat <- n_mm2 / n
 z_score <- 1.96
 
 ci_up <- p_hat + 1.96 * sqrt((p_hat * (1 - p_hat)) / (n))
-ci_down <- p_hat - 1.96 * sqrt((p_hat * (1 - p_hat)) / (n))
+ci_low <- p_hat - 1.96 * sqrt((p_hat * (1 - p_hat)) / (n))
 #####################################################################

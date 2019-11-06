@@ -140,9 +140,11 @@ $$ Z = 1.96  $$
 $$ \hat{p} \pm Z \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} $$
 
 ### Calculations
+Calculating a 95% confidence interval for the student-at-risk population proportion.
+
 $$ \hat{p} = \frac{2}{625} = 0.0032 $$
 
-$$ \hat{p} \pm Z\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} = 0.0032 \pm $$
+$$ \hat{p} \pm Z = 0.0032 \pm 1.96 \sqrt{\frac{{0.0032}(1 - {0.0032})}{625}} = 0.0032 \pm 0.0044 $$
 
 # Results
 *Present both your informal and formal analyses.*
@@ -312,15 +314,13 @@ different years of study, sexes and subjects.",
 )
 ```
 
-## Confidence interval interpretation
+## Confidence Interval for a Proportion Interpretation
 
 ```{r}
 mm2[,c("age", "sex", "subject", "enjoy", "interest", "mastgrad", "m1", "m2")]
 ```
 
-The upper end of the confidence interval for a population is `r ci_up[,]`, and the bottom end is `r ci_down[,]`, which gives us CI equal to (`r ci_up[,]`, `r ci_down[,]`). This mean we could say with 95% confidence the percentage of the times we should expect to find a student at risk is between 0.7% and 0%.
-
-
+The upper confidence interval for a proportion is `r ci_up[,]`, and the lower is `r ci_low[,]`, which gives us a confidence interval, for proportion of finding a student-at-risk as: CI = (0.00762, -0.00122). This mean we could say with 95% confidence the percentage of the times we should expect to find a student at risk is between 0.7% and 0%.
 
 
 # Conclusion / Discussion
