@@ -67,7 +67,7 @@ dat$subject[dat$subject==4] <- 'General Economics'
 dat$subject[dat$subject==5] <- 'Accounting'
 dat$subject[dat$subject==6] <- 'Statistics'
 
-## Calculate mean for 7 categories:
+## MEAN CALCULATION FOR 7 CATEGORIES: ###################################################
 # across 7 categories:
 # - q1, q2, q3 - Performance approach questions
 # - q4, q5, q6 - Performance avoidance questions

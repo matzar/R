@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FA
 
 ```{r}
 # load external script
-source("source/DataCleaning.R")
+source("source/DataManipulation.R")
 ```
 
 # Abstract
@@ -31,14 +31,14 @@ source("source/DataCleaning.R")
 
 This paper analyses the data gathered from surveying 625 undergraduate students. The authors of the survey tried to prove two hypothesis: 1) During students' junior years, they tend to primarily focus on getting good grades while during their senior years, the focus shifts towards a deep-understanding of the subject and 2) students' enjoyment and interest tends to deteriorate as they progress through their studies. It is not obvious why this might be the case and if the student's sex or studied subject has any bearing. This is why the survey has 15 questions and probes 7 assessment categories. Each category consists of 3 to 1 questions and because the order of the questions is randomised, the student should not know the categories nor notice any patterns.
 
-The data manipulation was done using R and tidywerse packages. A full analysis will be presented, including data: preparation, analysis, exploration and interpretation; calculation of confidence intervals, interpretation of the results using different kinds of graphs and an explanation of the methods used.
+The data manipulation was done using R and tidywerse packages. A full analysis will be presented, including data: preparation, analysis, exploration and interpretation; calculation of confidence interval for a proportion, interpretation of the results using different kinds of graphs and an explanation of the methods used.
 
 # Introduction
 *This section should explain the topic, why it is important, and how you approach the issue*
 
 It is interesting how undergraduate students' goals change through-out their studies. They often experince various syndroms like: burnout, impostour, disheartening or even attempt a suicide. A Harvard graduate, Alex Chang, in his TEDx talk titled ["The Unspoken Reality Behind the Harvard Gates"](https://www.youtube.com/watch?v=WzP7oDCciGI) speaks about the pressure of gettings the best grades; how he was called for a jasmine tea to his tutor and asked if he couldn't give it his all, while he already was doing the best he could. He also recalls one tragic night when he and his roommates were woke up at 4am, to be informed that one of his friend has taken his own life.
 
-Becasue this paper is going to be talking about student's course enjoyment, expectations and his or her focus on grades vs. understanding I would liketo give it another, less visible shade for there might be a lot more to say about a student who is at the bottom of the scale. A student who is not enjoying the course, finds it not interesting but still primarly aims to perform better than others and is lead by the fear of performing poorly. We will try to find such students and calculate the confidence interval of finding a student-at-risk in a given sample, and test the hypotheses.
+Becasue this paper is going to be talking about student's course enjoyment, expectations and his or her focus on grades vs. understanding I would liketo give it another, less visible shade for there might be a lot more to say about a student who is at the bottom of the scale. A student who is not enjoying the course, finds it not interesting but still primarly aims to perform better than others and is lead by the fear of performing poorly. We will try to find such students and calculate the confidence-interval-for-a-proportion of finding a student-at-risk, and test the hypotheses.
 
 
 # Data
@@ -105,13 +105,9 @@ mean_dat[6:9,17:19]
 # Methodology
 *This section explains the statistical methods and/or your model. It is also a common practice to present the statistical model structure (i.e. equation) here as well.*
 
-Confidence interval was used.
-
 tidyverse packages (ggplot2, dplyr, tibble, readr, tidyr, purrr);
 
-Around 625 students were surveyed. To conceal the existence of the 7 categories from students, they were presented with the questions in random order. 
-
-The students answered on a 7-level scale; 1 meaning the student feels the statement asked in the quesion is 'Not true of him/her' and 7 meaning the student feels it is 'Very true of him/her'. See the table below for a graphical explanation:
+Around 625 students were surveyed. They answered on a 7-level scale; 1 meaning the student feels the statement asked in the quesion is 'Not true of him/her' and 7 meaning the student feels it is 'Very true of him/her'. See the table below for a graphical explanation:
 
  | | | | | | | |
 - | - | - | - | - | - | - | - | -
@@ -134,6 +130,13 @@ Table: Table Test
 Because *Interest*, *Enjoyment* and *Importance focus* categories consisted only of 1 question, no further computation was required to interpret the data from these categories.
 For the remaining categories, which number of questions was equal to 3, a mean for each assessment category was computed, and saved for each individual student.
 This resulted in 4 extra columns added to the original data set. An example of these can be seen below:
+
+## Confidence interval for a Proportion
+$$95\% CI = 114 - 126$$
+
+$$\sqrt{b^2 - 4ac}$$
+
+
 
 # Results
 *Present both your informal and formal analyses.*
@@ -303,13 +306,18 @@ different years of study, sexes and subjects.",
 )
 ```
 
-## Confidence interval
+## Confidence interval interpretation
 
 ```{r}
 mm2[,c("age", "sex", "subject", "enjoy", "interest", "mastgrad", "m1", "m2")]
 ```
 
 Upper end of interval is `r upper_end_of_interval[1,]` which means we could say that with 95% confidence the percentage of the times we should expect to find a student at risk is 0.7%.
+
+
+
+
+
 
 # Conclusion / Discussion
 *You need to conclude your project, discuss the results, discuss any reservations that you have about the study and list any future work.*

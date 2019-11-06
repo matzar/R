@@ -1,6 +1,15 @@
 ---
 title: "Untitled"
-output: pdf_document
+output: 
+  pdf_document:
+    toc: false
+    toc_depth: 2
+    number_sections: true
+    fig_caption: true
+    df_print: kable
+    highlight: tango
+    citation_package: natbib
+    keep_tex: false
 ---
 
 # Abstract
