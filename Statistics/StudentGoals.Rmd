@@ -142,7 +142,7 @@ s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
-c <- t + scale_colour_brewer(palette = "Set2")
+c <- t
 # adding labels
 c + labs(
   title = "Student's importance scale between understanding and grades set on basis of:
@@ -166,7 +166,7 @@ s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
-c <- t + scale_colour_brewer(palette = "Set2")
+c <- t
 # adding labels
 c + labs(
   title = "Student's importance scale between understanding and grades set on basis of:
@@ -190,23 +190,22 @@ different years of study, sexes and subjects.",
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$interest))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = sex, shape = subject))
+l <- d + geom_jitter(aes(colour = sex))
 # smoothing
 s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
-c <- t + scale_colour_brewer(palette = "Pastel1")
+c <- t
 # adding labels
 c + labs(
   title = "Student's course interestedness expectations set on basis of:
 different years of study, sexes and subjects.",
-  subtitle = "\'I expect my courses this semester to be very interesting\'",
+  subtitle = "Student response: \'I expect my courses this semester to be very interesting\'",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
   y = "Expectations: 1 (Low) - 7 (High)",
-  colour = "Sex",
-  shape = "Subject"
+  colour = "Sex"
 )
 
 # interest
@@ -216,23 +215,23 @@ different years of study, sexes and subjects.",
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$interest))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = sex, shape = subject))
+l <- d + geom_jitter(aes(colour = subject))
 # smoothing
 s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
-c <- t + scale_colour_brewer(palette = "Pastel1")
+# c <- t + scale_colour_brewer(palette = "Accent")
+c <- t
 # adding labels
 c + labs(
   title = "Student's course interestedness expectations set on basis of:
 different years of study, sexes and subjects.",
-  subtitle = "\'I expect my courses this semester to be very interesting\'",
+  subtitle = "Student response: \'I expect my courses this semester to be very interesting\'",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
   y = "Expectations: 1 (Low) - 7 (High)",
-  colour = "Sex",
-  shape = "Subject"
+  colour = "Subject"
 )
 ```
 
@@ -245,23 +244,22 @@ different years of study, sexes and subjects.",
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$enjoy))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = sex, shape = subject))
+l <- d + geom_jitter(aes(colour = sex))
 # smoothing
 s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
-c <- t + scale_colour_brewer(palette = "Pastel1")
+c <- t
 # adding labels
 c + labs(
   title = "Student's course interestedness expectations set on basis of:
 different years of study, sexes and subjects.",
-  subtitle = "\'I expect my courses this semester to be very interesting\'",
+  subtitle = "Student response: \'I expect my courses this semester to be very interesting\'",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
   y = "Expectations: 1 (Low) - 7 (High)",
-  colour = "Sex",
-  shape = "Subject"
+  colour = "Sex"
 )
 
 # enjoy
@@ -271,23 +269,22 @@ different years of study, sexes and subjects.",
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$enjoy))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = sex, shape = subject))
+l <- d + geom_jitter(aes(colour = subject))
 # smoothing
 s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
-c <- t + scale_colour_brewer(palette = "Pastel1")
+c <- t
 # adding labels
 c + labs(
   title = "Student's course enjoyment expectations set on basis of:
 different years of study, sexes and subjects.",
-  subtitle = "\'I expect my courses this semester to be very enjoyable\'",
+  subtitle = "Student response: \'I expect my courses this semester to be very enjoyable\'",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
   y = "Expectations: 1 (Low) - 7 (High)",
-  colour = "Sex",
-  shape = "Subject"
+  colour = "Subject"
 )
 ```
 
