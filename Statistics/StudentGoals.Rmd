@@ -54,8 +54,10 @@ StudentGoalsOriginal[6:9,18:20]
 
 ## Cleaning the Data
 
+### Dropping
 First, the *seq* column was dropped since it does not serve any purpose. Second, rows with empty cells were dropped because they could falsify the results.
 
+### Coding
 The following coding informations was applied to the data:
 
 | Sex | Code |
@@ -78,6 +80,7 @@ E.g., the code for `Male` was `1`, so the cells in the `sex` column containing `
 mean_dat[6:9,3:4]
 ```
 
+### Derandomization
 The students were presented with the questions in a randomized order. Becasue the random order was known, it was assumed that the collected data was put into a table in the 
 The random order was known and the questions were derandomised in the data set, i.e., *question 6* from the *Performance avoidance* category is numbered *1* in the survey. In the data set results for *question 1* were renamed to results for *question 6*. *question 12* from the *Mastery avoidance* category is numbered *2* in the survey, etc. *Table 1* presents this mapping.
 
@@ -87,26 +90,11 @@ Survey order | 6 | 12 | 11 | 1 | 7 | 2 | 10 | 8 | 5 | 3 | 9 | 4 | 13 | 14 | 15
 Category mapping | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15
 Table: In the survey, questions from 1 to 12 were ordered randomly; questions 13, 14 and 15 remained in the same order.
 
-*Table 1* presents the category, its interpretation (Based on the category's questions) and the questions' numbers.
-
-Category | Interpretation | Question | # of Questions
------------- | ------------- | ------------ | ------------
-Performance approach | Importance of doing better than others? | 1, 2, 3 | 3
-Performance avoidance | Motivation based on the fear of performing poorly | 4, 5, 6 | 3
-Mastery approach | Prevalence of mastery approach | 7, 8, 9 | 3
-Mastery avoidance | Student's fear of not mastering the course | 10, 11, 12 | 3
-Interest | Student expects the course to be interesting | 13 | 1
-Enjoyment | Student expects the course to be enjoyable | 14 | 1
-Importance focus | Student's importance focus on understanding vs. grades | 15 | 1
-Table: Table Test
-
-Because *Interest*, *Enjoyment* and *Importance focus* categories consisted only of 1 question, no further computation was required to interpret the data from these categories.
-For the remaining categories, which number of questions was equal to 3, a mean for each assessment category was computed, and saved for each individual student.
-This resulted in 4 extra columns added to the original data set. An example of these can be seen below:
-
 ```{r}
 dat_tibble[1:5, 20:23]
 ```
+
+## Clean Data
 This is how the date looked like after cleaning:
 
 ```{r}
@@ -129,6 +117,23 @@ The students answered on a 7-level scale; 1 meaning the student feels the statem
 - | - | - | - | - | - | - | - | -
 Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
 
+## Interpretation
+*Table 1* presents the category, its interpretation (Based on the category's questions) and the questions' numbers.
+
+Category | Interpretation | Question | # of Questions
+------------ | ------------- | ------------ | ------------
+Performance approach | Importance of doing better than others? | 1, 2, 3 | 3
+Performance avoidance | Motivation based on the fear of performing poorly | 4, 5, 6 | 3
+Mastery approach | Prevalence of mastery approach | 7, 8, 9 | 3
+Mastery avoidance | Student's fear of not mastering the course | 10, 11, 12 | 3
+Interest | Student expects the course to be interesting | 13 | 1
+Enjoyment | Student expects the course to be enjoyable | 14 | 1
+Importance focus | Student's importance focus on understanding vs. grades | 15 | 1
+Table: Table Test
+
+Because *Interest*, *Enjoyment* and *Importance focus* categories consisted only of 1 question, no further computation was required to interpret the data from these categories.
+For the remaining categories, which number of questions was equal to 3, a mean for each assessment category was computed, and saved for each individual student.
+This resulted in 4 extra columns added to the original data set. An example of these can be seen below:
 
 # Results
 *Present both your informal and formal analyses.*
