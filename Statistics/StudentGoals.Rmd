@@ -136,13 +136,13 @@ Upper end of interval is `r upper_end_of_interval[1,]` which means we could say 
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$mastgrad))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = sex, shape = subject))
+l <- d + geom_jitter(aes(colour = sex))
 # smoothing
 s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
-c <- t + scale_colour_brewer(palette = "Pastel1")
+c <- t + scale_colour_brewer(palette = "Set2")
 # adding labels
 c + labs(
   title = "Student's importance scale between understanding and grades set on basis of:
@@ -151,8 +151,7 @@ different years of study, sexes and subjects.",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
   y = "Scale: 1 (Understanding) - 4 (Equal) - 7 (Grades)",
-  colour = "Sex",
-  shape = "Subject"
+  colour = "Sex"
 )
 
 # Plot set on basis of the student's subject.
@@ -161,13 +160,13 @@ different years of study, sexes and subjects.",
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$mastgrad))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = sex, shape = subject))
+l <- d + geom_jitter(aes(colour = subject))
 # smoothing
 s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
 t <- s + theme_dark()
 # adding colouring
-c <- t + scale_colour_brewer(palette = "Pastel1")
+c <- t + scale_colour_brewer(palette = "Set2")
 # adding labels
 c + labs(
   title = "Student's importance scale between understanding and grades set on basis of:
@@ -176,8 +175,7 @@ different years of study, sexes and subjects.",
   caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
   x = "Year (1-4)",
   y = "Scale: 1 (Understanding) - 4 (Equal) - 7 (Grades)",
-  colour = "Sex",
-  shape = "Subject"
+  colour = "Subject"
 )
 ```
 
