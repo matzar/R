@@ -1,5 +1,4 @@
 # load libraries
-## @knitr answer
 library(tidyverse)
 library(modelr)
 library(rsample)

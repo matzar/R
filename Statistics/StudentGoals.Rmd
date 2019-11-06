@@ -17,19 +17,14 @@ geometry: margin=1.5in
 documentclass: article
 ---
 
-```{r}
-knitr::read_chunk('StudentGoalsDataCleaning.r')
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, tidy = FALSE, cache = TRUE, fig.cap = "...")
 ```
 
-```{r, code=readLines("StudentGoalsDataCleaning.r")}
-
-```
-
 ```{r}
-
+# load external script
+source("StudentGoalsDataCleaning.R")
 ```
-
 
 # Abstract
 *This should be a very brief explanation of your research paper (around 150 words). It normally includes information about the issue, why you are interested in that issue, your method/model, analysis results, discussions and conclusions.*
