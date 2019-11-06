@@ -122,9 +122,9 @@ tidyverse packages (ggplot2, dplyr, tibble, readr, tidyr, purrr);
 
 # Results
 *Present both your informal and formal analyses.*
+We are going to test hypothesis 1) and 2) plus we will find out if and how many students are at risk of developing mental health issues.
 
-## Hypothesis 1 Analysis
-
+## Mastery Approach
 
 ```{r}
 # 1) During students’ junior years, they tend to primarily focus on getting good grades while during their senior years, the focus shifts towards a deep-understanding of the subject and. 
@@ -152,11 +152,7 @@ different years of study, sexes and subjects.",
   y = "Scale: 1 (Understanding) - 4 (Equal) - 7 (Grades)",
   colour = "Sex"
 )
-```
 
-
-##### On basis of Subject
-```{r}
 # Plot set on basis of the student's subject.
 # Plot mean results of (Primarly understanding/Equal Importance/Primarly grades)scale 
 # for all students with relation to student's year, sex and subject
@@ -182,7 +178,7 @@ different years of study, sexes and subjects.",
 )
 ```
 
-### Hypothesis 2) Testing on basis of Sex
+## Enjoyment
 ```{r}
 # 2) students’ enjoyment and interest tends to deteriorate as they progress through their studies. 
 # It is not obvious why this mightbe the case and if the student’s sex or studied subject has any bearing
@@ -211,10 +207,7 @@ different years of study, sexes and subjects.",
   y = "Expectations: 1 (Low) - 7 (High)",
   colour = "Sex"
 )
-```
 
-### Hypothesis 2) Testing on basis of Subject
-```{r}
 # interest
 # Plot set on basis of the student's subject
 # Plot mean results of course interestedness expectations questions
@@ -242,7 +235,7 @@ different years of study, sexes and subjects.",
 )
 ```
 
-
+## Interest
 ```{r}
 # enjoy
 # Plot set on basis of the student's sex.
