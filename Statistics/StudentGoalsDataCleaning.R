@@ -1,6 +1,5 @@
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, tidy = FALSE, cache = TRUE, fig.cap = "...")
-
 # load libraries
+## @knitr answer
 library(tidyverse)
 library(modelr)
 library(rsample)
