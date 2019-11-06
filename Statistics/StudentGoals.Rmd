@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FA
 
 ```{r}
 # load external script
-source("StudentGoalsDataCleaning.R")
+source("source/DataCleaning.R")
 ```
 
 # Abstract
