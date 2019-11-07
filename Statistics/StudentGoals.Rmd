@@ -140,16 +140,16 @@ Performance approach | M1 | Importance of doing better than others? | 1. It is i
 Performance avoidance | M2 | Motivation based on the fear of performing poorly | 4. I just want to avoid doing poorly in my courses |
 | | | | 5. My fear of performing poorly is often what motivates me |
 | | | | 6. My goal in this class is to avoid performing poorly |
-Mastery approach | M3 | Prevalence of mastery approach | 7, 8, 9 | 7. I want to learn as much as possible from all my courses |
+Mastery approach | M3 | Prevalence of mastery approach | 7. I want to learn as much as possible from all my courses |
 | | | | 8. I desire to completely master the material presented in my courses |
 | | | | 9. It is important for me to understand the content of my courses as thoroughly as possible |
-Mastery avoidance | M4 | Student's fear of not mastering the course | 10, 11, 12 | 10. I worry that I may not learn all that I possibly could in my classes |
+Mastery avoidance | M4 | Student's fear of not mastering the course | 10. I worry that I may not learn all that I possibly could in my classes |
 | | | | 11. Sometimes I’m afraid that I may not understand the content of this course as thoroughly as I’d like |
 | | | | 12. I am often concerned that I may not learn all there is to learn in this class |
-Interest | IR | Student expects the course to be interesting | 13 | 
-Enjoyment | EJ | Student expects the course to be enjoyable | 14 | 
-Importance focus | MG | Student's importance focus on understanding vs. grades | 15 |
-Table: Table Test
+Interest | IR | Student expects the course to be interesting | 13. On the whole, I expect my courses this semester to be very interesting |
+Enjoyment | EJ | Student expects the course to be enjoyable | 14. On the whole, I expect my courses this semester to be very enjoyable |
+Importance focus | MG | Student's importance focus on understanding vs. grades | 15. What is the relative importance of understanding and grades to you? |
+Table: Interpretation table
 
 Because *Interest*, *Enjoyment* and *Importance focus* categories consisted only of 1 question, no further computation was required to interpret the data from these categories.
 For the remaining categories, which number of questions was equal to 3, a mean for each assessment category was computed, and saved for each individual student.
