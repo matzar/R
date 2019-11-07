@@ -47,8 +47,7 @@ The data we will be analysing was originally sourced from *Elliot, A. J. and McG
 ## Collection
 The data was already collected but my own survey results were added to the data set.
 
-## Cleaning
-### Initial Data
+## Initialising
 The data was converted from the original `.xlsx` format to `.csv` using *Microsoft Excel for Mac* and then it was loaded to *R* script using the *tidyverse* package - [*readr*](https://readr.tidyverse.org/index.html]).
 
 The initial number of students was also saved in a variable for later calcuations.
@@ -60,10 +59,10 @@ studentGoalsEg <- createExampleTable(StudentGoalsData, 6, 9, 1, 6, 16, 19)
 studentGoalsEg
 ```
 
-### Dropping
+## Cleansing
 First, the *seq* column was dropped since it does not serve any purpose. Second, rows with empty cells were dropped because they could falsify the results.
 
-### Coding
+## Coding
 The following coding informations was applied to the data:
 
 | Subject | Sex | Code |
@@ -81,7 +80,7 @@ E.g., the code for *Male* was *1*, so the cells in the *sex* column containing *
 mean_dat[6:9,3:4]
 ```
 
-### Assessment Categories
+## Assessment Categories
 The survey's instructions provided 7 assessment categories and their appropriate questions. You can see these informations below with added  labeling and interpretation.
 
 Category | Label | Interpretation | Question |
@@ -95,16 +94,7 @@ Enjoyment | EJ | Student expects the course to be enjoyable | 14 |
 Importance focus | MG | Students' importance focus on understanding vs. grades | 15 |
 Table: Interpretation table
 
-7 assessment categories and their appropriate questions are presented below:
-
-| Category | Question |
-| -------- | -------- |
-| Performance approach | 
-| Performance avoidance | 
-| Mastery approach 
-| Mastery avoidance | 
-
-### Derandomization and Renaming
+## Derandomization and Renaming
 Random order (6, 12, 11, 1, 7, 2, 10, 8, 5, 3, 9, 4) was given to use in the survey's instructions. This meant, e.g., *question 6* from the *Performance avoidance* category is numbered *1* in the survey and in the data set; *question 12* from the *Mastery avoidance* category is numbered *2* in the survey and in the set; and so on. 
 
 The column naming changed in the process: ***q****1* became ***Q****6*, changing lower case ***q*** to upper case ***Q*** as well as the number of the question.
@@ -125,7 +115,7 @@ Questions 13, 14 and 15 - which were in fact, hypotheses testing questions and *
 | enjoy | EJ |
 | mastgrad | MG |
 
-### Clean Data
+## Clean Data
 This is how the data looked like after cleaning:
 
 ```{r}
