@@ -81,17 +81,38 @@ E.g., the code for *Male* was *1*, so the cells in the *sex* column containing *
 mean_dat[6:9,3:4]
 ```
 
+### Assessment Categories
+The survey's instructions provided 7 assessment categories and their appropriate questions. You can see these informations below with added  labeling and interpretation.
+
+Category | Label | Interpretation | Question |
+-------- | ----- | -------------- | -------- |
+Performance approach | M1 | Importance of doing better than others |1, 2, 3 |
+Performance avoidance | M2 | Motivation based on the fear of performing poorly | 4, 5, 6 |
+Mastery approach | M3 | Students' grade-orientation focus | 7, 8, 9 |
+Mastery avoidance | M4 | Students' fear of not mastering the course | 10, 11, 12 |
+Interest | IR | Student expects the course to be interesting | 13 |
+Enjoyment | EJ | Student expects the course to be enjoyable | 14 |
+Importance focus | MG | Students' importance focus on understanding vs. grades | 15 |
+Table: Interpretation table
+
+7 assessment categories and their appropriate questions are presented below:
+
+| Category | Question |
+| -------- | -------- |
+| Performance approach | 
+| Performance avoidance | 
+| Mastery approach 
+| Mastery avoidance | 
+
 ### Derandomization and Renaming
-Random order (6, 12, 11, 1, 7, 2, 10, 8, 5, 3, 9, 4) was given to use in the survey's instructions. 
+Random order (6, 12, 11, 1, 7, 2, 10, 8, 5, 3, 9, 4) was given to use in the survey's instructions. This meant, e.g., *question 6* from the *Performance avoidance* category is numbered *1* in the survey and in the data set; *question 12* from the *Mastery avoidance* category is numbered *2* in the survey and in the set; and so on. 
 
-The students were presented with the questions in a randomized order. Becasue the survey's instruction gave us the random order, it was assumed that the collected data was put into the table in the order that student's were presented with, to be later derandomized. It was also assumed that the data had not been derandomized so such process was conducted, i.e., *question 6* from the *Performance avoidance* category is numbered *1* in the survey and in the data set. 
-*question 12* from the *Mastery avoidance* category is numbered *2* in the survey and in the set, and so on. This also meant that in the process of derandomization previous lower case ***q*** letters in the column names, were changed to upper case ***Q***. E.g. of derandomization and renaming would be ***q****1* becoming ***Q****6*.
+The column naming changed in the process: ***q****1* became ***Q****6*, changing lower case ***q*** to upper case ***Q*** as well as the number of the question.
 
-*Table 4* inlustrates the entire process:
+*Table 4* inlustrates the entire process and assigns questions to their appropriate categories:
 
 | |
 | - | - | - | - | - | - | - | - | - | - | - | - | - |
-Cat. | Performance approach | | | Performance avoidance | | | Mastery approach | | |  Mastery avoidance | | |
 Data set order | q1 | q2 | q3 | q4 | q5 | q6 | q7 | q8 | q9 | q10 | q11 | q12 |
 Survey order | Q6 | Q12 | Q11 | Q1 | Q7 | Q2 | Q10 | Q8 | Q5 | Q3 | Q9 | Q4 |
 Table: In the survey, questions from 1 to 12 were derandomized and renamed
@@ -113,20 +134,6 @@ meanTableEg
 ```
 
 ## Exploration
-### Data Assessment Categories
-The survey's instructions provided 7 assessment categories. The table below presents all the 7 categories with my own label and interpretation, which is based on the category's survey questions:
-
-Category | Label | Interpretation |
--------- | ----- | -------------- |
-Performance approach | M1 | Importance of doing better than others |
-Performance avoidance | M2 | Motivation based on the fear of performing poorly |
-Mastery approach | M3 | Students' grade-orientation focus |
-Mastery avoidance | M4 | Students' fear of not mastering the course |
-Interest | IR | Student expects the course to be interesting |
-Enjoyment | EJ | Student expects the course to be enjoyable |
-Importance focus | MG | Students' importance focus on understanding vs. grades |
-Table: Interpretation table
-
 ### Visual Exploration
 The means from *M1*, *M2*, *M3* and *M4* assessment categories were set on basis of year of study, sex and subject; data smoothing was applied in attempt to capture any important patterns.
 
