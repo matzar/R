@@ -54,7 +54,8 @@ The initial number of students was also saved in a variable for later calcuation
 This is how the data looked like after loading it into the *R* script and before cleaning:
 
 ```{r}
-temp4[,]
+studentGoalsEg <- createExampleTable(StudentGoalsData)
+studentGoalsEg
 ```
 
 ## Cleaning the Data
@@ -107,8 +108,8 @@ For a sake of data collection, I filled out the survey myself and added the resu
 This is how the data looked like after cleaning:
 
 ```{r}
-mean_dat[6:9,1:16]
-mean_dat[6:9,17:19]
+meanTableEg <- createExampleTable(mean_dat)
+meanTableEg
 ```
 
 # Methodology
