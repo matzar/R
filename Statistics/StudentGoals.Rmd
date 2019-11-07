@@ -187,7 +187,7 @@ c <- t
 # adding labels
 c + labs(
   tag = "M2",
-  title = "Student's grade-orientation focus set on basis of:
+  title = "Students' grade-orientation focus set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "How motivated are students by fear of performing poorly?",
   x = "Year: 1 - 4",
@@ -212,7 +212,7 @@ c <- t
 # adding labels
 c + labs(
   tag = "M3",
-  title = "Student's focus on understanding set on basis of:
+  title = "Students' focus on understanding set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "Prevalence of mastery approach.",
   x = "Year: 1 - 4",
@@ -237,9 +237,9 @@ c <- t
 # adding labels
 c + labs(
   tag = "M4",
-  title = "Student's focus on understanding set on basis of:
+  title = "Students' focus on understanding set on basis of:
 different years of study, sexes and subjects.",
-  subtitle = "Student's fear of not mastering the course.",
+  subtitle = "Students' fear of not mastering the course.",
   x = "Year: 1 - 4",
   y = "Answer: 1 (Low) - 7 (High)",
   colour = "Sex",
