@@ -65,19 +65,14 @@ First, the *seq* column was dropped since it does not serve any purpose. Second,
 ### Coding
 The following coding informations was applied to the data:
 
-| Sex | Code |
-| - | - |
-| Male | 1 |
-| Female | 2 |
-
-| Subject | Code |
-| ------- | ---- |
-| Management  | 1 |
-| Law | 2 |
-| Tourism | 3 |
-| General Economics  | 4 |
-| Accounting  | 5 |
-| Statistics | 6 |
+| Subject | Sex | Code |
+| ------- | ---- | --- |
+| Management | Male | 1 |
+| Law | Female | 2
+| Tourism | - | 3 |
+| General Economics  | - | 4 |
+| Accounting  | - | 5 |
+| Statistics | - | 6 |
 
 E.g., the code for `Male` was `1`, so the cells in the `sex` column containing `1` were replaced with a `Male` string; the code for `General Economics` was `4`, so the cells in the `subject` column containing `4` were replaced with a `General Economics` string. This is how the `sex` and `subject` columns looked like after applying the coding information:
 
