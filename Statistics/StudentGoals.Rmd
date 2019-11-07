@@ -75,7 +75,7 @@ The following coding informations was applied to the data:
 | Accounting  | - | 5 |
 | Statistics | - | 6 |
 
-E.g., the code for `Male` was `1`, so the cells in the `sex` column containing `1` were replaced with a `Male` string; the code for `General Economics` was `4`, so the cells in the `subject` column containing `4` were replaced with a `General Economics` string. This is how the `sex` and `subject` columns looked like after applying the coding information:
+E.g., the code for *Male* was *1*, so the cells in the *sex* column containing *1* were replaced with a *Male* string; the code for *General Economics* was *4*, so the cells in the *subject* column containing *4* were replaced with a *General Economics* string. This is how the *sex* and *subject* columns looked like after applying the coding information:
 
 ```{r}
 mean_dat[6:9,3:4]
