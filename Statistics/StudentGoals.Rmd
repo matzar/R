@@ -271,10 +271,19 @@ To test the hypotheses new means had to be calcualted with regards to both sexes
 - For hypothesis 1) testing - the *Importance focus (MG)*
 - For hypothesis 2) testing - the *Enjoyment (EJ)* and *Interest (IR)*
 
-The table below shows the new data:
+```{r}
+#subject by gender and normalizing using position = "dodge" to place overlapping objects directly beside one another
+ggplot(data = dat) + 
+  geom_bar(mapping = aes(x = sex, fill = subject), position = "dodge") +
+  labs(
+    title = "Subject student count with regards to sex"
+  )
+```
 
 ### Hypothesis 1
-
+| |
+| - | - |
+| `r males` | `r females` |
 
 ### Hypothesis 2
 

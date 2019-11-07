@@ -121,6 +121,20 @@ write_csv(mean_dat, "data/MeanCleanedStudentGoals.csv")
 # save final cleaned table as tibble table
 dat_tibble <- as_tibble(mean_dat)
 
+# Hypothesis 1 Testing
+males <- filter(dat_tibble, sex == 'Male')
+females <- filter(dat_tibble, sex == 'Female')
+management <- filter(dat_tibble, subject == 'Management')
+# law <- filter(dat_tibble, subject == 'Law')
+tourism <- filter(dat_tibble, subject == 'Tourism')
+general_economics <- filter(dat_tibble, subject == 'General Economics')
+accounting <- filter(dat_tibble, subject == 'Accounting')
+statistics <- filter(dat_tibble, subject == 'Statistics')
+
+# Hypothesis 2 Testing
+
+# Golbal Testing
+
 ## CONFIDENCE INTERVAL FOR A POPULATION ###################################################
 # dat_tibble %>%
 #   head() %>%

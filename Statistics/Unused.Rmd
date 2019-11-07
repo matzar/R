@@ -125,22 +125,22 @@ ggplot(data = dat) +
 ggplot(data = dat) + 
   geom_bar(mapping = aes(x = year, fill = sex))
 # "expect my courses this semester to be very interesting" by gender
-ggplot(data = dat) + 
-  geom_bar(mapping = aes(x = interest, fill = sex))
+# ggplot(data = dat) + 
+#   geom_bar(mapping = aes(x = interest, fill = sex))
 # "expect my courses this semester to be very enjoyable" by gender
-ggplot(data = dat) + 
-  geom_bar(mapping = aes(x = enjoy, fill = sex))
+# ggplot(data = dat) + 
+  # geom_bar(mapping = aes(x = enjoy, fill = sex))
 # relative importance by gender
-ggplot(data = dat) + 
-  geom_bar(mapping = aes(x = mastgrad, fill = sex))
+# ggplot(data = dat) + 
+#   geom_bar(mapping = aes(x = mastgrad, fill = sex))
 
 #subject by gender and normalizing using position = "dodge" to place overlapping objects directly beside one another
-ggplot(data = dat) + 
-  geom_bar(mapping = aes(x = sex, fill = subject), position = "dodge")
+# ggplot(data = dat) + 
+  # geom_bar(mapping = aes(x = sex, fill = subject), position = "dodge")
 
 # plot answers to q1 with relation to the student's year
-ggplot(data = dat) + 
-  geom_point(mapping = aes(x = year, y = q1, colour = year))
+# ggplot(data = dat) + 
+  # geom_point(mapping = aes(x = year, y = q1, colour = year))
 ##############################################################################
 ```
 
