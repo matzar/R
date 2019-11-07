@@ -46,7 +46,11 @@ On top of this, we will explore the data and see if there are any other patterns
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
 The data we will be analysing was originally sourced from *Elliot, A. J. and McGregor, H. A. (2001). A 2 x 2 achievement-goal framework. Journal of Personality and Social Psychology, 80, 3, 501-519*.
 
-## Initial Data
+## Data collection
+The data was already collected but I filled out the survey myself and added the results to the table.
+
+## Data cleaning
+### Initial Data
 The data was converted from the original `.xlsx` format to `.csv` using *Microsoft Excel for Mac* and then it was loaded to *R* script using the *tidyverse* package - [*readr*](https://readr.tidyverse.org/index.html]).
 
 The initial number of students was also saved in a variable for later calcuations.
@@ -57,8 +61,6 @@ This is how the data looked like after loading it into the *R* script and before
 studentGoalsEg <- createExampleTable(StudentGoalsData, 6, 9, 1, 6, 16, 19)
 studentGoalsEg
 ```
-
-## Cleaning the Data
 
 ### Dropping
 First, the *seq* column was dropped since it does not serve any purpose. Second, rows with empty cells were dropped because they could falsify the results.
@@ -101,25 +103,20 @@ Questions 13, 14 and 15 - which were in fact, hypotheses testing questions and *
 | enjoy | EJ |
 | mastgrad | MG |
 
-### Data collection
-For a sake of data collection, I filled out the survey myself and added the results to the table.
-
-## Clean Data
+### Clean Data
 This is how the data looked like after cleaning:
 
 ```{r}
 meanTableEg <- createExampleTable(mean_dat, 6, 9, 1, 6, 15, 19)
 meanTableEg
 ```
-For the exact column order look at Table 4
 
-## Data Interpretation
-### Categories
-*Table 10* presents the category, its label and interpretation (Based on the category's questions):
+## Data Assessment Categories
+The survey's instructions provided 7 assessment categories. The table below presents all the 7 categories with my own label and interpretation, which is based on the category's survey questions.
 
 Category | Label | Interpretation |
 -------- | ----- | -------------- |
-Performance approach | M1 | Importance of doing better than others? |
+Performance approach | M1 | Importance of doing better than others |
 Performance avoidance | M2 | Motivation based on the fear of performing poorly |
 Mastery approach | M3 | Prevalence of mastery approach |
 Mastery avoidance | M4 | Student's fear of not mastering the course |
@@ -128,8 +125,8 @@ Enjoyment | EJ | Student expects the course to be enjoyable |
 Importance focus | MG | Student's importance focus on understanding vs. grades |
 Table: Interpretation table
 
-### Data Exploration
-The means from *M1*, *M2*, *M3* and *M4* assessment categories were plotted on basis of sex and subject:
+## Data Exploration
+For a sake of data exploration and to see if there are any visible trends, the means from *M1*, *M2*, *M3* and *M4* assessment categories were plotted with data smoothing, set on basis of sex and subject:
 
 ```{r}
 # M1
@@ -148,8 +145,7 @@ c <- t
 # adding labels
 c + labs(
   tag = "M1",
-  title = "Student's grade-orientation focus set on basis of:
-different years of study, sexes and subjects.",
+  title = "Performance approach set on basis of: year of study, sex and subject.",
   subtitle = "How important it is to students to do better than others?",
   x = "Year (1-4)",
   y = "Answer: 1 (Low) - 7 (High)",
@@ -173,8 +169,7 @@ c <- t
 # adding labels
 c + labs(
   tag = "M2",
-  title = "Students' grade-orientation focus set on basis of:
-different years of study, sexes and subjects.",
+  title = "Performance avoidance set on basis of: year of study, sex and subject.",
   subtitle = "How motivated are students by fear of performing poorly?",
   x = "Year: 1 - 4",
   y = "Answer: 1 (Low) - 7 (High)",
@@ -198,8 +193,7 @@ c <- t
 # adding labels
 c + labs(
   tag = "M3",
-  title = "Students' focus on understanding set on basis of:
-different years of study, sexes and subjects.",
+  title = "Mastery approach set on basis of: year of study, sex and subject.",
   subtitle = "Prevalence of mastery approach.",
   x = "Year: 1 - 4",
   y = "Answer: 1 (Low) - 7 (High)",
@@ -232,26 +226,6 @@ different years of study, sexes and subjects.",
   shape = "Subject"
 )
 ```
-
-
-
-
-
-
-## Confidence Interval for a Proportion
-### Calculations
-Calculating a 95% confidence interval for the student-at-risk population proportion.
-
-$$ \hat{p} = \frac{2}{625} = 0.0032 $$
-
-$$ Z = 1.96  $$
-
-$$ \hat{p} \pm Z = 0.0032 \pm 1.96 \sqrt{\frac{{0.0032}(1 - {0.0032})}{625}} = 0.0032 \pm 0.0044 $$
-
-The upper confidence interval for a proportion is `r ci_up[,]`, and the lower is `r ci_low[,]`, which gives us a confidence interval, for proportion of finding a student-at-risk as: CI = (0.00762, -0.00122). This mean we could say with 95% confidence the percentage of the times we should expect to find a student at risk is between 0.7% and 0%.
-
-
-
 
 ## Mastery Approach
 
@@ -443,13 +417,7 @@ dat_tibble[1:5, 20:23]
 ```
 
 ## Confidence Interval for a Proportion
-### Equations
-
-$$ \hat{p} = \frac{x}{n} = \frac{events}{trials} $$
-
-$$ \hat{p} \pm Z \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} $$
-
-## Students at risk
+### Finding Students at Risk
 To find out if there are any students at risk the following criteria was assumed:
 
 - *Interest* and *Enjoyment* $\leq$ 2
@@ -459,10 +427,26 @@ To find out if there are any students at risk the following criteria was assumed
 mm2[,c("age", "sex", "subject", "EJ", "IR", "MG", "M1", "M2")]
 ```
 
+### Equations
+
+$$ \hat{p} = \frac{x}{n} = \frac{events}{trials} $$
+
+$$ \hat{p} \pm Z \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} $$
+
+### Calculations
+Calculating a 95% confidence interval for the student-at-risk population proportion.
+
+$$ \hat{p} = \frac{2}{625} = 0.0032 $$
+
+$$ Z = 1.96  $$
+
+$$ \hat{p} \pm Z = 0.0032 \pm 1.96 \sqrt{\frac{{0.0032}(1 - {0.0032})}{625}} = 0.0032 \pm 0.0044 $$
+
+The upper confidence interval for a proportion is `r ci_up[,]`, and the lower is `r ci_low[,]`, which gives us a confidence interval, for proportion of finding a student-at-risk as: CI = (0.00762, -0.00122). This mean we could say with 95% confidence the percentage of the times we should expect to find a student at risk is between 0.7% and 0%.
 
 # Results
 *Present both your informal and formal analyses.*
-We we are going to find out if, and how many students are at risk of developing mental health issues and test the hypothesis 1) and 2) on basis of sex and subject.
+We we are going to find out if, and how many students are at risk of developing mental health issues and test the hypothesis 1) and 2) set on basis of sex and subject.
 
 
 # Conclusion / Discussion
