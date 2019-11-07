@@ -87,15 +87,15 @@ Category | Label | Interpretation | Question |
 -------- | ----- | -------------- | -------- |
 Performance Approach | M1 | Importance of doing better than others |1, 2, 3 |
 Performance Avoidance | M2 | Motivation based on the fear of performing poorly | 4, 5, 6 |
-Mastery approach | M3 | Students' grade-orientation focus | 7, 8, 9 |
-Mastery avoidance | M4 | Students' fear of not mastering the course | 10, 11, 12 |
+Mastery Approach | M3 | Students' grade-orientation focus | 7, 8, 9 |
+Mastery Avoidance | M4 | Students' fear of not mastering the course | 10, 11, 12 |
 Interest | IR | Student expects the course to be interesting | 13 |
 Enjoyment | EJ | Student expects the course to be enjoyable | 14 |
 Importance focus | MG | Students' importance focus on understanding vs. grades | 15 |
 Table: Interpretation table
 
 ## Derandomization and Renaming
-Random order (6, 12, 11, 1, 7, 2, 10, 8, 5, 3, 9, 4) was given to use in the survey's instructions. This meant, e.g., *question 6* from the *Performance Avoidance* category is numbered *1* in the survey and in the data set; *question 12* from the *Mastery avoidance* category is numbered *2* in the survey and in the set; and so on. 
+Random order (6, 12, 11, 1, 7, 2, 10, 8, 5, 3, 9, 4) was given to use in the survey's instructions. This meant, e.g., *question 6* from the *Performance Avoidance* category is numbered *1* in the survey and in the data set; *question 12* from the *Mastery Avoidance* category is numbered *2* in the survey and in the set; and so on. 
 
 The column naming changed in the process: ***q****1* became ***Q****6*, changing lower case ***q*** to upper case ***Q*** as well as the number of the question.
 
@@ -181,10 +181,10 @@ c + labs(
 ```
 
 
-### M3 - Mastery approach
+### M3 - Mastery Approach
 ```{r}
 # M3
-# Plot mean results of mastery approach questions
+# Plot mean results of Mastery Approach questions
 # for all students with relation to student's year, sex and subject
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$M3))
@@ -199,16 +199,20 @@ c <- t
 # adding labels
 c + labs(
   tag = "M3",
-  title = "Mastery approach set on basis of: year of study, sex and subject.",
+  title = "Mastery Approach set on basis of: year of study, sex and subject.",
   subtitle = "Students' grade-orientation focus",
   x = "Year: 1 - 4",
   y = "Answer: 1 (Low) - 7 (High)",
   colour = "Sex",
   shape = "Subject"
 )
+```
 
+
+### M4 - Mastery Avoidance
+```{r}
 # M4
-# Plot mean results of mastery avoidance questions
+# Plot mean results of Mastery Avoidance questions
 # for all students with relation to student's year, sex and subject
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$M4))
@@ -223,7 +227,7 @@ c <- t
 # adding labels
 c + labs(
   tag = "M4",
-  title = "Mastery avoidance set on basis of: year of study, sex and subject.",
+  title = "Mastery Avoidance set on basis of: year of study, sex and subject.",
   subtitle = "Students' fear of not mastering the course.",
   x = "Year: 1 - 4",
   y = "Answer: 1 (Low) - 7 (High)",
