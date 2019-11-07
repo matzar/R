@@ -54,7 +54,7 @@ The initial number of students was also saved in a variable for later calcuation
 This is how the data looked like after loading it into the *R* script and before cleaning:
 
 ```{r}
-studentGoalsEg <- createExampleTable(StudentGoalsData)
+studentGoalsEg <- createExampleTable(StudentGoalsData, 6, 9, 1, 6, 16, 19)
 studentGoalsEg
 ```
 
@@ -88,12 +88,12 @@ The students were presented with the questions in a randomized order. Becasue th
 *Table 5* inlustrates the entire process:
 
 | |
--------------- | -- | -- | -- | -- | -- | -- | -- | -- | -- | --- | --- | --- | --- | --- | --- |
-Data set order | q1 | q2 | q3 | q4 | q5 | q6 | q7 | q8 | q9 | q10 | q11 | q12 | q13 | q14 | q15
-Survey order | Q6 | Q12 | Q11 | Q1 | Q7 | Q2 | Q10 | Q8 | Q5 | Q3 | Q9 | Q4 | Q13 | Q14 | Q15
-Table: In the survey, questions from 1 to 12 were derandomized and renamed; questions 13, 14 and 15 were in the same order, so they were only renamed.
+| - | - | - | - | - | - | - | - | - | - | - | - | - |
+Data set order | q1 | q2 | q3 | q4 | q5 | q6 | q7 | q8 | q9 | q10 | q11 | q12 |
+Survey order | Q6 | Q12 | Q11 | Q1 | Q7 | Q2 | Q10 | Q8 | Q5 | Q3 | Q9 | Q4 |
+Table: In the survey, questions from 1 to 12 were derandomized and renamed
 
-For easier data manipulation, the assessment-categories columns, were renamed accordingly:
+Questions 13, 14 and 15, which were hypotheses testing questions and assessment-categories columns, kept the same order in the survey and in the data set, so they were only renamed for easier data manipulation:
 
 | Previous column name | New column name |
 | - | - |
@@ -108,7 +108,7 @@ For a sake of data collection, I filled out the survey myself and added the resu
 This is how the data looked like after cleaning:
 
 ```{r}
-meanTableEg <- createExampleTable(mean_dat)
+meanTableEg <- createExampleTable(mean_dat, 6, 9, 1, 6, 15, 19)
 meanTableEg
 ```
 

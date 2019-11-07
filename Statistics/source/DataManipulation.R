@@ -14,13 +14,14 @@ f <- "data/StudentGoalsData.csv"
 StudentGoalsOriginal <- read_csv(f, col_types = cols(), skip_empty_rows = TRUE)
 
 # making an example table
-createExampleTable <- function(table) {
+# tb, rb - row begin, re - row end, cb - column begin, ce - column end
+createExampleTable <- function(tb, rb, re, cb1, ce1, cb2, ce2) {
   # get first 6 columns and random 4 rows
-  temp1 <- table[6:9,1:6]
+  temp1 <- tb[rb:re, cb1:ce1] # 1:7
   # add spacing
   temp1$... <- c("...", "...", "...", "...")
   # get remaining columns and rows
-  temp2 <- table[6:9,16:19]
+  temp2 <- tb[rb:re, cb2:ce2] # 16:19
   # combine
   temp3 <- dplyr::bind_cols(temp1, temp2)
   
