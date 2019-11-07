@@ -80,7 +80,7 @@ E.g., the code for `Male` was `1`, so the cells in the `sex` column containing `
 mean_dat[6:9,3:4]
 ```
 
-### Derandomization/Renaming
+### Renaming and Derandomizing
 The students were presented with the questions in a randomized order. Becasue the random order was known, it was assumed that the collected data was put into a table in the 
 The random order was known and the questions were derandomised in the data set, i.e., *question 6* from the *Performance avoidance* category is numbered *1* in the survey. In the data set results for *question 1* were renamed to results for *question 6*. *question 12* from the *Mastery avoidance* category is numbered *2* in the survey, etc. *Table 1* presents this mapping.
 
