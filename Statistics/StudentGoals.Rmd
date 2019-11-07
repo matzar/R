@@ -42,6 +42,7 @@ Becasue this paper is going to be talking about student's course enjoyment, expe
 
 # Data
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
+
 The data we will be analysing was originally sourced from *Elliot, A. J. and McGregor, H. A. (2001). A 2 x 2 achievement-goal framework. Journal of Personality and Social Psychology, 80, 3, 501-519*.
 
 ## Collection
@@ -208,7 +209,7 @@ c + labs(
   shape = "Subject"
 )
 ```
-It is clearly visible that the student's mastery approach drops by almost 1 scale point.
+It is visible that the student's mastery approach drops by almost 1 scale point.
 
 ## M4 - Mastery Avoidance
 ```{r}
@@ -236,6 +237,7 @@ c + labs(
   shape = "Subject"
 )
 ```
+There is a dropping tendency for *Mastery Avoidance* but it is not drastic.
 
 # Methodology
 *This section explains the statistical methods and/or your model. It is also a common practice to present the statistical model structure (i.e. equation) here as well.*
@@ -256,16 +258,22 @@ Around 625 students were surveyed. They answered on a 7-level scale; 1 meaning t
 Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
 
 ## Mean
-Apart from *Interest*, *Enjoyment* and *Importance focus* categories, all other consisted of 3 questions. For this reason, the assessment-categories' means were computed and saved for each individual student.
+Apart from *Interest*, *Enjoyment* and *Importance focus* categories, *Performance Approach*, *Performance Avoidance*, *Mastery Approach*, *Mastery Avoidance* categories consisted of 3 questions; for these 4 categories the means were computed and saved for each individual student.
 
-This resulted in 4 extra columns added to the original data set. An example of these can be seen below:
+This resulted in 4 extra columns added to the original data set. These results were using in data exploration and finding a student-at-risk. An example of these can be seen below:
 ```{r}
 dat_tibble[1:5, 20:23]
 ```
 
-### Grades vs. Understanding
+To test the hypotheses 
 
-#### Sex
+
+## Hypothesis 1 Testing
+To test hypothesis 1) we will get the data from *Importance focus (MG)* category and compute it for both sexes and all the subjects.
+
+### Global
+The graph below shows the *Importance focus (MG)* category mean results. All the students are represented; student's sex was made distinguishable by a colour and student's studied subject by a shape.
+
 ```{r}
 # 1) During students’ junior years, they tend to primarily focus on getting good grades while during their senior years, the focus shifts towards a deep-understanding of the subject and. 
 
@@ -275,7 +283,7 @@ dat_tibble[1:5, 20:23]
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$MG))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = sex))
+l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
 s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
@@ -290,11 +298,12 @@ different years of study, sexes and subjects.",
   subtitle = "Scale: Primarly understanding (1) / Equal Importance (4) / Primarly grades (7)",
   x = "Year (1-4)",
   y = "Scale: 1 (Understanding) - 4 (Equal) - 7 (Grades)",
-  colour = "Sex"
+  colour = "Sex",
+  shape = "Subject"
 )
 ```
 
-#### Subject
+### Subject
 ```{r}
 # Plot set on basis of the student's subject.
 # Plot mean results of (Primarly understanding/Equal Importance/Primarly grades)scale 
