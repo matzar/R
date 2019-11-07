@@ -131,6 +131,23 @@ general_economics <- filter(dat_tibble, subject == 'General Economics')
 accounting <- filter(dat_tibble, subject == 'Accounting')
 statistics <- filter(dat_tibble, subject == 'Statistics')
 
+filter(dat_tibble, sex == 'Male')$year
+
+d <- ggplot(data = dat, aes(filter(dat_tibble, sex == 'Male')$year, filter(dat_tibble, sex == 'Male')$MG))
+# mapping data (use "jitter" to improve the graph and avoid gridding)
+l <- d + geom_jitter(aes(fill = males$subject))
+# smoothing
+s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
+# adding labels
+s + labs(
+  tag = "MG",
+  title = "Student's importance scale between understanding and grades set on basis of:
+different years of study, sexes and subjects.",
+  subtitle = "Scale: Primarly understanding (1) / Equal Importance (4) / Primarly grades (7)",
+  x = "Year (1-4)",
+  y = "Scale: 1 (Understanding) - 4 (Equal) - 7 (Grades)"
+)
+
 # Hypothesis 2 Testing
 
 # Golbal Testing
