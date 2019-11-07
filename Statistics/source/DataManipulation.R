@@ -150,6 +150,7 @@ dat_tibble_interest <- filter(dat_tibble_enjoy, IR <= 2) # Interest
 dat_tibble_mastgrad <- filter(dat_tibble_interest, MG >= 4) 
 mm1 <- filter(dat_tibble_mastgrad, M1 >= 6) # Performace Approach
 mm2 <- filter(mm1, M2 >= 6) # Performace Avoidance
+view(mm2)
 
 n_mm2 <- tally(mm2)
 

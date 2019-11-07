@@ -275,13 +275,16 @@ This resulted in 4 extra columns added to the original data set. These results w
 dat_tibble[1:5, 20:23]
 ```
 
+# Results
+*Present both your informal and formal analyses.*
+
 ## Hypothesis Testing
-To test the hypotheses new means had to be calcualted with regards to both sexes and all the subjets:
+To test the hypotheses the following categories where picked:
 
-- For *Hypothesis 1* testing - the *Importance focus (MG)*
-- For *Hypothesis 2* testing - the *Enjoyment (EJ)* and *Interest (IR)*
+- *Hypothesis 1* - *Importance focus (MG)*
+- *Hypothesis 2* - *Enjoyment (EJ)* and *Interest (IR)*
 
-The graphs below are a visual investigation of the hypotheses using their appropriate categories. All the students are represented; student's sex was made distinguishable by a colour and student's subject was made visible by a shape.
+The graphs below are a visual investigation of the hypotheses using their chosen categories. All the students are represented; student's sex was made distinguishable by a colour and student's subject was made visible by a shape.
 
 ## Hypothesis 1
 ```{r}
@@ -420,17 +423,9 @@ $$ \hat{p} \pm Z = 0.0032 \pm 1.96 \sqrt{\frac{{0.0032}(1 - {0.0032})}{625}} = 0
 
 The upper confidence interval for a proportion is `r ci_up[,]`, and the lower is `r ci_low[,]`, which gives us a confidence interval, for proportion of finding a student-at-risk as: CI = (0.00762, -0.00122). This mean we could say with 95% confidence the percentage of the times we should expect to find a student at risk is between 0.7% and 0%.
 
-# Results
-*Present both your informal and formal analyses.*
-The hypothese turned out to be true/false?
-
-# Conclusion / Discussion
+# Conclusion
 *You need to conclude your project, discuss the results, discuss any reservations that you have about the study and list any future work.*
 
-Looking at data (see Table 11), we can tell there are in fact 2 students who might be at risk; they are both 18-year-old females *General Economic* students.
+Looking at data, we see there are in fact 2 students who might be at risk; they are both 18-year-old females studying *General Economic* at their sophmore years. Usually when we investigate the data, the extreme cases are dropped. But this time it would mean that we would be dismissing students who might be at real risk. Of course, it might be the case that they mixed up the scale or had a bad day but this begs the question - should such cases be dismissed? Could univerities address this data in any way? We might say that it is only a tiny fraction of the population and chances of finding such a student are less than 1%. So are the number of students taking their own lives at campuses.
 
-This might not seems like a lot but we have the actual data to back it up. We know that there are 2 students who might be at risk of developing mental health problems: they are both female, aged 18 years old and study general economics at their sophmore year. Wheter this data should be used directly to try to find these students is a different debate. What could be definietly done is try to announce this fact that there have been found students who might be at risk and that there is help available. Most universities offer counceling for students but the problem is to have already troubled and lonely students reach out for help. Maybe a university could develop their own programmes for sutdents which they can use to self-diagnose and if the system would detect that they might be experiencing mental health problems they could direct them towards a councelor at their univeristy. Such tests already exists but the reason why I think they should be university specific is for the fact that it makes the student feels that their university cares about their mental health and they do not need to feel ashamed to ask for help becasue it was their home institution who has made the first step. 
-
-**Univerity should be the one reaching out, not the other way around.**
-
-so, what conclusions do you have bruh? Could analyse AGE
+I believe something could be done and such data should never be dismissed because we might be able to help these students. Maybe universities could develop their own programmes, that students could use to self-diagnose, whether they are at risk of developing mental health problems and if they are, it could direct them towards a university's councelor as well as other places. Such tests already exists and can be found on the NHS website. The reason why I think they should be university specific is the fact that it makes the student feel like their university cares; it has made the first step so it must mean that it wants them do well and is genuily interested in their well-being. Being counseled should not be a gage of failiure but a normal thing everyone in need should feel encouraged to use. I know that the universities are not being idle but I wonder what results, a survey trying to find out if the students feel like the university emphesises with them, be like?
