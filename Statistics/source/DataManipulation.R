@@ -121,7 +121,7 @@ write_csv(mean_dat, "data/MeanCleanedStudentGoals.csv")
 # save final cleaned table as tibble table
 dat_tibble <- as_tibble(mean_dat)
 
-## CLASSIFICATION ###################################################
+## CONFIDENCE INTERVAL FOR A POPULATION ###################################################
 # dat_tibble %>%
 #   head() %>%
 #   knitr::kable()
