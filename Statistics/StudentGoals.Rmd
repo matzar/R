@@ -100,6 +100,9 @@ For easier data manipulation, the assessment-categories columns, were renamed ac
 | enjoy | EJ |
 | mastgrad | MG |
 
+### Data collection
+For a sake of data collection, I filled out the survey myself and added the results to the table.
+
 ## Clean Data
 This is how the data looked like after cleaning:
 
