@@ -28,6 +28,40 @@ createExampleTable <- function(tb, rb, re, cb1, ce1, cb2, ce2) {
   return(temp3)
 }
 
+hypothesisTesting <- function(phrase1, phrase2) {
+  d <- ggplot(filter(dat, sex == phrase1), aes(filter(dat, sex == phrase1)$year, filter(dat, sex == phrase1)$IR))
+  # mapping data (use "jitter" to improve the graph and avoid gridding)
+  l <- d + geom_jitter(aes(colour = filter(dat, sex == phrase1)$subject))
+  # smoothing
+  s <- l + geom_smooth(se = TRUE)
+  # adding labels
+  s + labs(
+    tag = "MG",
+    title = "Student's importance scale between understanding and grades set on basis of:
+  different years of study, sexes and subjects.",
+    subtitle = "Scale: Primarly understanding (1) / Equal Importance (4) / Primarly grades (7)",
+    x = "Year (1-4)",
+    y = "Scale: 1 (Understanding) - 4 (Equal) - 7 (Grades)",
+    colour = "Subject"
+  )
+
+  d <- ggplot(filter(dat, sex == phrase2), aes(filter(dat, sex == phrase2)$year, filter(dat, sex == phrase2)$IR))
+  # mapping data (use "jitter" to improve the graph and avoid gridding)
+  l <- d + geom_jitter(aes(colour = filter(dat, sex == phrase2)$subject))
+  # smoothing
+  s <- l + geom_smooth(se = TRUE)
+  # adding labels
+  s + labs(
+    tag = "MG",
+    title = "Student's importance scale between understanding and grades set on basis of:
+  different years of study, sexes and subjects.",
+    subtitle = "Scale: Primarly understanding (1) / Equal Importance (4) / Primarly grades (7)",
+    x = "Year (1-4)",
+    y = "Scale: 1 (Understanding) - 4 (Equal) - 7 (Grades)",
+    colour = "Subject"
+  )
+}
+
 # drop 'seq' column since it doesn't serve any purpose
 StudentGoalsData <- StudentGoalsOriginal  %>%  ungroup  %>%  select(-seq)
 
@@ -120,37 +154,6 @@ mean_dat <- mean_dat %>%
 write_csv(mean_dat, "data/MeanCleanedStudentGoals.csv")
 # save final cleaned table as tibble table
 dat_tibble <- as_tibble(mean_dat)
-
-# Hypothesis 1 Testing
-males <- filter(dat_tibble, sex == 'Male')
-females <- filter(dat_tibble, sex == 'Female')
-management <- filter(dat_tibble, subject == 'Management')
-# law <- filter(dat_tibble, subject == 'Law')
-tourism <- filter(dat_tibble, subject == 'Tourism')
-general_economics <- filter(dat_tibble, subject == 'General Economics')
-accounting <- filter(dat_tibble, subject == 'Accounting')
-statistics <- filter(dat_tibble, subject == 'Statistics')
-
-filter(dat_tibble, sex == 'Male')$year
-
-d <- ggplot(data = dat, aes(filter(dat_tibble, sex == 'Male')$year, filter(dat_tibble, sex == 'Male')$MG))
-# mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(fill = males$subject))
-# smoothing
-s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
-# adding labels
-s + labs(
-  tag = "MG",
-  title = "Student's importance scale between understanding and grades set on basis of:
-different years of study, sexes and subjects.",
-  subtitle = "Scale: Primarly understanding (1) / Equal Importance (4) / Primarly grades (7)",
-  x = "Year (1-4)",
-  y = "Scale: 1 (Understanding) - 4 (Equal) - 7 (Grades)"
-)
-
-# Hypothesis 2 Testing
-
-# Golbal Testing
 
 ## CONFIDENCE INTERVAL FOR A POPULATION ###################################################
 # dat_tibble %>%
