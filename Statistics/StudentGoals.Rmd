@@ -40,16 +40,14 @@ It is interesting how undergraduate students' goals change through-out their stu
 
 Becasue this paper is going to be talking about student's course enjoyment, expectations and his or her focus on grades vs. understanding I would liketo give it another, less visible shade for there might be a lot more to say about a student who is at the bottom of the scale. It was assumed that a student, who might be at risk of developing mental health problems, would be someone who: is not enjoying the course, finds it not interesting but still primarly aims to perform better than others, and is lead by the fear of performing poorly. We will try to identify such students, calculate the confidence-interval-for-a-proportion of finding them, and test the hypotheses.
 
-On top of this, we will explore the data and see if there are any other patterns we could draw conclusions from.
-
 # Data
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
 The data we will be analysing was originally sourced from *Elliot, A. J. and McGregor, H. A. (2001). A 2 x 2 achievement-goal framework. Journal of Personality and Social Psychology, 80, 3, 501-519*.
 
-## Data collection
+## Collection
 The data was already collected but my own survey results were added to the data set.
 
-## Data cleaning
+## Cleaning
 ### Initial Data
 The data was converted from the original `.xlsx` format to `.csv` using *Microsoft Excel for Mac* and then it was loaded to *R* script using the *tidyverse* package - [*readr*](https://readr.tidyverse.org/index.html]).
 
@@ -84,13 +82,16 @@ mean_dat[6:9,3:4]
 ```
 
 ### Derandomization and Renaming
-The students were presented with the questions in a randomized order. Becasue the random order was known, it was assumed that the collected data was put into the table in the random order. This would mean, that for proper data analysis the order would need to be derandomised, i.e., *question 6* from the *Performance avoidance* category is numbered *1* in the survey and in the data set. 
+Random order (6, 12, 11, 1, 7, 2, 10, 8, 5, 3, 9, 4) was given to use in the survey's instructions. 
+
+The students were presented with the questions in a randomized order. Becasue the survey's instruction gave us the random order, it was assumed that the collected data was put into the table in the order that student's were presented with, to be later derandomized. It was also assumed that the data had not been derandomized so such process was conducted, i.e., *question 6* from the *Performance avoidance* category is numbered *1* in the survey and in the data set. 
 *question 12* from the *Mastery avoidance* category is numbered *2* in the survey and in the set, and so on. This also meant that in the process of derandomization previous lower case ***q*** letters in the column names, were changed to upper case ***Q***. E.g. of derandomization and renaming would be ***q****1* becoming ***Q****6*.
 
 *Table 4* inlustrates the entire process:
 
 | |
 | - | - | - | - | - | - | - | - | - | - | - | - | - |
+Cat. | Performance approach | | | Performance avoidance | | | Mastery approach | | |  Mastery avoidance | | |
 Data set order | q1 | q2 | q3 | q4 | q5 | q6 | q7 | q8 | q9 | q10 | q11 | q12 |
 Survey order | Q6 | Q12 | Q11 | Q1 | Q7 | Q2 | Q10 | Q8 | Q5 | Q3 | Q9 | Q4 |
 Table: In the survey, questions from 1 to 12 were derandomized and renamed
@@ -111,8 +112,9 @@ meanTableEg <- createExampleTable(mean_dat, 6, 9, 1, 6, 15, 19)
 meanTableEg
 ```
 
-## Data Assessment Categories
-The survey's instructions provided 7 assessment categories. The table below presents all the 7 categories with my own label and interpretation, which is based on the category's survey questions.
+## Exploration
+### Data Assessment Categories
+The survey's instructions provided 7 assessment categories. The table below presents all the 7 categories with my own label and interpretation, which is based on the category's survey questions:
 
 Category | Label | Interpretation |
 -------- | ----- | -------------- |
@@ -125,8 +127,8 @@ Enjoyment | EJ | Student expects the course to be enjoyable |
 Importance focus | MG | Students' importance focus on understanding vs. grades |
 Table: Interpretation table
 
-## Data Exploration
-For a sake of data exploration and to see if there are any visible trends, the means from *M1*, *M2*, *M3* and *M4* assessment categories were plotted with data smoothing, set on basis of sex and subject:
+### Visual Exploration
+The means from *M1*, *M2*, *M3* and *M4* assessment categories were set on basis of year of study, sex and subject; data smoothing was applied in attempt to capture any important patterns.
 
 ```{r}
 # M1
@@ -226,8 +228,33 @@ c + labs(
 )
 ```
 
-## Grades vs. Understanding
+# Methodology
+*This section explains the statistical methods and/or your model. It is also a common practice to present the statistical model structure (i.e. equation) here as well.*
 
+The data was manipulated unsing `R` programming language and `tidyverse` packages:
+
+- [`ggplot2`](https://ggplot2.tidyverse.org/) - data visualisation
+- [`dplyr`](https://dplyr.tidyverse.org/) - data manipulation
+- [`tibble`](https://tibble.tidyverse.org/) - data reimagining
+- [`readr`](https://readr.tidyverse.org/) - data reading
+- [`tidyr`](https://tidyr.tidyverse.org/) - data cleaning
+- [`purrr`](https://purrr.tidyverse.org/) - syntax simplification
+
+Around 625 students were surveyed. They answered on a 7-level scale; 1 meaning the student felt the statement asked in the quesion is 'Not true of him/her' and 7 meaning the student felt it was 'Very true of him/her'. See the table below for a graphical explanation:
+
+ | | | | | | | |
+- | - | - | - | - | - | - | - | -
+Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
+
+## Mean
+Apart from *Interest*, *Enjoyment* and *Importance focus* categories, all other consisted of 3 questions. For this reason, the assessment-categories' means were computed and saved for each individual student.
+
+This resulted in 4 extra columns added to the original data set. An example of these can be seen below:
+```{r}
+dat_tibble[1:5, 20:23]
+```
+
+### Grades vs. Understanding
 ```{r}
 # 1) During students’ junior years, they tend to primarily focus on getting good grades while during their senior years, the focus shifts towards a deep-understanding of the subject and. 
 
@@ -280,7 +307,7 @@ different years of study, sexes and subjects.",
 )
 ```
 
-## Interest
+### Interest
 ```{r}
 # 2) students’ enjoyment and interest tends to deteriorate as they progress through their studies. 
 # It is not obvious why this mightbe the case and if the student’s sex or studied subject has any bearing
@@ -336,7 +363,7 @@ different years of study, sexes and subjects.",
 )
 ```
 
-## Enjoyment
+### Enjoyment
 ```{r}
 # enjoy
 # Plot set on basis of the student's sex.
@@ -387,32 +414,6 @@ different years of study, sexes and subjects.",
   y = "Expectations: 1 (Low) - 7 (High)",
   colour = "Subject"
 )
-```
-
-# Methodology
-*This section explains the statistical methods and/or your model. It is also a common practice to present the statistical model structure (i.e. equation) here as well.*
-
-The data was manipulated unsing `R` programming language and `tidyverse` packages:
-
-- [`ggplot2`](https://ggplot2.tidyverse.org/) - data visualisation
-- [`dplyr`](https://dplyr.tidyverse.org/) - data manipulation
-- [`tibble`](https://tibble.tidyverse.org/) - data reimagining
-- [`readr`](https://readr.tidyverse.org/) - data reading
-- [`tidyr`](https://tidyr.tidyverse.org/) - data cleaning
-- [`purrr`](https://purrr.tidyverse.org/) - syntax simplification
-
-Around 625 students were surveyed. They answered on a 7-level scale; 1 meaning the student felt the statement asked in the quesion is 'Not true of him/her' and 7 meaning the student felt it was 'Very true of him/her'. See the table below for a graphical explanation:
-
- | | | | | | | |
-- | - | - | - | - | - | - | - | -
-Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
-
-## Mean
-Apart from *Interest*, *Enjoyment* and *Importance focus* categories, all other consisted of 3 questions. For this reason, the assessment-categories' means were computed and saved for each individual student.
-
-This resulted in 4 extra columns added to the original data set. An example of these can be seen below:
-```{r}
-dat_tibble[1:5, 20:23]
 ```
 
 ## Confidence Interval for a Proportion
