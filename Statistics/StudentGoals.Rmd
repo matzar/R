@@ -113,42 +113,6 @@ meanTableEg
 ```
 For the exact column order look at Table 4
 
-# Methodology
-*This section explains the statistical methods and/or your model. It is also a common practice to present the statistical model structure (i.e. equation) here as well.*
-
-The data was manipulated unsing `R` programming language and `tidyverse` packages:
-
-- [`ggplot2`](https://ggplot2.tidyverse.org/) - data visualisation
-- [`dplyr`](https://dplyr.tidyverse.org/) - data manipulation
-- [`tibble`](https://tibble.tidyverse.org/) - data reimagining
-- [`readr`](https://readr.tidyverse.org/) - data reading
-- [`tidyr`](https://tidyr.tidyverse.org/) - data cleaning
-- [`purrr`](https://purrr.tidyverse.org/) - syntax simplification
-
-Around 625 students were surveyed. They answered on a 7-level scale; 1 meaning the student felt the statement asked in the quesion is 'Not true of him/her' and 7 meaning the student felt it was 'Very true of him/her'. See the table below for a graphical explanation:
-
- | | | | | | | |
-- | - | - | - | - | - | - | - | -
-Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
-
-## Mean
-Apart from *Interest*, *Enjoyment* and *Importance focus* categories, all other consisted of 3 questions. For this reason, the assessment-categories' means were computed and saved for each individual student.
-
-This resulted in 4 extra columns added to the original data set. An example of these can be seen below:
-```{r}
-dat_tibble[1:5, 20:23]
-```
-
-## Confidence Interval for a Proportion
-### Equations
-
-$$ \hat{p} = \frac{x}{n} = \frac{events}{trials} $$
-
-$$ Z = 1.96  $$
-
-$$ \hat{p} \pm Z \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} $$
-
-
 ## Data Interpretation
 ### Categories
 *Table 10* presents the category, its label and interpretation (Based on the category's questions):
@@ -163,7 +127,9 @@ Interest | IR | Student expects the course to be interesting |
 Enjoyment | EJ | Student expects the course to be enjoyable |
 Importance focus | MG | Student's importance focus on understanding vs. grades |
 Table: Interpretation table
-As a way of data exploration, the means from *M1*, *M2*, *M3* and *M4* assessment categories were plotted on basis of sex and subject
+
+### Data Exploration
+The means from *M1*, *M2*, *M3* and *M4* assessment categories were plotted on basis of sex and subject:
 
 ```{r}
 # M1
@@ -268,23 +234,24 @@ different years of study, sexes and subjects.",
 ```
 
 
-# Results
-*Present both your informal and formal analyses.*
-We we are going to find out if, and how many students are at risk of developing mental health issues and test the hypothesis 1) and 2) on basis of sex and subject.
+
+
+
 
 ## Confidence Interval for a Proportion
-
 ### Calculations
 Calculating a 95% confidence interval for the student-at-risk population proportion.
 
 $$ \hat{p} = \frac{2}{625} = 0.0032 $$
 
+$$ Z = 1.96  $$
+
 $$ \hat{p} \pm Z = 0.0032 \pm 1.96 \sqrt{\frac{{0.0032}(1 - {0.0032})}{625}} = 0.0032 \pm 0.0044 $$
+
 The upper confidence interval for a proportion is `r ci_up[,]`, and the lower is `r ci_low[,]`, which gives us a confidence interval, for proportion of finding a student-at-risk as: CI = (0.00762, -0.00122). This mean we could say with 95% confidence the percentage of the times we should expect to find a student at risk is between 0.7% and 0%.
 
-```{r}
-mm2[,c("age", "sex", "subject", "EJ", "IR", "MG", "M1", "M2")]
-```
+
+
 
 ## Mastery Approach
 
@@ -448,6 +415,54 @@ different years of study, sexes and subjects.",
   colour = "Subject"
 )
 ```
+
+# Methodology
+*This section explains the statistical methods and/or your model. It is also a common practice to present the statistical model structure (i.e. equation) here as well.*
+
+The data was manipulated unsing `R` programming language and `tidyverse` packages:
+
+- [`ggplot2`](https://ggplot2.tidyverse.org/) - data visualisation
+- [`dplyr`](https://dplyr.tidyverse.org/) - data manipulation
+- [`tibble`](https://tibble.tidyverse.org/) - data reimagining
+- [`readr`](https://readr.tidyverse.org/) - data reading
+- [`tidyr`](https://tidyr.tidyverse.org/) - data cleaning
+- [`purrr`](https://purrr.tidyverse.org/) - syntax simplification
+
+Around 625 students were surveyed. They answered on a 7-level scale; 1 meaning the student felt the statement asked in the quesion is 'Not true of him/her' and 7 meaning the student felt it was 'Very true of him/her'. See the table below for a graphical explanation:
+
+ | | | | | | | |
+- | - | - | - | - | - | - | - | -
+Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
+
+## Mean
+Apart from *Interest*, *Enjoyment* and *Importance focus* categories, all other consisted of 3 questions. For this reason, the assessment-categories' means were computed and saved for each individual student.
+
+This resulted in 4 extra columns added to the original data set. An example of these can be seen below:
+```{r}
+dat_tibble[1:5, 20:23]
+```
+
+## Confidence Interval for a Proportion
+### Equations
+
+$$ \hat{p} = \frac{x}{n} = \frac{events}{trials} $$
+
+$$ \hat{p} \pm Z \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} $$
+
+## Students at risk
+To find out if there are any students at risk the following criteria was assumed:
+
+- *Interest* and *Enjoyment* $\leq$ 2
+
+
+```{r}
+mm2[,c("age", "sex", "subject", "EJ", "IR", "MG", "M1", "M2")]
+```
+
+
+# Results
+*Present both your informal and formal analyses.*
+We we are going to find out if, and how many students are at risk of developing mental health issues and test the hypothesis 1) and 2) on basis of sex and subject.
 
 
 # Conclusion / Discussion
