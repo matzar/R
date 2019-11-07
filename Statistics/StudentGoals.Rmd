@@ -43,6 +43,7 @@ Becasue this paper is going to be talking about student's course enjoyment, expe
 
 # Data
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
+The data was converted from the original `.xlsx` format to `.csv` using *Microsoft Excel for Mac* and then it was loaded to `.R` script using the *tidyverse* package, [*readr*](https://readr.tidyverse.org/index.html]).
 
 ## Initial Data
 This is how the data looked like before cleaning:
