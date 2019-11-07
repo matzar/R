@@ -428,6 +428,8 @@ To find out if there are any students at risk the arbitraty criteria was assumed
 mm2[,c("age", "sex", "subject", "M1", "M2", "IR", "EJ", "MG")]
 ```
 
+Here we can see that there are 2 students 
+
 ### Equations
 
 $$ \hat{p} = \frac{x}{n} = \frac{events}{trials} $$
