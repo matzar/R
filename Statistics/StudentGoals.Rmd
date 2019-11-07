@@ -415,14 +415,17 @@ different years of study, sexes and subjects.",
 
 ## Confidence Interval for a Proportion
 ### Finding Students at Risk
-To find out if there are any students at risk the following categories' criteria was assumed:
+To find out if there are any students at risk the arbitraty criteria was assumed:
 
-- *Interest* and *Enjoyment* $\leq$ 2
-
+- *Performace Approach* $\geq$ 6
+- *Performace Avoidance* $\geq$ 6
+- *Interest* $\leq$ 2
+- *Enjoyment* $\leq$ 2
+- *Importance focus* $\geq$ 4
 
 
 ```{r}
-mm2[,c("age", "sex", "subject", "EJ", "IR", "MG", "M1", "M2")]
+mm2[,c("age", "sex", "subject", "M1", "M2", "IR", "EJ", "MG")]
 ```
 
 ### Equations

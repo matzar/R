@@ -127,11 +127,11 @@ dat_tibble <- as_tibble(mean_dat)
 #   knitr::kable()
 
 # Find a student who is not enjoying the course, finds it not interesting but still primarly aims to perform better than others and is lead by the fear of performing poorly
-dat_tibble_enjoy <- filter(dat_tibble, EJ <= 2)
-dat_tibble_interest <- filter(dat_tibble_enjoy, IR <= 2)
-dat_tibble_mastgrad <- filter(dat_tibble_interest, M1 >= 6)
-mm1 <- filter(dat_tibble_mastgrad, M1 >= 6)
-mm2 <- filter(mm1, M2 >= 6)
+dat_tibble_enjoy <- filter(dat_tibble, EJ <= 2) # Enjoyment
+dat_tibble_interest <- filter(dat_tibble_enjoy, IR <= 2) # Interest
+dat_tibble_mastgrad <- filter(dat_tibble_interest, MG >= 4) 
+mm1 <- filter(dat_tibble_mastgrad, M1 >= 6) # Performace Approach
+mm2 <- filter(mm1, M2 >= 6) # Performace Avoidance
 
 n_mm2 <- tally(mm2)
 
