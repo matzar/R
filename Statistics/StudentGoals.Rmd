@@ -43,10 +43,12 @@ Becasue this paper is going to be talking about student's course enjoyment, expe
 
 # Data
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
-The data was converted from the original `.xlsx` format to `.csv` using *Microsoft Excel for Mac* and then it was loaded to `.R` script using the *tidyverse* package, [*readr*](https://readr.tidyverse.org/index.html]).
+The data we will be analysing was originally sourced from *Elliot, A. J. and McGregor, H. A. (2001). A 2 x 2 achievement-goal framework. Journal of Personality and Social Psychology, 80, 3, 501-519*.
 
 ## Initial Data
-This is how the data looked like before cleaning:
+The data was converted from the original `.xlsx` format to `.csv` using *Microsoft Excel for Mac* and then it was loaded to `R` script using the *tidyverse* package - [*readr*](https://readr.tidyverse.org/index.html]).
+
+This is how the data looked like after loading it into the `R` script and before cleaning:
 
 ```{r}
 StudentGoalsOriginal[6:9,1:17]
