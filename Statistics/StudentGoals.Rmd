@@ -321,7 +321,7 @@ different years of study, sexes and subjects.",
 )
 ```
 
-## Enjoyment
+## Interest
 ```{r}
 # 2) students’ enjoyment and interest tends to deteriorate as they progress through their studies. 
 # It is not obvious why this mightbe the case and if the student’s sex or studied subject has any bearing
@@ -342,7 +342,7 @@ t <- s + theme_grey()
 c <- t
 # adding labels
 c + labs(
-  tag = "enjoy",
+  tag = "ir",
   title = "Student's course interestedness expectations set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "Student response: \'I expect my courses this semester to be very interesting\'",
@@ -367,7 +367,7 @@ t <- s + theme_grey()
 c <- t
 # adding labels
 c + labs(
-  tag = "enjoy",
+  tag = "ir",
   title = "Student's course interestedness expectations set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "Student response: \'I expect my courses this semester to be very interesting\'",
@@ -377,14 +377,14 @@ different years of study, sexes and subjects.",
 )
 ```
 
-## Interest
+## Enjoyment
 ```{r}
 # enjoy
 # Plot set on basis of the student's sex.
 # Plot mean results of course interestedness expectations questions
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$enjoy))
+d <- ggplot(data = dat, aes(year, mean_dat$ej))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex))
 # smoothing
@@ -395,7 +395,7 @@ t <- s + theme_grey()
 c <- t
 # adding labels
 c + labs(
-  tag = "interest",
+  tag = "ej",
   title = "Student's course interestedness expectations set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "Student response: \'I expect my courses this semester to be very interesting\'",
@@ -409,7 +409,7 @@ different years of study, sexes and subjects.",
 # Plot mean results of course enjoyment expectations questions 
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$enjoy))
+d <- ggplot(data = dat, aes(year, mean_dat$ej))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = subject))
 # smoothing
@@ -420,7 +420,7 @@ t <- s + theme_grey()
 c <- t
 # adding labels
 c + labs(
-  tag = "interest",
+  tag = "ej",
   title = "Student's course enjoyment expectations set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "Student response: \'I expect my courses this semester to be very enjoyable\'",
@@ -433,7 +433,7 @@ different years of study, sexes and subjects.",
 ## Confidence Interval for a Proportion Interpretation
 
 ```{r}
-mm2[,c("age", "sex", "subject", "enjoy", "ir", "mg", "m1", "m2")]
+mm2[,c("age", "sex", "subject", "ej", "ir", "mg", "m1", "m2")]
 ```
 
 The upper confidence interval for a proportion is `r ci_up[,]`, and the lower is `r ci_low[,]`, which gives us a confidence interval, for proportion of finding a student-at-risk as: CI = (0.00762, -0.00122). This mean we could say with 95% confidence the percentage of the times we should expect to find a student at risk is between 0.7% and 0%.
