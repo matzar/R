@@ -126,13 +126,13 @@ Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
 
 Category | Label | Interpretation | Question | 
 ------------ | ------------- | ------------ | ------------
-Performance approach | m1 | Importance of doing better than others? | 1, 2, 3 |
-Performance avoidance | m2 | Motivation based on the fear of performing poorly | 4, 5, 6 |
-Mastery approach | m3 | Prevalence of mastery approach | 7, 8, 9 |
-Mastery avoidance | m4 | Student's fear of not mastering the course | 10, 11, 12 |
-Interest | ir | Student expects the course to be interesting | 13 |
+Performance approach | M1 | Importance of doing better than others? | 1, 2, 3 |
+Performance avoidance | M2 | Motivation based on the fear of performing poorly | 4, 5, 6 |
+Mastery approach | M3 | Prevalence of mastery approach | 7, 8, 9 |
+Mastery avoidance | M4 | Student's fear of not mastering the course | 10, 11, 12 |
+Interest | IR | Student expects the course to be interesting | 13 |
 Enjoyment | enjoy | Student expects the course to be enjoyable | 14 |
-Importance focus | mg | Student's importance focus on understanding vs. grades | 15 |
+Importance focus | MG | Student's importance focus on understanding vs. grades | 15 |
 Table: Table Test
 
 Because *Interest*, *Enjoyment* and *Importance focus* categories consisted only of 1 question, no further computation was required to interpret the data from these categories.
@@ -146,11 +146,11 @@ dat_tibble[1:5, 20:23]
 As a way of data exploration, the means from the 4 assessment categories were labeled: *Performance approach*, *Performance avoidance*, *Mastery approach* and *Mastery avoidance* were plotted on basis of sex and subject
 
 ```{r}
-# m1
+# M1
 # Plot mean results of performance approach questions
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(mean_dat$year, mean_dat$m1))
+d <- ggplot(data = dat, aes(mean_dat$year, mean_dat$M1))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
@@ -161,7 +161,7 @@ t <- s + theme_grey()
 c <- t
 # adding labels
 c + labs(
-  tag = "m1",
+  tag = "M1",
   title = "Student's grade-orientation focus set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "How important it is to students to do better than others?",
@@ -171,11 +171,11 @@ different years of study, sexes and subjects.",
   shape = "Subject"
 )
 
-# m2
+# M2
 # Plot mean results of performance avoidance
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$m2))
+d <- ggplot(data = dat, aes(year, mean_dat$M2))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
@@ -186,7 +186,7 @@ t <- s + theme_grey()
 c <- t
 # adding labels
 c + labs(
-  tag = "m2",
+  tag = "M2",
   title = "Student's grade-orientation focus set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "How motivated are students by fear of performing poorly?",
@@ -196,11 +196,11 @@ different years of study, sexes and subjects.",
   shape = "Subject"
 )
 
-# m3
+# M3
 # Plot mean results of mastery approach questions
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$m3))
+d <- ggplot(data = dat, aes(year, mean_dat$M3))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
@@ -211,7 +211,7 @@ t <- s + theme_grey()
 c <- t
 # adding labels
 c + labs(
-  tag = "m3",
+  tag = "M3",
   title = "Student's focus on understanding set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "Prevalence of mastery approach.",
@@ -221,11 +221,11 @@ different years of study, sexes and subjects.",
   shape = "Subject"
 )
 
-# m4
+# M4
 # Plot mean results of mastery avoidance questions
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$m4))
+d <- ggplot(data = dat, aes(year, mean_dat$M4))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex, shape = subject))
 # smoothing
@@ -236,7 +236,7 @@ t <- s + theme_grey()
 c <- t
 # adding labels
 c + labs(
-  tag = "m4",
+  tag = "M4",
   title = "Student's focus on understanding set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "Student's fear of not mastering the course.",
@@ -276,7 +276,7 @@ We are going to test the hypothesis 1) and 2) on basis of sex and subject and we
 # Plot mean results of (Primarly understanding/Equal Importance/Primarly grades)scale 
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$mg))
+d <- ggplot(data = dat, aes(year, mean_dat$MG))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex))
 # smoothing
@@ -287,7 +287,7 @@ t <- s + theme_grey()
 c <- t
 # adding labels
 c + labs(
-  tag = "mg",
+  tag = "MG",
   title = "Student's importance scale between understanding and grades set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "Scale: Primarly understanding (1) / Equal Importance (4) / Primarly grades (7)",
@@ -300,7 +300,7 @@ different years of study, sexes and subjects.",
 # Plot mean results of (Primarly understanding/Equal Importance/Primarly grades)scale 
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$mg))
+d <- ggplot(data = dat, aes(year, mean_dat$MG))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = subject))
 # smoothing
@@ -311,7 +311,7 @@ t <- s + theme_grey()
 c <- t
 # adding labels
 c + labs(
-  tag = "mg",
+  tag = "MG",
   title = "Student's importance scale between understanding and grades set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "Scale: Primarly understanding (1) / Equal Importance (4) / Primarly grades (7)",
@@ -331,7 +331,7 @@ different years of study, sexes and subjects.",
 # Plot mean results of course interestedness expectations questions
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$ir))
+d <- ggplot(data = dat, aes(year, mean_dat$IR))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex))
 # smoothing
@@ -342,7 +342,7 @@ t <- s + theme_grey()
 c <- t
 # adding labels
 c + labs(
-  tag = "ir",
+  tag = "IR",
   title = "Student's course interestedness expectations set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "Student response: \'I expect my courses this semester to be very interesting\'",
@@ -356,7 +356,7 @@ different years of study, sexes and subjects.",
 # Plot mean results of course interestedness expectations questions
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$ir))
+d <- ggplot(data = dat, aes(year, mean_dat$IR))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = subject))
 # smoothing
@@ -367,7 +367,7 @@ t <- s + theme_grey()
 c <- t
 # adding labels
 c + labs(
-  tag = "ir",
+  tag = "IR",
   title = "Student's course interestedness expectations set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "Student response: \'I expect my courses this semester to be very interesting\'",
@@ -384,7 +384,7 @@ different years of study, sexes and subjects.",
 # Plot mean results of course interestedness expectations questions
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$ej))
+d <- ggplot(data = dat, aes(year, mean_dat$EJ))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = sex))
 # smoothing
@@ -395,7 +395,7 @@ t <- s + theme_grey()
 c <- t
 # adding labels
 c + labs(
-  tag = "ej",
+  tag = "EJ",
   title = "Student's course interestedness expectations set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "Student response: \'I expect my courses this semester to be very interesting\'",
@@ -409,7 +409,7 @@ different years of study, sexes and subjects.",
 # Plot mean results of course enjoyment expectations questions 
 # for all students with relation to student's year, sex and subject
 # data
-d <- ggplot(data = dat, aes(year, mean_dat$ej))
+d <- ggplot(data = dat, aes(year, mean_dat$EJ))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
 l <- d + geom_jitter(aes(colour = subject))
 # smoothing
@@ -420,7 +420,7 @@ t <- s + theme_grey()
 c <- t
 # adding labels
 c + labs(
-  tag = "ej",
+  tag = "EJ",
   title = "Student's course enjoyment expectations set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "Student response: \'I expect my courses this semester to be very enjoyable\'",
@@ -433,7 +433,7 @@ different years of study, sexes and subjects.",
 ## Confidence Interval for a Proportion Interpretation
 
 ```{r}
-mm2[,c("age", "sex", "subject", "ej", "ir", "mg", "m1", "m2")]
+mm2[,c("age", "sex", "subject", "EJ", "IR", "MG", "M1", "M2")]
 ```
 
 The upper confidence interval for a proportion is `r ci_up[,]`, and the lower is `r ci_low[,]`, which gives us a confidence interval, for proportion of finding a student-at-risk as: CI = (0.00762, -0.00122). This mean we could say with 95% confidence the percentage of the times we should expect to find a student at risk is between 0.7% and 0%.
