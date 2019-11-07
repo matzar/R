@@ -85,26 +85,25 @@ E.g., the code for `Male` was `1`, so the cells in the `sex` column containing `
 mean_dat[6:9,3:4]
 ```
 
-### Renaming and Derandomizing
-The students were presented with the questions in a randomized order. Becasue the random order was known, it was assumed that the collected data was put into a table in the 
-The random order was known and the questions were derandomised in the data set, i.e., *question 6* from the *Performance avoidance* category is numbered *1* in the survey. In the data set results for *question 1* were renamed to results for *question 6*. *question 12* from the *Mastery avoidance* category is numbered *2* in the survey, etc. *Table 1* presents this mapping.
+### Derandomizing and Renaming
+The students were presented with the questions in a randomized order. Becasue the random order was known, it was assumed that the collected data was put into the table in the random order. This would mean, that for proper data analysis the order would need to be derandomised, i.e., *question 6* from the *Performance avoidance* category is numbered *1* in the survey and in the data set. 
+*question 12* from the *Mastery avoidance* category is numbered *2* in the survey and in the set, and so on. This also meant that in the process of derandomization previous lower case `q` letters in the column names, were changed to upper case, `Q6`.
+
+*Table 10* inlustrates the entire process:
 
 | |
 - | - |- | - |- | - |- | - |- | - |- | - | - | - | - | - |
-Survey order | 6 | 12 | 11 | 1 | 7 | 2 | 10 | 8 | 5 | 3 | 9 | 4 | 13 | 14 | 15
-Category mapping | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15
+Data set order | q1 | q2 | q3 | q4 | q5 | q6 | q7 | q8 | q9 | q10 | q11 | q12 | q13 | q14 | q15
+Survey order | Q6 | Q12 | Q11 | Q1 | Q7 | Q2 | Q10 | Q8 | Q5 | Q3 | Q9 | Q4 | Q13 | Q14 | Q15
 Table: In the survey, questions from 1 to 12 were ordered randomly; questions 13, 14 and 15 remained in the same order.
 
-### Labeling
-For easier data manipulation, the assessment-categories columns' names, were changed accordingly labels:
+For easier data manipulation, the assessment-categories columns, were renamed accordingly:
 
-| Name | Label |
+| Previous column name | New column name |
 | - | - |
 | interest | IG |
 | enjoy | EJ |
 | mastgrad | MG |
-
-In reality, this just meant changing their column names, e.g.: from `interest` to `IG`.
 
 ## Clean Data
 This is how the data looked like after cleaning:
