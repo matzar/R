@@ -415,9 +415,10 @@ different years of study, sexes and subjects.",
 
 ## Confidence Interval for a Proportion
 ### Finding Students at Risk
-To find out if there are any students at risk the following criteria was assumed:
+To find out if there are any students at risk the following categories' criteria was assumed:
 
 - *Interest* and *Enjoyment* $\leq$ 2
+
 
 
 ```{r}
