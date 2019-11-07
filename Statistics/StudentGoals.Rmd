@@ -281,9 +281,7 @@ ggplot(data = dat) +
 ```
 
 ### Hypothesis 1
-| |
-| - | - |
-| `r tally(males)` | `r tally(females)` |
+
 
 
 
