@@ -47,11 +47,11 @@ On top of this, we will explore the data and see if there are any other patterns
 The data we will be analysing was originally sourced from *Elliot, A. J. and McGregor, H. A. (2001). A 2 x 2 achievement-goal framework. Journal of Personality and Social Psychology, 80, 3, 501-519*.
 
 ## Initial Data
-The data was converted from the original `.xlsx` format to `.csv` using *Microsoft Excel for Mac* and then it was loaded to `R` script using the *tidyverse* package - [*readr*](https://readr.tidyverse.org/index.html]).
+The data was converted from the original `.xlsx` format to `.csv` using *Microsoft Excel for Mac* and then it was loaded to *R* script using the *tidyverse* package - [*readr*](https://readr.tidyverse.org/index.html]).
 
 The initial number of students was also saved in a variable for later calcuations.
 
-This is how the data looked like after loading it into the `R` script and before cleaning:
+This is how the data looked like after loading it into the *R* script and before cleaning:
 
 ```{r}
 StudentGoalsOriginal[6:9,1:17]
