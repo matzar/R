@@ -13,6 +13,14 @@ set.seed(1234)
 f <- "data/StudentGoalsData.csv"
 StudentGoalsOriginal <- read_csv(f, col_types = cols(), skip_empty_rows = TRUE)
 
+# preparing example data
+temp1 <- StudentGoalsOriginal[6:9,1:7]
+
+temp1$... <- c("...", "...", "...", "...")
+
+temp2 <- StudentGoalsOriginal[6:9,16:20]
+temp3 <- dplyr::bind_cols(temp1, temp2)
+view(temp3)
 # drop 'seq' column since it doesn't serve any purpose
 StudentGoalsData <- StudentGoalsOriginal  %>%  ungroup  %>%  select(-seq)
 

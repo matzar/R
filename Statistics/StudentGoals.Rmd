@@ -54,8 +54,7 @@ The initial number of students was also saved in a variable for later calcuation
 This is how the data looked like after loading it into the *R* script and before cleaning:
 
 ```{r}
-StudentGoalsOriginal[6:9,1:17]
-StudentGoalsOriginal[6:9,18:20]
+temp4[,]
 ```
 
 ## Cleaning the Data
