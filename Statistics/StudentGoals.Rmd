@@ -396,9 +396,9 @@ c <- t
 # adding labels
 c + labs(
   tag = "EJ",
-  title = "Student's course interestedness expectations set on basis of:
+ title = "Student's course enjoyment expectations set on basis of:
 different years of study, sexes and subjects.",
-  subtitle = "Student response: \'I expect my courses this semester to be very interesting\'",
+  subtitle = "Student response: \'I expect my courses this semester to be very enjoyable\'",
   x = "Year (1-4)",
   y = "Expectations: 1 (Low) - 7 (High)",
   colour = "Sex"
