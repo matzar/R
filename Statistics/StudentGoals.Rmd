@@ -134,14 +134,20 @@ Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
 
 Category | Label | Interpretation | Questions |
 -------- | ----- | -------------- | --------- |
-Performance approach | M1 | Importance of doing better than others? | 1. It is important to me to be better than other students. | 
+Performance approach | M1 | Importance of doing better than others? | 1. It is important to me to be better than other students | 
 | | | | 2. It is important to me to do well compared to others in my courses | 
-| | | | 3. My goal in my courses is to get a better grade than most of the other students. |
-Performance avoidance | M2 | Motivation based on the fear of performing poorly | 4, 5, 6 |
-Mastery approach | M3 | Prevalence of mastery approach | 7, 8, 9 |
-Mastery avoidance | M4 | Student's fear of not mastering the course | 10, 11, 12 |
-Interest | IR | Student expects the course to be interesting | 13 |
-Enjoyment | EJ | Student expects the course to be enjoyable | 14 |
+| | | | 3. My goal in my courses is to get a better grade than most of the other students |
+Performance avoidance | M2 | Motivation based on the fear of performing poorly | 4. I just want to avoid doing poorly in my courses |
+| | | | 5. My fear of performing poorly is often what motivates me |
+| | | | 6. My goal in this class is to avoid performing poorly |
+Mastery approach | M3 | Prevalence of mastery approach | 7, 8, 9 | 7. I want to learn as much as possible from all my courses |
+| | | | 8. I desire to completely master the material presented in my courses |
+| | | | 9. It is important for me to understand the content of my courses as thoroughly as possible |
+Mastery avoidance | M4 | Student's fear of not mastering the course | 10, 11, 12 | 10. I worry that I may not learn all that I possibly could in my classes |
+| | | | 11. Sometimes I’m afraid that I may not understand the content of this course as thoroughly as I’d like |
+| | | | 12. I am often concerned that I may not learn all there is to learn in this class |
+Interest | IR | Student expects the course to be interesting | 13 | 
+Enjoyment | EJ | Student expects the course to be enjoyable | 14 | 
 Importance focus | MG | Student's importance focus on understanding vs. grades | 15 |
 Table: Table Test
 
