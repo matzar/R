@@ -127,7 +127,7 @@ meanTableEg
 ## Visual Exploration
 For all the students, the means from *M1*, *M2*, *M3* and *M4* assessment categories were shown on the graphs below; data smoothing was applied in attempt to capture any important patterns.
 
-## M1 - Performance Approach
+### M1 - Performance Approach
 ```{r}
 # M1
 # Plot mean results of performance approach questions
@@ -155,7 +155,7 @@ c + labs(
 ```
 It is visible that the students' performance approach almost does not change and all the variance are within the confidence interval.
 
-## M2 - Performance Avoidance
+### M2 - Performance Avoidance
 ```{r}
 # M2
 # Plot mean results of performance avoidance
@@ -183,7 +183,7 @@ c + labs(
 ```
 Comparing year's 1 average results to year's 4, it is clearly visible that the students' performance avoidance drops by 1 scale point. 
 
-## M3 - Mastery Approach
+### M3 - Mastery Approach
 ```{r}
 # M3
 # Plot mean results of Mastery Approach questions
@@ -211,7 +211,7 @@ c + labs(
 ```
 It is visible that the student's mastery approach drops by almost 1 scale point.
 
-## M4 - Mastery Avoidance
+### M4 - Mastery Avoidance
 ```{r}
 # M4
 # Plot mean results of Mastery Avoidance questions
@@ -238,6 +238,16 @@ c + labs(
 )
 ```
 There is a dropping tendency for *Mastery Avoidance* but it is not drastic.
+
+### Sex and Subject
+```{r}
+#subject by gender and normalizing using position = "dodge" to place overlapping objects directly beside one another
+ggplot(data = dat) + 
+  geom_bar(mapping = aes(x = sex, fill = subject), position = "dodge") +
+  labs(
+    title = "Subject student count with regards to sex"
+  )
+```
 
 # Methodology
 *This section explains the statistical methods and/or your model. It is also a common practice to present the statistical model structure (i.e. equation) here as well.*
@@ -268,26 +278,10 @@ dat_tibble[1:5, 20:23]
 ## Hypothesis Testing
 To test the hypotheses new means had to be calcualted with regards to both sexes and all the subjets:
 
-- For hypothesis 1) testing - the *Importance focus (MG)*
-- For hypothesis 2) testing - the *Enjoyment (EJ)* and *Interest (IR)*
+- For *Hypothesis 1* testing - the *Importance focus (MG)*
+- For *Hypothesis 2* testing - the *Enjoyment (EJ)* and *Interest (IR)*
 
-```{r}
-#subject by gender and normalizing using position = "dodge" to place overlapping objects directly beside one another
-ggplot(data = dat) + 
-  geom_bar(mapping = aes(x = sex, fill = subject), position = "dodge") +
-  labs(
-    title = "Subject student count with regards to sex"
-  )
-```
-
-### Hypothesis 1
-
-
-
-
-### Hypothesis 2
-
-### Global means
+## Hypothesis 1
 The graph below shows the *Importance focus (MG)* category mean results. All the students are represented; student's sex was made distinguishable by a colour and student's studied subject by a shape.
 
 ```{r}
@@ -299,7 +293,7 @@ The graph below shows the *Importance focus (MG)* category mean results. All the
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$MG))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = sex, shape = subject))
+l <- d + geom_jitter(aes(colour = mean_dat$sex, shape = mean_dat$subject))
 # smoothing
 s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
@@ -318,36 +312,13 @@ different years of study, sexes and subjects.",
   shape = "Subject"
 )
 ```
+The hypothesis stated was:
 
-### Subject
-```{r}
-# Plot set on basis of the student's subject.
-# Plot mean results of (Primarly understanding/Equal Importance/Primarly grades)scale 
-# for all students with relation to student's year, sex and subject
-# data
-d <- ggplot(data = dat, aes(year, mean_dat$MG))
-# mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = subject))
-# smoothing
-s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
-# adding theme
-t <- s + theme_grey()
-# adding colouring
-c <- t
-# adding labels
-c + labs(
-  tag = "MG",
-  title = "Student's importance scale between understanding and grades set on basis of:
-different years of study, sexes and subjects.",
-  subtitle = "Scale: Primarly understanding (1) / Equal Importance (4) / Primarly grades (7)",
-  x = "Year (1-4)",
-  y = "Scale: 1 (Understanding) - 4 (Equal) - 7 (Grades)",
-  colour = "Subject"
-)
-```
+> During students’ junior years, they tend to primarily focus on getting good grades while during their senior years, the focus shifts towards a deep-understanding of the subject. 
+
+Visual investigation shows that students across all years, almost never primarly focus on grades. Most of the time they show equal interest in grades and understanding. Graph smoothing does indeed show a slight shift towards deeper understanding at the more senior years.
 
 ### Interest
-#### Sex
 ```{r}
 # 2) students’ enjoyment and interest tends to deteriorate as they progress through their studies. 
 # It is not obvious why this mightbe the case and if the student’s sex or studied subject has any bearing
@@ -359,7 +330,7 @@ different years of study, sexes and subjects.",
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$IR))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = sex))
+l <- d + geom_jitter(aes(colour = mean_dat$sex, shape = mean_dat$subject))
 # smoothing
 s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
@@ -378,36 +349,7 @@ different years of study, sexes and subjects.",
 )
 ```
 
-#### Subject
-```{r}
-# interest
-# Plot set on basis of the student's subject
-# Plot mean results of course interestedness expectations questions
-# for all students with relation to student's year, sex and subject
-# data
-d <- ggplot(data = dat, aes(year, mean_dat$IR))
-# mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = subject))
-# smoothing
-s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
-# adding theme
-t <- s + theme_grey()
-# adding colouring
-c <- t
-# adding labels
-c + labs(
-  tag = "IR",
-  title = "Student's course interestedness expectations set on basis of:
-different years of study, sexes and subjects.",
-  subtitle = "Student response: \'I expect my courses this semester to be very interesting\'",
-  x = "Year (1-4)",
-  y = "Expectations: 1 (Low) - 7 (High)",
-  colour = "Subject"
-)
-```
-
 ### Enjoyment
-#### Sex
 ```{r}
 # enjoy
 # Plot set on basis of the student's sex.
@@ -416,7 +358,7 @@ different years of study, sexes and subjects.",
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$EJ))
 # mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = sex))
+l <- d + geom_jitter(aes(colour = mean_dat$sex, shape = mean_dat$subject))
 # smoothing
 s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
 # adding theme
@@ -432,34 +374,6 @@ different years of study, sexes and subjects.",
   x = "Year (1-4)",
   y = "Expectations: 1 (Low) - 7 (High)",
   colour = "Sex"
-)
-```
-
-#### Subject
-```{r}
-# enjoy
-# Plot set on basis of the student's subject.
-# Plot mean results of course enjoyment expectations questions 
-# for all students with relation to student's year, sex and subject
-# data
-d <- ggplot(data = dat, aes(year, mean_dat$EJ))
-# mapping data (use "jitter" to improve the graph and avoid gridding)
-l <- d + geom_jitter(aes(colour = subject))
-# smoothing
-s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
-# adding theme
-t <- s + theme_grey()
-# adding colouring
-c <- t
-# adding labels
-c + labs(
-  tag = "EJ",
-  title = "Student's course enjoyment expectations set on basis of:
-different years of study, sexes and subjects.",
-  subtitle = "Student response: \'I expect my courses this semester to be very enjoyable\'",
-  x = "Year (1-4)",
-  y = "Expectations: 1 (Low) - 7 (High)",
-  colour = "Subject"
 )
 ```
 
