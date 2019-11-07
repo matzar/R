@@ -125,7 +125,7 @@ meanTableEg
 ```
 
 ## Visual Exploration
-The means from *M1*, *M2*, *M3* and *M4* assessment categories were set on basis of year of study, sex and subject; data smoothing was applied in attempt to capture any important patterns.
+For all the students, the means from *M1*, *M2*, *M3* and *M4* assessment categories were shown on the graphs below; data smoothing was applied in attempt to capture any important patterns.
 
 ## M1 - Performance Approach
 ```{r}
