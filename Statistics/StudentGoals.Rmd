@@ -96,7 +96,7 @@ Category mapping | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 
 Table: In the survey, questions from 1 to 12 were ordered randomly; questions 13, 14 and 15 remained in the same order.
 
 ## Clean Data
-This is how the date looked like after cleaning:
+This is how the data looked like after cleaning:
 
 ```{r}
 mean_dat[6:9,1:16]
@@ -106,7 +106,14 @@ mean_dat[6:9,17:19]
 # Methodology
 *This section explains the statistical methods and/or your model. It is also a common practice to present the statistical model structure (i.e. equation) here as well.*
 
-tidyverse packages (ggplot2, dplyr, tibble, readr, tidyr, purrr);
+The data was manipulated unsing `R` programming language and `tidyverse` packages:
+
+- [`ggplot2`](https://ggplot2.tidyverse.org/) - data visualisation
+- [`dplyr`](https://dplyr.tidyverse.org/) - data manipulation
+- [`tibble`](https://tibble.tidyverse.org/) - data reimagining
+- [`readr`](https://readr.tidyverse.org/) - data reading
+- [`tidyr`](https://tidyr.tidyverse.org/) - data cleaning
+- [`purrr`](https://purrr.tidyverse.org/) - syntax simplification
 
 Around 625 students were surveyed. They answered on a 7-level scale; 1 meaning the student feels the statement asked in the quesion is 'Not true of him/her' and 7 meaning the student feels it is 'Very true of him/her'. See the table below for a graphical explanation:
 
@@ -115,17 +122,17 @@ Around 625 students were surveyed. They answered on a 7-level scale; 1 meaning t
 Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
 
 ## Interpretation
-*Table 1* presents the category, its interpretation (Based on the category's questions) and the questions' numbers.
+*Table 10* presents the category, its interpretation (Based on the category's questions) and the questions' numbers.
 
-Category | Interpretation | Question | # of Questions
+Category | Label | Interpretation | Question | 
 ------------ | ------------- | ------------ | ------------
-Performance approach | Importance of doing better than others? | 1, 2, 3 | 3
-Performance avoidance | Motivation based on the fear of performing poorly | 4, 5, 6 | 3
-Mastery approach | Prevalence of mastery approach | 7, 8, 9 | 3
-Mastery avoidance | Student's fear of not mastering the course | 10, 11, 12 | 3
-Interest | Student expects the course to be interesting | 13 | 1
-Enjoyment | Student expects the course to be enjoyable | 14 | 1
-Importance focus | Student's importance focus on understanding vs. grades | 15 | 1
+Performance approach | m1 | Importance of doing better than others? | 1, 2, 3 |
+Performance avoidance | m2 | Motivation based on the fear of performing poorly | 4, 5, 6 |
+Mastery approach | m3 | Prevalence of mastery approach | 7, 8, 9 |
+Mastery avoidance | m4 | Student's fear of not mastering the course | 10, 11, 12 |
+Interest | interest | Student expects the course to be interesting | 13 |
+Enjoyment | enjoy | Student expects the course to be enjoyable | 14 |
+Importance focus | mastgrad | Student's importance focus on understanding vs. grades | 15 |
 Table: Table Test
 
 Because *Interest*, *Enjoyment* and *Importance focus* categories consisted only of 1 question, no further computation was required to interpret the data from these categories.
@@ -136,7 +143,7 @@ dat_tibble[1:5, 20:23]
 ```
 
 ### 4 Assessment Categories
-For the sake of data exploration, the means from the 4 assessment categories: *Performance approach*, *Performance avoidance*, *Mastery approach* and *Mastery avoidance* were plotted on basis of sex and subject.
+As a way of data exploration, the means from the 4 assessment categories were labeled: *Performance approach*, *Performance avoidance*, *Mastery approach* and *Mastery avoidance* were plotted on basis of sex and subject
 
 ```{r}
 # m1
@@ -154,6 +161,7 @@ t <- s + theme_grey()
 c <- t
 # adding labels
 c + labs(
+  tag = "M1",
   title = "Student's grade-orientation focus set on basis of:
 different years of study, sexes and subjects.",
   subtitle = "How important it is to students to do better than others?",
