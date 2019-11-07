@@ -265,13 +265,20 @@ This resulted in 4 extra columns added to the original data set. These results w
 dat_tibble[1:5, 20:23]
 ```
 
-To test the hypotheses 
+## Hypothesis Testing
+To test the hypotheses new means had to be calcualted with regards to both sexes and all the subjets:
+
+- For hypothesis 1) testing - the *Importance focus (MG)*
+- For hypothesis 2) testing - the *Enjoyment (EJ)* and *Interest (IR)*
+
+The table below shows the new data:
+
+### Hypothesis 1
 
 
-## Hypothesis 1 Testing
-To test hypothesis 1) we will get the data from *Importance focus (MG)* category and compute it for both sexes and all the subjects.
+### Hypothesis 2
 
-### Global
+### Global means
 The graph below shows the *Importance focus (MG)* category mean results. All the students are represented; student's sex was made distinguishable by a colour and student's studied subject by a shape.
 
 ```{r}
