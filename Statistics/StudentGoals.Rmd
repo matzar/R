@@ -38,8 +38,9 @@ The data manipulation was done using R and tidywerse packages. A full analysis w
 
 It is interesting how undergraduate students' goals change through-out their studies. They often experince various syndroms like: burnout, impostour, disheartening or even attempt a suicide. A Harvard graduate, Alex Chang, in his TEDx talk titled ["The Unspoken Reality Behind the Harvard Gates"](https://www.youtube.com/watch?v=WzP7oDCciGI) speaks about the pressure of gettings the best grades; how he was called for a jasmine tea to his tutor and asked if he couldn't give it his all, while he already was doing the best he could. He also recalls one tragic night when he and his roommates were woke up at 4am, to be informed that one of his friend has taken his own life.
 
-Becasue this paper is going to be talking about student's course enjoyment, expectations and his or her focus on grades vs. understanding I would liketo give it another, less visible shade for there might be a lot more to say about a student who is at the bottom of the scale. A student who is not enjoying the course, finds it not interesting but still primarly aims to perform better than others and is lead by the fear of performing poorly. We will try to find such students and calculate the confidence-interval-for-a-proportion of finding a student-at-risk, and test the hypotheses.
+Becasue this paper is going to be talking about student's course enjoyment, expectations and his or her focus on grades vs. understanding I would liketo give it another, less visible shade for there might be a lot more to say about a student who is at the bottom of the scale. It was assumed that a student, who might be at risk of developing mental health problems, would be someone who: is not enjoying the course, finds it not interesting but still primarly aims to perform better than others, and is lead by the fear of performing poorly. We will try to identify such students, calculate the confidence-interval-for-a-proportion of finding them, and test the hypotheses.
 
+On top of this, we will explore the data and see if there are any other patterns we could draw conclusions from.
 
 # Data
 *Explain your dataset and how the was data is collected – e.g. your sampling strategy or information given by the project information.* 
@@ -130,36 +131,28 @@ Around 625 students were surveyed. They answered on a 7-level scale; 1 meaning t
 Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
 
 ## Interpretation
-*Table 10* presents the category, its label, interpretation (Based on the category's questions) and its numbered questions.
+Apart from *Interest*, *Enjoyment* and *Importance focus* categories, all other consisted of 3 questions. For this reason, the assessment-categories' means were computed and saved for each individual student.
 
-Category | Label | Interpretation | Questions |
--------- | ----- | -------------- | --------- |
-Performance approach | M1 | Importance of doing better than others? | 1. It is important to me to be better than other students | 
-| | | | 2. It is important to me to do well compared to others in my courses | 
-| | | | 3. My goal in my courses is to get a better grade than most of the other students |
-Performance avoidance | M2 | Motivation based on the fear of performing poorly | 4. I just want to avoid doing poorly in my courses |
-| | | | 5. My fear of performing poorly is often what motivates me |
-| | | | 6. My goal in this class is to avoid performing poorly |
-Mastery approach | M3 | Prevalence of mastery approach | 7. I want to learn as much as possible from all my courses |
-| | | | 8. I desire to completely master the material presented in my courses |
-| | | | 9. It is important for me to understand the content of my courses as thoroughly as possible |
-Mastery avoidance | M4 | Student's fear of not mastering the course | 10. I worry that I may not learn all that I possibly could in my classes |
-| | | | 11. Sometimes I’m afraid that I may not understand the content of this course as thoroughly as I’d like |
-| | | | 12. I am often concerned that I may not learn all there is to learn in this class |
-Interest | IR | Student expects the course to be interesting | 13. On the whole, I expect my courses this semester to be very interesting |
-Enjoyment | EJ | Student expects the course to be enjoyable | 14. On the whole, I expect my courses this semester to be very enjoyable |
-Importance focus | MG | Student's importance focus on understanding vs. grades | 15. What is the relative importance of understanding and grades to you? |
-Table: Interpretation table
-
-Because *Interest*, *Enjoyment* and *Importance focus* categories consisted only of 1 question, no further computation was required to interpret the data from these categories.
-For the remaining categories, which number of questions was equal to 3, a mean for each assessment category was computed, and saved for each individual student.
 This resulted in 4 extra columns added to the original data set. An example of these can be seen below:
 ```{r}
 dat_tibble[1:5, 20:23]
 ```
 
-### 4 Assessment Categories
-As a way of data exploration, the means from the 4 assessment categories were labeled: *Performance approach*, *Performance avoidance*, *Mastery approach* and *Mastery avoidance* were plotted on basis of sex and subject
+*Table 10* presents the category, its label and interpretation (Based on the category's questions):
+
+Category | Label | Interpretation |
+-------- | ----- | -------------- |
+Performance approach | M1 | Importance of doing better than others? |
+Performance avoidance | M2 | Motivation based on the fear of performing poorly |
+Mastery approach | M3 | Prevalence of mastery approach |
+Mastery avoidance | M4 | Student's fear of not mastering the course |
+Interest | IR | Student expects the course to be interesting |
+Enjoyment | EJ | Student expects the course to be enjoyable |
+Importance focus | MG | Student's importance focus on understanding vs. grades |
+Table: Interpretation table
+
+### Data exploration
+As a way of data exploration, the means from *M1*, *M2*, *M3* and *M4* assessment categories were plotted on basis of sex and subject
 
 ```{r}
 # M1
