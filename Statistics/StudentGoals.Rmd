@@ -47,7 +47,7 @@ On top of this, we will explore the data and see if there are any other patterns
 The data we will be analysing was originally sourced from *Elliot, A. J. and McGregor, H. A. (2001). A 2 x 2 achievement-goal framework. Journal of Personality and Social Psychology, 80, 3, 501-519*.
 
 ## Data collection
-The data was already collected but I filled out the survey myself and added the results to the table.
+The data was already collected but my own survey results were added to the data set.
 
 ## Data cleaning
 ### Initial Data
@@ -118,11 +118,11 @@ Category | Label | Interpretation |
 -------- | ----- | -------------- |
 Performance approach | M1 | Importance of doing better than others |
 Performance avoidance | M2 | Motivation based on the fear of performing poorly |
-Mastery approach | M3 | Prevalence of mastery approach |
-Mastery avoidance | M4 | Student's fear of not mastering the course |
+Mastery approach | M3 | Students' grade-orientation focus |
+Mastery avoidance | M4 | Students' fear of not mastering the course |
 Interest | IR | Student expects the course to be interesting |
 Enjoyment | EJ | Student expects the course to be enjoyable |
-Importance focus | MG | Student's importance focus on understanding vs. grades |
+Importance focus | MG | Students' importance focus on understanding vs. grades |
 Table: Interpretation table
 
 ## Data Exploration
@@ -194,7 +194,7 @@ c <- t
 c + labs(
   tag = "M3",
   title = "Mastery approach set on basis of: year of study, sex and subject.",
-  subtitle = "Prevalence of mastery approach.",
+  subtitle = "Students' grade-orientation focus",
   x = "Year: 1 - 4",
   y = "Answer: 1 (Low) - 7 (High)",
   colour = "Sex",
@@ -217,8 +217,7 @@ c <- t
 # adding labels
 c + labs(
   tag = "M4",
-  title = "Students' focus on understanding set on basis of:
-different years of study, sexes and subjects.",
+  title = "Mastery avoidance set on basis of: year of study, sex and subject.",
   subtitle = "Students' fear of not mastering the course.",
   x = "Year: 1 - 4",
   y = "Answer: 1 (Low) - 7 (High)",
@@ -227,7 +226,7 @@ different years of study, sexes and subjects.",
 )
 ```
 
-## Mastery Approach
+## Grades vs. Understanding
 
 ```{r}
 # 1) During students’ junior years, they tend to primarily focus on getting good grades while during their senior years, the focus shifts towards a deep-understanding of the subject and. 
