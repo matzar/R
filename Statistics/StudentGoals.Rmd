@@ -131,7 +131,7 @@ Performance avoidance | M2 | Motivation based on the fear of performing poorly |
 Mastery approach | M3 | Prevalence of mastery approach | 7, 8, 9 |
 Mastery avoidance | M4 | Student's fear of not mastering the course | 10, 11, 12 |
 Interest | IR | Student expects the course to be interesting | 13 |
-Enjoyment | enjoy | Student expects the course to be enjoyable | 14 |
+Enjoyment | EJ | Student expects the course to be enjoyable | 14 |
 Importance focus | MG | Student's importance focus on understanding vs. grades | 15 |
 Table: Table Test
 
