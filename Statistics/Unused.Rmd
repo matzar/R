@@ -292,3 +292,103 @@ different years of study, sexes and subjects.",
 # To interpret these results we could say that with 95% confidence the percentage of the times
 # we should expect to find a student with a mean score of 5 or above to m1 is somewhere
 # between 30% and 37%, based on our sample.
+
+# m1
+# Plot mean results of performance approach questions
+# for all students with relation to student's year, sex and subject
+# data
+d <- ggplot(data = dat, aes(mean_dat_year$year, mean_dat$m1))
+# mapping data (use "jitter" to improve the graph and avoid gridding)
+l <- d + geom_jitter(aes(colour = sex, shape = subject))
+# smoothing
+s <- l + geom_smooth(method = loess, formula = y ~ x, se = TRUE)
+# adding theme
+t <- s + theme_dark()
+# adding colouring
+c <- t + scale_colour_brewer(palette = "Pastel1")
+# adding labels
+c + labs(
+  title = "Student's grade-orientation focus set on basis of:
+different years of study, sexes and subjects.",
+  subtitle = "How important it is to students to do better than others?",
+  caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
+  x = "Year (1-4)",
+  y = "Answer: 1 (Low) - 7 (High)",
+  colour = "Sex",
+  shape = "Subject"
+)
+
+# m2
+# Plot mean results of performance avoidance
+# for all students with relation to student's year, sex and subject
+# data
+d <- ggplot(data = dat, aes(year, mean_dat$m2))
+# mapping data (use "jitter" to improve the graph and avoid gridding)
+l <- d + geom_jitter(aes(colour = sex, shape = subject))
+# smoothing
+s <- l + geom_smooth(method = loess, formula = y ~ log(x), se = TRUE)
+# adding theme
+t <- s + theme_dark()
+# adding colouring
+c <- t + scale_colour_brewer(palette = "Pastel1")
+# adding labels
+c + labs(
+  title = "Students' grade-orientation focus set on basis of:
+different years of study, sexes and subjects.",
+  subtitle = "How motivated are students by fear of performing poorly?",
+  caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
+  x = "Year: 1 - 4",
+  y = "Answer: 1 (Low) - 7 (High)",
+  colour = "Sex",
+  shape = "Subject"
+)
+
+# m3
+# Plot mean results of mastery approach questions
+# for all students with relation to student's year, sex and subject
+# data
+d <- ggplot(data = dat, aes(year, mean_dat$m3))
+# mapping data (use "jitter" to improve the graph and avoid gridding)
+l <- d + geom_jitter(aes(colour = sex, shape = subject))
+# smoothing
+s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
+# adding theme
+t <- s + theme_dark()
+# adding colouring
+c <- t + scale_colour_brewer(palette = "Pastel1")
+# adding labels
+c + labs(
+  title = "Students' focus on understanding set on basis of:
+different years of study, sexes and subjects.",
+  subtitle = "Prevalence of mastery approach.",
+  caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
+  x = "Year: 1 - 4",
+  y = "Answer: 1 (Low) - 7 (High)",
+  colour = "Sex",
+  shape = "Subject"
+)
+
+# m4
+# Plot mean results of mastery avoidance questions
+# for all students with relation to student's year, sex and subject
+# data
+d <- ggplot(data = dat, aes(year, mean_dat$m4))
+# mapping data (use "jitter" to improve the graph and avoid gridding)
+l <- d + geom_jitter(aes(colour = sex, shape = subject))
+# smoothing
+s <- l + geom_smooth(method = stats::loess, formula = y ~ log(x), se = TRUE)
+# adding theme
+t <- s + theme_dark()
+# adding colouring
+c <- t + scale_colour_brewer(palette = "Pastel1")
+# adding labels
+c + labs(
+  title = "Students' focus on understanding set on basis of:
+different years of study, sexes and subjects.",
+  subtitle = "Students' fear of not mastering the course.",
+  caption = "Data source: Elliot, A. J. and McGregor, H. A. (2001)",
+  x = "Year: 1 - 4",
+  y = "Answer: 1 (Low) - 7 (High)",
+  colour = "Sex",
+  shape = "Subject"
+)
