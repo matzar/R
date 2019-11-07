@@ -95,6 +95,17 @@ Survey order | 6 | 12 | 11 | 1 | 7 | 2 | 10 | 8 | 5 | 3 | 9 | 4 | 13 | 14 | 15
 Category mapping | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15
 Table: In the survey, questions from 1 to 12 were ordered randomly; questions 13, 14 and 15 remained in the same order.
 
+### Labeling
+For easier data manipulation, the assessment-categories columns' names, were changed accordingly labels:
+
+| Name | Label |
+| - | - |
+| interest | IG |
+| enjoy | EJ |
+| mastgrad | MG |
+
+In reality, this just meant changing their column names, e.g.: from `interest` to `IG`.
+
 ## Clean Data
 This is how the data looked like after cleaning:
 
