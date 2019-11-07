@@ -123,18 +123,20 @@ The data was manipulated unsing `R` programming language and `tidyverse` package
 - [`tidyr`](https://tidyr.tidyverse.org/) - data cleaning
 - [`purrr`](https://purrr.tidyverse.org/) - syntax simplification
 
-Around 625 students were surveyed. They answered on a 7-level scale; 1 meaning the student feels the statement asked in the quesion is 'Not true of him/her' and 7 meaning the student feels it is 'Very true of him/her'. See the table below for a graphical explanation:
+Around 625 students were surveyed. They answered on a 7-level scale; 1 meaning the student felt the statement asked in the quesion is 'Not true of him/her' and 7 meaning the student felt it was 'Very true of him/her'. See the table below for a graphical explanation:
 
  | | | | | | | |
 - | - | - | - | - | - | - | - | -
 Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
 
 ## Interpretation
-*Table 10* presents the category, its interpretation (Based on the category's questions) and the questions' numbers.
+*Table 10* presents the category, its label, interpretation (Based on the category's questions) and its numbered questions.
 
-Category | Label | Interpretation | Question | 
------------- | ------------- | ------------ | ------------
-Performance approach | M1 | Importance of doing better than others? | 1, 2, 3 |
+Category | Label | Interpretation | Questions |
+-------- | ----- | -------------- | --------- |
+Performance approach | M1 | Importance of doing better than others? | 1. It is important to me to be better than other students. | 
+| | | | 2. It is important to me to do well compared to others in my courses | 
+| | | | 3. My goal in my courses is to get a better grade than most of the other students. |
 Performance avoidance | M2 | Motivation based on the fear of performing poorly | 4, 5, 6 |
 Mastery approach | M3 | Prevalence of mastery approach | 7, 8, 9 |
 Mastery avoidance | M4 | Student's fear of not mastering the course | 10, 11, 12 |
