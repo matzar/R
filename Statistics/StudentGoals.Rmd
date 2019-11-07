@@ -131,7 +131,7 @@ Around 625 students were surveyed. They answered on a 7-level scale; 1 meaning t
 - | - | - | - | - | - | - | - | -
 Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
 
-## Interpretation
+## Mean
 Apart from *Interest*, *Enjoyment* and *Importance focus* categories, all other consisted of 3 questions. For this reason, the assessment-categories' means were computed and saved for each individual student.
 
 This resulted in 4 extra columns added to the original data set. An example of these can be seen below:
@@ -139,6 +139,18 @@ This resulted in 4 extra columns added to the original data set. An example of t
 dat_tibble[1:5, 20:23]
 ```
 
+## Confidence Interval for a Proportion
+### Equations
+
+$$ \hat{p} = \frac{x}{n} = \frac{events}{trials} $$
+
+$$ Z = 1.96  $$
+
+$$ \hat{p} \pm Z \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} $$
+
+
+## Data Interpretation
+### Categories
 *Table 10* presents the category, its label and interpretation (Based on the category's questions):
 
 Category | Label | Interpretation |
@@ -151,8 +163,6 @@ Interest | IR | Student expects the course to be interesting |
 Enjoyment | EJ | Student expects the course to be enjoyable |
 Importance focus | MG | Student's importance focus on understanding vs. grades |
 Table: Interpretation table
-
-### Data exploration
 As a way of data exploration, the means from *M1*, *M2*, *M3* and *M4* assessment categories were plotted on basis of sex and subject
 
 ```{r}
@@ -258,15 +268,6 @@ different years of study, sexes and subjects.",
 ```
 
 
-
-## Confidence Interval for a Proportion
-### Equations
-$$ \hat{p} = \frac{x}{n} = \frac{events}{trials}$$
-
-$$ Z = 1.96  $$
-
-$$ \hat{p} \pm Z \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} $$
-
 # Results
 *Present both your informal and formal analyses.*
 We we are going to find out if, and how many students are at risk of developing mental health issues and test the hypothesis 1) and 2) on basis of sex and subject.
@@ -279,10 +280,8 @@ Calculating a 95% confidence interval for the student-at-risk population proport
 $$ \hat{p} = \frac{2}{625} = 0.0032 $$
 
 $$ \hat{p} \pm Z = 0.0032 \pm 1.96 \sqrt{\frac{{0.0032}(1 - {0.0032})}{625}} = 0.0032 \pm 0.0044 $$
-### Results
 The upper confidence interval for a proportion is `r ci_up[,]`, and the lower is `r ci_low[,]`, which gives us a confidence interval, for proportion of finding a student-at-risk as: CI = (0.00762, -0.00122). This mean we could say with 95% confidence the percentage of the times we should expect to find a student at risk is between 0.7% and 0%.
 
-By looking at data 
 ```{r}
 mm2[,c("age", "sex", "subject", "EJ", "IR", "MG", "M1", "M2")]
 ```
@@ -455,6 +454,8 @@ different years of study, sexes and subjects.",
 *You need to conclude your project, discuss the results, discuss any reservations that you have about the study and list any future work.*
 
 The hypothese turned out to be true/false?
+
+Looking at data (see Table 11), we can tell there are in fact 2 students who might be at risk; they are both 18-year-old females *General Economic* students.
 
 This might not seems like a lot but we have the actual data to back it up. We know that there are 2 students who might be at risk of developing mental health problems: they are both female, aged 18 years old and study general economics at their sophmore year. Wheter this data should be used directly to try to find these students is a different debate. What could be definietly done is try to announce this fact that there have been found students who might be at risk and that there is help available. Most universities offer counceling for students but the problem is to have already troubled and lonely students reach out for help. Maybe a university could develop their own programmes for sutdents which they can use to self-diagnose and if the system would detect that they might be experiencing mental health problems they could direct them towards a councelor at their univeristy. Such tests already exists but the reason why I think they should be university specific is for the fact that it makes the student feels that their university cares about their mental health and they do not need to feel ashamed to ask for help becasue it was their home institution who has made the first step. 
 
