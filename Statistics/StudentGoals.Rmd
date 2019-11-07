@@ -85,7 +85,7 @@ mean_dat[6:9,3:4]
 The students were presented with the questions in a randomized order. Becasue the random order was known, it was assumed that the collected data was put into the table in the random order. This would mean, that for proper data analysis the order would need to be derandomised, i.e., *question 6* from the *Performance avoidance* category is numbered *1* in the survey and in the data set. 
 *question 12* from the *Mastery avoidance* category is numbered *2* in the survey and in the set, and so on. This also meant that in the process of derandomization previous lower case ***q*** letters in the column names, were changed to upper case ***Q***. E.g. of derandomization and renaming would be ***q****1* becoming ***Q****6*.
 
-*Table 5* inlustrates the entire process:
+*Table 4* inlustrates the entire process:
 
 | |
 | - | - | - | - | - | - | - | - | - | - | - | - | - |
@@ -93,7 +93,7 @@ Data set order | q1 | q2 | q3 | q4 | q5 | q6 | q7 | q8 | q9 | q10 | q11 | q12 |
 Survey order | Q6 | Q12 | Q11 | Q1 | Q7 | Q2 | Q10 | Q8 | Q5 | Q3 | Q9 | Q4 |
 Table: In the survey, questions from 1 to 12 were derandomized and renamed
 
-Questions 13, 14 and 15, which were hypotheses testing questions and assessment-categories columns, kept the same order in the survey and in the data set, so they were only renamed for easier data manipulation:
+Questions 13, 14 and 15 - which were in fact, hypotheses testing questions and *Interest*, *Enjoyment*, *Importance focus* assessment-categories accordingly - kept the same order in the survey and in the data set, so they were only renamed for easier data manipulation:
 
 | Previous column name | New column name |
 | - | - |
@@ -111,6 +111,7 @@ This is how the data looked like after cleaning:
 meanTableEg <- createExampleTable(mean_dat, 6, 9, 1, 6, 15, 19)
 meanTableEg
 ```
+For the exact column order look at Table 4
 
 # Methodology
 *This section explains the statistical methods and/or your model. It is also a common practice to present the statistical model structure (i.e. equation) here as well.*
