@@ -285,14 +285,6 @@ ggplot(data = dat) +
 | - | - |
 | `r tally(males)` | `r tally(females)` |
 
-```{r}
-hypothesisTesting('Male', 'Female')
-
-# A = data.frame(x = filter(dat, sex == 'Female')$year, y=filter(dat, sex == 'Female')$MG)
-# B = data.frame(x = filter(dat, sex == 'Male')$year, y=filter(dat, sex == 'Male')$MG)
-# ggplot(A,aes(x,y)) + geom_jitter() + geom_jitter(data=B,colour='red') + geom_smooth()
-
-```
 
 
 ### Hypothesis 2
