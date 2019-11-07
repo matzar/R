@@ -12,6 +12,15 @@ output:
     keep_tex: false
 ---
 
+The graph below shows the *Importance focus (MG)* category mean results. All the students are represented; student's sex was made distinguishable by a colour and student's studied subject by a shape.
+
+
+
+
+
+
+Visual investigation of ratios between sexes and subjects shows that, apart from a visible difference in the amount of Accounnting students, there is really no big differences between 
+
 We we are going to find out if, and how many students are at risk of developing mental health issues and test the hypothesis 1) and 2) set on basis of sex and subject.
 
 # Abstract

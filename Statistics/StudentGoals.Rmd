@@ -281,9 +281,9 @@ To test the hypotheses new means had to be calcualted with regards to both sexes
 - For *Hypothesis 1* testing - the *Importance focus (MG)*
 - For *Hypothesis 2* testing - the *Enjoyment (EJ)* and *Interest (IR)*
 
-## Hypothesis 1
-The graph below shows the *Importance focus (MG)* category mean results. All the students are represented; student's sex was made distinguishable by a colour and student's studied subject by a shape.
+The graphs below are a visual investigation of the hypotheses using their appropriate categories. All the students are represented; student's sex was made distinguishable by a colour and student's subject was made visible by a shape.
 
+## Hypothesis 1
 ```{r}
 # 1) During students’ junior years, they tend to primarily focus on getting good grades while during their senior years, the focus shifts towards a deep-understanding of the subject and. 
 
@@ -316,7 +316,14 @@ The hypothesis stated was:
 
 > During students’ junior years, they tend to primarily focus on getting good grades while during their senior years, the focus shifts towards a deep-understanding of the subject. 
 
-Visual investigation shows that students across all years, almost never primarly focus on grades. Most of the time they show equal interest in grades and understanding. Graph smoothing does indeed show a slight shift towards deeper understanding at the more senior years.
+Visual investigation shows that students across all years, almost never primarly focus on grades. Most of the time they show equal interest in grades and understanding. Graph smoothing does indeed show a slight shift towards deeper understanding at the more senior years but 
+
+Because the hypothesis wrongly assumes that students at their junior years primarly focus on getting good grades, and visual investigation clearly shows that the student's focus remains mostly equal, with a slight shift towards understanding at the senior year, the hypothesis is deemed wrong and no further inverstigation will be carried out.
+
+## Hypothesis 2
+Let us now remind ourselves the hypothesis 2: 
+
+> Students’ enjoyment and interest tends to deteriorate as they progress through their studies.
 
 ### Interest
 ```{r}
@@ -348,6 +355,7 @@ different years of study, sexes and subjects.",
   colour = "Sex"
 )
 ```
+Given the size of the population being quite small and graph smoothing not showing any visible patters, it is fair to say that the student's interest remains the same during their time at the university.
 
 ### Enjoyment
 ```{r}
@@ -376,6 +384,9 @@ different years of study, sexes and subjects.",
   colour = "Sex"
 )
 ```
+Enjoyment seems to follow the same patter. Because its slight downwards trend is with the confidence interval it is deemed insignificant.
+
+It is clearly visible that neither students' interest nor enjoyment deteriorates over the course of their studies. Visual investigation showed that it remains roughly the same.
 
 ## Confidence Interval for a Proportion
 ### Finding Students at Risk
