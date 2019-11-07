@@ -43,18 +43,17 @@ renamed_data <- dat_tibble %>%
     Q3 = q10, 
     Q9 = q11, 
     Q4 = q12,
-    ir = interest,
-    ej = enjoy,
-    mg = mastgrad
   )
-# going back to lower case 'q' to keep naming consistent with the original data set
-renamed_data2 <- renamed_data %>%
+# Adding proper labeling
+labeled_data <- renamed_data %>%
   rename(
-    q1 = Q1, q2 = Q2, q3 = Q3, q4 = Q4, q5 = Q5, q6 = Q6, 
-    q7 = Q7, q8 = Q8, q9 = Q9, q10 = Q10, q11= Q11, q12 = Q12
+    IR = interest,
+    EJ = enjoy,
+    MG = mastgrad
   )
-# save renamed table in 'dat' variable
-dat <- renamed_data2
+
+# save renamed and labeled table in 'dat' variable
+dat <- labeled_data
 # summary(dat)
 # plot(dat) # r function for plotting
 # dat[1:4, 1:4]
@@ -113,8 +112,8 @@ dat_tibble <- as_tibble(mean_dat)
 #   knitr::kable()
 
 # Find a student who is not enjoying the course, finds it not interesting but still primarly aims to perform better than others and is lead by the fear of performing poorly
-dat_tibble_enjoy <- filter(dat_tibble, ej <= 2)
-dat_tibble_interest <- filter(dat_tibble_enjoy, ir <= 2)
+dat_tibble_enjoy <- filter(dat_tibble, EJ <= 2)
+dat_tibble_interest <- filter(dat_tibble_enjoy, IR <= 2)
 dat_tibble_mastgrad <- filter(dat_tibble_interest, m1 >= 6)
 mm1 <- filter(dat_tibble_mastgrad, m1 >= 6)
 mm2 <- filter(mm1, m2 >= 6)
