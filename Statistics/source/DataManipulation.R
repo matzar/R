@@ -155,24 +155,21 @@ findStudentsAtRiskCI <- function(EJ_risk_scale, IR_risk_scale, MG_risk_scale, M1
   return(mm2)
 }
 
+# Find a number of students at risk with a very conservative scale
+mm2 <- findStudentsAtRiskCI(2, 2, 4, 6, 6)
+
 # Find a student who is not enjoying the course, finds it not interesting but still 
 # primarly aims to perform better than others and is lead by the fear of performing poorly
-calculateStudentsAtRiskPopulationCI() <- function(mm2) {
-  dat_tibble_enjoy <- filter(dat_tibble, EJ <= 2) # Enjoyment
-  dat_tibble_interest <- filter(dat_tibble_enjoy, IR <= 2) # Interest
-  dat_tibble_mastgrad <- filter(dat_tibble_interest, MG >= 4) 
-  mm1 <- filter(dat_tibble_mastgrad, M1 >= 6) # Performace Approach
-  mm2 <- filter(mm1, M2 >= 6) # Performace Avoidance
-  # view(mm2)
-  
-  n_mm2 <- tally(mm2)
-  
-  p_hat <- n_mm2 / n
-  z_score <- 1.96
-  
-  ci_up <- p_hat + 1.96 * sqrt((p_hat * (1 - p_hat)) / (n))
-  ci_low <- p_hat - 1.96 * sqrt((p_hat * (1 - p_hat)) / (n))
-}
+n_mm2 <- tally(mm2)
 
-calculateStudentsAtRiskPopulationCI(findStudentsAtRiskCI(2, 2, 4, 6, 6))
+p_hat <- n_mm2 / n
+z_score <- 1.96
+
+ci_up <- p_hat + 1.96 * sqrt((p_hat * (1 - p_hat)) / (n))
+ci_low <- p_hat - 1.96 * sqrt((p_hat * (1 - p_hat)) / (n))
 #####################################################################
+
+# Find students at risk with a moderate scale
+mm3 <- findStudentsAtRiskCI(3, 3, 4, 5, 5)
+# Number of students at risk
+numStudentsAtRiskModerateScale <- tally(mm3)
