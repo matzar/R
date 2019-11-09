@@ -146,11 +146,11 @@ dat_tibble <- as_tibble(mean_dat)
 
 # Find a number of students at risk
 findStudentsAtRiskCI <- function(EJ_risk_scale, IR_risk_scale, MG_risk_scale, M1_risk_scale, M2_risk_scale) {
-  dat_tibble_enjoy <- filter(dat_tibble, EJ <= 2) # Enjoyment
-  dat_tibble_interest <- filter(dat_tibble_enjoy, IR <= 2) # Interest
-  dat_tibble_mastgrad <- filter(dat_tibble_interest, MG >= 4) 
-  mm1 <- filter(dat_tibble_mastgrad, M1 >= 6) # Performace Approach
-  mm2 <- filter(mm1, M2 >= 6) # Performace Avoidance
+  dat_tibble_enjoy <- filter(dat_tibble, EJ <= EJ_risk_scale) # Enjoyment
+  dat_tibble_interest <- filter(dat_tibble_enjoy, IR <= IR_risk_scale) # Interest
+  dat_tibble_mastgrad <- filter(dat_tibble_interest, MG >= MG_risk_scale) 
+  mm1 <- filter(dat_tibble_mastgrad, M1 >= M1_risk_scale) # Performace Approach
+  mm2 <- filter(mm1, M2 >= M2_risk_scale) # Performace Avoidance
   
   return(mm2)
 }
@@ -174,5 +174,5 @@ calculateStudentsAtRiskPopulationCI() <- function(mm2) {
   ci_low <- p_hat - 1.96 * sqrt((p_hat * (1 - p_hat)) / (n))
 }
 
-calculateStudentsAtRiskPopulationCI(findStudentsAtRiskCI())
+calculateStudentsAtRiskPopulationCI(findStudentsAtRiskCI(2, 2, 4, 6, 6))
 #####################################################################
