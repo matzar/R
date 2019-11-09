@@ -1,13 +1,13 @@
 ---
 title: "Statistical Data Analysis of Student Goals"
 author: Mateusz Zaremba
-date: November 4, 2019
+date: November 9, 2019
 output: 
   pdf_document:
     toc: false
     toc_depth: 2
     number_sections: true
-    fig_caption: false
+    fig_caption: true
     df_print: kable
     highlight: tango
     citation_package: natbib
@@ -18,7 +18,7 @@ documentclass: article
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, tidy = FALSE, cache = FALSE, fig.cap = "...")
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, tidy = TRUE, cache = FALSE, fig.cap = "...")
 ```
 
 ```{r}
@@ -37,7 +37,6 @@ It is interesting how undergraduate students' goals change through-out their stu
 Because this paper is going to be talking about student's course enjoyment, expectations and his or her focus on grades vs. understanding I would like to give it another, less visible shade for there might be a lot more to say about a student who is at the bottom of the scale. It was assumed that a student, who might be at risk of developing mental health problems, would be someone who: is not enjoying the course, finds it not interesting but still primarily aims to perform better than others, and is led by the fear of performing poorly. We will try to identify such students, calculate the confidence-interval-for-a-proportion of finding them, and test the hypotheses.
 
 # Data
-The data we will be analysing was originally sourced from *Elliot, A. J. and McGregor, H. A. (2001). A 2 x 2 achievement-goal framework. Journal of Personality and Social Psychology, 80, 3, 501-519*.
 
 ## Collection
 The data was already collected but my own survey results were added to the data set.
@@ -93,8 +92,6 @@ Table: Interpretation table
 Random order (6, 12, 11, 1, 7, 2, 10, 8, 5, 3, 9, 4) was given to use in the survey's instructions. This meant, e.g., *question 6* from the *Performance Avoidance* category is numbered *1* in the survey and in the data set; *question 12* from the *Mastery Avoidance* category is numbered *2* in the survey and in the set; and so on. 
 
 The column naming changed in the process: ***q****1* became ***Q****6*, changing lower case ***q*** to upper case ***Q*** as well as the number of the question.
-
-*Table 4* illustrates the entire process and assigns questions to their appropriate categories:
 
 | |
 | - | - | - | - | - | - | - | - | - | - | - | - | - |
@@ -263,7 +260,7 @@ Not true of me | 1 | 2 | 3 | 4 | 5 | 6 | 7 | Very true of me
 Apart from *Interest*, *Enjoyment* and *Importance focus* categories, *Performance Approach*, *Performance Avoidance*, *Mastery Approach*, *Mastery Avoidance* categories consisted of 3 questions; for these 4 categories the means were computed and saved for each individual student.
 
 This resulted in 4 extra columns added to the original data set. These results were using in data exploration and finding a student-at-risk. An example of these can be seen below:
-```{r}
+```{r }
 dat_tibble[1:5, 20:23]
 ```
 
@@ -409,14 +406,18 @@ To find out if there are any students at risk the arbitrary criteria was assumed
 
 Using this conservative criteria, 2 students were found (If we mitigated the scale only by 1 point, the number of students would go up to 7); they are not enjoying their course nor find it interesting, but their main focus remains on doing better than others and avoiding performing poorly with a main or neutral focus on grades. It was assumed that such students might be at risk of developing mental health problems.
 
-Students at risk found using conservative criteria:
-```{r}
-mm2[,c("age", "sex", "subject", "M1", "M2", "IR", "EJ", "MG")]
+```{r mm2}
+knitr::kable(
+  head(mm2[,c("age", "sex", "subject", "M1", "M2", "IR", "EJ", "MG")]), booktabs = TRUE,
+  caption = 'Students at risk found using conservative criteria.'
+)
 ```
 
-Students at risk found using mitigated criteria:
-```{r}
-mm3[,c("age", "sex", "subject", "M1", "M2", "IR", "EJ", "MG")]
+```{r mm3, fig.cap="Students at risk found using mitigated criteria"}
+knitr::kable(
+  head(mm3[,c("age", "sex", "subject", "M1", "M2", "IR", "EJ", "MG")]), booktabs = TRUE,
+  caption = 'Students at risk found using mitigated criteria.'
+)
 ```
 
 ### Confidence Interval for a Proportion of Students at Risk
