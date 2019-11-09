@@ -4,10 +4,10 @@ author: Mateusz Zaremba
 date: November 4, 2019
 output: 
   pdf_document:
-    toc: true
+    toc: false
     toc_depth: 2
     number_sections: true
-    fig_caption: true
+    fig_caption: false
     df_print: kable
     highlight: tango
     citation_package: natbib
@@ -29,7 +29,7 @@ source("source/DataManipulation.R")
 # Abstract
 *This should be a very brief explanation of your research paper (around 150 words). It normally includes information about the issue, why you are interested in that issue, your method/model, analysis results, discussions and conclusions.
 
-This paper analyses the data gathered from surveying 625 undergraduate students. The authors of the survey tried to prove two hypothesis: 1) During students' junior years, they tend to primarily focus on getting good grades while during their senior years, the focus shifts towards a deep-understanding of the subject and 2) students' enjoyment and interest tends to deteriorate as they progress through their studies. It is not obvious why this might be the case and if the student's sex or studied subject has any bearing. This is why the survey has 15 questions and probes 7 assessment categories. Each category consists of 3 to 1 questions and because the order of the questions is randomised, the student should not know the categories nor notice any patterns.
+This paper analyses the data gathered from surveying 625 undergraduate students. The authors of the survey tried to prove two hypothesis: 1) During students' junior years, they tend to primarily focus on getting good grades while during their senior years, the focus shifts towards a deep-understanding of the subject and 2) students' enjoyment and interest tends to deteriorate as they progress through their studies. It is not obvious why this might be the case and if the student's sex or studied subject has any bearing. This is why the survey has 15 questions and probes 7 assessment categories. Each category consists of 3 to 1 question and because the order of the questions is randomised, the student should not know the categories nor notice any patterns.
 
 The data manipulation was done using R and tidywerse packages. A full analysis will be presented, including data: preparation, analysis, exploration and interpretation; calculation of confidence interval for a proportion, interpretation of the results using different kinds of graphs and an explanation of the methods used.
 
@@ -141,7 +141,7 @@ c <- t
 # adding labels
 c + labs(
   tag = "M1",
-  title = "Performance Approach set on basis of: year of study, sex and subject.",
+  title = "Performance Approach set on basis of year of study, sex and subject.",
   subtitle = "How important it is to students to do better than others?",
   x = "Year (1-4)",
   y = "Answer: 1 (Low) - 7 (High)",
@@ -169,7 +169,7 @@ c <- t
 # adding labels
 c + labs(
   tag = "M2",
-  title = "Performance Avoidance set on basis of: year of study, sex and subject.",
+  title = "Performance Avoidance set on basis of year of study, sex and subject.",
   subtitle = "How motivated are students by fear of performing poorly?",
   x = "Year: 1 - 4",
   y = "Answer: 1 (Low) - 7 (High)",
@@ -197,7 +197,7 @@ c <- t
 # adding labels
 c + labs(
   tag = "M3",
-  title = "Mastery Approach set on basis of: year of study, sex and subject.",
+  title = "Mastery Approach set on basis of year of study, sex and subject.",
   subtitle = "Students' grade-orientation focus",
   x = "Year: 1 - 4",
   y = "Answer: 1 (Low) - 7 (High)",
@@ -225,7 +225,7 @@ c <- t
 # adding labels
 c + labs(
   tag = "M4",
-  title = "Mastery Avoidance set on basis of: year of study, sex and subject.",
+  title = "Mastery Avoidance set on basis of year of study, sex and subject.",
   subtitle = "Students' fear of not mastering the course.",
   x = "Year: 1 - 4",
   y = "Answer: 1 (Low) - 7 (High)",
@@ -246,9 +246,7 @@ ggplot(data = dat) +
 ```
 
 # Methodology
-*This section explains the statistical methods and/or your model. It is also a common practice to present the statistical model structure (i.e. equation) here as well.*
-
-The data was manipulated unsing `R` programming language and `tidyverse` packages:
+The data was manipulated using `R` programming language and `tidyverse` packages:
 
 - [`ggplot2`](https://ggplot2.tidyverse.org/) - data visualisation
 - [`dplyr`](https://dplyr.tidyverse.org/) - data manipulation
@@ -272,13 +270,23 @@ dat_tibble[1:5, 20:23]
 ```
 
 ## Confidence Interval for a Proportion
+To find students at risk with 95% confidence, we will calculate confidence interval for a proportion.
+
+### Equations
 $$ \hat{p} = \frac{x}{n} = \frac{events}{trials} $$
 
 $$ \hat{p} \pm Z \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} $$
 
-# Results
-*Present both your informal and formal analyses.*
+### Calculations
+Calculating a 95% confidence interval for the student-at-risk population proportion.
 
+$$ \hat{p} = \frac{2}{625} = 0.0032 $$
+
+$$ Z = 1.96  $$
+
+$$ \hat{p} \pm Z = 0.0032 \pm 1.96 \sqrt{\frac{{0.0032}(1 - {0.0032})}{625}} = 0.0032 \pm 0.0044 $$
+
+# Results
 ## Hypothesis Testing
 To test the hypotheses the following categories where picked:
 
@@ -292,7 +300,7 @@ The graphs below are a visual investigation of the hypotheses using their chosen
 # 1) During students’ junior years, they tend to primarily focus on getting good grades while during their senior years, the focus shifts towards a deep understanding of the subject.
 
 # Plot set on basis of the student's sex.
-# Plot mean results of (Primarly understanding/Equal Importance/Primarly grades)scale 
+# Plot mean results of (Primarily understanding/Equal Importance/Primarily grades)scale 
 # for all students with relation to student's year, sex and subject
 # data
 d <- ggplot(data = dat, aes(year, mean_dat$MG))
@@ -309,7 +317,7 @@ c + labs(
   tag = "MG",
   title = "Student's importance scale between understanding and grades set on basis of:
 different years of study, sexes and subjects.",
-  subtitle = "Scale: Primarly understanding (1) / Equal Importance (4) / Primarly grades (7)",
+  subtitle = "Scale: Primarily understanding (1) / Equal Importance (4) / Primarily grades (7)",
   x = "Year (1-4)",
   y = "Scale: 1 (Understanding) - 4 (Equal) - 7 (Grades)",
   colour = "Sex",
@@ -392,36 +400,31 @@ Enjoyment seems to follow the same patter. Because its slight downwards trend is
 
 It is clearly visible that neither students' interest nor enjoyment deteriorates over the course of their studies. Visual investigation showed that it remains roughly the same.
 
-## Confidence Interval for a Proportion
-### Finding Students at Risk
+## Finding Students at Risk
 To find out if there are any students at risk the arbitrary criteria was assumed:
 
-- *Performace Approach* $\geq$ 6
-- *Performace Avoidance* $\geq$ 6
+- *Performance Approach* $\geq$ 6
+- *Performance Avoidance* $\geq$ 6
 - *Interest* $\leq$ 2
 - *Enjoyment* $\leq$ 2
 - *Importance focus* $\geq$ 4
 
+Using this conservative criteria, 2 students were found (If we mitigated the scale only by 1 point, the number of students would go up to 7); they are not enjoying their course nor find it interesting, but their main focus remains on doing better than others and avoiding performing poorly with a main or neutral focus on grades. It was assumed that such students might be at risk of developing mental health problems.
+
+Students at risk found using conservative criteria:
 ```{r}
 mm2[,c("age", "sex", "subject", "M1", "M2", "IR", "EJ", "MG")]
 ```
 
-Using this very conservative criteria (If we mittigated the scale only by 1 point, the number would go up to 7), we can see there are 2 students who are not enjoying their course nor find it interesting, but their main focus remains on doing better than others and avoiding performing poorly with a main or neutral focus on grades. It was assumed that such students might be at risk of developing mental health problems.
+Students at risk found using mitigated criteria:
+```{r}
+mm3[,c("age", "sex", "subject", "M1", "M2", "IR", "EJ", "MG")]
+```
 
-### Calculations
-Calculating a 95% confidence interval for the student-at-risk population proportion.
-
-$$ \hat{p} = \frac{2}{625} = 0.0032 $$
-
-$$ Z = 1.96  $$
-
-$$ \hat{p} \pm Z = 0.0032 \pm 1.96 \sqrt{\frac{{0.0032}(1 - {0.0032})}{625}} = 0.0032 \pm 0.0044 $$
-
+### Confidence Interval for a Proportion of Students at Risk
 The upper confidence interval for a proportion is `r ci_up[,]`, and the lower is `r ci_low[,]`, which gives us a confidence interval, for proportion of finding a student-at-risk as: CI = (0.00762, -0.00122). This mean we could say with 95% confidence the percentage of the times we should expect to find a student at risk is between 0.7% and 0%.
 
 # Conclusion
-*You need to conclude your project, discuss the results, discuss any reservations that you have about the study and list any future work.*
-
 Looking at data, we see there are in fact 2 students who might be at risk. They are both 18-year-old females studying *General Economic* at their sophomore years. Usually when we investigate the data, the extreme cases are dropped. But this time it would mean that we would be dismissing students who might be at real risk. Of course, it might be the case that they mixed up the scale or had a bad day, but this begs the question - should such cases be dismissed? Could universities address this data in any way? We might say that it is only a tiny fraction of the population and chances of finding such a student are less than 1%. So are the number of students taking their own lives at campuses.
 
 I believe something could be done and such data should never be dismissed because we might be able to help these students. Maybe universities could develop their own programmes, that students could use to self-diagnose, whether they are at risk of developing mental health problems and if they are, it could direct them towards a university's counsellor as well as other places. Such tests already exist and can be found on the NHS website. The reason why I think they should be university specific is the fact that it makes the student feel like their university cares; it has made the first step so it must mean that it wants them to do well and is genuinely interested in their well-being. Being counselled should not be a gage of failure but a normal thing everyone in need should feel encouraged to use. I know that the universities are not being idle, but I wonder what results of a survey trying to find out if the students feel like the university empathizes with them, be like?
