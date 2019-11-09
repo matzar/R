@@ -144,19 +144,22 @@ dat_tibble <- as_tibble(mean_dat)
 #   head() %>%
 #   knitr::kable()
 
-# Find a student who is not enjoying the course, finds it not interesting but still primarly aims to perform better than others and is lead by the fear of performing poorly
-dat_tibble_enjoy <- filter(dat_tibble, EJ <= 2) # Enjoyment
-dat_tibble_interest <- filter(dat_tibble_enjoy, IR <= 2) # Interest
-dat_tibble_mastgrad <- filter(dat_tibble_interest, MG >= 4) 
-mm1 <- filter(dat_tibble_mastgrad, M1 >= 6) # Performace Approach
-mm2 <- filter(mm1, M2 >= 6) # Performace Avoidance
-view(mm2)
-
-n_mm2 <- tally(mm2)
-
-p_hat <- n_mm2 / n
-z_score <- 1.96
-
-ci_up <- p_hat + 1.96 * sqrt((p_hat * (1 - p_hat)) / (n))
-ci_low <- p_hat - 1.96 * sqrt((p_hat * (1 - p_hat)) / (n))
+# Find a student who is not enjoying the course, finds it not interesting but still 
+# primarly aims to perform better than others and is lead by the fear of performing poorly
+studentAtRiskCI <- function() {
+  dat_tibble_enjoy <- filter(dat_tibble, EJ <= 2) # Enjoyment
+  dat_tibble_interest <- filter(dat_tibble_enjoy, IR <= 2) # Interest
+  dat_tibble_mastgrad <- filter(dat_tibble_interest, MG >= 4) 
+  mm1 <- filter(dat_tibble_mastgrad, M1 >= 6) # Performace Approach
+  mm2 <- filter(mm1, M2 >= 6) # Performace Avoidance
+  view(mm2)
+  
+  n_mm2 <- tally(mm2)
+  
+  p_hat <- n_mm2 / n
+  z_score <- 1.96
+  
+  ci_up <- p_hat + 1.96 * sqrt((p_hat * (1 - p_hat)) / (n))
+  ci_low <- p_hat - 1.96 * sqrt((p_hat * (1 - p_hat)) / (n))
+}
 #####################################################################
