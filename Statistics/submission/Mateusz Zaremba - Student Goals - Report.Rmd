@@ -1,7 +1,7 @@
 ---
 title: "Statistical Data Analysis of Student Goals"
 author: Mateusz Zaremba
-date: November 4, 2019
+date: November 9, 2019
 output: 
   pdf_document:
     toc: false
@@ -425,7 +425,7 @@ The upper confidence interval for a proportion is `r ci_up[,]`, and the lower is
 # Conclusion
 Looking at data, we see there are in fact 2 students who might be at risk. They are both 18-year-old females studying *General Economic* at their sophomore years. Usually when we investigate the data, the extreme cases are dropped. But this time it would mean that we would be dismissing students who might be at real risk. Of course, it might be the case that they mixed up the scale or had a bad day, but this begs the question - should such cases be dismissed? Could universities address this data in any way? We might say that it is only a tiny fraction of the population and chances of finding such a student are less than 1%. So are the number of students taking their own lives at campuses.
 
-I believe something could be done and such data should never be dismissed because we might be able to help these students. Maybe universities could develop their own programmes, that students could use to self-diagnose, whether they are at risk of developing mental health problems and if they are, it could direct them towards a university's counsellor as well as other places. Such tests already exist and can be found on the NHS website. The reason why I think they should be university specific is the fact that it makes the student feel like their university cares; it has made the first step so it must mean that it wants them to do well and is genuinely interested in their well-being. Being counselled should not be a gage of failure but a normal thing everyone in need should feel encouraged to use. I know that the universities are not being idle, but I wonder what results of a survey trying to find out if the students feel like the university empathizes with them, be like?
+I believe something could be done and such data should never be dismissed because we might be able to help these students. Maybe universities could develop their own programmes, that students could use to self-diagnose, whether they are at risk of developing mental health problems and if they are, it could direct them towards a university's counsellor as well as other places. Such tests already exist and can be found on the NHS website. The reason why I think they should be university specific is the fact that it makes the student feel like their university cares; it has made the first step so it must mean that it wants them to do well and is genuinely interested in their well-being. Being counselled should not be a gauge of failure but a normal thing everyone in need should feel encouraged to use. I know that the universities are not being idle, but I wonder what the results of a survey trying to find out if the students feel like the university empathises with them, might be like?
 
 # References
 Chang, A. (2019). The Unspoken Reality Behind the Harvard Gates. [video] Available at: https://www.youtube.com/watch?v=WzP7oDCciGI [Accessed 9 Nov. 2019].
