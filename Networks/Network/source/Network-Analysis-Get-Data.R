@@ -14,29 +14,36 @@ unz <- unzip("rt-pol.zip", "rt-pol.txt")
 
 dat <- read.table(unz, sep=",")
 
-# Drop 3rd column of the dataframe because it's only a timestamp
+# remove first line
+# dat <- read.table(unz, skip=1, sep=",")
+
+# Drop 3rd column (V3) of the dataframe because it's only a timestamp
 dat <- select(dat,-c(3))
-
-dat_tibble <- tibble::as_tibble(dat)
-dat_tibble <- select(dat,-c(3))
-
-view(dat_tibble)
-
-dat_tibble <- dat_tibble %>%
+edges <- dat
+# rename edge list
+edges <- edges %>%
   rename(
     from = V1,
     to = V2)
+view(edges)
 
-view(dat_tibble)
+# add id column
+nodes <- tibble::rowid_to_column(dat, "id")
+view(nodes)
 
-dat <- dat_tibble
+visNetwork(nodes$id, edges)
 
-view(dat)
-
-routes_tidy <- tbl_graph(dat, directed = FALSE)
-routes_tidy
-class(routes_tidy)
 g <- graph_from_data_frame(dat, directed=FALSE)
-routes_igraph_tidy <- as_tbl_graph(g)
-routes_igraph_tidy
-class(routes_igraph_tidy)
+g
+
+ggraph(g) + 
+  geom_edge_link(aes(colour = factor(timestamp))) + 
+  geom_node_point()
+
+graph <- graph_from_data_frame(highschool)
+graph
+summary(graph)
+ggraph(graph) + 
+  geom_edge_link(aes(colour = factor(year))) + 
+  geom_node_point()
+view(highschool)
