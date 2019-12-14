@@ -29,4 +29,14 @@ dat_tibble <- dat_tibble %>%
 
 view(dat_tibble)
 
+dat <- dat_tibble
 
+view(dat)
+
+routes_tidy <- tbl_graph(dat, directed = FALSE)
+routes_tidy
+class(routes_tidy)
+g <- graph_from_data_frame(dat, directed=FALSE)
+routes_igraph_tidy <- as_tbl_graph(g)
+routes_igraph_tidy
+class(routes_igraph_tidy)
