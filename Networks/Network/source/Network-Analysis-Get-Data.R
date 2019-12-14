@@ -29,9 +29,11 @@ view(edges)
 
 # add id column
 nodes <- tibble::rowid_to_column(dat, "id")
-view(nodes)
+nodes <- nodes$id
 
-visNetwork(nodes$id, edges)
+nodes <- data.frame(nodes)
+
+visNetwork(nodes, edges)
 
 g <- graph_from_data_frame(dat, directed=FALSE)
 g
