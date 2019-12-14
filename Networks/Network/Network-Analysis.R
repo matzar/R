@@ -16,41 +16,62 @@ source("source/Network-Analysis-Get-Data.R")
 library(igraph)
 library(dplyr)
 library(tidyverse)
+library(ggraph)
+library(tidygraph)
+library(visNetwork)
+library(networkD3)
 
-# dat <- read.table(unz, sep=",")
-dat_tibble <- tibble::as_tibble(dat)
-dat <- dat_tibble %>%
-  rename(
-    from = V1,
-    to = V2)
-
-# Drop 3rd column of the dataframe
-dat <- select(dat,-c(3))
+ggraph(g)
 
 # look
 head(dat)
 str(dat)
-g <- graph_from_data_frame(dat)
+g <- graph_from_data_frame(dat, directed=FALSE)
 summary(g)
-view(dat)
+g
+# view(dat)
 
 # ensure that that the plots take most of the available page space
 par(oma=c(0,0,0,0),mar=c(0,0,0,0))
+# plot graph
+plot.igraph(g)
 
-# gg <- graph.edgelist(dat,directed=FALSE)
+# How do we calculate some network metrics using R? Here we will look at calculating some basic network metrics using R.
 
-# plot.igraph(g)
-# plot.igraph(gg)
-# plot.igraph(g,layout=layout.circle,
-#             vertex.label=V(g)$name,vertex.size=5,
-#             vertex.label.color="red",vertex.label.font=2,
-#             vertex.color="blue",edge.color="black")
+# A vertex degree is the number of edges going out of (and into) the given vertex. 
+# For regular networks, this is a fixed number; often this is a random variable, coming from a certain distribution. 
+# A network can be characterised by an average degree.
+# Average degree
+mean(degree(g))
+
+# The clustering coefficient is a measure of the “all-my-friends-know-each-other” property. 
+# Clusterin
+transitivity(g)
+
+# Average path length is calculated by finding the shortest path between all pairs of vertices, 
+# adding them up, and then dividing by the total number of pairs. 
+# This shows us, on average, the number of steps it takes to get from one member of the network to another. 
+# Average path length
+average.path.length(g)
 
 
+# closeness centrality
+colors.new=rev(rainbow(10,end=2/3))
+net.close=as.numeric(closeness(g)) 
+net.close=floor((net.close-min(net.close))/diff(range(net.close))*(length(colors.new)-1) +1)
+c = V(g)$color=colors.new[net.close]
 
+net.close=as.numeric(betweenness(g))
 
-# create a network graph
-g=graph.adjacency(as.matrix(dat),mode="directed",
-                  weighted=NULL)
+plot.igraph(g, label=0.0001)
 
-summary(g)
+el=as.matrix(dat)
+el[,1]=as.character(el[,1])
+el[,2]=as.character(el[,2])
+g=graph.edgelist(el,directed=FALSE)
+fixed_layout=layout.kamada.kawai(g) # fixes the layout for your plots
+V(g)$size=5+(15)/diff(range(degree(g)))*degree(g)
+plot.igraph(g,vertex.label.cex=0.0001)
+
+# https://www.jessesadler.com/post/network-analysis-with-r/
+# http://networkrepository.com/rt.php

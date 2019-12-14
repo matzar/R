@@ -1,12 +1,12 @@
 # download
-pth <- "http://nrvis.com/download/data/rt/rt-pol.zip"
-download.file(pth, destfile = "rt-pol.zip")
+pth <- "http://nrvis.com/download/data/rt/rt_barackobama.zip"
+download.file(pth, destfile = "rt_barackobama.zip")
 
 # see file names
-unzip("socfb-Berkeley13.zip", list = TRUE)
+unzip("rt_barackobama.zip", list = TRUE)
 
 # unzip
-unz <- unzip("rt-pol.zip", "rt-pol.txt")
+unz <- unzip("rt_barackobama.zip", "rt_barackobama.edges")
 
 # TODO remove
 # quick look : looks like edge list
@@ -29,23 +29,26 @@ view(edges)
 
 # add id column
 nodes <- tibble::rowid_to_column(dat, "id")
-nodes <- nodes$id
-
 nodes <- data.frame(nodes)
+nodes <- nodes %>%
+  rename(
+    id = nodes
+  )
+view(nodes)
 
-visNetwork(nodes, edges)
+#visNetwork(nodes, edges)
 
 g <- graph_from_data_frame(dat, directed=FALSE)
 g
 
-ggraph(g) + 
-  geom_edge_link(aes(colour = factor(timestamp))) + 
-  geom_node_point()
+gg <- graph_from_data_frame(d = edges, vertices = nodes, directed = FALSE)
+gg
+plot.igraph(g)
 
-graph <- graph_from_data_frame(highschool)
-graph
-summary(graph)
-ggraph(graph) + 
-  geom_edge_link(aes(colour = factor(year))) + 
-  geom_node_point()
-view(highschool)
+# graph <- graph_from_data_frame(highschool)
+# graph
+# summary(graph)
+# ggraph(graph) + 
+#   geom_edge_link(aes(colour = factor(year))) + 
+#   geom_node_point()
+# view(highschool)
