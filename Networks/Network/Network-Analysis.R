@@ -65,6 +65,7 @@ net.close=as.numeric(betweenness(g))
 
 plot.igraph(g, label=0.0001)
 
+###########################################################
 el=as.matrix(dat)
 el[,1]=as.character(el[,1])
 el[,2]=as.character(el[,2])
