@@ -15,29 +15,42 @@ source("source/Network-Analysis-Get-Data.R")
 
 library(igraph)
 library(dplyr)
+library(tidyverse)
 
-# Drop 3rd columns of the dataframe
-select(dat,-c(3))
+# dat <- read.table(unz, sep=",")
+dat_tibble <- tibble::as_tibble(dat)
+dat <- dat_tibble %>%
+  rename(
+    from = V1,
+    to = V2)
+
+# Drop 3rd column of the dataframe
+dat <- select(dat,-c(3))
 
 # look
 head(dat)
 str(dat)
+g <- graph_from_data_frame(dat)
+summary(g)
+view(dat)
 
 # ensure that that the plots take most of the available page space
 par(oma=c(0,0,0,0),mar=c(0,0,0,0))
 
-g <- graph_from_data_frame(dat)
-gg <- graph.edgelist(dat,directed=FALSE)
+# gg <- graph.edgelist(dat,directed=FALSE)
 
-plot.igraph(g)
-plot.igraph(gg)
+# plot.igraph(g)
+# plot.igraph(gg)
+# plot.igraph(g,layout=layout.circle,
+#             vertex.label=V(g)$name,vertex.size=5,
+#             vertex.label.color="red",vertex.label.font=2,
+#             vertex.color="blue",edge.color="black")
 
-summary(g)
 
 
 
 # create a network graph
-g=graph.adjacency(as.matrix(dat),mode="undirected",
+g=graph.adjacency(as.matrix(dat),mode="directed",
                   weighted=NULL)
 
 summary(g)
