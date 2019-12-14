@@ -10,6 +10,7 @@ output:
     highlight: tango
     citation_package: natbib
     keep_tex: false
+    format: report
 ---
 
 The graph below shows the *Importance focus (MG)* category mean results. All the students are represented; student's sex was made distinguishable by a colour and student's studied subject by a shape.

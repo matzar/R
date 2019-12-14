@@ -14,7 +14,7 @@ output:
     keep_tex: false
 fontzise: 11pt
 geometry: margin=1.5in
-documentclass: article
+documentclass: report
 ---
 
 ```{r setup, include=FALSE}
