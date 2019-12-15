@@ -14,6 +14,7 @@ unz <- unzip("rt_barackobama.zip", "rt_barackobama.edges")
 
 dat <- read.table(unz, sep=",")
 # save as csv to use in python
+write.csv(dat,"barack_obama.csv", row.names = FALSE)
 
 # remove first line
 # dat <- read.table(unz, skip=1, sep=",")
@@ -41,10 +42,10 @@ view(nodes)
 
 g <- graph_from_data_frame(dat, directed=FALSE)
 g
-
-gg <- graph_from_data_frame(d = edges, vertices = nodes, directed = FALSE)
-gg
 plot.igraph(g)
+
+# gg <- graph_from_data_frame(d = edges, vertices = nodes, directed = FALSE)
+# gg
 
 # graph <- graph_from_data_frame(highschool)
 # graph
