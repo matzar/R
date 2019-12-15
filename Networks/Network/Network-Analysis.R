@@ -11,8 +11,6 @@
 # Description	Nodes are Twitter users and edges represent whether the users have retweeted each other. 
 # Third column represents the timestamp of the edge.
 
-source("source/Network-Analysis-Get-Data.R")
-
 library(igraph)
 library(dplyr)
 library(tidyverse)
@@ -20,6 +18,9 @@ library(ggraph)
 library(tidygraph)
 library(visNetwork)
 library(networkD3)
+
+source("source/Network-Analysis-Get-Data.R")
+
 
 ggraph(g)
 

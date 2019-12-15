@@ -10,11 +10,20 @@ unz <- unzip("rt_barackobama.zip", "rt_barackobama.edges")
 
 # TODO remove
 # quick look : looks like edge list
-# readLines(unz, n=10)
+readLines(unz, n=10)
 
 dat <- read.table(unz, sep=",")
+view(dat)
+# rename dat
+dat <- dat %>%
+  rename(
+    from = V1,
+    to = V2,
+    timestamps = V3
+  )
+view(dat)
 # save as csv to use in python
-write.csv(dat,"barack_obama.csv", row.names = FALSE)
+write.csv(dat,"barack_obama_gephi.csv", row.names = FALSE)
 
 # remove first line
 # dat <- read.table(unz, skip=1, sep=",")
