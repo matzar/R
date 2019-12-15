@@ -13,6 +13,7 @@ unz <- unzip("rt_barackobama.zip", "rt_barackobama.edges")
 # readLines(unz, n=10)
 
 dat <- read.table(unz, sep=",")
+# save as csv to use in python
 
 # remove first line
 # dat <- read.table(unz, skip=1, sep=",")
