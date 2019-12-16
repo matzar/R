@@ -68,6 +68,22 @@ Barack Obama’s node (id = 2506) had the highest score in closeness, betweennes
 - The highest eigenvector centrality score – it is the most influential node in the network.
 
 # Results
+It was also assumed that the biggest community of 7414 would be Barack Obama’s first-degree neighbours. This cannot be really well seen on the graph without any colouring or sizing:
+
+```{r, out.width="0.5\\linewidth", include=TRUE, fig.align="center", fig.cap=c("Graph without colouring or sizing"), echo=FALSE}
+knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/vanilla.pdf")
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 
