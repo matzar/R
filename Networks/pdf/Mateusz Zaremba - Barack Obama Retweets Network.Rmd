@@ -69,21 +69,53 @@ Barack Obama’s node (id = 2506) had the highest score in closeness, betweennes
 
 # Results
 It was also assumed that the biggest community of 7414 would be Barack Obama’s first-degree neighbours. This cannot be really well seen on the graph without any colouring or sizing:
-
 ```{r, out.width="0.5\\linewidth", include=TRUE, fig.align="center", fig.cap=c("Graph without colouring or sizing"), echo=FALSE}
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/vanilla.pdf")
 ```
 
+But we can immediately see Barack Obama’s node when we distinguish the node’s degree using sizing and colouring:
+```{r, out.width="0.5\\linewidth", include=TRUE, fig.align="center", fig.cap=c("Graph with node sizing and colouring"), echo=FALSE}
+knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/size\ colour\ node\ degree.pdf")
+```
+
+The graph becomes even more readable when we use colouring to represent the node’s score of closeness and the node’s sizing to represent its measure of betweenness.
+```{r, out.width="0.5\\linewidth", include=TRUE, fig.align="center", fig.cap=c("Colour - closeness. Size - betweenness"), echo=FALSE}
+knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/colour\ closeness\ -\ size\ betweenness\ with\ lgl.pdf")
+```
 
 
+The same graph was plotted using `Large Graph Layout` function:
+```{r, out.width="0.5\\linewidth", include=TRUE, fig.align="center", fig.cap=c("Plotted using Large Graph Layout"), echo=FALSE}
+knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/colour\ closeness\ -\ size\ betweenness\ with\ NO\ lgl.pdf")
+```
 
+Interesting results were achieved using Gephi (Gephi.org, 2019), were it is clearly visible that there is one central node in the network (Barack Obama).
 
+# Conclusion
+We managed to successfully identify the node which is very likely to be Barack Obama’s twitter account – the nodes id was 2506; find the shortest path between top two nodes with the highest degrees as well as the node with the highest and the lowest degree; identify 138 communities within the network and their range. 
 
+The size of the network proved it quite difficult to work with; calculation of the node betweenness and closeness centrality took approx. 40 minutes. Plotting did not take as much time - it took only a few moments; a big improvement was noticed when the nodes labels were not being displayed. Nonetheless, an attempt was made to speed up the process using - `with_lgl(…)` (Rdrr.io, 2019) function for `Large Graph Layout` but no improvement in rendering speed was noticed apart from a slightly better visual representation of communities. 
 
+One of the things that could be done in the future, when analysing even bigger networks, to improve calculation and render times, could be a usage of a GPU for network analysis. (Mathworks.com, 2019); e.g. Geforce GTS 250 has 450 cores working in parallel versus 4 on the CPU (Kajan and Slačka, 2019). 
 
+Overall, the data was well described and of a good quality; the original analysis provided a lot of good insight (Look table 1) and the size of the data was appropriate for a comprehensive analysis.
 
+# References
+Gephi.org. (2019). Gephi - The Open Graph Viz Platform. [online] Available at: https://gephi.org/ [Accessed 16 Dec. 2019].
 
+Kajan, S. and Slačka, J. (2019). COMPUTING OF NEURAL NETWORK ON GRAPHICS CARD. BSc. Slovak University of Technology in Bratislava.
 
+Mathworks.com. (2019). Neural Networks with Parallel and GPU Computing- MATLAB & Simulink. [online] Available at: https://www.mathworks.com/help/deeplearning/ug/neural-networks-with-parallel-and-gpu-computing.html;jsessionid=fad53e284f66e53b4d2665c85a87 [Accessed 16 Dec. 2019].
+
+Rdrr.io. (2019). layout_with_lgl: Large Graph Layout in igraph: Network Analysis and Visualization. [online] Available at: https://rdrr.io/cran/igraph/man/layout_with_lgl.html [Accessed 16 Dec. 2019].
+
+Rossi, R. and Ahmed, N. (2015). The Network Data Repository with Interactive Graph Analytics and Visualization. [online] Network Repository. Available at: http://networkrepository.com/rt-barackobama.php [Accessed 16 Dec. 2019].
+
+Sci.unich.it. (2019). Betweenness Centrality. [online] Available at: https://www.sci.unich.it/~francesc/teaching/network/betweeness.html [Accessed 16 Dec. 2019].
+
+Sciencedirect.com. (2019). Closeness Centrality - an overview | ScienceDirect Topics. [online] Available at: https://www.sciencedirect.com/topics/computer-science/closeness-centrality [Accessed 16 Dec. 2019].
+
+Stack Overflow. (2019). Using networkx to calculate eigenvector centrality. [online] Available at: https://stackoverflow.com/questions/43208737/using-networkx-to-calculate-eigenvector-centrality [Accessed 16 Dec. 2019].
 
 
 
