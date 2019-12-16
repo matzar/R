@@ -21,6 +21,13 @@ write.csv(dat,"barack_obama.csv", row.names = FALSE)
 
 # Drop 3rd column (V3) of the dataframe because it's only a timestamp
 dat <- select(dat,-c(3))
+dat <- dat %>%
+  rename(
+    from = V1,
+    to = V2
+  )
+view(dat)
+
 edges <- dat
 # rename edge list
 edges <- edges %>%

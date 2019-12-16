@@ -14,12 +14,12 @@
 source("source/Network-Analysis-Get-Data.R")
 
 library(igraph)
-library(dplyr)
+# library(dplyr)
 library(tidyverse)
 library(ggraph)
 library(tidygraph)
-library(visNetwork)
-library(networkD3)
+# library(visNetwork)
+# library(networkD3)
 
 ggraph(g)
 
@@ -66,13 +66,41 @@ net.close=as.numeric(betweenness(g))
 plot.igraph(g, label=0.0001)
 
 ###########################################################
-el=as.matrix(dat)
-el[,1]=as.character(el[,1])
-el[,2]=as.character(el[,2])
-g=graph.edgelist(el,directed=FALSE)
-fixed_layout=layout.kamada.kawai(g) # fixes the layout for your plots
-V(g)$size=5+(15)/diff(range(degree(g)))*degree(g)
-plot.igraph(g,vertex.label.cex=0.0001)
+# el=as.matrix(dat)
+# el[,1]=as.character(el[,1])
+# el[,2]=as.character(el[,2])
+# g=graph.edgelist(el,directed=FALSE)
+# fixed_layout=layout.kamada.kawai(g) # fixes the layout for your plots
+# V(g)$size=5+(15)/diff(range(degree(g)))*degree(g)
+# plot.igraph(g,vertex.label.cex=0.0001)
+
+BO_ggraph <- as_tbl_graph(g)
+class(BO_ggraph)
+class(g)
+
+BO_ggraph %>% 
+  activate(edges)
+
+ggraph(BO_ggraph) +
+  geom_edge_link(aes(colour = factor(timestamp))) + 
+  geom_node_point()
+
+ggraph(g) +
+  geom_edge_link(aes(colour = factor(timestamp))) + 
+  geom_node_point()
+
+ggraph(g) + geom_edge_link() + geom_node_point() + theme_graph()
+ggraph(BO_ggraph) + geom_edge_link() + geom_node_point() + theme_graph()
+
+# Create graph of highschool friendships
+graph <- as_tbl_graph(highschool) %>% 
+  mutate(Popularity = centrality_degree(mode = 'in'))
+
+# plot using ggraph
+ggraph(BO_ggraph, layout = 'kk') + 
+  # geom_edge_fan(aes(alpha = stat(index)), show.legend = FALSE) + 
+  geom_node_point() +
+  theme_graph(foreground = 'steelblue', fg_text_colour = 'white')
 
 # https://www.jessesadler.com/post/network-analysis-with-r/
 # http://networkrepository.com/rt.php
