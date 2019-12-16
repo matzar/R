@@ -40,6 +40,7 @@ V(g)$color=colors.new[degree(g)+1]
 
 # set vertex size according to degree of each vertex (min. size = 5)
 V(g)$size=5+(15)/diff(range(degree(g)))*degree(g)
+
 plot.igraph(g,vertex.label=NA)
 
 colors.new=rev(rainbow(10,end=4/6)) # creates a color palette for us to use
