@@ -97,10 +97,11 @@ graph <- as_tbl_graph(highschool) %>%
   mutate(Popularity = centrality_degree(mode = 'in'))
 
 # plot using ggraph
-ggraph(BO_ggraph, layout = 'kk') + 
-  # geom_edge_fan(aes(alpha = stat(index)), show.legend = FALSE) + 
+ggraph(g, layout = 'star') + 
+  geom_edge_fan(show.legend = FALSE) + 
   geom_node_point() +
-  theme_graph(foreground = 'steelblue', fg_text_colour = 'white')
+  scale_edge_color_brewer(palette = 'Dark2') +
+  theme_void()
 
 # https://www.jessesadler.com/post/network-analysis-with-r/
 # http://networkrepository.com/rt.php
