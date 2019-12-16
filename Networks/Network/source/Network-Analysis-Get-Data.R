@@ -8,16 +8,10 @@ unzip("rt_barackobama.zip", list = TRUE)
 # unzip
 unz <- unzip("rt_barackobama.zip", "rt_barackobama.edges")
 
-# TODO remove
-# quick look : looks like edge list
-# readLines(unz, n=10)
-
 dat <- read.table(unz, sep=",")
+
 # save as csv to use in python
 write.csv(dat,"barack_obama.csv", row.names = FALSE)
-
-# remove first line
-# dat <- read.table(unz, skip=1, sep=",")
 
 # Drop 3rd column (V3) of the dataframe because it's only a timestamp
 dat <- select(dat,-c(3))
