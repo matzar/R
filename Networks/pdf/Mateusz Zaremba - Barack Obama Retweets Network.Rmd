@@ -74,22 +74,25 @@ knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/vanilla.pd
 ```
 
 But we can immediately see Barack Obama’s node when we distinguish the node’s degree using sizing and colouring:
-```{r, out.width="0.5\\linewidth", include=TRUE, fig.align="center", fig.cap=c("Graph with node sizing and colouring"), echo=FALSE}
+```{r, out.width="0.2\\linewidth", include=TRUE, fig.align="center", fig.cap=c("Graph with node sizing and colouring"), echo=FALSE}
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/size\ colour\ node\ degree.pdf")
 ```
 
 The graph becomes even more readable when we use colouring to represent the node’s score of closeness and the node’s sizing to represent its measure of betweenness.
-```{r, out.width="0.5\\linewidth", include=TRUE, fig.align="center", fig.cap=c("Colour - closeness. Size - betweenness"), echo=FALSE}
+```{r, out.width="0.2\\linewidth", include=TRUE, fig.align="center", fig.cap=c("Colour - closeness. Size - betweenness"), echo=FALSE}
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/colour\ closeness\ -\ size\ betweenness\ with\ lgl.pdf")
 ```
 
-
 The same graph was plotted using `Large Graph Layout` function:
-```{r, out.width="0.5\\linewidth", include=TRUE, fig.align="center", fig.cap=c("Plotted using Large Graph Layout"), echo=FALSE}
+```{r, out.width="0.2\\linewidth", include=TRUE, fig.align="center", fig.cap=c("Plotted using Large Graph Layout"), echo=FALSE}
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/colour\ closeness\ -\ size\ betweenness\ with\ NO\ lgl.pdf")
 ```
 
-Interesting results were achieved using Gephi (Gephi.org, 2019), were it is clearly visible that there is one central node in the network (Barack Obama).
+Interesting results were achieved using `Gephi` (Gephi.org, 2019), were it is clearly visible that there is one central node in the network (Barack Obama).
+```{r, out.width="1.0\\linewidth", include=TRUE, fig.align="center", fig.cap=c("Plotted using Gephi"), echo=FALSE}
+knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/pdf/gephi.pdf")
+```
+
 
 # Conclusion
 We managed to successfully identify the node which is very likely to be Barack Obama’s twitter account – the nodes id was 2506; find the shortest path between top two nodes with the highest degrees as well as the node with the highest and the lowest degree; identify 138 communities within the network and their range. 
