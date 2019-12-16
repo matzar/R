@@ -103,6 +103,8 @@ One of the things that could be done in the future, when analysing even bigger n
 
 Overall, the data was well described and of a good quality; the original analysis provided a lot of good insight (Look table 1) and the size of the data was appropriate for a comprehensive analysis.
 
+\pagebreak
+
 # References
 Gephi.org. (2019). Gephi - The Open Graph Viz Platform. [online] Available at: https://gephi.org/ [Accessed 16 Dec. 2019].
 
@@ -119,6 +121,147 @@ Sci.unich.it. (2019). Betweenness Centrality. [online] Available at: https://www
 Sciencedirect.com. (2019). Closeness Centrality - an overview | ScienceDirect Topics. [online] Available at: https://www.sciencedirect.com/topics/computer-science/closeness-centrality [Accessed 16 Dec. 2019].
 
 Stack Overflow. (2019). Using networkx to calculate eigenvector centrality. [online] Available at: https://stackoverflow.com/questions/43208737/using-networkx-to-calculate-eigenvector-centrality [Accessed 16 Dec. 2019].
+
+\pagebreak
+
+# Appendix A
+Python code
+```python
+import networkx as nx
+import csv
+import matplotlib.pyplot as plt
+from operator import itemgetter
+from matplotlib.pyplot import figure
+
+BO_graph = nx.Graph()
+with open('barack_obama.csv','r') as BO:
+  columns = next(BO, None)# skip the header row
+  BO_graph = nx.parse_edgelist(BO, delimiter=',', create_using=nx.Graph(),
+    nodetype=str, data=(('type',str),('weight', float),('book',int)))
+
+# 1. Network size metrics
+# This will print the network's:
+# - Number of edges
+# - Number of nodes
+# - Average degree
+print(nx.info(BO_graph))
+
+# 2. Network structure metrics
+# degree('node id', node degree)
+highest_degree = max(BO_graph.degree(), key=lambda x : x[1])
+sorted_degree = sorted(BO_graph.degree(), key=lambda x : x[1], reverse=True)
+print('Top 10 highest degrees:', sorted_degree[:10])
+print('Highest degree:', highest_degree)
+
+# 3. Network Density
+density = nx.density(BO_graph)
+print('Network density is:', density)
+
+# 4. Shortest Path Between Two Nodes
+# 4.1 Shortest Path Between Top Two Highest Degree Nodes
+# Find ids of top 2 nodes with the highest degree
+top_two_degree_path = nx.shortest_path(
+  BO_graph, source=sorted_degree[0][0], target=sorted_degree[1][0])
+
+print(f'Shortest path between node {sorted_degree[0][0]}\
+  and node {sorted_degree[1][0]}:', top_two_degree_path)
+print('Length of this path:', len(top_two_degree_path)-1)
+
+# 4.2 Shortest Path Between Nodes With The Highest and The Loewst Degree
+highest_lowest_degree_path = nx.shortest_path(
+  BO_graph, source=sorted_degree[0][0], target=sorted_degree[-1][0])
+
+print(f'Shortest path between node with the highest degree of\
+  {sorted_degree[0][1]} and the node with the lowest degree of\ 
+  {sorted_degree[-1][1]}:',
+  highest_lowest_degree_path)
+print('Length of this path:', len(highest_lowest_degree_path)-1)
+
+# 5. Improving the network visualisation
+import community
+
+from collections import Counter
+
+parts = community.best_partition(BO_graph)
+values = [parts.get(node) for node in BO_graph.nodes()]
+
+print(Counter(values))
+print(f"Sizes of the communities range from\
+  {min(Counter(values).items(), key=lambda i : i[1])}")
+print(f"to {max(Counter(values).items(), key=lambda i : i[1])}")
+
+# 6.	Network Structure Connectivity
+if nx.is_connected(BO_graph):
+    print("Barack Obama network is fully connected and has no sub-networks")
+else:
+    print("Barack Obama network is NOT fully connected")
+
+# # 7. Network Hubs/Brokers
+# 7.1 Node betweenness
+betweenness_dict = nx.betweenness_centrality(BO_graph)
+
+# Assign each to an attribute in your network
+nx.set_node_attributes(BO_graph, betweenness_dict, 'betweenness')
+
+sorted_betweenness = sorted(betweenness_dict.items(), 
+  key=itemgetter(1), 
+  reverse=True)
+
+print("Top 20 nodes by betweenness centrality:")
+for i in sorted_betweenness[:20]:
+    print(i)
+# ('2506', 0.9894963970281675)
+# ('9302', 0.12282820504741454)
+# ('4143', 0.03144816600031404)
+# ...
+
+# # 7.2 Node closeness
+closeness_dict = nx.closeness_centrality(BO_graph)
+
+# Assign each to an attribute in your network
+nx.set_node_attributes(BO_graph, closeness_dict, 'closeness')
+
+sorted_closeness = sorted(closeness_dict.items(), 
+  key=itemgetter(1), 
+  reverse=True)
+
+print("Top 20 nodes by closeness centrality:")
+for i in sorted_closeness[:20]:
+    print(i)
+# ('2506', 0.6994988014818043)
+# ('6675', 0.4373297002724796)
+# ('8744', 0.4362993838347227)
+# ...
+
+# # 7.3 Node eigenvector centrailty
+# using: nx.eigenvector_centrality()
+# error: PowerIterationFailedConvergence: 
+# (PowerIterationFailedConvergence(...), 
+# 'power iteration failed to converge within 100 iterations')
+# use: nx.eigenvector_centrality_numpy()
+eigenvector_dict = nx.eigenvector_centrality_numpy(BO_graph)
+
+nx.set_node_attributes(BO_graph, eigenvector_dict, 'eigenvector')
+
+sorted_eigenvector = sorted(eigenvector_dict.items(), 
+  key=itemgetter(1), 
+  reverse=True)
+
+print("Top 20 nodes by eigenvector centrality:")
+for b in sorted_eigenvector[:20]:
+    print(b)
+# Top 20 nodes by eigenvector centrality:
+# ('2506', 0.7070870193199195)
+# ('8983', 0.00849854648835321)
+# ('8744', 0.008303338474194982)
+# ...
+```
+
+
+\pagebreak
+
+# Appendix B
+R code
 
 
 
