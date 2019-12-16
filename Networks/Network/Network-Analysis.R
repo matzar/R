@@ -50,8 +50,7 @@ V(g)$color=colors.new[net.close] # sets the color of each node according to the 
 net.between=as.numeric(betweenness(g)) # calculates betweenness of each node
 net.between=floor((net.between-min(net.between))/diff(range(net.between))*(length(colors.new)-1)+1) # "normalises" the score
 V(g)$size=5+(20)/diff(range(net.between))*net.between # sets the node size accoring the betweenness score
-
-plot.igraph(g,vertex.label.cex=0.5) # plots the network with these adjustments
+plot.igraph(g,vertex.label=NA) # plots the network with these adjustments
 
 # layout for big graphs
 area <- vcount(g)^2
