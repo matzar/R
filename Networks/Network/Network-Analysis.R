@@ -38,16 +38,30 @@ par(oma=c(0,0,0,0),mar=c(0,0,0,0))
 colors.new=rev(rainbow(max(degree(g))+1,end=2/3))
 V(g)$color=colors.new[degree(g)+1]
 
-graph <- g
-area <- vcount(graph)^2
-layout_with_lgl(graph, maxiter = 150, maxdelta = vcount(graph),
-                area = vcount(graph)^2, coolexp = 1.5, repulserad = area *
-                  vcount(graph), cellsize = sqrt(sqrt(area)), root = NULL)
+# set vertex size according to degree of each vertex (min. size = 5)
+V(g)$size=5+(15)/diff(range(degree(g)))*degree(g)
+plot.igraph(g,vertex.label=NA)
 
-with_lgl(plot.igraph(g))
+colors.new=rev(rainbow(10,end=4/6)) # creates a color palette for us to use
+net.close=as.numeric(closeness(g)) # calculates closeness metric for all nodes
+net.close=floor((net.close-min(net.close))/diff(range(net.close))*(length(colors.new)-1)+1) # normalises the closeness value
+V(g)$color=colors.new[net.close] # sets the color of each node according to the closenss score
 
-# plot graph
-plot.igraph(g)
+net.between=as.numeric(betweenness(g)) # calculates betweenness of each node
+net.between=floor((net.between-min(net.between))/diff(range(net.between))*(length(colors.new)-1)+1) # "normalises" the score
+V(g)$size=5+(20)/diff(range(net.between))*net.between # sets the node size accoring the betweenness score
+
+plot.igraph(g,vertex.label.cex=0.5) # plots the network with these adjustments
+
+# layout for big graphs
+area <- vcount(g)^2
+layout_with_lgl(g, maxiter = 150, maxdelta = vcount(g),
+                area = vcount(g)^2, coolexp = 1.5, repulserad = area *
+                  vcount(g), cellsize = sqrt(sqrt(area)), root = NULL)
+
+# plot g with lgl
+with_lgl(plot.igraph(g, vertex.label=NA))
+
 
 # How do we calculate some network metrics using R? Here we will look at calculating some basic network metrics using R.
 
