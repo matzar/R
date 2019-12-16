@@ -33,6 +33,19 @@ g
 
 # ensure that that the plots take most of the available page space
 par(oma=c(0,0,0,0),mar=c(0,0,0,0))
+
+# col
+colors.new=rev(rainbow(max(degree(g))+1,end=2/3))
+V(g)$color=colors.new[degree(g)+1]
+
+graph <- g
+area <- vcount(graph)^2
+layout_with_lgl(graph, maxiter = 150, maxdelta = vcount(graph),
+                area = vcount(graph)^2, coolexp = 1.5, repulserad = area *
+                  vcount(graph), cellsize = sqrt(sqrt(area)), root = NULL)
+
+with_lgl(plot.igraph(g))
+
 # plot graph
 plot.igraph(g)
 
@@ -43,6 +56,7 @@ plot.igraph(g)
 # A network can be characterised by an average degree.
 # Average degree
 mean(degree(g))
+degree(g)
 
 # The clustering coefficient is a measure of the “all-my-friends-know-each-other” property. 
 # Clusterin
@@ -96,12 +110,40 @@ ggraph(BO_ggraph) + geom_edge_link() + geom_node_point() + theme_graph()
 graph <- as_tbl_graph(highschool) %>% 
   mutate(Popularity = centrality_degree(mode = 'in'))
 
+# set degree of the graph
+V(g)$degree <- degree(g)
+
 # plot using ggraph
-ggraph(g, layout = 'star') + 
-  geom_edge_fan(show.legend = FALSE) + 
-  geom_node_point() +
+ggraph(g, layout = 'kk') + 
+  geom_edge_fan(show.legend = TRUE) + 
+  geom_node_point(aes(size = degree(g))) +
   scale_edge_color_brewer(palette = 'Dark2') +
   theme_void()
-
+# ###
+library(tweenr)
+igraph_layouts <- c('star', 'circle', 'gem', 'dh', 'graphopt', 'grid', 'mds',
+                    'randomly', 'fr', 'kk', 'drl', 'lgl')
+igraph_layouts <- sample(igraph_layouts)
+graph <- graph_from_data_frame(dat)
+V(graph)$degree <- degree(graph)
+layouts <- lapply(igraph_layouts, create_layout, graph = graph)
+layouts_tween <- tween_states(c(layouts, layouts[1]), tweenlength = 1,
+                              statelength = 1, ease = 'cubic-in-out',
+                              nframes = length(igraph_layouts) * 16 + 8)
+title_transp <- tween_t(c(0, 1, 0, 0, 0), 16, 'cubic-in-out')[[1]]
+for (i in seq_len(length(igraph_layouts) * 16)) {
+  tmp_layout <- layouts_tween[layouts_tween$.frame == i, ]
+  layout <- igraph_layouts[ceiling(i / 16)]
+  title_alpha <- title_transp[i %% 16]
+  p <- ggraph(graph, 'manual', node.position = tmp_layout) +
+    geom_edge_fan(aes(alpha = ..index.., colour = factor(year)), n = 15) +
+    geom_node_point(aes(size = degree)) +
+    scale_edge_color_brewer(palette = 'Dark2') +
+    ggtitle(paste0('Layout: ', layout)) +
+    theme_void() +
+    theme(legend.position = 'none',
+          plot.title = element_text(colour = alpha('black', title_alpha)))
+  plot(p)
+}
 # https://www.jessesadler.com/post/network-analysis-with-r/
 # http://networkrepository.com/rt.php
