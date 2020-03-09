@@ -203,7 +203,7 @@ knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/png/Screenshot\ 20
 To my best knowledge, the report presents complelling evidence for the conclusion that the node with an id of 2506 is Barack Obama's private twitter account; the vertices are the twitter users, the edges are the retweets, ergo the twitter users are connected by the retweets. 
 The only way the two users can get connected by a retweet is when one of them retweets a tweet of the other one; in other words, one of them must have retweeted the other because there is an edge (retweet) between the vertices (users).
 
-It is possible that 
+We could think that the vertex with the highest degree could be @POTUS44 (archival twitter account of Barack Obama when he was the US president from 2009 and 2017). Although this is unlikely, given that the data reference request (which can be found on the dateset's website) is dated to 2015. Which leaves us with a hypothesis that the data was collected from either @POTUS (which in 2015 was Barack Obama) or @BarackObama. The title of the network and no apparent reason why it would be taken from any other twitter account retweeting the original tweets by Barack Obama, leads me to a conclusion that the data was gathered from Barack Obama's offical twitter account but it is possible that, at the time, the data was gathered from the official POTUS twitter account.
 
 The Vox study shows that the democrats and the republicans, in the US, live in their own social bubbles on the internet (Data based on twitter). This might further the assumptions that people who have interacted with Barack Obama's tweets (by retweeting them) are most likely living in one of these bubbles and are his devotees.
 
