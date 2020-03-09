@@ -142,15 +142,21 @@ It was assumed that the biggest community of 7414 would be Barack Obama’s firs
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/vanilla.pdf")
 ```
 
+\pagebreak
+
 But we can immediately see Barack Obama’s node (The big red one, obstructed by a bunch of smaller, blue nodes) when we distinguish the node’s degree using sizing and colouring:
 ```{r, out.width="0.95\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/size\ colour\ node\ degree.pdf")
 ```
 
+\pagebreak
+
 The graph becomes even more readable when we use colouring to represent the node’s score of closeness and the node’s sizing to represent its measure of betweenness:
 ```{r, out.width="0.95\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/colour\ closeness\ -\ size\ betweenness\ with\ NO\ lgl.pdf")
 ```
+
+\pagebreak
 
 The same graph was plotted using `Large Graph Layout` function which slightly improved the readability of the graph:
 ```{r, out.width="0.95\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
@@ -159,16 +165,17 @@ knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/colour\ cl
 
 \pagebreak
 
-Interesting results were achieved using `Gephi` (Gephi.org, 2019), were it is clearly visible that there is one central node in the network (Barack Obama); there is also a small cluster which was marked with an orange frame:
-```{r, out.width="0.95\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
-knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/pdf/gephi\ copy.pdf")
+Interesting results were achieved using `Gephi` (Gephi.org, 2019), were it is clearly visible that there is one central node in the network (Barack Obama); there is also a one bigger cluster which was marked with an orange frame and many smaller ones which were marked with a green frame:
+```{r, out.width="0.94\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
+knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/pdf/graph\ marked.pdf")
 ```
+
+\pagebreak
 
 The small cluster up close:
 ```{r, out.width="1.00\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/png/cluster.png")
 ```
-
 
 \pagebreak
 
@@ -176,6 +183,9 @@ The same cluster showing the nodes id of 9302:
 ```{r, out.width="1.00\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/png/cluster_label.png")
 ```
+<!-- Abou the cluster 9302 -->
+
+
 
 \pagebreak
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.3.9)  9 MAR 2020 17:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.3.9)  9 MAR 2020 17:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -711,131 +711,132 @@ pe pdf)
 Package pdftex.def Info: /Users/mateuszzaremba/dev/R/Networks/Network/vanilla.p
 df  used on input line 334.
 (pdftex.def)             Requested size: 218.62094pt x 309.00876pt.
+[5 </Users/mateuszzaremba/dev/R/Networks/Network/vanilla.pdf>]
 </Users/mateuszzaremba/dev/R/Networks/Network/size colour node degree.pdf, id=1
-35, 597.23125pt x 844.15375pt>
+43, 597.23125pt x 844.15375pt>
 File: /Users/mateuszzaremba/dev/R/Networks/Network/size colour node degree.pdf 
 Graphic file (type pdf)
 <use /Users/mateuszzaremba/dev/R/Networks/Network/size colour node degree.pdf>
 Package pdftex.def Info: /Users/mateuszzaremba/dev/R/Networks/Network/size colo
-ur node degree.pdf  used on input line 340.
+ur node degree.pdf  used on input line 342.
 (pdftex.def)             Requested size: 377.61551pt x 533.7389pt.
-[5 </Users/mateuszzaremba/dev/R/Networks/Network/vanilla.pdf>]
+[6 </Users/mateuszzaremba/dev/R/Networks/Network/size colour node degree.pdf>]
 </Users/mateuszzaremba/dev/R/Networks/Network/colour closeness - size betweenne
-ss with NO lgl.pdf, id=144, 597.23125pt x 844.15375pt>
+ss with NO lgl.pdf, id=151, 597.23125pt x 844.15375pt>
 File: /Users/mateuszzaremba/dev/R/Networks/Network/colour closeness - size betw
 eenness with NO lgl.pdf Graphic file (type pdf)
 <use /Users/mateuszzaremba/dev/R/Networks/Network/colour closeness - size betwe
 enness with NO lgl.pdf>
 Package pdftex.def Info: /Users/mateuszzaremba/dev/R/Networks/Network/colour cl
-oseness - size betweenness with NO lgl.pdf  used on input line 346.
+oseness - size betweenness with NO lgl.pdf  used on input line 350.
 (pdftex.def)             Requested size: 377.61551pt x 533.7389pt.
-[6 </Users/mateuszzaremba/dev/R/Networks/Network/size colour node degree.pdf>]
+[7 </Users/mateuszzaremba/dev/R/Networks/Network/colour closeness - size betwee
+nness with NO lgl.pdf>]
 </Users/mateuszzaremba/dev/R/Networks/Network/colour closeness - size betweenne
-ss with lgl.pdf, id=152, 597.23125pt x 844.15375pt>
+ss with lgl.pdf, id=161, 597.23125pt x 844.15375pt>
 File: /Users/mateuszzaremba/dev/R/Networks/Network/colour closeness - size betw
 eenness with lgl.pdf Graphic file (type pdf)
 <use /Users/mateuszzaremba/dev/R/Networks/Network/colour closeness - size betwe
 enness with lgl.pdf>
 Package pdftex.def Info: /Users/mateuszzaremba/dev/R/Networks/Network/colour cl
-oseness - size betweenness with lgl.pdf  used on input line 351.
+oseness - size betweenness with lgl.pdf  used on input line 357.
 (pdftex.def)             Requested size: 377.61551pt x 533.7389pt.
-[7 </Users/mateuszzaremba/dev/R/Networks/Network/colour closeness - size betwee
-nness with NO lgl.pdf>] [8 </Users/mateuszzaremba/dev/R/Networks/Network/colour
- closeness - size betweenness with lgl.pdf>]
-</Users/mateuszzaremba/dev/R/Networks/pdf/gephi copy.pdf, id=169, 597.52231pt x
- 845.0471pt>
-File: /Users/mateuszzaremba/dev/R/Networks/pdf/gephi copy.pdf Graphic file (typ
-e pdf)
-<use /Users/mateuszzaremba/dev/R/Networks/pdf/gephi copy.pdf>
-Package pdftex.def Info: /Users/mateuszzaremba/dev/R/Networks/pdf/gephi copy.pd
-f  used on input line 358.
-(pdftex.def)             Requested size: 377.6172pt x 534.04587pt.
-[9 </Users/mateuszzaremba/dev/R/Networks/pdf/gephi copy.pdf>]
-</Users/mateuszzaremba/dev/R/Networks/png/cluster.png, id=178, 677.53125pt x 65
+[8 </Users/mateuszzaremba/dev/R/Networks/Network/colour closeness - size betwee
+nness with lgl.pdf>]
+</Users/mateuszzaremba/dev/R/Networks/pdf/graph marked.pdf, id=169, 597.52231pt
+ x 845.0471pt>
+File: /Users/mateuszzaremba/dev/R/Networks/pdf/graph marked.pdf Graphic file (t
+ype pdf)
+<use /Users/mateuszzaremba/dev/R/Networks/pdf/graph marked.pdf>
+Package pdftex.def Info: /Users/mateuszzaremba/dev/R/Networks/pdf/graph marked.
+pdf  used on input line 367.
+(pdftex.def)             Requested size: 373.642pt x 528.42392pt.
+[9] [10 </Users/mateuszzaremba/dev/R/Networks/pdf/graph marked.pdf>]
+</Users/mateuszzaremba/dev/R/Networks/png/cluster.png, id=182, 677.53125pt x 65
 4.445pt>
 File: /Users/mateuszzaremba/dev/R/Networks/png/cluster.png Graphic file (type p
 ng)
 <use /Users/mateuszzaremba/dev/R/Networks/png/cluster.png>
 Package pdftex.def Info: /Users/mateuszzaremba/dev/R/Networks/png/cluster.png  
-used on input line 362.
+used on input line 373.
 (pdftex.def)             Requested size: 397.49657pt x 383.95224pt.
-[10 </Users/mateuszzaremba/dev/R/Networks/png/cluster.png>]
-</Users/mateuszzaremba/dev/R/Networks/png/cluster_label.png, id=184, 770.88pt x
+[11 </Users/mateuszzaremba/dev/R/Networks/png/cluster.png>]
+</Users/mateuszzaremba/dev/R/Networks/png/cluster_label.png, id=188, 770.88pt x
  665.48625pt>
 File: /Users/mateuszzaremba/dev/R/Networks/png/cluster_label.png Graphic file (
 type png)
 <use /Users/mateuszzaremba/dev/R/Networks/png/cluster_label.png>
 Package pdftex.def Info: /Users/mateuszzaremba/dev/R/Networks/png/cluster_label
-.png  used on input line 368.
+.png  used on input line 379.
 (pdftex.def)             Requested size: 397.48402pt x 343.1405pt.
-[11 </Users/mateuszzaremba/dev/R/Networks/png/cluster_label.png>]
+[12 </Users/mateuszzaremba/dev/R/Networks/png/cluster_label.png>]
 </Users/mateuszzaremba/dev/R/Networks/png/Screenshot 2019-12-17 at 19.01.19.png
-, id=190, 760.8425pt x 580.1675pt>
+, id=194, 760.8425pt x 580.1675pt>
 File: /Users/mateuszzaremba/dev/R/Networks/png/Screenshot 2019-12-17 at 19.01.1
 9.png Graphic file (type png)
 <use /Users/mateuszzaremba/dev/R/Networks/png/Screenshot 2019-12-17 at 19.01.19
 .png>
 Package pdftex.def Info: /Users/mateuszzaremba/dev/R/Networks/png/Screenshot 20
-19-12-17 at 19.01.19.png  used on input line 376.
+19-12-17 at 19.01.19.png  used on input line 387.
 (pdftex.def)             Requested size: 397.4979pt x 303.10524pt.
-[12 </Users/mateuszzaremba/dev/R/Networks/png/Screenshot 2019-12-17 at 19.01.19
-.png>] [13]
-Underfull \hbox (badness 1888) in paragraph at lines 423--427
+[13 </Users/mateuszzaremba/dev/R/Networks/png/Screenshot 2019-12-17 at 19.01.19
+.png>] [14]
+Underfull \hbox (badness 1888) in paragraph at lines 434--438
 []\T1/lmr/m/n/10 Mathworks.com. (2019). Neu-ral Net-works with Par-al-lel and G
 PU Computing-
  []
 
 
-Underfull \hbox (badness 2426) in paragraph at lines 423--427
+Underfull \hbox (badness 2426) in paragraph at lines 434--438
 \T1/lmr/m/n/10 MAT-LAB & Simulink. [on-line] Avail-able at: []$https : / / www 
 . mathworks . com / help /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--427
+Underfull \hbox (badness 10000) in paragraph at lines 434--438
 \T1/lmr/m/n/10 deeplearning / ug / neural -[] networks -[] with -[] parallel -[
 ] and -[] gpu -[] computing . html ; jsessionid =
  []
 
 
-Underfull \hbox (badness 1571) in paragraph at lines 433--438
+Underfull \hbox (badness 1571) in paragraph at lines 444--449
 []\T1/lmr/m/n/10 Rossi, R. and Ahmed, N. (2015). The Net-work Data Repos-i-tory
  with In-ter-ac-
  []
 
-[14]
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 473.
 [15]
-Underfull \vbox (badness 10000) detected at line 596
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 484.
+[16]
+Underfull \vbox (badness 10000) detected at line 607
  []
 
 
-Underfull \vbox (badness 10000) detected at line 596
+Underfull \vbox (badness 10000) detected at line 607
  []
 
-[16] [17]
-Overfull \vbox (0.90938pt too high) detected at line 687
+[17] [18]
+Overfull \vbox (0.90938pt too high) detected at line 698
  []
 
-[18]
+[19]
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 690.
-[19]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 690.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 701.
+[20]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 701.
 (./Mateusz-Zaremba-Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 690.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 690.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 701.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 701.
 Package rerunfilecheck Info: File `Mateusz-Zaremba-Report.out' has not changed.
 
 (rerunfilecheck)             Checksum: 5B4B4B0C7980C6EA2FFB315278EADA9F;2641.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 690.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 701.
  ) 
 Here is how much of TeX's memory you used:
- 11957 strings out of 482895
- 174520 string characters out of 5956840
+ 11958 strings out of 482895
+ 174541 string characters out of 5956840
  425101 words of memory out of 5000000
  26952 multiletter control sequences out of 15000+600000
  583819 words of font info for 69 fonts, out of 8000000 for 9000
@@ -861,10 +862,10 @@ TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></Users/mateuszzaremba/Libr
 ary/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></Users/mateuszzaremba/
 Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></Users/mateuszzar
 emba/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Mateusz-Zaremba-Report.pdf (19 pages, 7302509 bytes).
+Output written on Mateusz-Zaremba-Report.pdf (20 pages, 6339277 bytes).
 PDF statistics:
- 315 PDF objects out of 1000 (max. 8388607)
- 260 compressed objects within 3 object streams
- 60 named destinations out of 1000 (max. 500000)
+ 320 PDF objects out of 1000 (max. 8388607)
+ 264 compressed objects within 3 object streams
+ 61 named destinations out of 1000 (max. 500000)
  198 words of extra memory for PDF output out of 10000 (max. 10000000)
 
