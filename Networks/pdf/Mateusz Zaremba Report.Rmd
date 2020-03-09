@@ -40,8 +40,7 @@ I wanted to see if by performing a set of tests on the network, it would be poss
 
 <!-- X what form was the dataset in (edge list or triangular matrix);  -->
 
-<!-- X what questions would they like to answer about the dataset; --> -->
-
+<!-- X what questions would they like to answer about the dataset; -->
 
 # Methods
 The network was analysed using R and Python programming languages, and Gephi software package. The data statistics were calculated using Python; the data preparation and manipulation was done using R; the data visualisation was done using R and Gephi.
@@ -52,9 +51,10 @@ The data was prepared using R programming language and RStudio software; the dat
 
 By default, R names the columns like this:
 
-<!-- $$  x =  \big\{V1, V2, ... , VN \mid N \in \mathbb{N} \big\}  $$ -->
+$$  x =  \big\{V1, V2, ... , VN \mid N \in \mathbb{N} \big\}  $$
 
 To make the data manipulation easier the columns were renamed such that:
+
 | Previous column name | Current column name |
 | - | - |
 | V1 | from |
@@ -68,12 +68,15 @@ Later, the data was saved in a `.csv` format so it could be easly loaded into me
 
 <!-- X which metrics did they use to analyse the data;  -->
 ## Metadata
-The following metadata can be found on the [http://networkrepository.com/rt-barackobama.php](http://networkrepository.com/rt-barackobama.php) website: 
-<!-- |   | Metadata  | | -->
-<!-- | - | -| - | -->
-<!-- | Number of nodes | 9631 | 9.6K | -->
-<!-- | Number of edges | 9775 | 9.8K | -->
-<!-- | Average degree  | 2.0299 | 2  -->
+The following metadata (which can be found on the [http://networkrepository.com/rt-barackobama.php](http://networkrepository.com/rt-barackobama.php) website) were used in the network analysis:
+
+| | Metadata | |
+| - | - |
+| Collection | Retweet Network |
+| | |
+| | |
+| | |
+| | |
 
 ## Network size metrics
 The following metrics were used to analyse the data: 
@@ -155,9 +158,8 @@ knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/pdf/gephi.pdf")
 
 And for the final proof, here is a zoom of the same graph generated with Gephi and node labels on, where it is clearly visible that the most central node, has an id of 2506:
 ```{r, out.width="1.00\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
-knitr::include_graphics("/Users/mateuszzaremba/Desktop/Screenshot\ 2019-12-17\ at\ 19.01.19.png")
+knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/png/Screenshot\ 2019-12-17\ at\ 19.01.19.png")
 ```
-
 
 
 
