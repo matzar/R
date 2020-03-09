@@ -1,7 +1,7 @@
 ---
-title: "Barack Obama Retweets Network"
+title: "Barack Obama Retweet Network"
 author: Mateusz Zaremba
-date: December 16, 2019
+date: March 9, 2020
 output: 
   pdf_document:
     toc: false
@@ -55,14 +55,14 @@ $$  x =  \big\{V1, V2, ... , VN \mid N \in \mathbb{N} \big\}  $$
 
 To make the data manipulation easier the columns were renamed such that:
 
-| Previous column name | Current column name |
+| Previous column name | Changed column name |
 | - | - |
 | V1 | from |
 | V2 | to |
 
 Later, the data was saved in a `.csv` format so it could be easly loaded into memory using Python programming language. 
 
-<!-- definitions of the network metrics used any code should be provided in the Appendix of the report or as separate files; -->
+<!-- X definitions of the network metrics used; any code should be provided in the Appendix of the report or as separate files; -->
 <!-- Comment -->
 <!-- methods section is not well presented - an explicit description of the nodes and edges is not given until near the end of this section. Some assumptions are stated as fact (Obama is the highest degree node for example). -->
 
@@ -70,13 +70,18 @@ Later, the data was saved in a `.csv` format so it could be easly loaded into me
 ## Metadata
 The following metadata (which can be found on the [http://networkrepository.com/rt-barackobama.php](http://networkrepository.com/rt-barackobama.php) website) were used in the network analysis:
 
-| | Metadata | |
-| Category | Sparse Network |
-| Collection | Retweet Network |
-| Vertex type | User |
-| Edge type | Retweet |
-| Edge weights | Unweighted |
-| Description | Nodes are twitter users and edges are retweets. These were collected from various social and political hashtags |
+```{r, out.width="1.00\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
+knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/png/Metadata.png")
+```
+
+<!-- | | Metadata | | -->
+<!-- | - | - | - | -->
+<!-- | Category | Sparse Network | -->
+<!-- | Collection | Retweet Network | -->
+<!-- | Vertex type | User | -->
+<!-- | Edge type | Retweet | -->
+<!-- | Edge weights | Unweighted | -->
+<!-- | Description | Nodes are twitter users and edges are retweets. These were collected from various social and political hashtags | -->
 
 The dataset creators stated that the data was collected from "various social and political hashtags". It is not clear what methods they used but I suspect that once a user (which later will become a vertex in the network) which retweeted Barack Obama's tweet, a retweet link (the edge in the network) was created. Later, in the dataset visualisation, it is clearly visible that some people retweeted the retweets of someone who retweeted Barack Obama's tweet. This would create a path in the network to Barack Obama. The creators did not state if the network was simple or not but the fact the the network is sparse tells us that the creators took the steps to improve the network's efficiency in loading into memory and computation time. The sparcity statistic was not given so it is not certain to what degree the network's connection weights were reduced to 0 or very close to 0. The creators did not also specifically state if the network is simple or not but their efforts to make it as efficient as possible lead me to assumption that the network is a simple one, meaning it contains no loops or multiple edges; the visual analysis as well as the size metrics confirm this assumption which I elaborate in the next section.
 
@@ -126,11 +131,13 @@ Barack Obama’s node (id = 2506) had the highest score in closeness, betweennes
 
 # Results
 <!-- Have they been able to answer the queries they wished to pose as described in the introduction; visualisation(s) of the network structure; results from the analyses described in methods; -->
+The network is a retweet network of Barack Obama's tweets. It is not obvious that Barack Obama's  @BarackObama is in the network; the highest degree vertex could be someone who's retweeted Barack Obama a thousand of times. At the time, it could had been his officail @POTUS twitter account which used to retweet every tweet from his private @BarackObama twitter account. This would mean that evey single person in the network has retweeted the POTUS account insted of Barack Obama's - @POTUS account gets thousands of retweets so it's possible. But given the fact that it is "Barack Obama's retweet network" I think it is more plausible that the highest degree vertex is Barack Obama's private twitter account. 
 
 <!-- Comments -->
 <!-- Results section is mainly comprised of different visualisations of the network (metric calculations are in Methods section but are taken into account here).  -->
 
-It was also assumed that the biggest community of 7414 would be Barack Obama’s first-degree neighbours. This cannot be really well seen on the graph without any colouring or sizing:
+## Data Visualisation
+It was assumed that the biggest community of 7414 would be Barack Obama’s first-degree neighbours. This cannot be really well seen on the graph without any colouring or sizing:
 ```{r, out.width="0.55\\linewidth", keepaspectratio, include=TRUE, fig.align="center", echo=FALSE}
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/vanilla.pdf")
 ```
@@ -150,10 +157,27 @@ The same graph was plotted using `Large Graph Layout` function which slightly im
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/colour\ closeness\ -\ size\ betweenness\ with\ lgl.pdf")
 ```
 
-Interesting results were achieved using `Gephi` (Gephi.org, 2019), were it is clearly visible that there is one central node in the network (Barack Obama):
+\pagebreak
+
+Interesting results were achieved using `Gephi` (Gephi.org, 2019), were it is clearly visible that there is one central node in the network (Barack Obama); there is also a small cluster which was marked with an orange frame:
 ```{r, out.width="0.95\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
-knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/pdf/gephi.pdf")
+knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/pdf/gephi\ copy.pdf")
 ```
+
+The small cluster up close:
+```{r, out.width="1.00\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
+knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/png/cluster.png")
+```
+
+
+\pagebreak
+
+The same cluster showing the nodes id of 9302:
+```{r, out.width="1.00\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
+knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/png/cluster_label.png")
+```
+
+\pagebreak
 
 And for the final proof, here is a zoom of the same graph generated with Gephi and node labels on, where it is clearly visible that the most central node, has an id of 2506:
 ```{r, out.width="1.00\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
@@ -161,14 +185,15 @@ knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/png/Screenshot\ 20
 ```
 
 
-
 # Conclusion
-<!-- What can be inferred from their analysis of the network; If they could answer their initial questions, what were the answers; was the dataset detailed enough - if not what other information could have been useful in the analysis; what problems did they encounter; how could they have overcame them; -->
-
 <!-- Comment-->
 <!-- Student does state that they have "very likely" identified barack Obama's node (although I disagree - if edges are retweets then is he likely to have retweeted so much of his own posts? This is out of character for him in my opinion. This node is more likely a close family member, publicist or close friend). Conclusions are a bit scarce - further analysis on any communities within this network should have been suggested (or better carried out here). -->
 
-We managed to successfully identify the node which is very likely to be Barack Obama’s twitter account – the nodes id was 2506; find the shortest path between top two nodes with the highest degrees as well as the node with the highest and the lowest degree; identify 138 communities within the network and their range; calculate and analyse the network's closeness, betweenness and eigenvector centrality; conduct a comprehensive visual analysis.
+<!-- What can be inferred from their analysis of the network; If they could answer their initial questions, what were the answers; was the dataset detailed enough - if not what other information could have been useful in the analysis; what problems did they encounter; how could they have overcame them; -->
+
+To my best knowledge, the raport presents complelling evidence for the conclusion that the node with an id of 2506 is Barack Obama's private twitter account.
+
+find the shortest path between top two nodes with the highest degrees as well as the node with the highest and the lowest degree; identify 138 communities within the network and their range; calculate and analyse the network's closeness, betweenness and eigenvector centrality; conduct a comprehensive visual analysis.
 
 The size of the network proved it quite difficult to work with; calculation of the node betweenness and closeness centrality took approx. 40 minutes. Plotting of the network in R took only a few moments but it was only due to the fact that the nodes' labels were not being displayed, otherwise, it was taking approx. 5-10 minutes to plot. Nonetheless, an attempt was made to speed up the process using `with_lgl(…)` (Rdrr.io, 2019) function for `Large Graph Layout` (See Appendix B) but no improvement in rendering speed was noticed apart from a slightly better visual representation of the communities. 
 
