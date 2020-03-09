@@ -81,15 +81,13 @@ The following metadata (which can be found on the [http://networkrepository.com/
 The dataset creators stated that the data was collected from "various social and political hashtags". It is not clear what methods they used but I suspect that once a user (which later will become a vertex in the network) which retweeted Barack Obama's tweet, a retweet link (the edge in the network) was created. Later, in the dataset visualisation, it is clearly visible that some people retweeted the retweets of someone who retweeted Barack Obama's tweet. This would create a path in the network to Barack Obama. The creators did not state if the network was simple or not but the fact the the network is sparse tells us that the creators took the steps to improve the network's efficiency in loading into memory and computation time. The sparcity statistic was not given so it is not certain to what degree the network's connection weights were reduced to 0 or very close to 0. The creators did not also specifically state if the network is simple or not but their efforts to make it as efficient as possible lead me to assumption that the network is a simple one, meaning it contains no loops or multiple edges; the visual analysis as well as the size metrics confirm this assumption which I elaborate in the next section.
 
 ## Network size metrics
-
-The analysis conducted with Python relied on the correct data prepartion in R; it was crucial for further analysis for the statistics from the ‘Network Repository’ website, like number of nodes, number of edges, average degree etc. (Rossi and Ahmed, 2015) to match the ones I calcuated. The statistics matched and the comparision of the reults is presented in the table below:
+The analysis conducted with Python relied on the correct data prepartion in R; it was crucial for further analysis for the statistics from the ‘Network Repository’ website, like *number of nodes*, *number of edges*, *average degree* etc. (Rossi and Ahmed, 2015) to match the ones I calculated. The statistics matched and the comparision of the reults is presented in the table below:
 
 |   | Calculated Statistics | Website Statistics |
 | - | -------------------| --------------------- |
 | Number of nodes | 9631 | 9.6K |
 | Number of edges | 9775 | 9.8K |
 | Average degree  | 2.0299 | 2 |
-Table: The results are the same which confirms the correct data preparation (in R) and calculation (in Python).
 
 ## Network Structure Metrics
 Our graph in undirected so it does not contain in- or out-degrees. Instead, we found the highest degree node - it had an id of 2506 and degree of 7655; this was likely Barack Obama’s twitter account since it is the most connected.
