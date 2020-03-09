@@ -21,7 +21,24 @@ documentclass: article
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE, tidy = FALSE, cache = FALSE)
 ```
 
+# Introduction
+<!-- Brief description of the dataset used; -->
+
+<!-- what interested the student about the dataset;  -->
+
+<!-- from where was the dataset obtained;  -->
+
+<!-- what form was the dataset in (edge list or triangular matrix);  -->
+
+<!-- what questions would they like to answer about the dataset; --> -->
+
+
 # Methods
+<!-- What data preparation did they have to carry out; which metrics did they use to analyse the data; definitions of the network metrics used; any code should be provided in the Appendix of the report or as separate files; -->
+
+<!-- Comment -->
+<!-- methods section is not well presented - an explicit description of the nodes and edges is not given until near the end of this section. Some assumptions are stated as fact (Obama is the highest degree node for example). -->
+
 ## Network size metrics
 The data was downloaded from [http://networkrepository.com/rt-barackobama.php](http://networkrepository.com/rt-barackobama.php) website. The data was prepared and visualised using R programming language and statistics were calculated in Python; on the ‘Network Repository’ website we can find already calculated network data statistics, like number of nodes, number of edges, average degree etc.; (Rossi and Ahmed, 2015). I created a network graph in python programming language using networkx library and compared the obtained statistics with the ones from the website; turns out they were exactly the same, which gave me confidence that I prepared the data correctly.
 
@@ -68,6 +85,11 @@ Barack Obama’s node (id = 2506) had the highest score in closeness, betweennes
 - The highest eigenvector centrality score – it is the most influential node in the network.
 
 # Results
+<!-- Have they been able to answer the queries they wished to pose as described in the introduction; visualisation(s) of the network structure; results from the analyses described in methods; -->
+
+<!-- Comments -->
+<!-- Results section is mainly comprised of different visualisations of the network (metric calculations are in Methods section but are taken into account here).  -->
+
 It was also assumed that the biggest community of 7414 would be Barack Obama’s first-degree neighbours. This cannot be really well seen on the graph without any colouring or sizing:
 ```{r, out.width="0.55\\linewidth", keepaspectratio, include=TRUE, fig.align="center", echo=FALSE}
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/vanilla.pdf")
@@ -102,6 +124,11 @@ knitr::include_graphics("/Users/mateuszzaremba/Desktop/Screenshot\ 2019-12-17\ a
 
 
 # Conclusion
+<!-- What can be inferred from their analysis of the network; If they could answer their initial questions, what were the answers; was the dataset detailed enough - if not what other information could have been useful in the analysis; what problems did they encounter; how could they have overcame them; -->
+
+<!-- Comment-->
+<!-- Student does state that they have "very likely" identified barack Obama's node (although I disagree - if edges are retweets then is he likely to have retweeted so much of his own posts? This is out of character for him in my opinion. This node is more likely a close family member, publicist or close friend). Conclusions are a bit scarce - further analysis on any communities within this network should have been suggested (or better carried out here). -->
+
 We managed to successfully identify the node which is very likely to be Barack Obama’s twitter account – the nodes id was 2506; find the shortest path between top two nodes with the highest degrees as well as the node with the highest and the lowest degree; identify 138 communities within the network and their range; calculate and analyse the network's closeness, betweenness and eigenvector centrality; conduct a comprehensive visual analysis.
 
 The size of the network proved it quite difficult to work with; calculation of the node betweenness and closeness centrality took approx. 40 minutes. Plotting of the network in R took only a few moments but it was only due to the fact that the nodes' labels were not being displayed, otherwise, it was taking approx. 5-10 minutes to plot. Nonetheless, an attempt was made to speed up the process using `with_lgl(…)` (Rdrr.io, 2019) function for `Large Graph Layout` (See Appendix B) but no improvement in rendering speed was noticed apart from a slightly better visual representation of the communities. 
