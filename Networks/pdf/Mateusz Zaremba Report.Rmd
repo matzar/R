@@ -184,7 +184,7 @@ The same cluster showing the nodes id of 9302:
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/png/cluster_label.png")
 ```
 <!-- About the cluster 9302 -->
-This, as well as the other smaller clusters, are likely to be some organisations, people actively supporting Barack Obama or his close family members and friends.
+This, as well as the other smaller clusters, are likely to be some organisations, people actively supporting Barack Obama or his close family members and friends who would be actively retweeting his tweets.
 
 \pagebreak
 
@@ -200,7 +200,10 @@ knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/png/Screenshot\ 20
 
 <!-- What can be inferred from their analysis of the network; If they could answer their initial questions, what were the answers; was the dataset detailed enough - if not what other information could have been useful in the analysis; what problems did they encounter; how could they have overcame them; -->
 
-To my best knowledge, the raport presents complelling evidence for the conclusion that the node with an id of 2506 is Barack Obama's private twitter account.
+To my best knowledge, the report presents complelling evidence for the conclusion that the node with an id of 2506 is Barack Obama's private twitter account; the vertices are the twitter users, the edges are the retweets, ergo the twitter users are connected by the retweets. 
+The only way the two users can get connected by a retweet is when one of them retweets a tweet of the other one; in other words, one of them must have retweeted the other because there is an edge (retweet) between the vertices (users).
+
+It is possible that 
 
 find the shortest path between top two nodes with the highest degrees as well as the node with the highest and the lowest degree; identify 138 communities within the network and their range; calculate and analyse the network's closeness, betweenness and eigenvector centrality; conduct a comprehensive visual analysis.
 
