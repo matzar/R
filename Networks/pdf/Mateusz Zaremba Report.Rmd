@@ -183,9 +183,8 @@ The same cluster showing the nodes id of 9302:
 ```{r, out.width="1.00\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/png/cluster_label.png")
 ```
-<!-- Abou the cluster 9302 -->
-
-
+<!-- About the cluster 9302 -->
+This, as well as the other smaller clusters, are likely to be some organisations, people actively supporting Barack Obama or his close family members and friends.
 
 \pagebreak
 
