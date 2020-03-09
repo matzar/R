@@ -22,22 +22,32 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FA
 ```
 
 # Introduction
-<!-- Brief description of the dataset used; -->
+<!-- X Brief description of the dataset used; -->
+In this report I will present a dataset obtained from the from [http://networkrepository.com/rt-barackobama.php](http://networkrepository.com/rt-barackobama.php) website; it is a retweet network of the US president Barack Obama. The network was downloaded in a form of an edge list.
 
-<!-- what interested the student about the dataset;  -->
+I wanted to see if by performing a set of tests on the network, it would be possible to identify Barack Obama's vertex. I believe I succeded to identify the aformnetioned vertex with a considerable degree of confidence. I will present my reasoning and methods which led to me to such conclusion. 
 
-<!-- from where was the dataset obtained;  -->
+<!-- X what interested the student about the dataset;  -->
 
-<!-- what form was the dataset in (edge list or triangular matrix);  -->
+<!-- X from where was the dataset obtained;  -->
 
-<!-- what questions would they like to answer about the dataset; --> -->
+<!-- X what form was the dataset in (edge list or triangular matrix);  -->
+
+<!-- X what questions would they like to answer about the dataset; --> -->
 
 
 # Methods
-<!-- What data preparation did they have to carry out; which metrics did they use to analyse the data; definitions of the network metrics used; any code should be provided in the Appendix of the report or as separate files; -->
+<!-- What data preparation did they have to carry out; -->
+
+<!-- which metrics did they use to analyse the data;  -->
+
+<!-- definitions of the network metrics used any code should be provided in the Appendix of the report or as separate files;
 
 <!-- Comment -->
 <!-- methods section is not well presented - an explicit description of the nodes and edges is not given until near the end of this section. Some assumptions are stated as fact (Obama is the highest degree node for example). -->
+
+## Data Preparation
+The data was prepared using R programming language and RStudio software; after downloading it from the code
 
 ## Network size metrics
 The data was downloaded from [http://networkrepository.com/rt-barackobama.php](http://networkrepository.com/rt-barackobama.php) website. The data was prepared and visualised using R programming language and statistics were calculated in Python; on the ‘Network Repository’ website we can find already calculated network data statistics, like number of nodes, number of edges, average degree etc.; (Rossi and Ahmed, 2015). I created a network graph in python programming language using networkx library and compared the obtained statistics with the ones from the website; turns out they were exactly the same, which gave me confidence that I prepared the data correctly.
