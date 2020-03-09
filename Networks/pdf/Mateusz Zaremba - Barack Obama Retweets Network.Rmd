@@ -37,17 +37,26 @@ I wanted to see if by performing a set of tests on the network, it would be poss
 
 
 # Methods
-<!-- What data preparation did they have to carry out; -->
+The network was analysed using R and Python programming languages, and Gephi software package. The data statistics were calculated using Python; the data preparation and manipulation was done using R; the data visualisation was done using R and Gephi.
+
+<!-- X What data preparation did they have to carry out; -->
+## Data Preparation
+The data was prepared using R programming language and RStudio software; the data was downloaded, unziped and saved into a R table (within the code). *Timestamp* column was dropped (it would be useful if the dataset was an updatable one; then it could be used to update the set only from a certain timestamp but in this case the set was a complete one). 
+
+By default, R names the columns like this:
+$$  x =  \big\{V1, V2, ... , VN \mid N \in \mathbb{N} \big\}  $$
+To make the data manipulation easier the columns were renamed such that:
+| Previous column name | Current column name |
+| - | - |
+| V1 | from |
+| V2 | to |
+
+Later, the data was saved in a `.csv` format so it could be easly loaded into memory using Python programming language. 
 
 <!-- which metrics did they use to analyse the data;  -->
-
-<!-- definitions of the network metrics used any code should be provided in the Appendix of the report or as separate files;
-
+<!-- definitions of the network metrics used any code should be provided in the Appendix of the report or as separate files; -->
 <!-- Comment -->
 <!-- methods section is not well presented - an explicit description of the nodes and edges is not given until near the end of this section. Some assumptions are stated as fact (Obama is the highest degree node for example). -->
-
-## Data Preparation
-The data was prepared using R programming language and RStudio software; after downloading it from the code
 
 ## Network size metrics
 The data was downloaded from [http://networkrepository.com/rt-barackobama.php](http://networkrepository.com/rt-barackobama.php) website. The data was prepared and visualised using R programming language and statistics were calculated in Python; on the ‘Network Repository’ website we can find already calculated network data statistics, like number of nodes, number of edges, average degree etc.; (Rossi and Ahmed, 2015). I created a network graph in python programming language using networkx library and compared the obtained statistics with the ones from the website; turns out they were exactly the same, which gave me confidence that I prepared the data correctly.
