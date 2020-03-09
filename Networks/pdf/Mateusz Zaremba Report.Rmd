@@ -165,7 +165,7 @@ knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/colour\ cl
 
 \pagebreak
 
-Interesting results were achieved using `Gephi` (Gephi.org, 2019), were it is clearly visible that there is one central node in the network (Barack Obama); there is also a one bigger cluster which was marked with an orange frame and many smaller ones which were marked with a green frame:
+Interesting results were achieved using `Gephi` (Gephi.org, 2019), were it is clearly visible that there is one central node in the network (Barack Obama); some of the 138 community groups (clusters) can be visible in the graph - there is one bigger cluster which was marked with an orange frame and many smaller ones which were marked with a green frame:
 ```{r, out.width="0.94\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/pdf/graph\ marked.pdf")
 ```
@@ -205,13 +205,15 @@ The only way the two users can get connected by a retweet is when one of them re
 
 It is possible that 
 
-find the shortest path between top two nodes with the highest degrees as well as the node with the highest and the lowest degree; identify 138 communities within the network and their range; calculate and analyse the network's closeness, betweenness and eigenvector centrality; conduct a comprehensive visual analysis.
+The Vox study shows that the democrats and the republicans, in the US, live in their own social bubbles on the internet (Data based on twitter). This might further the assumptions that people who have interacted with Barack Obama's tweets (by retweeting them) are most likely living in one of these bubbles and are his devotees.
 
-The size of the network proved it quite difficult to work with; calculation of the node betweenness and closeness centrality took approx. 40 minutes. Plotting of the network in R took only a few moments but it was only due to the fact that the nodes' labels were not being displayed, otherwise, it was taking approx. 5-10 minutes to plot. Nonetheless, an attempt was made to speed up the process using `with_lgl(…)` (Rdrr.io, 2019) function for `Large Graph Layout` (See Appendix B) but no improvement in rendering speed was noticed apart from a slightly better visual representation of the communities. 
+Inter alia, the report presented a way to find the shortest path between top two nodes with the highest degrees as well as the node with the highest and the lowest degree; identify 138 communities within the network and their range; calculate and analyse the network's closeness, betweenness and eigenvector centrality; conduct a comprehensive visual analysis.
+
+Some of the challenges were rendered by the size of the network which made it quite difficult to work with; calculation of the node betweenness and closeness centrality took approx. 40 minutes. Plotting of the network in R took only a few moments but it was only due to the fact that the nodes' labels were not being displayed, otherwise, it was taking approx. 5-10 minutes to plot. Nonetheless, an attempt was made to speed up the process using `with_lgl(…)` (Rdrr.io, 2019) function for `Large Graph Layout` (See Appendix B) but no improvement in rendering speed was noticed apart from a slightly better visual representation of the communities. 
 
 One of the things that could be done in the future, to improve calculation and render times, when analysing as big or even bigger networks, could be a usage of a GPU for network analysis. (Mathworks.com, 2019); e.g. Geforce GTS 250 has 450 cores working in parallel versus 4 on the CPU (Kajan and Slačka, 2019). 
 
-Overall, the data was well described and of a good quality; the original analysis provided a lot of good insight (Look table 1) and the size of the data was appropriate for a comprehensive analysis.
+Overall, the data was well described and of a good quality; the original analysis provided a lot of good insight (table 1) and the size of the data was appropriate for a comprehensive analysis.
 
 \pagebreak
 
