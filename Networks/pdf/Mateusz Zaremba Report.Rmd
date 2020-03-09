@@ -114,7 +114,7 @@ We managed to identify 138 community groups:
 
 `Counter({1: 7414, 6: 611, 7: 158, 12: 114, 4: 106, 2: 102, 50: 84, 5: 69, 88: 66, 61: 61, 127: 53, 35: 49, 19: 39, 25: 38, 17: 27, 111: 27, 77: 26, 23: 25, 112: 25, 0: 22, 49: 22, 26: 20, 54: 15, 37: 14, 102: 14, 22: 13, 41: 12, 48: 12, 55: 12, 9: 11, 15: 10, 32: 10, 75: 10, 97: 10, 34: 9, 38: 9, 82: 9, 85: 9, 13: 8, 3: 7, 29: 7, 84: 7, 105: 7, 108: 7, 68: 6, 78: 6, 83: 6, 117: 6, 86: 5, 110: 5, 8: 4, 27: 4, 31: 4, 62: 4, 67: 4, 79: 4, 93: 4, 100: 4, 129: 4, 10: 3, 20: 3, 36: 3, 40: 3, 47: 3, 66: 3, 70: 3, 80: 3, 81: 3, 87: 3, 90: 3, 95: 3, 104: 3, 107: 3, 114: 3, 125: 3, 133: 3, 134: 3, 139: 3, 11: 2, 14: 2, 16: 2, 18: 2, 21: 2, 24: 2, 28: 2, 30: 2, 33: 2, 39: 2, 42: 2, 43: 2, 44: 2, 45: 2, 46: 2, 51: 2, 52: 2, 53: 2, 56: 2, 57: 2, 58: 2, 59: 2, 60: 2, 63: 2, 64: 2, 65: 2, 69: 2, 71: 2, 72: 2, 73: 2, 74: 2, 76: 2, 89: 2, 91: 2, 92: 2, 94: 2, 96: 2, 98: 2, 99: 2, 101: 2, 103: 2, 106: 2, 109: 2, 113: 2, 115: 2, 116: 2, 118: 2, 119: 2, 120: 2, 121: 2, 122: 2, 123: 2, 124: 2, 126: 2, 128: 2, 130: 2, 131: 2, 132: 2, 135: 2, 136: 2, 137: 2, 138: 2})`
 
-It was calculated that the sizes of the communities range from 2 to 7414. We can, again, assume that the biggest community is likely to be centred around Barack Obama.
+It was calculated that the sizes of the communities range from 2 to 7414. We can, again, assume that the biggest community is likely to be centred around Barack Obama; these would be the people who retweeted his tweets directly from him. 
 
 ## Network Structure Connectivity
 Investigation reveals that the Barack Obama network is fully connected, and it has no sub-components; this is not surprising because the edges are retweets, nodes are twitter users and the network consists only of users who retweeted Barack Obama's posts.
@@ -165,7 +165,7 @@ knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/colour\ cl
 
 \pagebreak
 
-Interesting results were achieved using `Gephi` (Gephi.org, 2019), were it is clearly visible that there is one central node in the network (Barack Obama); some of the 138 community groups can be visible in the graph - there is a one bigger community which was marked with an orange frame and many smaller ones which were marked with a green frame:
+Interesting results were achieved using `Gephi` (Gephi.org, 2019), were it is clearly visible that there is one central node in the network (Barack Obama); some of the 138 community groups (clusters) can be visible in the graph - there is one bigger cluster which was marked with an orange frame and many smaller ones which were marked with a green frame; these would be characterised by the size ranging from 2 to 611, i.e. the smallest community and the second largest (as mentioned before the largest community are the people who retweeted Barack Obama directly):
 ```{r, out.width="0.94\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/pdf/graph\ marked.pdf")
 ```
