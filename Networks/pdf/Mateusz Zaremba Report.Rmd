@@ -165,7 +165,7 @@ knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/colour\ cl
 
 \pagebreak
 
-Interesting results were achieved using `Gephi` (Gephi.org, 2019), were it is clearly visible that there is one central node in the network (Barack Obama); some of the 138 community groups (clusters) can be visible in the graph - there is one bigger cluster which was marked with an orange frame and many smaller ones which were marked with a green frame:
+Interesting results were achieved using `Gephi` (Gephi.org, 2019), were it is clearly visible that there is one central node in the network (Barack Obama); some of the 138 community groups can be visible in the graph - there is a one bigger community which was marked with an orange frame and many smaller ones which were marked with a green frame:
 ```{r, out.width="0.94\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/pdf/graph\ marked.pdf")
 ```
