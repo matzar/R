@@ -51,7 +51,7 @@ The data was prepared using R programming language and RStudio software; the dat
 
 By default, R names the columns like this:
 
-$$  x =  \big\{V1, V2, ... , VN \mid N \in \mathbb{N} \big\}  $$
+$$  x =  \big\{V1, V2, ... , Vn \mid n \in \mathbb{N} \big\}  $$
 
 To make the data manipulation easier the columns were renamed such that:
 
