@@ -107,7 +107,7 @@ We will find the shortest path between top two nodes with the highest degree and
 The top two nodes with the highest degree had ids: 2506 (Barack Obama) and 9302. Shortest path between these two nodes is: ['2506', '8474', '9302']; the length of this path is 2, which means they are not connected directly.
 
 ### Highest and Lowest Degree
-As already mentioned, the id of the node with the highest degree is: 2506 and the id of the node with the lowest degree is: 2709; the shortest path between these two nodes is: ['2506', '2709'] and its length is 1, meaning the nodes are connected directly.
+As already mentioned, the id of the node with the highest degree is: 2506 and the id of the node with the lowest degree is: 2709; the shortest path between these two nodes is: ['2506', '2709'] and its length is 1, meaning the nodes are connected directly; this also means that it is likely a person who retweeted Barack Obama's tweet but is not a part of any community and their retweet, of Barack Obama tweet, was not retweeted by anyone.
 
 ## Identifying Network Communities
 We managed to identify 138 community groups:
@@ -146,7 +146,7 @@ Which leaves us with a hypothesis that the data was collected from either \@POTU
 
 ## Data Visualisation
 Because the data represents a network of users and was likely collected from Barack Obama's official twitter account, it was assumed that the biggest community of 7414 would be Barack Obama’s first-degree neighbours. This cannot be really well seen on the graph without any colouring or sizing:
-```{r, out.width="0.55\\linewidth", keepaspectratio, include=TRUE, fig.align="center", echo=FALSE}
+```{r, out.width="1.0\\linewidth", keepaspectratio, include=TRUE, fig.align="center", echo=FALSE}
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/vanilla.pdf")
 ```
 
@@ -174,7 +174,7 @@ knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/Network/colour\ cl
 \pagebreak
 
 Interesting results were achieved using `Gephi` (Gephi.org, 2019), were it is clearly visible that there is one central node in the network (Barack Obama); some of the 138 community groups (clusters) can be visible in the graph - there is one bigger cluster which was marked with an orange frame and many smaller ones which were marked with a green frame; these would be characterised by the size ranging from 2 to 611, i.e. the smallest community and the second largest (as mentioned before the largest community are the people who retweeted Barack Obama directly):
-```{r, out.width="0.94\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
+```{r, out.width="0.85\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/pdf/graph\ marked.pdf")
 ```
 
@@ -196,7 +196,7 @@ This, as well as the other smaller clusters, are likely to be some organisations
 
 \pagebreak
 
-And for the final proof, here is a zoom of the same graph generated with Gephi and node labels on, where it is clearly visible that the most central node, has an id of 2506:
+Lastly, below is the zoom of the node with the highest degree and the biggest community (is is the zoomed in graph generated with Gephi but with the node-labels on), where it is clearly visible that the most central node, has an id of 2506:
 ```{r, out.width="1.00\\linewidth", include=TRUE, fig.align="center", echo=FALSE}
 knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/png/Screenshot\ 2019-12-17\ at\ 19.01.19.png")
 ```
