@@ -131,7 +131,16 @@ Barack Obama’s node (id = 2506) had the highest score in closeness, betweennes
 
 # Results
 <!-- Have they been able to answer the queries they wished to pose as described in the introduction; visualisation(s) of the network structure; results from the analyses described in methods; -->
-The network is a retweet network of Barack Obama's tweets. It is not obvious that Barack Obama's  @BarackObama is in the network; the highest degree vertex could be someone who's retweeted Barack Obama a thousand of times. At the time, it could had been his officail @POTUS twitter account which used to retweet every tweet from his private @BarackObama twitter account. This would mean that evey single person in the network has retweeted the POTUS account insted of Barack Obama's - @POTUS account gets thousands of retweets so it's possible. But given the fact that it is "Barack Obama's retweet network" I think it is more plausible that the highest degree vertex is Barack Obama's private twitter account. 
+The network is a retweet network of Barack Obama's tweets; it is not obvious that Barack Obama (as a user) feautres is in the network; the highest degree vertex could be someone who's retweeted Barack Obama a thousand of times. At the time, it could had been his officail \@POTUS twitter account which used to retweet every tweet from his private [\@BarackObama](https://twitter.com/barackobama) twitter account. This would mean that evey single person in the network has retweeted the POTUS account insted of Barack Obama's - \@POTUS account gets thousands of retweets so it is possible. But given the fact that it is "Barack Obama's retweet network" I think it is more plausible that the highest degree vertex is Barack Obama's private twitter account.
+
+We could also think that the vertex with the highest degree could be [\@POTUS44](https://twitter.com/POTUS44) (archival twitter account of Barack Obama when he was the incumbent from 2009 to 2017). Although this is unlikely, given that the data reference request is dated to 2015. This would mean that the dataset was created was Barack Obama was incubent.
+
+```{r, out.width="1.00\\linewidth", include=TRUE, fig.aligh="center", echo=FALSE}
+knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/png/reference.png")
+```
+
+
+Which leaves us with a hypothesis that the data was collected from either @POTUS (which in 2015 was Barack Obama) or @BarackObama. The title of the network, and no apparent reason why it would be taken from any other twitter account retweeting the original tweets by Barack Obama, leads me to a conclusion that the data was gathered from Barack Obama's offical twitter account; but it is possible that, at the time, the data was gathered from the official POTUS twitter account.
 
 <!-- Comments -->
 <!-- Results section is mainly comprised of different visualisations of the network (metric calculations are in Methods section but are taken into account here).  -->
@@ -202,8 +211,6 @@ knitr::include_graphics("/Users/mateuszzaremba/dev/R/Networks/png/Screenshot\ 20
 
 To my best knowledge, the report presents complelling evidence for the conclusion that the node with an id of 2506 is Barack Obama's private twitter account; the vertices are the twitter users, the edges are the retweets, ergo the twitter users are connected by the retweets. 
 The only way the two users can get connected by a retweet is when one of them retweets a tweet of the other one; in other words, one of them must have retweeted the other because there is an edge (retweet) between the vertices (users).
-
-We could think that the vertex with the highest degree could be @POTUS44 (archival twitter account of Barack Obama when he was the US president from 2009 and 2017). Although this is unlikely, given that the data reference request (which can be found on the dateset's website) is dated to 2015. Which leaves us with a hypothesis that the data was collected from either @POTUS (which in 2015 was Barack Obama) or @BarackObama. The title of the network and no apparent reason why it would be taken from any other twitter account retweeting the original tweets by Barack Obama, leads me to a conclusion that the data was gathered from Barack Obama's offical twitter account but it is possible that, at the time, the data was gathered from the official POTUS twitter account.
 
 The Vox study shows that the democrats and the republicans, in the US, live in their own social bubbles on the internet (Data based on twitter). This might further the assumptions that people who have interacted with Barack Obama's tweets (by retweeting them) are most likely living in one of these bubbles and are his devotees.
 
