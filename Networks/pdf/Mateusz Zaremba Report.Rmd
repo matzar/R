@@ -1,7 +1,7 @@
 ---
 title: "Barack Obama Retweet Network"
 author: Mateusz Zaremba
-date: March 9, 2020
+date: March 13, 2020
 output: 
   pdf_document:
     toc: false
@@ -219,7 +219,7 @@ Some of the challenges were rendered by the size of the network which made it qu
 
 One of the things that could be done in the future, to improve calculation and render times, when analysing as big or even bigger networks, could be a usage of a GPU for network analysis. (Mathworks.com, 2019); e.g. GeForce GTS 250 has 450 cores working in parallel versus 4 on the CPU (Kajan and Slačka, 2019). 
 
-Overall, the data was well described and of a good quality; the original analysis provided a lot of good insight (table 1) and the size of the data was appropriate for a comprehensive analysis.
+Overall, the original data found on the [http://networkrepository.com/rt-barackobama.php](http://networkrepository.com/rt-barackobama.php) website was well described and of good quality; the metadata and statistics provided good insight, and the size of the data was appropriate for a comprehensive analysis.
 
 \pagebreak
 
